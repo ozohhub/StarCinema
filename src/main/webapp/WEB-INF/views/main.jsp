@@ -22,7 +22,6 @@ $(document).ready(function(){
 });
 </script>
 
-
 </head>
 <body style="background-color: black;">
 	<div id="skip_nav_section" class="skip_nav">
@@ -31,10 +30,7 @@ $(document).ready(function(){
 		<li><a href="#contents">본문 바로가기</a></li>
 	</ul>
 	</div>
-	<div id="header_section" class="header ty3" style="z-index: 2;">
-		<%@ include file="common/header.jsp" %>
-	</div>
-	
+
 	<!-- 자동 슬라이더 -->
 	<div id="sub_section">
 		<div class="slider" style="z-index: 1;">
@@ -47,13 +43,11 @@ $(document).ready(function(){
 		      <li>
 		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/romance_slide.jpg"> 
 		        <div class="caption left-align">
-		        
 		        </div>
 		      </li>
 		      <li>
 		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/mat_slide.jpg"> 
 		        <div class="caption right-align">
-		        
 		        </div>
 		      </li>
 		      <li>
@@ -89,8 +83,9 @@ $(document).ready(function(){
 	<!-- 로드 후 js작동! -->	
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
+	<!-- 차트 넣을 영역 -->
+	
 	<div id="banner_side_section" class="banner_side_wrap"></div>
-	<div id="footer_section" class="footer" style="background-color: white;">
-		<%@ include file="common/footer.jsp" %>
-	</div>
+	
+
 </html>

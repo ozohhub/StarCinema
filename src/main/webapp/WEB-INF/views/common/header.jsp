@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url var="root" value="/" />
 
 <head>
 <meta charset="UTF-8">
@@ -12,12 +13,12 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-<script src="<c:url value="/resources/js/nav.js" />"></script>
+<script src="<c:url value="/resources/js/main.js" />"></script>
 
 </head>
 <body>
 		<h1 class="logo">
-			<a href="/cinema/"><img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_wht.png"/>LOTTE CINEMA</a>
+			<a href="${root }"><img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_wht.png"/>LOTTE CINEMA</a>
 		</h1>
 		<div class="gnb">
 			<ul class="g_menu2">
@@ -26,7 +27,7 @@
 				<li><a href="#none">로그인</a></li>
 			</ul>
 			<ul class="g_menu3">
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Mypage" class="btn_my">마이</a></li>
+				<li><a href="index?formpath=register" class="btn_my">회원가입</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" class="btn_reserve">바로 예매</a></li>
 				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button><div id="allmenu"></div></li>
 			</ul>
