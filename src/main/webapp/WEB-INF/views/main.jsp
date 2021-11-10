@@ -10,16 +10,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-<script src="<c:url value="/resources/js/nav.js" />"></script>
+
 
 <script>
 $(document).ready(function(){
   $('.slider').slider();
 });
 </script>
+
 
 </head>
 <body>
@@ -32,6 +34,8 @@ $(document).ready(function(){
 	<div id="header_section" class="header ty3" style="z-index: 2;">
 		<%@ include file="common/header.jsp" %>
 	</div>
+	
+	<!-- 자동 슬라이더 -->
 	<div id="sub_section">
 		<div class="slider" style="z-index: 1;">
 		    <ul class="slides" style="height: 800px;">
@@ -61,12 +65,29 @@ $(document).ready(function(){
 		  </div>
 		</div>
 			
-	<div id="contents" class="contents_main">
-			<div class="movi_current_list">
-				
+	<!-- 멀티플 슬라이드 -->
+	<div class="multiple_whole">
+		<span class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></span>
+			<div class="multiple_wrap">
+					<ul class="multiple_slider">
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> </li>
+						<li><img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;"> </li>
+					</ul>
 			</div>
-			<div class="inner" style="background-color: white;"></div>
-		</div>
+		<span class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></span>
+		
+	</div>
+	
+	
+	<!-- 로드 후 js작동! -->	
+	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
 	<div id="banner_side_section" class="banner_side_wrap"></div>
 	<div id="footer_section" class="footer" style="margin-top: 500px; background-color: white;">

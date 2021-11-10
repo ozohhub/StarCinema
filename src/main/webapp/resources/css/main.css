@@ -6136,3 +6136,40 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
   z-index: 100;
   position: inherit;
 }
+
+/* 멀티 슬라이드 */
+.multiple_whole{
+	width : 100%;
+	background: red;
+
+}
+.multiple_wrap{
+	background-color : black;
+	position : relative;
+	width : 86%;
+	margin-top : 400px;
+	margin-left: auto; margin-right: auto;
+	height : 350px;
+	overflow : hidden;
+}
+
+.multiple_slider{
+	position : absolute;
+	left : 0; top : 0;
+}
+
+.multiple_slider.animated{
+	transition : 0.5s ease-out;
+}
+.multiple_slider li{
+	width : auto;
+	height : 350px;
+	background : #ccc;
+	float : left;
+}
+.multiple_slider li:not(:last-child){
+	margin-right : 20px;
+}
+
+
+
