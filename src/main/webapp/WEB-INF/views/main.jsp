@@ -7,8 +7,12 @@
 <meta charset="UTF-8">
 <title>롯지브이</title>
 <link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 <script src="<c:url value="/resources/js/nav.js" />"></script>
 
 <script>
@@ -25,7 +29,7 @@ $(document).ready(function(){
 		<li><a href="#contents">본문 바로가기</a></li>
 	</ul>
 	</div>
-	<div id="header_section" class="header ty3" style="">
+	<div id="header_section" class="header ty3" style="z-index: 1;">
 		<h1 class="logo">
 			<a href="/cinema/"><img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_wht.png"/>LOTTE CINEMA</a>
 		</h1>
@@ -148,20 +152,8 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="sub_section">
-		<div id="visualAd" class="visual_top visual_main">
-			<div class="inner">
-				<div class="slide_wrap slide_main_visual">
-					<div class="owl-carousel owl-loaded owl-drag">
-						<div class="owl-stage-outer"></div>
-						<div class="owl-nav" style="width: 759px; margin-left: -379.5px;">
-							<button type="button" role="presentation" class="owl-prev">
-								<span aria-label="Previous">‹</span>
-							</button>
-							<button type="button" role="presentation" class="owl-next">
-								<span aria-label="Next">›</span>
-							</button>
-						</div>
-						<div class="slider">
+	
+		<div class="slider">
 		    <ul class="slides">
 		      <li>
 		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/ite_slide.jpg"> 
@@ -187,19 +179,13 @@ $(document).ready(function(){
 		      </li>
 		    </ul>
 		  </div>
-					</div>
-					<div class="bx_ctrl" style="left: 114px;">
-						<button class="play active">슬라이드 자동재생</button><button class="stop">슬라이드 일시정지</button>
-					</div>
-				</div>
-			</div>
 		</div>
-		
-		<div id="contents" class="contents_main">
+			
+	<div id="contents" class="contents_main">
 			<div class="movi_current_list"></div>
 			<div class="inner" style="background-color: white;"></div>
 		</div>
-	</div>
+	
 	<div id="banner_side_section" class="banner_side_wrap"></div>
 	<div id="footer_section" class="footer" style="background-color: white;">
 		<div class="inner">

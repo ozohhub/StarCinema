@@ -6127,9 +6127,9 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
   background-color: #ffffff;
 }
 .slider {	
-  width: 760px;
+  width: auto;
   margin: 0 auto;
-  margin-left: -30px;
+  
 }
 .slider .indicators {
   bottom: 60px;
