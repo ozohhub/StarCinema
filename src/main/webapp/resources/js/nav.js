@@ -1,3 +1,11 @@
+$(function(){
+	//개발단 화면 로드후 실행
+	onload();
+});
+function onload(){
+	nav();
+}
+
 //nav
 function nav(){
 	var depth1 = $("#nav > ul > li");
