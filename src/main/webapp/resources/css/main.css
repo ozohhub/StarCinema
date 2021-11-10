@@ -6134,5 +6134,5 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 .slider .indicators {
   bottom: 60px;
   z-index: 100;
-
+  position: inherit;
 }
