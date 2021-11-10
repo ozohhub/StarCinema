@@ -722,7 +722,7 @@ body {overflow-y:scroll;}
 .header.ty3 #nav > ul > li > a {color:#FFF;}
 .header.ty3 #nav > ul > li a:before {opacity:1;}
 .header.ty3 #nav > ul > li > div {background-color:rgba(0, 0, 0, .7);}
-.header.ty3 #nav > ul > li > div > ul > li > a {position: absolute; bottom: 0; right: 0; z-index: 1; display: flex;opacity:.5; color:#FFF;}
+.header.ty3 #nav > ul > li > div > ul > li > a {opacity:.5; color:#FFF;}
 /* active */
 .header.ty3 #nav > ul > li.active > div > ul > li.active > a,
 .header.ty3 #nav > ul > li.active > div > ul > li > a:hover {opacity:1;}

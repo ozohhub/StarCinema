@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>롯데시네마</title>
+<title>롯지브이</title>
+<link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 </head>
 <body>
