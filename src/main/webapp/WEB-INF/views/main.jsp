@@ -80,9 +80,9 @@ $(document).ready(function(){
 				<li><img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;"> </li>
 			</ul>
 		</div>
-		<span class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></span>
-		<span class="next" style="margin-left: 1600px;"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></span>
 		
+		<button type="button" class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
+		<button type="button" class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
 	</div>
 	
 	

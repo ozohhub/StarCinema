@@ -37,6 +37,8 @@ function nav(){
 	
 	
 // 멀티플 슬라이드
+
+
 var slides = document.querySelector('.multiple_slider'),
 	slide = document.querySelectorAll('.multiple_slider li'),
 	currentIdx = 0,
@@ -86,6 +88,7 @@ function setInitalPos(){
 
 nextBtn.addEventListener('click',function(){
 	moveSlide(currentIdx +1);
+	
 });
 
 prevBtn.addEventListener('click',function(){
