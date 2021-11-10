@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 
 </head>
-<body>
+<body style="background-color: black;">
 	<div id="skip_nav_section" class="skip_nav">
 	<ul>
 		<li><a href="#nav">주 메뉴 바로가기</a></li>
@@ -67,21 +67,21 @@ $(document).ready(function(){
 			
 	<!-- 멀티플 슬라이드 -->
 	<div class="multiple_whole">
+		<div class="multiple_wrap">
+			<ul class="multiple_slider">
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> </li>
+				<li><img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;"> </li>
+			</ul>
+		</div>
 		<span class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></span>
-			<div class="multiple_wrap">
-					<ul class="multiple_slider">
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> </li>
-						<li><img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;"> </li>
-					</ul>
-			</div>
-		<span class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></span>
+		<span class="next" style="margin-left: 1600px;"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></span>
 		
 	</div>
 	
@@ -90,7 +90,7 @@ $(document).ready(function(){
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
 	<div id="banner_side_section" class="banner_side_wrap"></div>
-	<div id="footer_section" class="footer" style="margin-top: 500px; background-color: white;">
+	<div id="footer_section" class="footer" style="background-color: white;">
 		<%@ include file="common/footer.jsp" %>
 	</div>
 </html>

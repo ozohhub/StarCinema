@@ -6140,7 +6140,7 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 /* 멀티 슬라이드 */
 .multiple_whole{
 	width : 100%;
-	background: red;
+	background: black;
 
 }
 .multiple_wrap{
