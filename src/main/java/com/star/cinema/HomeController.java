@@ -26,9 +26,9 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/register")
-	public String register() {
-		return "member/register";
+	@RequestMapping(value = "/register1")
+	public String register1() {
+		return "member/register1";
 	}
 	
 	@RequestMapping(value = "/memberList")

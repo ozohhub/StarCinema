@@ -27,7 +27,7 @@
 				<li><a href="#none">로그인</a></li>
 			</ul>
 			<ul class="g_menu3">
-				<li><a href="index?formpath=register" class="btn_my">회원가입</a></li>
+				<li><a href="register1" class="btn_my">회원가입</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" class="btn_reserve">바로 예매</a></li>
 				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button><div id="allmenu"></div></li>
 			</ul>

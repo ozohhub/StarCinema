@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.logo{
+	margin-top : 50px;
+}
+
+#content{
+	width : 600px;
+}
+
+/* 체크박스 위치 조절, 체크박스 이미지 넣기 + 체크박스 or 글자 체크시 이미지 변경 */
+input[id='chk_all']+label{
+	position : relative;
+	left : -14px;
+}
+
+input[id='termsService']+label{
+	position : relative;
+	left : -140px;
+}
+input[id='termsPrivacy']+label{
+	position : relative;
+	left : -130px;
+}
+
+input[type='checkbox']+label { 
+	padding-left : 40px;
+	display : inline-block; 
+	height : 30px;
+	background : no-repeat;
+	background-image: url('../images/register/all_chk_off.png');
+	background-size: 30px;
+	cursor: pointer;
+}
+
+input[type='checkbox']:checked+label { 
+	height : 30px;
+	background : no-repeat;
+	background-image: url('../images/register/all_chk_on.png'); 
+	background-size: 30px;
+	cursor: pointer;
+}
+
+input[type='checkbox']{
+	display : none;
+}
+
+/* 약관 */
+.terms_p2{font-size:12px;line-height:15px;margin-top:-11px;padding:0 0 27px;color:#8e8e8e}
+.terms_bx_list{margin-top:4px}
+.terms_bx{display:block;padding-top:30px}
+.terms_box{
+	position:relative;overflow:auto;
+	height:88px;margin-top:8px;
+	padding:12px;
+	border:1px solid #dadada;
+	background:#fff;
+	box-sizing:border-box;
+	scrollbar-base-color:#d9d9d9;scrollbar-arrow-color:#8e8e8e;
+	scrollbar-3dlight-color:#d9d9d9;scrollbar-darkshadow-color:#d9d9d9;
+	scrollbar-face-color:#d9d9d9;scrollbar-highlight-color:#d9d9d9;
+	scrollbar-shadow-color:#d9d9d9;
+	scrollbar-track-color:#f2f2f2;
+	-webkit-overflow-scrolling:touch
+}
+.terms_box .article{font-size:12px;line-height:16px;color:#666}
