@@ -6,14 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>롯지브이</title>
-<link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-<script src="<c:url value="/resources/js/main.js" />"></script>
+	<link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css" />
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+	<script src="<c:url value="/resources/js/main.js" />"></script>
 
 </head>
 <body>
