@@ -22,9 +22,10 @@
 		</h1>
 		<div class="gnb">
 			<ul class="g_menu2">
+				<li><a href="index?formpath=memberList">회원관리</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Customer">고객센터</a></li>
-				<li><a href="#none">로그인</a></li>
+				<li><a href="index?formpath=login">로그인</a></li>
 			</ul>
 			<ul class="g_menu3">
 				<li><a href="index?formpath=register" class="btn_my">회원가입</a></li>
