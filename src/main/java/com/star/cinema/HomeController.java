@@ -36,4 +36,9 @@ public class HomeController {
 		return "member/memberList";
 	}
 	
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "member/login";
+	}
+	
 }

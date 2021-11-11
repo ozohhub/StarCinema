@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>롯지브이</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+
 </head>
 <body>
 	<div id="contents" class="contents_customer">
