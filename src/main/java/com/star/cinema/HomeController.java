@@ -30,6 +30,10 @@ public class HomeController {
 	public String register1() {
 		return "member/register1";
 	}
+	@RequestMapping(value = "/register2")
+	public String register2() {
+		return "member/register2";
+	}
 	
 	@RequestMapping(value = "/memberList")
 	public String memberList() {

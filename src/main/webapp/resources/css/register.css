@@ -7,20 +7,15 @@
 #content{
 	width : 600px;
 }
+.divAgree{
+	width : 100%;
+}
 
-/* 체크박스 위치 조절, 체크박스 이미지 넣기 + 체크박스 or 글자 체크시 이미지 변경 */
+/* 체크박스 위치 조정, 체크박스 이미지 넣기 + 체크박스 or 글자 체크시 이미지 변경 */
+
 input[id='chk_all']+label{
 	position : relative;
-	left : -14px;
-}
-
-input[id='termsService']+label{
-	position : relative;
-	left : -140px;
-}
-input[id='termsPrivacy']+label{
-	position : relative;
-	left : -130px;
+	left : 40px;
 }
 
 input[type='checkbox']+label { 
@@ -46,7 +41,6 @@ input[type='checkbox']{
 }
 
 /* 약관 */
-.terms_p2{font-size:12px;line-height:15px;margin-top:-11px;padding:0 0 27px;color:#8e8e8e}
 .terms_bx_list{margin-top:4px}
 .terms_bx{display:block;padding-top:30px}
 .terms_box{
@@ -64,3 +58,30 @@ input[type='checkbox']{
 	-webkit-overflow-scrolling:touch
 }
 .terms_box .article{font-size:12px;line-height:16px;color:#666}
+
+
+/* 약관동의 버튼 */
+.btn_area{
+	width : 100%; 
+}
+
+#agreeNo{
+	margin-left : 10%;
+	background-color: gray; 
+}
+
+#agreeYes{
+	background-color: red; 
+}
+#agreeNo, #agreeYes{
+	text-align : center;
+	margin-top :20px;
+	margin-left :15px;
+	width : 45%;
+	height: 50px;
+	color: white; 
+	border-color: transparent; 
+	cursor:  pointer;
+}
+
+
