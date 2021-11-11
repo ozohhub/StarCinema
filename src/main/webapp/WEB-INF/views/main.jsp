@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>롯지브이</title>
-<link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
+<link rel="icon" href="${pageContext.request.contextPath}/resources/images/main/icon/lotgv.ico" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 
