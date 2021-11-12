@@ -607,8 +607,6 @@ input.inp_cont {width:54px; margin:0 3px;} /* 2020.01.02 */
 body {overflow-y:scroll;}
 /* header ================================================== */
 .header {position:relative; height:114px; border-bottom:1px solid #EEE; background-color:#fff;}
-.header .logo {position:absolute; z-index:1; top:18px; left:50%; margin-left:-109px; text-indent:-9999em; background:url("../../resources/images/lot.png") no-repeat center center;}
-.header .logo a {display:block; width:219px; height:37px;}
 /* gnb ========== */
 .header .gnb {position:relative; width:980px; height:70px; margin:0 auto; border-bottom:1px solid #B2B2B2;}
 .header .gnb:after {content:""; display:block; clear:both;}
@@ -677,7 +675,6 @@ body {overflow-y:scroll;}
 
 /* header :ty3 ================================================== */
 .header.ty3 {position:absolute; z-index:2; width:100%; height:194px; border-bottom:none; background-color:transparent; background:-moz-linear-gradient(top, rgba(29,29,31,1) 0%, rgba(0,0,0,0) 100%); background:-webkit-linear-gradient(top, rgba(29,29,31,1) 0%,rgba(0,0,0,0) 100%); background:linear-gradient(to bottom, rgba(29,29,31,1) 0%,rgba(0,0,0,0) 100%); filter:progid:DXImageTransform.Microsoft.gradient( startColorstr="#1d1d1f", endColorstr="#00000000",GradientType=0 );}
-.header.ty3 .logo {background-image:url("../../resources/images/lot.png");}
 /* gnb ========== */
 .header.ty3 .gnb {border-bottom-color:rgba(255, 255, 255, .3);}
 .header.ty3 .gnb > ul > li > a,

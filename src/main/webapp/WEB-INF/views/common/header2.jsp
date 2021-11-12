@@ -20,7 +20,7 @@
 </head>
 <body>
 		<h1 class="logo">
-			<a href="${root }">LOTTE CINEMA</a>
+			<a href="${root }"><img src="${pageContext.request.contextPath}/resources/images/lot.png"> LOTTE CINEMA</a>
 		</h1>
 		<div class="gnb">
 			<ul class="g_menu2">
