@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

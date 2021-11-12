@@ -3,42 +3,8 @@
 <c:url var="root" value="/" />
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Login - 롯지브이</title>
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css" />
-	
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-<script src="<c:url value="/resources/js/main.js" />"></script>
-
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.jplayer.min.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.lazy.min.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery-ui.min.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.cookie.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/owl.carousel-2.3.4-custom.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/plugin.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/pl_custom.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Library/moment.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/common.js?v=202111120q346"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/Cookie.js?v=202111120346"></script>
-	
-</head>
-
 <body>
     <div id="contents" class="contents_full contents_member_comn">
-
-        <script src="<c:url value=" /resources/js/aes.js" />"></script>
-        <script src="<c:url value=" /resources/js/sso.js" />"></script>
-        <script src="<c:url value=" /resources/js/LcCommon.js" />"></script>
-        <script src="<c:url value=" /resources/js/crossDomainStorage.js" />"></script>
-
         <div id="loginContents">
             <ul class="tab_wrap outer full">
                 <li class="active">

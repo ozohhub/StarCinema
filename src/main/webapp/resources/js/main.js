@@ -4,6 +4,7 @@ $(function(){
 });
 function onload(){
 	nav();
+	headerFixed();
 }
 
 //nav
@@ -111,6 +112,67 @@ function moveSlide(num){
 		},600);
 	
 	}
-	
-
 }
+
+//헤더
+function headerFixed() {
+	$(window).on("scroll", function () {
+		var scrTop = $(window).scrollTop();
+		var gnbHgt = $(".gnb").outerHeight();
+		var banHgt = gnbHgt + $("#main_top_of_top_banner").outerHeight();
+
+		if ($('#main_top_of_top_banner').hasClass('banner_top_wrap')) {
+			// 상단 배너 있을 경우
+			if (scrTop > banHgt) {
+				headerFixed_add();
+			} else {
+				headerFixed_remove();
+			}
+		} else {
+			// 상단 배너 없을 경우
+			if (scrTop > gnbHgt) {
+				headerFixed_add();
+			} else {
+				headerFixed_remove();
+			}
+		}
+	});
+}
+
+//헤더 : 고정
+function headerFixed_add() {
+	var scrTop = $(window).scrollTop();
+	$(".header").addClass("fixed");
+	if ($(".visual_top").length > 0) {
+		$(".visual_top").not(".visual_main").stop().css({ "margin-top": "120px" });
+	} else {
+		if ($("#contents").hasClass("contents_mypage")) {
+			$("#contents.contents_mypage").stop().css({ "padding-top": "170px" });
+		} else {
+			$("#contents").stop().css({ "margin-top": "120px" });
+		}
+	}
+	if ($(".contents_mall_home .tab_wrap_lnk").length > 0) {
+		var mallTabConOff = $(".contents_mall_home .tab_con_lnk").offset().top;
+		if (scrTop > mallTabConOff - 160) {
+			$(".contents_mall_home .tab_wrap_lnk").addClass("fixed");
+		} else {
+			$(".contents_mall_home .tab_wrap_lnk").removeClass("fixed");
+		}
+	}
+}
+//헤더 : 고정 해제
+function headerFixed_remove() {
+	$(".header").removeClass("fixed");
+	if ($(".visual_top").length > 0) {
+		$(".visual_top").stop().css({ "margin-top": "" });
+	} else {
+		if ($("#contents").hasClass("contents_mypage")) {
+			$("#contents.contents_mypage").stop().css({ "padding-top": "50px" });
+		} else {
+			$("#contents").stop().css({ "margin-top": "" });
+		}
+
+	}
+}
+

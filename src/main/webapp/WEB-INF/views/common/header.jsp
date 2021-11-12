@@ -6,14 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>롯지브이</title>
-<link rel="icon" href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-<script src="<c:url value="/resources/js/main.js" />"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/default.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
+	
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+	<script src="<c:url value="/resources/js/main.js" />"></script>
 
 </head>
 <body>
@@ -39,7 +40,7 @@
 					<a href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
-							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" title="예매하기">예매하기</a></li>
+							<li><a href="index?formpath=ticketing" title="예매하기">예매하기</a></li>
 							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/Schedule" title="상영시간표">상영시간표</a></li>
 							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/DiscountGuide" title="할인안내">할인안내</a></li>
 						</ul>
