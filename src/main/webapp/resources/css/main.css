@@ -608,9 +608,9 @@ body {overflow-y:scroll;}
 /* header ================================================== */
 .header {position:relative; height:114px; border-bottom:1px solid #EEE; background-color:#fff;}
 /* gnb ========== */
-.header .gnb {position:relative; width:980px; height:70px; margin:0 auto; border-bottom:1px solid #B2B2B2;}
+.header .gnb {position:relative; width:980px; height:70px; margin:0 auto; border-bottom:1px solid #B2B2B2; }
 .header .gnb:after {content:""; display:block; clear:both;}
-.header .gnb > ul {margin-top:40px;}
+/*.header .gnb > ul {margin-top:40px;}*/
 .header .gnb > ul:after {content:""; display:block; clear:both;}
 .header .gnb > ul > li {float:left;}
 .header .gnb > ul > li > a {display:block; font-size:12px; color:#656565;}
