@@ -144,9 +144,9 @@ $(document).ready(function(){
 	<!-- 차트 넣을 영역 -->
 	<div id="banner_section" class="banner_wrap">
 		<div class="banner_01">
-			<img src="${pageContext.request.contextPath}/resources/images/icon/like.JPG" style="width: 200px; height: 120px;"/>
-			<img src="${pageContext.request.contextPath}/resources/images/icon/grade.JPG" style="width: 200px; height: 120px;"/>
-			<img src="${pageContext.request.contextPath}/resources/images/icon/look.JPG" style="width: 200px; height: 120px;"/>
+			<img src="${pageContext.request.contextPath}/resources/images/icon/like.png" style="width: 200px; height: 120px;"/>
+			<img src="${pageContext.request.contextPath}/resources/images/icon/grade.png" style="width: 200px; height: 120px;"/>
+			<img src="${pageContext.request.contextPath}/resources/images/icon/look.png" style="width: 200px; height: 120px;"/>
 		</div>
 	</div>
 
