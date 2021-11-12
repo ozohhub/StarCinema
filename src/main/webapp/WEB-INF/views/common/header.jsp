@@ -19,10 +19,10 @@
 </head>
 <body>
 		<div class="gnb">
-			<h1 class="logo">
+			<h1 class="logo" style="margin-left: 420px;">
 				<a href="${root }"><img style="margin: 10px 0 auto; width: 150px; height: auto;" src="${pageContext.request.contextPath}/resources/images/lot.png"></a>
 			</h1>
-			<ul class="g_menu2">
+			<ul class="g_menu2" style="margin-top: -20px;">
 				<li><a href="index?formpath=memberList">회원관리</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Customer">고객센터</a></li>

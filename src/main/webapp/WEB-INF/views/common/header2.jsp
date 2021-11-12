@@ -19,11 +19,11 @@
 
 </head>
 <body>
-		<h1 class="logo">
-			<a href="${root }"><img src="${pageContext.request.contextPath}/resources/images/lot.png"> LOTTE CINEMA</a>
-		</h1>
-		<div class="gnb">
-			<ul class="g_menu2">
+	<div class="gnb">
+			<h1 class="logo" style="margin-left: 420px;">
+				<a href="${root }"><img style="margin: 10px 0 auto; width: 150px; height: auto;" src="${pageContext.request.contextPath}/resources/images/lot.png"></a>
+			</h1>
+			<ul class="g_menu2" style="margin-top: -20px;">
 				<li><a href="index?formpath=memberList">회원관리</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Customer">고객센터</a></li>
