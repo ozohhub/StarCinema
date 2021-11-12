@@ -61,7 +61,7 @@ $(document).ready(function(){
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
 				<li>
-					<div class="boxBg1" style="width:245px; height : 350px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');">
+					<div class="boxBg1" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');" onmouseover="bgOpacity(1);" onmouseout="bgOpacityReset(1);">
 						<label>안녕</label>
 					</div>
 										
@@ -71,7 +71,9 @@ $(document).ready(function(){
                		</div>
 				 </li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" id = "bookImg2" style="width : auto; height : 350px;">
+					<div class="boxBg2" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/anne.jpg');" onmouseover="bgOpacity(2);" onmouseout="bgOpacityReset(2);">
+						<label>안녕2</label>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화2</h3>
 	                    <span>정보2</span>

@@ -5725,13 +5725,15 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 .multiple_slider li{
 	width : auto;
 	height : 350px;
-	background : #ccc;
 	float : left;
 }
-.boxBg{
 
+.boxBg1, .boxBg2{
+	width: 245px; 
+	height : 350px;
 	background : no-repeat;
 	background-size: contain;
+
 }
 
 .multiple_slider .movieInfo{	/* 박스오피스 포스터 하단 영화정보*/

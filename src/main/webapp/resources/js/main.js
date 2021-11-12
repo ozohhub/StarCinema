@@ -176,17 +176,27 @@ function headerFixed_remove() {
 	}
 }
 
- function imgChange() {
-	alert('hi');
-	var element = document.getElementById('bookImg1');
+function bgOpacity(i){
 	
-	element.style.filter  = 'alpha(opacity=0)';
+	$(".boxBg" + i).css({"opacity": "0.5"})
 }
- 
-  function imgNormal() {
-	
-	  var element = document.getElementById('bookImg1');
-	  element.style.opacity = "1";
-	  element.style.filter  = 'alpha(opacity=100)';
-  }
+
+function bgOpacityReset(i){
+	$(".boxBg" + i).css({"opacity": "1"})
+}
+
+
+/*	
+	.container::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: url("./images/sunrise.jpg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+ */
+
 
