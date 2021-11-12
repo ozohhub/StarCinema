@@ -136,23 +136,18 @@ $(document).ready(function(){
 		
 		<button type="button" class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
 		<button type="button" class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
-	
-	
-	
 	</div>
-	
-
-	
-	
-	
-	
 	
 	<!-- 로드 후 js작동! -->	
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
 	<!-- 차트 넣을 영역 -->
-	
-	<div id="banner_side_section" class="banner_side_wrap"></div>
-	
+	<div id="banner_section" class="banner_wrap">
+		<div class="banner_01">
+			<img src="${pageContext.request.contextPath}/resources/images/icon/like.JPG" style="width: 200px; height: 120px;"/>
+			<img src="${pageContext.request.contextPath}/resources/images/icon/grade.JPG" style="width: 200px; height: 120px;"/>
+			<img src="${pageContext.request.contextPath}/resources/images/icon/look.JPG" style="width: 200px; height: 120px;"/>
+		</div>
+	</div>
 
 </html>
