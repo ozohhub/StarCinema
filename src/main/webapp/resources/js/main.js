@@ -176,3 +176,17 @@ function headerFixed_remove() {
 	}
 }
 
+ function imgChange() {
+	alert('hi');
+	var element = document.getElementById('bookImg1');
+	
+	element.style.filter  = 'alpha(opacity=0)';
+}
+ 
+  function imgNormal() {
+	
+	  var element = document.getElementById('bookImg1');
+	  element.style.opacity = "1";
+	  element.style.filter  = 'alpha(opacity=100)';
+  }
+

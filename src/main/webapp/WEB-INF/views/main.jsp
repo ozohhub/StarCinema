@@ -30,7 +30,7 @@ $(document).ready(function(){
 	</div>
 
 	<!-- 자동 슬라이더 -->
-<!--  <div id="sub_section">-->	
+
 		<div class="slider" style="z-index: 1;">
 		    <ul class="slides" style="height: 800px;">
 		      <li>
@@ -55,35 +55,37 @@ $(document).ready(function(){
 		      </li>
 		    </ul>
 		  </div>
-
 			
 	<!-- 멀티플 슬라이드 -->
 	<div class="multiple_whole">
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg1" style="width:245px; height : 350px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');">
+						<label>안녕</label>
+					</div>
+										
 					<div class = "movieInfo">
 	                    <h3>영화1</h3>
 	                    <span>정보1</span>
                		</div>
 				 </li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;">
+					<img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" id = "bookImg2" style="width : auto; height : 350px;">
 					<div class = "movieInfo">
 	                    <h3>영화2</h3>
 	                    <span>정보2</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> 
+					<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" id = "bookImg3" style="width : auto; height : 350px;"> 
 					<div class = "movieInfo">
 	                    <h3>영화3</h3>
 	                    <span>정보3</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;">
+					<img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" id = "bookImg4" style="width : auto; height : 350px;">
 					<div class = "movieInfo">
 	                    <h3>영화4</h3>
 	                    <span>정보4</span>

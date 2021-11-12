@@ -21,18 +21,18 @@ input[id='chk_all']+label{
 input[type='checkbox']+label { 
 	padding-left : 40px;
 	display : inline-block; 
-	height : 30px;
+	height : 35px;
 	background : no-repeat;
 	background-image: url('../images/register/all_chk_off.png');
-	background-size: 30px;
+	background-size: 35px;
 	cursor: pointer;
 }
 
 input[type='checkbox']:checked+label { 
-	height : 30px;
+	height : 35px;
 	background : no-repeat;
 	background-image: url('../images/register/all_chk_on.png'); 
-	background-size: 30px;
+	background-size: 35px;
 	cursor: pointer;
 }
 
