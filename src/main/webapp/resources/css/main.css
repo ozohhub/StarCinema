@@ -6162,6 +6162,11 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 	background : #ccc;
 	float : left;
 }
+
+.multiple_slider .movieInfo{	/* 박스오피스 포스터 하단 영화정보*/
+	height: 100px;
+	color : white;
+}
 .multiple_slider li:not(:last-child){
 	margin-right : 20px;
 }
@@ -6185,15 +6190,5 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	background-color: transparent;
 }
 
-/*
-.movieInfoWrap{
-	margin-top : 10px;
-}
 
-.movieInfo li{
-	color: white;
-	display: inline;
-	float: left;
-}
-*/
 

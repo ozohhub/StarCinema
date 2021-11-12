@@ -62,24 +62,88 @@ $(document).ready(function(){
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> 
-					<label style="color: white;"></label>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화1</h3>
+	                    <span>정보1</span>
+               		</div>
+				 </li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화2</h3>
+	                    <span>정보2</span>
+               		</div>
 				</li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> </li>
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;"> </li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> 
+					<div class = "movieInfo">
+	                    <h3>영화3</h3>
+	                    <span>정보3</span>
+               		</div>
+				</li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화4</h3>
+	                    <span>정보4</span>
+               		</div>
+				</li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화5</h3>
+	                    <span>정보5</span>
+               		</div>
+				</li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화6</h3>
+	                    <span>정보6</span>
+               		</div>
+				 </li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화7</h3>
+	                    <span>정보7</span>
+               		</div>
+				</li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> 
+					<div class = "movieInfo">
+	                    <h3>영화8</h3>
+	                    <span>정보8</span>
+               		</div>
+				</li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화9</h3>
+	                    <span>정보9</span>
+               		</div>
+				</li>
+					<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/last.jpg" style="width : auto; height : 350px;">
+					<div class = "movieInfo">
+	                    <h3>영화10</h3>
+	                    <span>정보10</span>
+               		</div>
+				</li>
 			</ul>
 		</div>
 		
 		<button type="button" class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
 		<button type="button" class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
 	
+	
+	
 	</div>
+	
+
+	
+	
 	
 	
 	
