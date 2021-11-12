@@ -30,7 +30,7 @@ $(document).ready(function(){
 	</div>
 
 	<!-- 자동 슬라이더 -->
-	<div id="sub_section">
+<!--  <div id="sub_section">-->	
 		<div class="slider" style="z-index: 1;">
 		    <ul class="slides" style="height: 800px;">
 		      <li>
@@ -39,7 +39,7 @@ $(document).ready(function(){
 		        </div>
 		      </li>
 		      <li>
-		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/romance_slide.jpg"> 
+		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/kang_slide.jpg"> 
 		        <div class="caption left-align">
 		        </div>
 		      </li>
@@ -55,13 +55,16 @@ $(document).ready(function(){
 		      </li>
 		    </ul>
 		  </div>
-		</div>
+
 			
 	<!-- 멀티플 슬라이드 -->
 	<div class="multiple_whole">
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
-				<li><img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> </li>
+				<li>
+					<img src="${pageContext.request.contextPath}/resources/images/poster/1984.jpg" style="width : auto; height : 350px;"> 
+					<label style="color: white;"></label>
+				</li>
 				<li><img src="${pageContext.request.contextPath}/resources/images/poster/adams.jpg" style="width : auto; height : 350px;"> </li>
 				<li><img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" style="width : auto; height : 350px;"> </li>
 				<li><img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" style="width : auto; height : 350px;"> </li>
@@ -75,7 +78,9 @@ $(document).ready(function(){
 		
 		<button type="button" class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
 		<button type="button" class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
+	
 	</div>
+	
 	
 	
 	<!-- 로드 후 js작동! -->	

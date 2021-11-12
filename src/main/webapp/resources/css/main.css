@@ -6134,6 +6134,7 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 /* 멀티 슬라이드 */
 .multiple_whole{
 	width : 100%;
+	height : 500px;
 	background: black;
 
 }
@@ -6143,8 +6144,8 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 	width : 86%;
 	margin-top : 400px;
 	margin-left: auto; margin-right: auto;
-	height : 350px;
 	overflow : hidden;
+	height: 500px;
 }
 
 .multiple_slider{
@@ -6184,5 +6185,15 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	background-color: transparent;
 }
 
+/*
+.movieInfoWrap{
+	margin-top : 10px;
+}
 
+.movieInfo li{
+	color: white;
+	display: inline;
+	float: left;
+}
+*/
 

@@ -13,5 +13,8 @@
 	<a href="${root }"><img src="${pageContext.request.contextPath}/resources/images/lot.png" style="width:200px; height: auto;"></a>
 </div>
 
+<div id="content">
+
+</div>
 
 </center>
