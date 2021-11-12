@@ -403,7 +403,7 @@ input.inp_cont {width:54px; margin:0 3px;} /* 2020.01.02 */
 body {overflow-y:scroll;}
 /* header ================================================== */
 .header {position:relative; height:114px; border-bottom:1px solid #EEE; background-color:#fff;}
-.header .logo {position:absolute; z-index:1; top:18px; left:50%; margin-left:-109px; text-indent:-9999em; background:url("../../resources/images/common/logo.png") no-repeat center center;}
+.header .logo {position:absolute; z-index:1; top:18px; left:50%; margin-left:-109px; text-indent:-9999em; background:url("../../resources/images/lot.png") no-repeat center center;}
 .header .logo a {display:block; width:219px; height:37px;}
 /* gnb ========== */
 .header .gnb {position:relative; width:980px; height:70px; margin:0 auto; border-bottom:1px solid #B2B2B2;}
@@ -415,11 +415,6 @@ body {overflow-y:scroll;}
 .header .gnb .g_menu1 {float:left;}
 .header .gnb .g_menu1 > li {margin-right:14px;}
 .header .gnb .g_menu1 > li > a {height:14px; line-height:14px; background-repeat:no-repeat; background-position:0 center;}
-.header .gnb .g_menu1 > li a.btn_app {padding-left:18px; background-image:url("../../resources/images/icon/gnb_app.png");}
-.header .gnb .g_menu1 > li a.btn_facebook {padding-left:18px; background-image:url("../../resources/images/icon/gnb_facebook.png")}
-.header .gnb .g_menu1 > li a.btn_youtube {padding-left:19px; background-image:url("../../resources/images/icon/gnb_youtube.png");}
-.header .gnb .g_menu1 > li a.btn_follow {padding-left:17px; background-image:url("../../resources/images/icon/gnb_follow2.png");}
-/* .header .gnb .g_menu1 > li a.btn_follow {padding-left:17px; background-image:url("../../resources/images/icon/gnb_follow.png");} */
 .header .gnb .g_menu2 {float:right;}
 .header .gnb .g_menu2 > li {margin-left:14px;}
 .header .gnb .g_menu3 {position:absolute; right:0; top:88px; margin-top:0;}
