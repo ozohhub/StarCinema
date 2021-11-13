@@ -65,9 +65,9 @@
 	           </form>
           </div> 
           
-            <div class="btn_area" align="right">
+            <div class="agree_btn_area" align="right">
               <input type="button" id="agreeNo" value="취소" onclick="location.href='${root}';">
-              <input type="button" id="agreeYes" value="확인" onclick="nextStep();">
+              <input type="button" id="agreeYes" value="확인" onclick="nextStep1();">
             </div>        
        
      </div>

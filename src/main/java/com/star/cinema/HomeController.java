@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
@@ -33,6 +34,10 @@ public class HomeController {
 	@RequestMapping(value = "/register2")
 	public String register2() {
 		return "member/register2";
+	}
+	@RequestMapping(value="/register_final", method=RequestMethod.POST)
+	public String register_final() {
+		return "member/register_final";
 	}
 	
 	@RequestMapping(value = "/memberList")

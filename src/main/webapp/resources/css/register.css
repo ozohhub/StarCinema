@@ -11,7 +11,7 @@
 	width : 100%;
 }
 
-/* 체크박스 위치 조정, 체크박스 이미지 넣기 + 체크박스 or 글자 체크시 이미지 변경 */
+/* 약관동의 페이지 - 체크박스 위치 조정, 체크박스 이미지 넣기 + 체크박스 or 글자 체크시 이미지 변경 */
 
 input[id='chk_all']+label{
 	position : relative;
@@ -40,7 +40,7 @@ input[type='checkbox']{
 	display : none;
 }
 
-/* 약관 */
+/* 약관동의 창 */
 .terms_bx_list{margin-top:4px}
 .terms_bx{display:block;padding-top:30px}
 .terms_box{
@@ -61,7 +61,7 @@ input[type='checkbox']{
 
 
 /* 약관동의 버튼 */
-.btn_area{
+.agree_btn_area{
 	width : 100%; 
 }
 
@@ -75,13 +75,87 @@ input[type='checkbox']{
 }
 #agreeNo, #agreeYes{
 	text-align : center;
-	margin-top :20px;
-	margin-left :15px;
 	width : 45%;
 	height: 50px;
 	color: white; 
 	border-color: transparent; 
 	cursor:  pointer;
+	font-weight: bold;
 }
 
+.agree_btn_area #agreeNo, .agree_btn_area #agreeYes{
+	margin-top :20px;
+	margin-left :15px;
+}
 
+/* 이메일 인증 페이지 테이블 & 정보작성 페이지 테이블 */
+
+.emailTb, .registerTb{
+	margin-top : 50px;
+	width : 100%;	
+	overflow : hidden;
+}
+.emailTb tr, .registerTb tr{
+	height: 50px;
+}
+.emailTb th, .registerTb th{
+	text-align: left;
+	width : 30%;
+	padding-right: 5px;
+
+}
+.emailTb .must, .registerTb .must{
+	color: red;
+}
+.emailTb .title, .registerTb .title{
+	color: gray;
+}
+
+.emailTb td input{
+	height : 30px;
+	width : 65%
+}
+
+.emailTb td button, .registerTb td button {
+	height : 30px;
+	border-color : transparent;
+	font-weight: bold;
+	color : white;
+	background-color : #FF4848;
+}
+
+#authLabel{
+	padding-left : 30%;
+	text-align: center;
+	color: red;
+	font-weight: bold;
+}
+
+.auth_btn_area #agreeNo, .auth_btn_area #agreeYes ,.register_btn_area #agreeNo, .register_btn_area #agreeYes{
+	margin : 0px auto;
+}
+
+/* 정보 작성 페이지 */
+
+#id{
+	width : 67%;
+	height : 30px;
+}
+#pw, #pwChk{
+	width : 85%;
+	height : 30px;
+}
+
+#year, #phone1{
+	width : 22.5%;
+	height: 30px;
+}
+
+#month, #day, #phone2, #phone3{
+	width  : 30%;
+	height: 30px;
+}
+
+.register_btn_area{
+	line-height : 10;
+}
