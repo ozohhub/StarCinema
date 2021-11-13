@@ -5728,7 +5728,7 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 	float : left;
 }
 
-.boxBg1, .boxBg2{
+.boxBg1, .boxBg2,.boxBg3, .boxBg4, .boxBg5, .boxBg6,.boxBg7,.boxBg8,.boxBg9,.boxBg10{
 	width: 245px; 
 	height : 350px;
 	background : no-repeat;
@@ -5748,13 +5748,13 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 	background-color : transparent;
 	border : 0; outline: 0;
 	margin-left : 40px;
-	margin-top: -350px;
+	margin-top: -700px;
 
 }
 .next{
 	background-color : transparent;
 	border : 0; outline: 0;
-	margin : -350px 0px 0px 88%;
+	margin : -700px 0px 0px 88%;
 
 }
 
