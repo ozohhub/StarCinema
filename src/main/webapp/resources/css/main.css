@@ -5762,6 +5762,27 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	outline:none;
 	background-color: transparent;
 }
+#reserve_btn{
+	margin: 100px 0 0 23px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	background-color: transparent;
+	width: 200px;
+	height: 30px;
+	display: none;
+}
+
+#detail_btn{
+	margin: 50px 0 0 23px;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	background-color: transparent;
+	width: 200px;
+	height: 30px;
+	display: none;
+}
 
 /* 메인 차트 영역*/
 

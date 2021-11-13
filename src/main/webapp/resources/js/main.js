@@ -177,12 +177,15 @@ function headerFixed_remove() {
 }
 
 function bgOpacity(i){
-	
 	$(".boxBg" + i).css({"opacity": "0.5"})
+	$(".reserve_btn"+i).css({"display" : "inline"})
+	$(".detail_btn"+i).css({"display" : "inline"})
 }
 
 function bgOpacityReset(i){
 	$(".boxBg" + i).css({"opacity": "1"})
+	$(".reserve_btn"+i).css({"display" : "none"})
+	$(".detail_btn"+i).css({"display" : "none"})
 }
 
 

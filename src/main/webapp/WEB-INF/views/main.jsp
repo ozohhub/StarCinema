@@ -62,9 +62,9 @@ $(document).ready(function(){
 			<ul class="multiple_slider">
 				<li>
 					<div class="boxBg1" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');" onmouseover="bgOpacity(1);" onmouseout="bgOpacityReset(1);">
-						<label>안녕</label>
+						<button id="reserve_btn" class="reserve_btn1">예매하기</button>
+						<button id="detail_btn" class="detail_btn1">상세정보</button>
 					</div>
-										
 					<div class = "movieInfo">
 	                    <h3>영화1</h3>
 	                    <span>정보1</span>
@@ -72,7 +72,8 @@ $(document).ready(function(){
 				 </li>
 				<li>
 					<div class="boxBg2" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/anne.jpg');" onmouseover="bgOpacity(2);" onmouseout="bgOpacityReset(2);">
-						<label>안녕2</label>
+						<button id="reserve_btn" class="reserve_btn2">예매하기</button>
+						<button id="detail_btn" class="detail_btn2">상세정보</button>
 					</div>
 					<div class = "movieInfo">
 	                    <h3>영화2</h3>
@@ -80,56 +81,80 @@ $(document).ready(function(){
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" id = "bookImg3" style="width : auto; height : 350px;"> 
+					<div class="boxBg3" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/dun.jpg');" onmouseover="bgOpacity(3);" onmouseout="bgOpacityReset(3);">
+						<button id="reserve_btn" class="reserve_btn3">예매하기</button>
+						<button id="detail_btn" class="detail_btn3">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화3</h3>
 	                    <span>정보3</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/venom.jpg" id = "bookImg4" style="width : auto; height : 350px;">
+					<div class="boxBg4" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/venom.jpg');" onmouseover="bgOpacity(4);" onmouseout="bgOpacityReset(4);">
+						<button id="reserve_btn" class="reserve_btn4">예매하기</button>
+						<button id="detail_btn" class="detail_btn4">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화4</h3>
 	                    <span>정보4</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/anne.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg5" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(5);" onmouseout="bgOpacityReset(5);">
+						<button id="reserve_btn" class="reserve_btn5">예매하기</button>
+						<button id="detail_btn" class="detail_btn5">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화5</h3>
 	                    <span>정보5</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/notime.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg6" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/notime.jpg');" onmouseover="bgOpacity(6);" onmouseout="bgOpacityReset(6);">
+						<button id="reserve_btn" class="reserve_btn6">예매하기</button>
+						<button id="detail_btn" class="detail_btn6">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화6</h3>
 	                    <span>정보6</span>
                		</div>
 				 </li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/voice.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg7" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/voice.jpg');" onmouseover="bgOpacity(7);" onmouseout="bgOpacityReset(7);">
+						<button id="reserve_btn" class="reserve_btn7">예매하기</button>
+						<button id="detail_btn" class="detail_btn7">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화7</h3>
 	                    <span>정보7</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/kang.jpg" style="width : auto; height : 350px;"> 
+					<div class="boxBg8" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(8);" onmouseout="bgOpacityReset(8);">
+						<button id="reserve_btn" class="reserve_btn8">예매하기</button>
+						<button id="detail_btn" class="detail_btn8">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화8</h3>
 	                    <span>정보8</span>
                		</div>
 				</li>
 				<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/billy.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg9" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/billy.jpg');" onmouseover="bgOpacity(9);" onmouseout="bgOpacityReset(9);">
+						<button id="reserve_btn" class="reserve_btn9">예매하기</button>
+						<button id="detail_btn" class="detail_btn9">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화9</h3>
 	                    <span>정보9</span>
                		</div>
 				</li>
 					<li>
-					<img src="${pageContext.request.contextPath}/resources/images/poster/last.jpg" style="width : auto; height : 350px;">
+					<div class="boxBg10" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/last.jpg');" onmouseover="bgOpacity(10);" onmouseout="bgOpacityReset(10);">
+						<button id="reserve_btn" class="reserve_btn10">예매하기</button>
+						<button id="detail_btn" class="detail_btn10">상세정보</button>
+					</div>
 					<div class = "movieInfo">
 	                    <h3>영화10</h3>
 	                    <span>정보10</span>
