@@ -5719,6 +5719,7 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 	left : 0; top : 0;
 }
 
+
 .multiple_slider.animated{
 	transition : 0.5s ease-out;
 }
@@ -5736,6 +5737,10 @@ input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointe
 
 }
 
+.boxBtn1,.boxBtn2,.boxBtn3,.boxBtn4,.boxBtn5,.boxBtn6,.boxBtn7,.boxBtn8,.boxBtn9,.boxBtn10{
+	width : 245px;
+	height : 350px;
+}
 .multiple_slider .movieInfo{	/* 박스오피스 포스터 하단 영화정보*/
 	height: 100px;
 	color : white;

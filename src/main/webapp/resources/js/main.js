@@ -177,29 +177,16 @@ function headerFixed_remove() {
 }
 
 function bgOpacity(i){
-	$(".boxBg" + i).css({"opacity": "0.5"})
+	$(".boxbtn"+i).css({ "background-color" : "rgba( 0,0,0,0.5)"})
 	$(".reserve_btn"+i).css({"display" : "inline"})
 	$(".detail_btn"+i).css({"display" : "inline"})
 }
 
 function bgOpacityReset(i){
-	$(".boxBg" + i).css({"opacity": "1"})
+	$(".boxbtn"+i).css({ "background-color" : "rgba( 255,255,255,0)"})
 	$(".reserve_btn"+i).css({"display" : "none"})
 	$(".detail_btn"+i).css({"display" : "none"})
 }
 
-
-/*	
-	.container::after {
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: url("./images/sunrise.jpg");
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.5;
- */
 
 
