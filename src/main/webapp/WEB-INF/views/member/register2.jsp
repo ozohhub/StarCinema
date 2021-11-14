@@ -4,6 +4,8 @@
 <title>롯지브이 : 회원가입 - 이메일인증</title>
 <link rel="icon" href="${pageContext.request.contextPath}/resources/images/main/icon/lotgv.ico" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/register.css" />
+
+<script src="<c:url value="/resources/js/register.js" />"></script>
 <c:url var="root" value="/"/>
 
 <!-- 이메일인증페이지 -->
@@ -14,7 +16,31 @@
 </div>
 
 <div id="content">
-
+	<form id = "authForm" action="register_final" method="post">
+		<table class="emailTb">
+			<tr>
+				<th><font class="must">*</font> <label class="title">이름</label></th>
+				<td><input type="text" placeholder="한글 또는 영문으로 입력해주세요." maxlength="20"></td>
+			</tr>
+			<tr>
+				<th><font class="must">*</font> <label class="title">이메일 주소</label></th>
+				<td><input type="text" placeholder="이메일주소를 입력해주세요." maxlength="30"> <button>메일발송</button></td>
+			</tr>
+			<tr>
+				<th><font class="must">*</font> <label class="title">인증번호</label></th>
+				<td><input type="text" id = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <button>인증확인</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><label id="authLabel"></label></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="auth_btn_area">
+				  <input type="button" id="agreeNo" value="취소" onclick="location.href='${root}';">
+	              <input type="button" id="agreeYes" value="확인" onclick="nextStep2();">
+				</td>
+			</tr>
+		</table>
+	</form>
 </div>
 
 </center>

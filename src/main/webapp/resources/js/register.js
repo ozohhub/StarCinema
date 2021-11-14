@@ -30,6 +30,29 @@ function agreeChk(){
 }
 
 /* 약관동의 - 확인버튼 클릭시 */
-function nextStep(){
+function nextStep1(){
 	document.getElementById('agreeForm').submit();
 }
+
+/* 키보드 입력시 숫자 형식인지 확인 */
+function numberChk(){
+	authNum = document.getElementById('authNum').value;
+	var reg = /([^0-9])/;
+	if(authNum.match(reg) != null){
+		document.getElementById('authLabel').innerHTML = "인증번호는 숫자만 가능합니다.";
+		authNum = "";
+	}else{
+		document.getElementById('authLabel').innerHTML = "";
+	}
+}
+
+/* 이메일인증 - 확인버튼 클릭시 */
+function nextStep2(){
+	document.getElementById('authForm').submit();
+}
+
+function registerStep(){
+	document.getElementById('registerForm').submit();
+}
+
+

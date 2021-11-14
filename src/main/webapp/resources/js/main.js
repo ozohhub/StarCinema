@@ -38,8 +38,6 @@ function nav(){
 	
 	
 // 멀티플 슬라이드
-
-
 var slides = document.querySelector('.multiple_slider'),
 	slide = document.querySelectorAll('.multiple_slider li'),
 	currentIdx = 0,
@@ -176,12 +174,14 @@ function headerFixed_remove() {
 	}
 }
 
+// 멀티플 슬라이더에 마우스오버시 배경 투명 + 버튼 나오는 효과 
 function bgOpacity(i){
-	$(".boxbtn"+i).css({ "background-color" : "rgba( 0,0,0,0.5)"})
+	$(".boxbtn"+i).css({ "background-color" : "rgba( 0,0,0,0.6)"})
 	$(".reserve_btn"+i).css({"display" : "inline"})
 	$(".detail_btn"+i).css({"display" : "inline"})
 }
 
+// 멀티플 슬라이더 마우스아웃시 원래대로
 function bgOpacityReset(i){
 	$(".boxbtn"+i).css({ "background-color" : "rgba( 255,255,255,0)"})
 	$(".reserve_btn"+i).css({"display" : "none"})
