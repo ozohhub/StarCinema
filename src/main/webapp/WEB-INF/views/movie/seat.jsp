@@ -8,12 +8,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
 </head>
 <body>
-
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/aes.js"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/sso.js?v=202111141208"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/LcCommon.js?v=202111141208"></script>
-    <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/crossDomainStorage.js?v=202111141208"></script>
-	
     <div id="PersonSeatContents"></div>
     <div id="contents" class="contents_full contents_reserve">
 
