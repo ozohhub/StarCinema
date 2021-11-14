@@ -25,13 +25,13 @@
 			</h1>
 			<ul class="g_menu2" style="margin-top: -20px;">
 				<li><a href="index?formpath=memberList">회원관리</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Mypage/MemberVipzone">멤버십</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Customer">고객센터</a></li>
+				<li><a href="index?formpath=mypage">멤버십</a></li>
+				<li><a href="index?formpath=board">고객센터</a></li>
 				<li><a href="index?formpath=login">로그인</a></li>
 			</ul>
 			<ul class="g_menu3">
 				<li><a href="register1" class="btn_my">회원가입</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" class="btn_reserve">바로 예매</a></li>
+				<li><a href="index?formpath=ticketing" class="btn_reserve">바로 예매</a></li>
 				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button><div id="allmenu"></div></li>
 			</ul>
 		</div>
@@ -41,7 +41,7 @@
 					<a href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
-							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" title="예매하기">예매하기</a></li>
+							<li><a href="index?formpath=ticketing" title="예매하기">예매하기</a></li>
 							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/Schedule" title="상영시간표">상영시간표</a></li>
 							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/DiscountGuide" title="할인안내">할인안내</a></li>
 						</ul>

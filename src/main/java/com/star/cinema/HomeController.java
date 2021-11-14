@@ -45,4 +45,13 @@ public class HomeController {
 		return "member/login";
 	}
 	
+	@RequestMapping(value = "/ticketing")
+	public String ticketing() {
+		return "movie/ticketing";
+	}
+	
+	@RequestMapping(value = "/seat")
+	public String seat() {
+		return "movie/seat";
+	}
 }
