@@ -38,7 +38,7 @@
 		<div id="nav">
 			<ul>
 				<li class="">
-					<a href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
+					<a href="index?formpath=ticketing">예매</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="index?formpath=ticketing" title="예매하기">예매하기</a></li>

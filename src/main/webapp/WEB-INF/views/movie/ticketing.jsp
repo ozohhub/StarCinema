@@ -36,7 +36,11 @@
                 }
             }
         </script>
-
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/swiper.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mCustomScrollbar.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content_lc21new.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dev.css" />
 
 
         <script type="text/javascript">

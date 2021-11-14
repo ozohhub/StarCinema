@@ -59,4 +59,9 @@ public class HomeController {
 	public String seat() {
 		return "movie/seat";
 	}
+	
+	@RequestMapping(value = "/pay")
+	public String pay() {
+		return "movie/pay";
+	}
 }

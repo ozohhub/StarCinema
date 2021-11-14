@@ -16,18 +16,7 @@
             <div id="PersonSeatHeader" class="section_step_tit">
                 <ul style="padding-top: 700px;">
                     <li class="step01 prev" style="margin-left: 0"><a href="#reserveStep01"><strong class="tit"><span>01</span><br>상영시간</strong>
-                            <div class="bx_con">
-                                <dl>
-                                    <dt>선택한 영화 제목</dt>
-                                    <dd>이터널스</dd>
-                                    <dt>선택한 상영관</dt>
-                                    <dd>서울대입구 1관</dd>
-                                    <dt>선택한 상영 날짜</dt>
-                                    <dd>2021-11-14 (일)</dd>
-                                    <dt>선택한 시간</dt>
-                                    <dd>13:55 ~ 16:40</dd>
-                                </dl>
-                            </div>
+
                         </a></li>
                     <li class="step02 active"><a href="#reserveStep02"><strong class="tit"><span>02</span><br>인원/좌석</strong>
                             <div class="bx_con">
