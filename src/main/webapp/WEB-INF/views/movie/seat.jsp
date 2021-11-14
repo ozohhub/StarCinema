@@ -10,17 +10,32 @@
 <script src="${pageContext.request.contextPath}/resources/js/movie.js"></script>
 </head>
 <body>
-    <div id="PersonSeatContents"></div>
     <div id="contents" class="contents_full contents_reserve">
 
         <div class="wrap_reserve">
             <h2 class="hidden">예매하기</h2>
             <div id="PersonSeatHeader" class="section_step_tit">
                 <ul style="padding-top: 700px;">
-                    <li class="step01 prev" style="margin-left: 0"><a href="#reserveStep01"><strong class="tit"><span>01</span><br>상영시간</strong></a></li>
-                    <li class="step02 active"><a href="#reserveStep02"><strong class="tit"><span>02</span><br>인원/좌석</strong></a></li>
-                    <li class="step03"><a style="cursor: default;"><strong class="tit"><span>03</span><br>결제</strong></a></li>
-                    <li><a style="cursor: default;"><strong class="tit"><span>04</span><br>결제완료</strong></a></li>
+                    <li class="step01 prev" style="margin-left: 0">
+                    	<a style="cursor: default;">
+                    		<strong class="tit"><span>01</span><br>상영시간</strong>
+                        </a>
+                    </li>
+                    <li class="step02 active">
+                    	<a style="cursor: default;">
+                    		<strong class="tit"><span>02</span><br>인원/좌석</strong>
+                        </a>
+                    </li>
+                    <li class="step03">
+                    	<a style="cursor: default;">
+                    		<strong class="tit"><span>03</span><br>결제</strong>
+                        </a>
+                    </li>
+                    <li>
+                    	<a style="cursor: default;">
+                    		<strong class="tit"><span>04</span><br>결제완료</strong>
+                    	</a>
+                    </li>
                 </ul>
             </div>
             
@@ -546,8 +561,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
 
                                     <div class="seat_btm_box">

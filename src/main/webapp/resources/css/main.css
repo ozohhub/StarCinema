@@ -4653,17 +4653,6 @@ dl.total_price dd strong {font-family:'Roboto'; font-size:25px; font-weight:bold
 .group_discount .bx_discount_method .bx_cate {margin:10px 0;}
 
 /* ì˜ˆë§¤ : 03ê²°ì œ/ê²°ì œìˆ˜ë‹¨/ìµœì¢…ê²°ì œìˆ˜ë‹¨ ============================== */
-.group_payment {padding:15px 30px;}
-/* ìµœì¢…ê²°ì œìˆ˜ë‹¨ ì¢…ë¥˜ */
-.group_payment .bx_cate .list_pay_item li button {overflow:visible; position:relative; height:68px; line-height:95px; background-repeat:no-repeat;}
-.group_payment .bx_cate .list_pay_item li button.cate1 {background-image:url("../../resources/images/payment/method_ic_card.png"); background-position:center 17px;}
-.group_payment .bx_cate .list_pay_item li button.cate2 {background-image:url("../../resources/images/payment/method_ic_lpay_20210407.png"); background-position:center 17px;} /* 2020.03.17 */
-.group_payment .bx_cate .list_pay_item li button.cate3 {background-image:url("../../resources/images/payment/method_ic_simple.png"); background-position:center 17px;}
-.group_payment .bx_cate .list_pay_item li button.cate4 {background-image:url("../../resources/images/payment/method_ic_phone.png"); background-position:center 14px;}
-.group_payment .bx_cate .list_pay_item li button img {margin-top:42px;}
-.group_payment .bx_cate .list_pay_item li button.active:after {content:""; position:absolute; left:50%; bottom:-5px; width:7px; height:5px; margin-left:-3px; background:url("../../resources/images/payment/bg_boxarrow.png") no-repeat;}
-.group_payment .toggle_wrap .toggle_tit .btn_toggle {top:10px;}
-.group_payment .bx_cate .list_pay_item li button.disabled:after {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.5; border-radius:4px;}
 /* ìµœì¢…ê²°ì œìˆ˜ë‹¨ : ì‹ ìš©ì¹´ë“œ */
 .article_pay_card {margin:5px 0;}
 .article_pay_card .list_pay_item li button {position:relative; height:55px;}

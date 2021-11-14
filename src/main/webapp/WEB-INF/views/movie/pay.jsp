@@ -4,378 +4,42 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
+<meta charset="UTF-8">
+<title>롯지브이</title>
+<script src="${pageContext.request.contextPath}/resources/js/movie.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
 </head>
 
-<body style="">
-        <div id="nav">
-            <ul>
-                <li class=""><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing">예매</a>
-                    <div style="display: none;">
-                        <ul style="opacity: 0;">
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing" title="예매하기">예매하기</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/Schedule" title="상영시간표">상영시간표</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/DiscountGuide" title="할인안내">할인안내</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class=""><a href="https://www.lottecinema.co.kr/NLCHS/Movie">영화</a>
-                    <div style="display: none;">
-                        <ul style="opacity: 0;">
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Movie" title="홈">홈</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1" title="현재상영작">현재상영작</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=5" title="상영예정작">상영예정작</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Movie/Arte" title="아르떼">아르떼</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/Movie/NTOK" title="국립극장">국립극장</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class=""><a href="#">영화관</a>
-                    <div style="display: none;">
-                        <ul style="opacity: 0;">
-                            <li><a href="#" title="스페셜관">스페셜관</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialIndex">홈</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=300">샤롯데</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=941">수퍼플렉스 G</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=980">수퍼 S</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=940">수퍼플렉스</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=930">수퍼 4D</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=988">컬러리움</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=987">씨네살롱</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=960">씨네패밀리</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=200">씨네커플</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=950">씨네비즈</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=986">씨네컴포트(리클라이너)</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="서울">서울</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1013">가산디지털</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9094">가양</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9010">강동</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1004">건대입구</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1009">김포공항</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1003">노원</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1023">도곡</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1017">독산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9056">브로드웨이(신사)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1012">서울대입구</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9099">수락산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1022">수유</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1015">신도림</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1007">신림</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1001">에비뉴엘(명동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1002">영등포</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1014">용산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1016">월드타워</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1021">은평(롯데몰)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9083">중랑</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1008">청량리</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1010">합정</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1005">홍대입구</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="경기/인천">경기/인천</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3030">광교아울렛</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3027">광명(광명사거리)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3025">광명아울렛</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3020">광주터미널</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3026">구리아울렛</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3048">동탄</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9095">라페스타</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3021">마석</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3046">별내</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3017">병점</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3011">부천(신중동역)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9054">부천역</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3003">부평</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3008">부평역사</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3045">북수원(천천동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3031">산본피트인</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3043">서수원</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3041">성남중앙(신흥역)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3012">센트럴락</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3029">송탄</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3024">수원(수원역)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3044">수지</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9088">시화</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3004">안산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3028">안산고잔</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3022">안성</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3007">안양(안양역)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3032">안양일번가</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9077">영종하늘도시</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9079">오산(원동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3039">용인기흥</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3040">용인역북</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3037">위례</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3033">의정부민락</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9100">인덕원</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3035">인천아시아드</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3038">인천터미널</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9087">주엽</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3010">진접</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3034">파주운정</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3047">판교(창조경제밸리)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3018">평촌(범계역)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9075">평택비전(뉴코아)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=9096">하남미사</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3036">향남</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="충청/대전">충청/대전</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=9085">당진</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4002">대전(백화점)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4009">대전관저</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4006">대전둔산(월평동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4008">대전센트럴</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=9044">서산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4004">서청주(아울렛)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4005">아산터미널</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4007">청주용암</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=9078">충주</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="전라/광주">전라/광주</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6001">광주(백화점)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=9065">광주광산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6007">군산나운</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6009">군산몰</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6004">수완(아울렛)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=9070">익산모현</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6002">전주(백화점)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6006">전주평화</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=9047">충장로</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="경북/대구">경북/대구</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5008">경산</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9090">경주</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9091">경주황성</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5013">구미공단</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5012">대구광장</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5006">대구율하</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9076">대구현풍</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5005">동성로</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5016">상인</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9080">상주</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5004">성서</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9064">영주</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9098">영천</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9097">포항</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9067">프리미엄구미센트럴</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9066">프리미엄만경</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9074">프리미엄안동</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9057">프리미엄칠곡</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="경남/부산/울산">경남/부산/울산</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9082">거창</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2009">광복</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5015">김해부원</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5011">김해아울렛(장유)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2012">대영</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2007">동래</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2010">동부산아울렛</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9093">드라이브 오시리아</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9042">마산(합성동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9092">부산명지</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2004">부산본점</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2005">사상</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9084">사천</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2008">서면(전포동)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2006">센텀시티</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9069">엠비씨네(진주)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2011">오투(부산대)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5001">울산(백화점)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5014">울산성남</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5017">진주혁신(롯데몰)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5009">진해</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=5002">창원</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9036">통영</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9072">프리미엄경남대</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9003">프리미엄진주(중안)</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9059">프리미엄해운대(장산역)</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="강원">강원</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=7001">남원주</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=7002">동해</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=9089">속초</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=7003">원주무실</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=9081">춘천</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="#" title="제주">제주</a>
-                                <div style="display: none;">
-                                    <ul style="opacity: 0;">
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=7&amp;cinemaID=9013">서귀포</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=7&amp;cinemaID=9068">제주삼화지구</a></li>
-                                        <li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=7&amp;cinemaID=9071">제주아라</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class=""><a href="https://event.lottecinema.co.kr/NLCHS/Event">이벤트</a>
-                    <div style="display: none;">
-                        <ul style="opacity: 0;">
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event" title="홈">홈</a></li>
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event/DetailList?code=20" title="영화">영화</a></li>
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event/DetailList?code=40" title="시사회/무대인사">시사회/무대인사</a></li>
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event/DetailList?code=10" title="HOT">HOT</a></li>
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event/DetailList?code=50" title="제휴할인">제휴할인</a></li>
-                            <li><a href="https://event.lottecinema.co.kr/NLCHS/Event/NearCinemaList" title="우리동네영화관">우리동네영화관</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class=""><a href="https://www.lottecinema.co.kr/NLCHS/CinemaMall">스토어</a>
-                    <div style="display: none;">
-                        <ul style="opacity: 0;">
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/CinemaMall#store2" title="베스트">베스트</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/CinemaMall#store3" title="관람권">관람권</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/CinemaMall#store4" title="스낵음료">스낵음료</a></li>
-                            <li><a href="https://www.lottecinema.co.kr/NLCHS/CinemaMall#store13" title="포토카드">포토카드</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
+<body>
+	<div id="sub_section">
+    <div id="contents" class="contents_full contents_reserve">
+        <div class="wrap_reserve ">
+			<h2 class="hidden">예매하기</h2>
+					<div class="section_step_tit">
+					    <ul style="padding-top: 700px;">
+					        <li class="step01 prev">
+					        	<a href="#">
+					        		<strong class="tit"><span>01</span><br>상영시간</strong>
+					            </a>
+					        </li>
+					        <li class="step02 prev">
+					        	<a href="#">
+					        		<strong class="tit"><span>02</span><br>인원/좌석</strong>
+					            </a>
+					        </li>
+					        <li class="step03 active">
+					        	<a href="#">
+					        		<strong class="tit"><span>03</span><br>결제</strong>
+					            </a>
+					        </li>
+					        <li>
+					        	<a href="#" style="cursor: default;">
+					        		<strong class="tit"><span>04</span><br>결제완료</strong>
+					        	</a>
+					        </li>
+					    </ul>
+					</div>
 
-
-
-    <script src="/NLCHS/Scripts/common/aes.js"></script>
-    <script src="/NLCHS/Scripts/common/sso.js?v=202111140152"></script>
-    <script src="/NLCHS/Scripts/common/LcCommon.js?v=202111140152"></script>
-    <script src="/NLCHS/Scripts/common/crossDomainStorage.js?v=202111140152"></script>
-
-
-
-
-
-    <style>
-        .smallScreen .floor_bx .seat_area .sel.myseat span {
-            background: #FF243E !important;
-        }
-
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-    </style>
-    <!-- 20161006 Facebook Pixel 적용 -->
-    <!-- Facebook Pixel Code -->
-    <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window,
-            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1035588193221412'); // Insert your pixel ID here.
-        fbq('track', 'PageView');
-    </script>
-
-    <div id="divMinimap" class="screen_preview_con" style="display:none;">
-        <div class="screen_info cineCont">
-            <div class="smallScreen">
-                <span class="title_screen1">SCREEN</span>
-                <div class="minimap"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="sub_section">
-        <div id="contents" class="contents_full contents_reserve">
-            <div class="wrap_reserve ">
-                <h2 class="hidden">예매하기</h2>
-                <div class="section_step_tit">
-                    <ul>
-                        <li class="step01 prev"><a href="#"><strong class="tit"><span>01</span><br>상영시간</strong>
-                                <div class="bx_con">
-                                    <dl>
-                                        <dt>선택한 영화 제목</dt>
-                                        <dd>이터널스(디지털)</dd>
-                                        <dt>선택한 상영관</dt>
-                                        <dd>가산디지털 5관</dd>
-                                        <dt>선택한 상영 날짜</dt>
-                                        <dd>2021-11-14 (일)</dd>
-                                        <dt>선택한 시간</dt>
-                                        <dd>16:10 ~ 18:55</dd>
-                                    </dl>
-                                </div>
-                            </a></li>
-                        <li class="step02 prev"><a href="#"><strong class="tit"><span>02</span><br>인원/좌석</strong>
-                                <div class="bx_con">
-                                    <dl>
-                                        <dt>선택한 인원</dt>
-                                        <dd>성인1</dd>
-                                        <dt>선택한 좌석</dt>
-                                        <dd>E6</dd>
-                                    </dl>
-                                </div>
-                            </a></li>
-                        <li class="step03 active"><a href="#"><strong class="tit"><span>03</span><br>결제</strong>
-                                <div class="bx_con">
-                                    <dl>
-                                        <dt>티켓금액</dt>
-                                        <dd>14,000원</dd>
-                                        <dt>할인금액</dt>
-                                        <dd>0원</dd>
-                                        <dt>총합계</dt>
-                                        <dd>14,000원</dd>
-                                    </dl>
-                                </div>
-                            </a></li>
-                        <li><a href="#" style="cursor: default;"><strong class="tit"><span>04</span><br>결제완료</strong></a></li>
-                    </ul>
-                </div>
                 <div id="reserveStep01" class="section_step_con step01 ">
                     <h3 class="hidden">상영시간</h3>
                 </div>
@@ -389,7 +53,11 @@
                             <h4 class="tit">예매정보</h4>
                         </div>
                         <div class="inner">
-                            <div class="movie_infor new2020"><span class="thm"><img src="https://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/202111/17885_104_1.jpg" alt="이터널스"></span><strong class="tit"><span class="ic_grade gr_12"></span>&nbsp;이터널스(디지털)</strong>
+                            <div class="movie_infor new2020">
+                                <span class="thm">
+                                    <img src="https://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/202111/17885_104_1.jpg" alt="이터널스">
+                                </span>
+                                <strong class="tit"><span class="ic_grade gr_12"></span>&nbsp;이터널스(디지털)</strong>
                                 <dl class="dlist_infor">
                                     <dt>일시</dt>
                                     <dd><strong>2021-11-14 (일) 16:10 ~ 18:55</strong></dd>
@@ -413,7 +81,11 @@
                                             <ul class="addprodlist">
                                                 <li><a href="#">
                                                         <div class="pay_movie_infor">
-                                                            <div class="img_product"><span class="thm"><img src="https://caching.lottecinema.co.kr//Media/WebAdmin/cc222cc25ab7487580e10143f2a4e52b.png" alt="포토티켓" class="mCS_img_loaded"></span></div>
+                                                            <div class="img_product">
+                                                                <span class="thm">
+                                                                    <img src="${pageContext.request.contextPath}/resources/images/movie/photoTicket.png" alt="포토티켓" class="mCS_img_loaded">
+                                                                </span>
+                                                            </div>
                                                             <div class="bx_infor">
                                                                 <div class="badge_wrap"></div><strong class="tit">포토티켓</strong>
                                                                 <div class="between_txt"><span><span class="pay">1,000</span> 원</span></div>
@@ -437,7 +109,7 @@
                     </div>
                     <div class="article article_pay_method">
                         <div class="group_top">
-                            <h4 class="tit">결제수단</h4><button type="button" class="btn_txt_reset">초기화</button>
+                            <h4 class="tit">결제수단</h4><button type="button" class="btn_txt_reset" onclick="reset();">초기화</button>
                         </div>
                         <div class="inner">
                             <div class="mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
@@ -445,14 +117,6 @@
                                     <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
                                         <div class="group_discount" style="display: block;">
                                             <h3 class="tit_payment">할인/포인트</h3>
-                                            <div class="tab_wrap3 reset selected">
-                                                <div class="tab_tit case2">
-                                                    <ul>
-                                                        <li><button class="">L.POINT <strong class="point">0P</strong></button></li>
-                                                        <li><button class="">L.POINT 카드번호</button></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
                                             <div class="wrap_coupon">
                                                 <div class="bx_cate">
                                                     <ul class="list_pay_item cate4">
@@ -470,7 +134,6 @@
                                             <div class="bx_cate">
                                                 <ul class="list_pay_item cate6">
                                                     <li><button type="button" class="cate1 ">신용카드</button></li>
-                                                    <li><button type="button" class="cate2 ">엘페이</button></li>
                                                     <li><button type="button" class="cate3 ">간편결제</button></li>
                                                     <li><button type="button" class="cate5 ty2 ">내통장결제</button></li>
                                                     <li><button type="button" class="cate4 ty2 ">휴대폰</button></li>
@@ -495,46 +158,6 @@
                             <h4 class="tit">결제하기</h4>
                         </div>
                         <div class="inner">
-                            <div class="select_item_wrap">
-                                <div class="group_item active">
-                                    <div class="bx_item"><input type="checkbox" id="chkSavingPoint" checked=""><label for="chkSavingPoint" class="ty2">L.POINT 적립</label>
-                                        <div class="tooltip_box"><button class="ic_question">?</button>
-                                            <div class="tooltip"><strong>L.POINT 적립 안내</strong>
-                                                <ul class="list_txt">
-                                                    <li>ID적립은 로그인 ID로 자동 적립 됩니다.</li>
-                                                    <li>카드번호적립은 결제 후 LPOINT 카드 번호를 직접 입력하여, 적립이 가능합니다.</li>
-                                                    <li>L.PAY로 결제하시면, L.PAY 가입 시 인증한 L.POINT ID로 적립됩니다.</li>
-                                                    <li>롯데시네마 관람권 구매, 제휴 모바일 쿠폰사용에 대한 건은 포인트가 적립되지 않습니다.</li>
-                                                    <li>포인트별 적립내용은 다음과 같습니다.</li>
-                                                    <li>L.POINT : L.POINT 카드 또는 롯데 신용카드 번호 입력시 회원등급에 따라 차등 적립 됩니다. 단, 미등록 카드번호 입력시 결제금액의 0.1%가 적립됩니다.</li>
-                                                </ul><button class="btn_close">닫기</button>
-                                            </div>
-                                        </div>
-                                        <div class="area_rdo"><span><input type="radio" id="rdoSavingLPointId" value="ID" checked=""><label for="rdoSavingLPointId">ID적립</label></span><span><input type="radio" id="rdoSavingLPointNum" value="CARD"><label for="rdoSavingLPointNum">카드번호 적립</label></span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="benifit_infor_wrap">
-                                <h5 class="tit_payment">결제수단 혜택 안내</h5>
-                                <div class="mCustomScrollbar _mCS_2 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
-                                    <div id="mCSB_2" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
-                                        <div id="mCSB_2_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
-                                            <dl>
-                                                <dt><img src="http://caching.lottecinema.co.kr//Media/WebAdmin/8d5b908510734788b1b4a614e1b3ac52.png" alt="네이버페이 결제 시," class="mCS_img_loaded"></dt>
-                                                <dd><strong>네이버페이 결제 시,</strong><br><span>롯데/삼성 청구할인 서비스는 미적용됩니다.</span></dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div id="mCSB_2_scrollbar_vertical" class="mCSB_scrollTools mCSB_2_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;">
-                                        <div class="mCSB_draggerContainer">
-                                            <div id="mCSB_2_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; height: 0px; top: 0px;">
-                                                <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
-                                            </div>
-                                            <div class="mCSB_draggerRail"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="payment_sum_wrap">
                                 <dl>
                                     <dt>상품금액</dt>
@@ -555,19 +178,15 @@
                 <div id="reserveStep04" class="section_step_con step04 ">
                     <h3 class="hidden">결제완료</h3>
                 </div>
-            </div>
+			</div>
         </div>
     </div>
 
     <!-- popup : 추가상품구매 -->
-    <div id="layerAddprodbuy" class="layer_wrap layer_pay_addprodbuy_infor">
-    </div>
+    <div id="layerAddprodbuy" class="layer_wrap layer_pay_addprodbuy_infor"></div>
+    
     <!-- //popup : 추가상품구매 -->
-
-
-    <div id="layerNoticePopup" class="layer_wrap layer_Combi_Notice">
-
-    </div>
+	<div id="layerNoticePopup" class="layer_wrap layer_Combi_Notice"></div>
 
 
     <script src="/NLCHS/Scripts/common/modal.js"></script>
@@ -603,12 +222,6 @@
         <input type="hidden" id="signature" name="signature" value="">
     </form>
 
-
-
-
-
-
-
     <script src="/NLCHS/Scripts/Dist/Pagination.bundle.js?v=202111140152"></script>
     <script src="/NLCHS/Scripts/Dist/LayoutTopOfTop.bundle.js"></script>
     <script src="/NLCHS/Scripts/Dist/LayoutSkipNav.bundle.js?v=202111140152"></script>
@@ -628,14 +241,6 @@
             document.getElementById("loading").classList.remove('loader-bouncing');
             document.getElementById("loading").classList.remove('is-active');
         }
-
-        //document.addEventListener('readystatechange', event => {
-        //    if (event.target.readyState === "complete") {
-        //        document.getElementById("loading").classList.remove('loader');
-        //        document.getElementById("loading").classList.remove('loader-bouncing');
-        //        document.getElementById("loading").classList.remove('is-active');
-        //    }
-        //});
     </script>
 
 

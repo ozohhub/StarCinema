@@ -25,3 +25,7 @@ function plus_click(i) {
 	}
 	result.innerText = number;
 }
+
+function reset(){
+	alert('결제수단을 전체 초기화하시겠습니까?');
+}
