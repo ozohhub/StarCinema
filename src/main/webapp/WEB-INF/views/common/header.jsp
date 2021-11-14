@@ -24,7 +24,7 @@
 			</h1>
 			<ul class="g_menu2" style="margin-top: -20px;">
 				<li><a href="index?formpath=memberList">회원관리</a></li>
-				<li><a href="index?formpath=mypage">멤버십</a></li>
+				<li><a href="index?formpath=myPage">멤버십</a></li>
 				<li><a href="index?formpath=board">고객센터</a></li>
 				<li><a href="index?formpath=login">로그인</a></li>
 			</ul>

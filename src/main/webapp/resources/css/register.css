@@ -94,6 +94,7 @@ input[type='checkbox']{
 	margin-top : 50px;
 	width : 100%;	
 	overflow : hidden;
+	
 }
 .emailTb tr, .registerTb tr{
 	height: 50px;
@@ -141,7 +142,7 @@ input[type='checkbox']{
 	width : 67%;
 	height : 30px;
 }
-#pw, #pwChk{
+#pw, #pwChk, #addr1, #addr2{
 	width : 85%;
 	height : 30px;
 }
@@ -151,11 +152,19 @@ input[type='checkbox']{
 	height: 30px;
 }
 
-#month, #day, #phone2, #phone3{
+#month, #day, #phone2, #phone3, #zipcode{
 	width  : 30%;
 	height: 30px;
 }
 
+.address{
+	height: 120px;
+	padding-top : 5px;
+}
+
+
 .register_btn_area{
 	line-height : 10;
 }
+
+

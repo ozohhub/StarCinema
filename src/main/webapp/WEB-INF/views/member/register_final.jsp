@@ -31,7 +31,7 @@
 			<tr>
 				<th><font class="must">*</font> <label class="title">비밀번호</label></th>
 				<td>
-					<input type="text" id= "pw" placeholder="비밀번호입력" maxlength="16"><br>
+					<input type="password" id= "pw" placeholder="비밀번호입력" maxlength="16"><br>
 					<label></label>
 				</td>
 			
@@ -39,7 +39,7 @@
 			<tr>
 				<th><font class="must">*</font> <label class="title">비밀번호 확인</label></th>
 				<td>
-					<input type="text" id = "pwChk" placeholder="비밀번호확인" maxlength="16"><br>
+					<input type="password" id = "pwChk" placeholder="비밀번호확인" maxlength="16"><br>
 					<label></label>
 				</td>
 			</tr>
@@ -76,6 +76,16 @@
 					<input type="text" id = "phone3" placeholder="끝자리"><br>
 					<label></label>
 				</td>
+			</tr>
+			<tr>
+				<th><font class="must">*</font> <label class="title">주소</label></th>
+				<td class = "address">
+					<input type="text" id="zipcode" placeholder="우편번호"><button>우편번호 검색</button><br>
+					<input type="text" id="addr1" placeholder="주소"><br>
+					<input type="text" id="addr2" placeholder="상세주소"><br>
+					<label></label>
+				</td>
+			
 			</tr>
 			<tr>
 				<td colspan="3" class="register_btn_area">

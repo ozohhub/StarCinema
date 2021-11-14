@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+.content, .sub_content{
+	width : 980px;
+	display: block;
+}
+/* 마이페이지 상단 가로 메뉴바 영역(header) */
+.top_menu{
+	position: relative;
+    padding-top: 50px;
+}
+
+.top_menu ul{
+	width : 100%;
+	height : 50px;
+	list-style:none;
+}
+
+.top_menu .main .main_li{
+	float : left;
+	width : 25%; 
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #7F7F7F;
+    position : relative;
+    border-bottom: 1px solid #7F7F7F;
+    
+}
+
+
+.top_menu li .main_a{
+    height: 50px;
+    font-size: 18px;
+    color: #7F7F7F; 
+    font-weight : bold;
+
+}
+
+.top_menu .main li .sub{
+	position : absolute;
+	top : 50px;
+	left : 80;
+	width : 100%;
+	display : none;
+	color: #7F7F7F;
+}
+
+.top_menu .main li .sub li{
+    float : left;
+	width : auto; 
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #7F7F7F;
+	font-size: 13px;
+	font-weight : bold;
+  
+}
+
+.sub li .sub_a{
+	color : #7F7F7F;
+}
+
+
+.top_menu li:hover > .sub{
+    display : block;
+}
+
+.top_menu li:hover > .main_a{
+	 color: #000;
+	 line-height : 20px;	
+}
+
+.sub li:hover > .sub_a{
+	 color: #000;
+}
+
+
+a, a:link, a:visited, a:active, a:hover {
+ 	color : black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:focus{
+	color : black;
+}
+
+/* 1:1 문의페이지 */
+.myQuestion , .myLike, .memberModify, .memberDelete, .myTicketing{
+	margin-top : 65px;
+	width : 980px;
+}
+
+table{
+	width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+
+.question_th th{
+	padding : 20px 0;
+	border-top: 1px solid #BBBBBB;
+	border-bottom-color: #BBBBBB;
+    border-bottom: 1px solid #EEEEEE;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.noQuestion{
+	padding: 80px 0;
+    text-align: center;
+}
+.noQuestion p{
+	font-size: 15px;
+    color: #999
+}
+
+/* 정보 수정 페이지 */
+.memberModify p{
+	font-weight: bold;
+	font-size: 20px;
+}
+.modifyTb{
+	margin-top : 10px;
+}
+.modifyTb tr{
+	border-top: 1px solid #EEEEEE;
+}
+
+#modifyNo{
+	background-color: gray; 
+}
+
+#modifyYes{
+	background-color: red; 
+}
+#modifyNo, #modifyYes{
+	text-align : center;
+	width : 20%;
+	height: 50px;
+	color: white; 
+	border-color: transparent; 
+	cursor:  pointer;
+	font-weight: bold;
+}
+
+.modifyTb .must{
+	color: red;
+}
+.modifyTb .title{
+	color: gray;
+}
+
+.modifyTb tr{
+	height: 60px;
+}
+
+.modifyTb th{
+	text-align: left;
+	width : 30%;
+	padding-right: 5px;
+	font-weight: bold;
+}
+
+.modifyTb #pw, .modifyTb #pwChk, .modifyTb #addr1, .modifyTb #addr2{
+	width : 70%;
+}
+.modifyTb #phone1{
+	width : 18.5%;
+}
+.modifyTb #phone2, .modifyTb #phone3{
+	width : 25%;	
+}
+
+.modifyTb td button {
+	height : 40px;
+	border-color : transparent;
+	font-weight: bold;
+	color : white;
+	background-color : #FF4848;
+}
+
+.modify_btn_area{
+	padding-top : 50px;
+	text-align: center;
+}
+
+/* 회원탈퇴 페이지 */
+.memberDelete{
+	text-align: left;
+	
+}
+.memberDelete h2{
+	font-size :20px;
+	font-weight: bold;
+}
+.memberDelete .title{
+	margin-bottom : 20px;
+}
+.memberDelete .warn{
+	color : red;
+	font-size : 25px;
+}
+
+.warn_title{
+	font-size : 15px;
+	font-weight : bold;
+	margin-top : 40px;
+	border-bottom: 1px solid;
+}
+
+.warn_content{
+	margin-top : 20px;
+}
+
+.detail_content{
+	margin-top : 30px;
+    color : #8a8a8a;
+    font-size : 13px;
+}
+
+.deleteAgree{
+	font-size : 13px;
+	margin : 30px 0;
+	font-weight : bold;
+}
+
+.delete_btn_area{
+	text-align: center;
+}

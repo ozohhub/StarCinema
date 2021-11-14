@@ -64,4 +64,33 @@ public class HomeController {
 	public String pay() {
 		return "movie/pay";
 	}
+	
+	@RequestMapping(value="/myPage")
+	public String myPage() {
+		return "myPage/myPage";
+	}
+	
+	@RequestMapping(value="/myQuestion")
+	public String myQuestion() {
+		return "myPage/myQuestion";
+	}
+	
+	@RequestMapping(value="/myLike")
+	public String myLike() {
+		return "myPage/myLike";
+	}
+	
+	@RequestMapping(value="/memberModify")
+	public String memberModify() {
+		return "myPage/memberModify";
+	}
+	
+	@RequestMapping(value="/memberDelete")
+	public String memberDelete() {
+		return "myPage/memberDelete";
+	}
+	
+	
+	
+	
 }
