@@ -63,7 +63,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg1" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');" onmouseover="bgOpacity(1);" onmouseout="bgOpacityReset(1);">
 						<div class="boxBtn1">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
-							<button id="reserve_btn" class="reserve_btn1">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn1" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn1">상세정보</button>
 						</div>
 					</div>
@@ -75,7 +75,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg2" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/anne.jpg');" onmouseover="bgOpacity(2);" onmouseout="bgOpacityReset(2);">
 						<div class="boxBtn2">
-							<button id="reserve_btn" class="reserve_btn2">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn2" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn2">상세정보</button>
 						</div>
 					</div>
@@ -87,7 +87,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg3" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/dun.jpg');" onmouseover="bgOpacity(3);" onmouseout="bgOpacityReset(3);">
 						<div class="boxBtn3">
-							<button id="reserve_btn" class="reserve_btn3">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn3" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn3">상세정보</button>
 						</div>
 					</div>
@@ -99,7 +99,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg4" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/venom.jpg');" onmouseover="bgOpacity(4);" onmouseout="bgOpacityReset(4);">
 						<div class="boxBtn4">	
-							<button id="reserve_btn" class="reserve_btn4">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn4" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn4">상세정보</button>
 						</div>
 					</div>
@@ -111,7 +111,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg5" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(5);" onmouseout="bgOpacityReset(5);">
 						<div class="boxBtn5">
-							<button id="reserve_btn" class="reserve_btn5">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn5" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn5">상세정보</button>
 						</div>
 					</div>
@@ -123,7 +123,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg6" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/notime.jpg');" onmouseover="bgOpacity(6);" onmouseout="bgOpacityReset(6);">
 						<div class="boxBtn6">
-							<button id="reserve_btn" class="reserve_btn6">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn6" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn6">상세정보</button>
 						</div>
 					</div>
@@ -135,7 +135,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg7" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/voice.jpg');" onmouseover="bgOpacity(7);" onmouseout="bgOpacityReset(7);">
 						<div class="boxBtn7">
-							<button id="reserve_btn" class="reserve_btn7">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn7" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn7">상세정보</button>
 						</div>
 					</div>
@@ -147,7 +147,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg8" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(8);" onmouseout="bgOpacityReset(8);">
 						<div class="boxBtn8">
-							<button id="reserve_btn" class="reserve_btn8">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn8" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn8">상세정보</button>
 						</div>
 					</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){
 				<li>
 					<div class="boxBg9" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/billy.jpg');" onmouseover="bgOpacity(9);" onmouseout="bgOpacityReset(9);">
 						<div class="boxBtn9">
-							<button id="reserve_btn" class="reserve_btn9">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn9" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn9">상세정보</button>
 						</div>
 					</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){
 					<li>
 					<div class="boxBg10" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/last.jpg');" onmouseover="bgOpacity(10);" onmouseout="bgOpacityReset(10);">
 						<div class="boxBtn10">
-							<button id="reserve_btn" class="reserve_btn10">예매하기</button>
+							<button id="reserve_btn" class="reserve_btn10" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn10">상세정보</button>
 						</div>
 					</div>

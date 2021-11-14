@@ -873,7 +873,7 @@ button>.ico_heart,a>.ico_heart {margin-right:5px;}
 .btn_txt_detail {font-size:11px; color:#000; border:0 none; background:transparent; padding:0;}
 .btn_txt_detail:after {content:""; display:inline-block; width:24px; height:24px; margin-left:8px; vertical-align:middle; background:url("../../resources/images/icon/search_24.png") no-repeat right center;}
 .btn_txt_del {padding:0 0 0 8px; border:none; border-bottom:1px solid #000; font-size:11px; font-size:11px; background:url("../../resources/images/icon/del_6.png") no-repeat 0 center;}
-.btn_txt_reset {height:28px; line-height:28px; box-sizing:border-box; padding:0 10px 0 25px; border-radius:28px; border:1px solid #BEBEBE; font-size:11px; color:#000; background:#FFF url("../images/icon/reset.png") no-repeat 12px 51%;}
+.btn_txt_reset {height:28px; line-height:28px; box-sizing:border-box; padding:0 10px 0 25px; border-radius:28px; border:1px solid #BEBEBE; font-size:11px; color:#000; background:#FFF url("../images/movie/reset.png") no-repeat 12px 51%;}
 .btn_txt_download {padding-left:22px; width:18px; height:18px; font-size:15px; font-weight:bold; background:url("../images/icon/download_01.png") no-repeat left center;}
 
 

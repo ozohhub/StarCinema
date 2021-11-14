@@ -3664,7 +3664,7 @@ dl.total_price dd strong {font-family:'Roboto'; font-size:25px; font-weight:bold
 /* */
 .list_pay_item {margin:0 -1%;}
 .list_pay_item:after {content:""; display:block; clear:both;}
-.list_pay_item li {float:left; margin:0 1% 10px;}
+.list_pay_item li {float:left; margin:0 1% 10px; width: 31.3%}
 .list_pay_item li button {width:100%; border-radius:4px; background-color:#FFF;}
 .list_pay_item li button.active {border-color:#000;}
 .list_pay_item li button.disabled {opacity:0.5; pointer-events:none;}
@@ -3750,10 +3750,9 @@ dl.total_price dd strong {font-family:'Roboto'; font-size:25px; font-weight:bold
 .group_payment {padding:15px 30px;}
 /* 理쒖쥌寃곗젣�섎떒 醫낅쪟 */
 .group_payment .bx_cate .list_pay_item li button {overflow:visible; position:relative; height:68px; line-height:95px; background-repeat:no-repeat;}
-.group_payment .bx_cate .list_pay_item li button.cate1 {background-image:url("../../Content/images/payment/method_ic_card.png"); background-position:center 17px;}
-.group_payment .bx_cate .list_pay_item li button.cate2 {background-image:url("../../Content/images/payment/method_ic_lpay_20210407.png"); background-position:center 17px;} /* 2020.03.17 */
-.group_payment .bx_cate .list_pay_item li button.cate3 {background-image:url("../../Content/images/payment/method_ic_simple.png"); background-position:center 17px;}
-.group_payment .bx_cate .list_pay_item li button.cate4 {background-image:url("../../Content/images/payment/method_ic_phone.png"); background-position:center 14px;}
+.group_payment .bx_cate .list_pay_item li button.cate1 {background-image:url("../images/movie/ic_card.png"); background-position:center 17px;}
+.group_payment .bx_cate .list_pay_item li button.cate3 {background-image:url("../images/movie/ic_simple.png"); background-position:center 17px;}
+.group_payment .bx_cate .list_pay_item li button.cate4 {background-image:url("../images/movie/ic_phone.png"); background-position:center 14px;}
 .group_payment .bx_cate .list_pay_item li button img {margin-top:42px;}
 .group_payment .bx_cate .list_pay_item li button.active:after {content:""; position:absolute; left:50%; bottom:-5px; width:7px; height:5px; margin-left:-3px; background:url("../../Content/images/payment/bg_boxarrow.png") no-repeat;}
 .group_payment .toggle_wrap .toggle_tit .btn_toggle {top:10px;}
@@ -3940,9 +3939,9 @@ dl.total_price dd strong {font-family:'Roboto'; font-size:25px; font-weight:bold
 .layer_saving_request .top_notice_ic {margin:0 0 30px; padding-top:32px; padding-bottom:10px; border-bottom:1px solid #DDD; font-size:13px; background-size:28px auto;}
 /* �꾧툑�곸닔利� 醫낅쪟 */
 .group_saving_cash .bx_cate .list_pay_item li button {position:relative; height:68px; line-height:95px; background-repeat:no-repeat;}
-.group_saving_cash .bx_cate .list_pay_item li button.cate1 {background-image:url("../../Content/images/payment/method_ic_phone.png"); background-position:center 17px;}
-.group_saving_cash .bx_cate .list_pay_item li button.cate2 {background-image:url("../../Content/images/payment/method_ic_simple.png"); background-position:center 15px;}
-.group_saving_cash .bx_cate .list_pay_item li button.cate3 {background-image:url("../../Content/images/payment/method_ic_simple.png"); background-position:center 17px;}
+.group_saving_cash .bx_cate .list_pay_item li button.cate1 {background-image:url("../images/movie/ic_phone.png"); background-position:center 17px;}
+.group_saving_cash .bx_cate .list_pay_item li button.cate3 {background-image:url("../images/movie/ic_simple.png"); background-position:center 17px;}
+.group_payment .bx_cate .list_pay_item li button.cate5 { background-image: url("../images/movie/ic_deposit.svg"); background-position: center 14px; }
 .group_saving_cash .bx_cate .list_pay_item li button img {margin-top:42px;}
 .group_saving_cash .bx_cate .list_pay_item li button.active:after {content:""; position:absolute; left:50%; bottom:-5px; width:7px; height:5px; margin-left:-3px; background:url("../../Content/images/payment/bg_boxarrow.png") no-repeat;}
 /* �꾧툑�곸닔利� 諛⑸쾿 */
