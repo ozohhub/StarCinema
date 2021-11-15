@@ -232,3 +232,97 @@ table{
 .delete_btn_area{
 	text-align: center;
 }
+
+/* 찜목록 페이지 */
+
+.myLike_title{
+	text-align: left;
+}
+.myLike_title h4, .myLike_title span{
+    font-size: 22px;
+    font-family: 'Roboto';
+
+}
+.myLike_title h4{
+	display: inline-block;
+}
+
+.myLike_title span em{
+	margin-left: 22px;
+	color: #FF243E;
+    font-size: 21px;
+    font-family: 'Roboto';
+    text-decoration: underline;
+}
+
+.myLike_list{
+	margin-left: -40px;
+	list-style: none;
+}
+
+.myLike_list li{
+	display: block;
+	position: relative;
+    float: left;
+    margin-left: 40px;
+    margin-top: 40px;
+    padding-left: 204px;
+    width: 246px;
+    min-height: 262px;
+}
+
+.myLike_poster{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 184px;
+    height: 262px;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+ 
+}
+
+.myLike_poster img{
+	height: 262px;
+	width : auto;
+}
+
+.movie_tit{
+	font-weight: bold;
+	cursor: pointer;
+	display: block;
+    padding-top: 8px;
+    font-size: 22px;
+   	float : left;
+}
+
+.grade{
+	font-family: "Roboto";
+    margin-left: -1px;
+    font-size: 0px;
+    font-weight: bold;
+    color: #FFF;
+    white-space: nowrap;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.grade.gr_12{
+	content: "12";
+    background-color: #4DD6FF;
+    font-size : 13px;
+ 
+}
+
+.grade.gr_all{
+	content: "전체";
+    background-color: #5BC77E;;
+    font-size : 11px;
+ 
+}
