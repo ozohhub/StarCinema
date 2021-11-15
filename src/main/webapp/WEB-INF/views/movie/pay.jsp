@@ -21,22 +21,12 @@
 		                    		<strong class="tit"><span>01</span><br>상영시간</strong>
 		                        </a>
 		                    </li>
-		                    <li class="step02">
-							    <a href="#"><strong class="tit"><span>02</span><br>인원/좌석</strong>
+		                    <li class="step02" style="background-color: #333;">
+							    <a href="#" style="color: #fff;"><strong class="tit"><span>02</span><br>인원/좌석</strong>
 								</a>
 						    </li>
 		                    <li class="step03 active">
 		                    	<a href="#"><strong class="tit"><span>03</span><br>결제</strong>
-							        <div class="bx_con">
-							            <dl>
-							                <dt>티켓금액</dt>
-							                <dd>8,000원</dd>
-							                <dt>할인금액</dt>
-							                <dd>0원</dd>
-							                <dt>총합계</dt>
-							                <dd>8,000원</dd>
-							            </dl>
-							        </div>
 						    	</a>
 						    </li>
 		                    <li>
