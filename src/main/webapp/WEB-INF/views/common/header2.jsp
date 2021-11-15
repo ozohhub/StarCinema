@@ -48,7 +48,7 @@
 					</div>
 				</li>
 				<li class="">
-					<a href="https://www.lottecinema.co.kr/NLCHS/Movie">영화</a>
+					<a href="index?formpath=movie">영화</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="https://www.lottecinema.co.kr/NLCHS/Movie" title="홈">홈</a></li>

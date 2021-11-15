@@ -90,6 +90,11 @@ public class HomeController {
 		return "myPage/memberDelete";
 	}
 	
+	@RequestMapping(value="/movie")
+	public String movie() {
+		return "movie/movie";
+	}
+	
 	
 	
 	
