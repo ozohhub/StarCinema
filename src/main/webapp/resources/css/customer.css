@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+.content, .sub_content{
+	width : 980px;
+	display: block;
+}
+/* 고객센터페이지 상단 가로 메뉴바 영역(header) */
+.top_menu{
+	position: relative;
+    padding-top: 50px;
+}
+.top_menu h2{
+	text-align: left;
+	font-weight: bold;
+	font-size : 25px;
+	font-family: "Roboto";
+	
+}
+.top_menu ul{
+	margin-top : 20px;
+	width : 100%;
+	height : 50px;
+	list-style:none;
+}
+
+.top_menu .main .main_li{
+	float : left;
+	width : 50%; 
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #7F7F7F;
+    position : relative;
+    border-bottom: 1px solid #7F7F7F;
+    border-top: 1px solid #EEE;
+    
+}
+
+.top_menu li .main_a{
+    height: 50px;
+    font-size: 18px;
+    color: #7F7F7F; 
+    font-weight : bold;
+    font-family: "Roboto";
+
+}
+
+.top_menu li:hover > .main_a{
+	 color: #000;
+	 line-height : 20px;	
+}
+
+a, a:link, a:visited, a:active, a:hover {
+ 	color : black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:focus{
+	color : black;
+}
+
+
+/* 고객센터 페이지 */
+.search_wrap{
+	margin-top : 40px;;
+	text-align : left;
+	position: relative;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    background: #F8F8F8;
+    padding: 22px 0px;
+    font-size: 0;
+}
+
+.search_wrap select{
+	margin-left :10px;
+	position: relative;
+    border: 1px solid #DDD;
+    background: #fff url(../images/icon/arr_dw.png);
+    background-repeat: no-repeat;
+    background-position: right 6px top 50%;
+    height: 40px;
+    line-height: 40px;
+      
+    font-size: 14px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    font-family: "Noto Sans KR", "Roboto", "dotum", "sans-serif";
+    color: #000;
+}
+
+#searchWord{
+	width : 580px;
+	margin-right: 4px;
+}
+
+.sub_content{
+	margin-top : 30px;
+}
+
+.notice{
+	width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+
+.notice th{
+	padding : 20px 0;
+    border-bottom: 1px solid #999;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.noNotice{
+	padding: 80px 0;
+    text-align: center;
+}
+.noNotice p{
+	font-size: 15px;
+    color: #999
+}
+
+.notice_paging{
+	margin-top : 20px;
+}
+
+.notice_paging a{
+	font-size : 15px;
+	margin-left : 10px;
+}
+
+

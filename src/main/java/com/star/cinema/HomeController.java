@@ -95,6 +95,17 @@ public class HomeController {
 		return "movie/movie";
 	}
 	
+	@RequestMapping(value="/customer")
+	public String customer() {
+		return "customer/customer";
+	}
+	
+	
+	@RequestMapping(value="/questionWrite")
+	public String questionWrite() {
+		return "customer/questionWrite";
+	}
+	
 	
 	
 	
