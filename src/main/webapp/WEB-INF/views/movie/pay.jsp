@@ -11,33 +11,30 @@
 </head>
 
 <body>
-	<div id="sub_section">
     <div id="contents" class="contents_full contents_reserve">
         <div class="wrap_reserve ">
 			<h2 class="hidden">예매하기</h2>
 					<div class="section_step_tit">
-					    <ul style="padding-top: 700px;">
-					        <li class="step01 prev">
-					        	<a href="#">
-					        		<strong class="tit"><span>01</span><br>상영시간</strong>
-					            </a>
-					        </li>
-					        <li class="step02 prev">
-					        	<a href="#">
-					        		<strong class="tit"><span>02</span><br>인원/좌석</strong>
-					            </a>
-					        </li>
-					        <li class="step03 active">
-					        	<a href="#">
-					        		<strong class="tit"><span>03</span><br>결제</strong>
-					            </a>
-					        </li>
-					        <li>
-					        	<a href="#" style="cursor: default;">
-					        		<strong class="tit"><span>04</span><br>결제완료</strong>
-					        	</a>
-					        </li>
-					    </ul>
+		                <ul style="padding-top: 700px;">
+		                    <li class="step01 prev" style="margin-left: 0">
+		                    	<a style="cursor: default;">
+		                    		<strong class="tit"><span>01</span><br>상영시간</strong>
+		                        </a>
+		                    </li>
+		                    <li class="step02" style="background-color: #333;">
+							    <a href="#" style="color: #fff;"><strong class="tit"><span>02</span><br>인원/좌석</strong>
+								</a>
+						    </li>
+		                    <li class="step03 active">
+		                    	<a href="#"><strong class="tit"><span>03</span><br>결제</strong>
+						    	</a>
+						    </li>
+		                    <li>
+		                    	<a style="cursor: default;">
+		                    		<strong class="tit"><span>04</span><br>결제완료</strong>
+		                    	</a>
+		                    </li>
+		                </ul>
 					</div>
 
                 <div id="reserveStep01" class="section_step_con step01 ">
