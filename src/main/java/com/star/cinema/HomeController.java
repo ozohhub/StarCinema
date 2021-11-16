@@ -103,8 +103,7 @@ public class HomeController {
 	public String memberDelete() {
 		return "myPage/memberDelete";
 	}
-	
-	
+		
 	@RequestMapping(value="/customer")
 	public String customer() {
 		return "customer/customer";
@@ -119,7 +118,6 @@ public class HomeController {
 	public String questionWrite() {
 		return "customer/questionWrite";
 	}
-	
 
 	@RequestMapping(value="/noticeView")
 	public String noticeView() {

@@ -21,12 +21,15 @@
 					<col style="width : auto;">
 					<col style="width : 12%">
 					<col style="width : 12%">
+					<col style="width : 8%">
+					
 				</colgroup>
 				<thead class="question_th">
 					<tr>
 						<th>번호</th>
 						<th>분류</th>
 						<th>제목</th>
+						<th>작성자</th>
 						<th>작성일</th>
 						<th>답변여부</th>				
 					</tr>
@@ -36,11 +39,12 @@
 						<td>1</td>
 						<td>분류나오는곳</td>
 						<td><a href="index?formpath=questionView">제목나오는곳</a></td>
+						<td>작성자나오는곳</td>
 						<td>작성일나오는곳</td>
 						<td>답변여부(Y/N)</td>
 					</tr>
 					<tr>
-						<td colspan="5">
+						<td colspan="6">
 							<div class="noQuestion">
 								<p>문의내역이 존재하지 않습니다.</p>
 							</div>
