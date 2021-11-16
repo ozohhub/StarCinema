@@ -17,7 +17,12 @@ public class CustomerController {
 		}else {
 			return "forward:index?formpath=questionWrite";	
 		}
-		
-		
 	}
+	
+	
+	@RequestMapping(value="/noticeDeleteProc")
+	public String noticeDeleteProc(HttpSession session) {
+		return "forward:index?formpath=customer";
+	}
+	
 }

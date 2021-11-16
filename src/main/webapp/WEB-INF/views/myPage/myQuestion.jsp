@@ -49,5 +49,11 @@
 				</tbody>
 			</table>
 		</div>
+		
+		<div class="question_paging" align="center">
+			<a>prev</a>
+			<a>1</a>
+			<a>next</a>
+		</div>
 	</div>
 </center>

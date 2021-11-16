@@ -62,10 +62,18 @@
 			</table>
 		</div>
 		
+	
+		
 		<div class="notice_paging">
-			<a>prev</a>
-			<a>1</a>
-			<a>next</a>
+			<div class="paging_ctrl">
+				<a>prev</a>
+				<a>1</a>
+				<a>next</a>
+			</div>
+			<div align = "right">
+	   			<!-- admin 계정일때만 작성 활성화시킴 -->		
+					<input type="button" id = "writeYes" value="작성" onclick="location.href='index?formpath=noticeWrite';">
+ 			</div>		
 		</div>
 		
 		

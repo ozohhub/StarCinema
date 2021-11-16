@@ -41,12 +41,12 @@
 					<tr>
 					</tr>
 					<tr class="notice_btn_area" align="right">
-						<td>	<!-- admin 계정일때만 버튼 활성화 -->
-							<!--<c:if test="${id eq admin}">-->
+						<td>	 
+								<!-- admin계정일때만 작성, 수정 삭제 활성화시킴 -->
 								<input type="button" value="작성" onclick="location.href='index?formpath=noticeWrite';">
-								<input type="button" value="수정">
-								<input type="button" value="삭제">
-							<!--</c:if>-->
+								<input type="button" value="수정" onclick="location.href='index?formpath=noticeModify';">
+								<input type="button" value="삭제" onclick="location.href='noticeDeleteProc';">
+						
 							<input type="button" value="목록으로" onclick="location.href='index?formpath=customer';">
 						</td>
 					</tr>

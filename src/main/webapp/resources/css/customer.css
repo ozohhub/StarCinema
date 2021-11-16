@@ -3,6 +3,7 @@
 .content, .sub_content{
 	width : 980px;
 	display: block;
+	font-family: "Roboto";
 }
 /* 고객센터페이지 상단 가로 메뉴바 영역(header) */
 .top_menu{
@@ -76,14 +77,13 @@ a:focus{
 	
 }
 .search_wrap select, .questionTb select{
-	
+	font-family: "Roboto";
     border: 1px solid #DDD;
     background: #fff url(../images/icon/arr_dw.png);
     background-repeat: no-repeat;
     background-position: right 6px top 50%;
     font-size: 14px;
     vertical-align: middle;
-    font-family: "Roboto";
     color: #000;
     cursor : pointer;
 }
@@ -102,7 +102,7 @@ a:focus{
 	position:absolute; top:23px;
 	width:100px; height: 40px;
 	font-size : 15px;
-	font-family: "Roboto";
+	 font-family: "Roboto";
 	cursor : pointer;
 }
 
@@ -146,6 +146,11 @@ a:focus{
 .notice_paging a{
 	font-size : 15px;
 	margin-left : 10px;
+}
+
+.paging_ctrl{
+	position : relative;
+	top : 30px;
 }
 
 /* 공지사항 상세 페이지 */
@@ -222,46 +227,47 @@ a:focus{
 	cursor : pointer;
 }
 
-/* 1:1 문의글 작성*/
+/* 1:1 문의글 작성, 공지사항 작성*/
 
-.question_write p{
+.question_write p,.notice_write p{
 	font-weight: bold;
 	font-size: 20px;
 }
-.questionTb{
+.questionTb, .notice_write_Tb{
 	margin-top : 20px;
 }
 
-.questionTb th{
+.questionTb th, .notice_write_Tb th{
 	text-align: left;
 	width : 30%;
 	padding-right: 5px;
 	font-weight: bold;
 }
 
-.questionTb tr{
+.questionTb tr, .notice_write_Tb tr{
 	border-top: 1px solid #EEEEEE;
 	height: 60px;
 }
 
-.questionTb .question_content{
+
+.questionTb .question_content, .notice_write_Tb .notice_content{
 	height: 200px;
 }
 
-.questionTb .question_content textarea{
+.questionTb .question_content textarea, .notice_write_Tb .notice_content textarea{
 	height: 200px;
 }
 
-.questionTb .must{
+.must{
 	color: red;
 }
-.questionTb .title{
+.title{
 	color: gray;
 }
 #title{
 	width : 100%;
 }
-.question_btn_area{
+.question_btn_area, .noticeWrite_btn_area{
 	padding-top : 50px;
 	text-align: center;
 }
@@ -283,4 +289,4 @@ a:focus{
 	height: 40px;
 	cursor:  pointer;
 	font-weight: bold;
-	}
+}

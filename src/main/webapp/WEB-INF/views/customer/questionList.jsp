@@ -35,7 +35,7 @@
 					<tr>
 						<td>1</td>
 						<td>분류나오는곳</td>
-						<td>제목나오는곳</td>
+						<td><a href="index?formpath=questionView">제목나오는곳</a></td>
 						<td>작성일나오는곳</td>
 						<td>답변여부(Y/N)</td>
 					</tr>
@@ -49,5 +49,12 @@
 				</tbody>
 			</table>
 		</div>
+		
+		<div class="question_paging" align="center">
+			<a>prev</a>
+			<a>1</a>
+			<a>next</a>
+		</div>
+		
 	</div>
 </center>
