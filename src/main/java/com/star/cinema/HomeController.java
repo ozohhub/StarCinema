@@ -1,5 +1,7 @@
 package com.star.cinema;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -99,13 +101,26 @@ public class HomeController {
 	public String customer() {
 		return "customer/customer";
 	}
-	
+		
+	@RequestMapping(value="/questionList")
+	public String questionList() {
+		return "customer/questionList";
+	}
 	
 	@RequestMapping(value="/questionWrite")
 	public String questionWrite() {
 		return "customer/questionWrite";
 	}
 	
+	@RequestMapping(value="/noticeView")
+	public String noticeView() {
+		return "customer/noticeView";
+	}
+	
+	@RequestMapping(value="/noticeWrite")
+	public String noticeWrite() {
+		return "customer/noticeWrite";
+	}
 	
 	
 	

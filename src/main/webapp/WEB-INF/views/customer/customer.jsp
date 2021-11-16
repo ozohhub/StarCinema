@@ -21,6 +21,7 @@
 				<option>제목+내용</option>
 			</select>
 			<input type="text" id="searchWord" placeholder="검색어를 입력해주세요">
+			<input type="button" id="searchBtn" value="검색">
 		</fieldset>
 	</div>
 	
@@ -34,7 +35,7 @@
 					<col style="width : 15%">
 
 				</colgroup>
-				<thead class="customer_th">
+				<thead class="notice_th">
 					<tr>
 						<th>번호</th>
 						<th>구분</th>
@@ -42,7 +43,13 @@
 						<th>등록일</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="notice_td">
+					<tr>
+						<td>1</td>
+						<td>구분나오는곳</td>
+						<td><a href="index?formpath=noticeView">제목나오는곳</a></td>
+						<td>등록일나오는곳</td>				
+					</tr>
 					<tr>
 						<td colspan="4">
 							<div class="noNotice">
@@ -50,6 +57,7 @@
 							</div>
 						</td>
 					<tr>
+					
 				</tbody>
 			</table>
 		</div>

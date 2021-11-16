@@ -6,11 +6,11 @@
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
 <c:url var="root" value="/"/>
 
-<title>마이페이지 - 1:1문의내역</title>
+<title>1:1문의 내역 확인</title>
 
-<%@ include file="myPageHeader.jsp" %>
+<%@ include file="customerHeader.jsp" %>
 
-<!-- 회원이 자신이 남긴 1:1문의내역 확인하는 곳 -->
+<!-- 관리자가 모든 1:1문의내역 확인하는곳 -->
 <center>
 	<div class="sub_content">
 		<div class="myQuestion">

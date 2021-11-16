@@ -18,7 +18,7 @@
 					</li>
 								
 					<li class="main_li">
-						<a href="index?formpath=questionWrite" class = "main_a" style="width : 50%; left : 0%;">
+						<a href="question" class = "main_a" style="width : 50%; left : 0%;">
 							<span>1:1문의</span>
 						</a>
 					</li>
