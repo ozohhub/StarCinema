@@ -1446,7 +1446,7 @@ a.btn_lnk2 {border-bottom:1px solid #666; font-size:12px; color:#666; vertical-a
 .tab_btn_type1 > li {float:left; margin-right:30px;}
 .tab_btn_type1 > li button {padding:0; border:none;}
 .tab_btn_type1 > li button > span {display:block; height:32px; line-height:32px; font-size:18px; color:#000; opacity:0.6}
-.tab_btn_type1 > li.active button > span {border-bottom:1px solid #000; opacity:1}
+.tab_btn_type1 > li.active button > span {color:#000000; opacity:1;}
 
 /* ì˜¤íŽ˜ë¼ ============================== */
 .opera_visual_con {position:relative; margin-bottom:60px; padding-bottom:60px; background:#000}
@@ -4188,7 +4188,7 @@ dl.total_price dd strong {font-family:'Roboto'; font-size:25px; font-weight:bold
 .wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul li {padding: 2px; border-bottom:none;}
 .wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul > li.depth1.active > a {background:#FFF url("../../resources/images/icon/check.png") no-repeat 130px center;}
 .wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul .depth2 {background-color:#FFF;}
-.wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul .depth2 ul li.active a {color:#FF243E; /*background:url("../../resources/images/icon/check.png") no-repeat 130px center;*/}
+.wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul .depth2 ul li.active a {color:#FF243E;}
 .wrap_reserve .section_step_con .article.article_cinema .cinema_select_wrap > ul .depth2 ul li.disabled a {color:#ccc;}
 /* article : 01ìƒì˜ì‹œê°„/ì˜í™”ì„ íƒ ========== */
 .wrap_reserve .section_step_con .article.article_movie {width:351px; background-color:#F8F8F8;}

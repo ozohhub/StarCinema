@@ -14,11 +14,11 @@
     <meta http-equiv="Cache-Control" content="no-cache" />
     <title>아이디 찾기</title>
 
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
+	<script src="https://members.lpoint.com/resources/js/lib/jquery-1.12.3.min.js"></script>
+	<script src="https://members.lpoint.com/resources/js/lib/serialize.object.js"></script>
+	<script src="https://members.lpoint.com/resources/js/lib/json2.js"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/findid.css" />
+	<script src="<c:url value="/resources/js/find.js" />"></script>
 	<script src="<c:url value="/resources/js/findid.js" />"></script>
 </head>
 <body id="KOR" data-device="0" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -119,8 +119,6 @@
     <form name="formError" action="/exView/manage/fdPassword_05_002" id="formError" method="post">
         <input type="hidden" name="errorTypeCode" value="002">
     </form>
-    </script>
-
 
     <!-- Footer -->
     <div id="mast-foot">
@@ -148,99 +146,6 @@
                     <span>고객센터 1899-8900
                         <!-- 고객센터 1899-8900 --></span>
                 </address>
-            </div>
-            <div class="copyright">© LOTTE MEMBERS CO.,LTD.</div>
-            <div class="friendly">
-                <div class="site-linker">
-                    <button type="button" role="button" class="">Service Site
-                        <!-- Service Site --></button>
-                    <ul>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="https://www.lpoint.com">L.POINT
-                                <!-- L.POINT --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="https://www.lpay.com">L.pay
-                                <!-- L.pay --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="https://www.lime-in.co.kr">라임
-                                <!-- 라임 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="https://partners.lpoint.com">L.POINT 파트너스
-                                <!-- L.POINT 파트너스 --></a></li>
-                    </ul>
-                </div>
-                <div class="site-linker">
-                    <button type="button" role="button">Family Site
-                        <!-- Family Site --></button>
-                    <ul>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotte.co.kr">롯데그룹
-                                <!-- 롯데그룹 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottetown.com">롯데타운
-                                <!-- 롯데타운 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotte.com/">롯데닷컴
-                                <!-- 롯데닷컴 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottemart.com/">롯데마트
-                                <!-- 롯데마트 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.vic-market.com/vicmarket/main.do">롯데빅마켓
-                                <!-- 롯데빅마켓 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.toysrus.co.kr/to/main.do">토이저러스
-                                <!-- 토이저러스 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottesuper.co.kr/">롯데슈퍼
-                                <!-- 롯데슈퍼 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotteimall.com/main/Index.jsp">롯데홈쇼핑
-                                <!-- 롯데홈쇼핑 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.7-eleven.co.kr/">바이더웨이
-                                <!-- 바이더웨이 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.7-eleven.co.kr/">세븐일레븐
-                                <!-- 세븐일레븐 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.himart.co.kr/">하이마트
-                                <!-- 하이마트 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.fujifilm.co.kr/">한국후지필름
-                                <!-- 한국후지필름 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lohbs.co.kr/main.do">LOHB's
-                                <!-- LOHB's --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.ellotte.com/">롯데백화점
-                                <!-- 롯데백화점 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://kr.lottedfs.com/main">롯데면세점
-                                <!-- 롯데면세점 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottefitin.com">롯데피트인
-                                <!-- 롯데피트인 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://gimpoairport.lottemall.co.kr">롯데몰 김포공항점
-                                <!-- 롯데몰 김포공항점 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lwt.co.kr">롯데월드몰
-                                <!-- 롯데월드몰 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=021&amp;gubun=2">롯데영플라자
-                                <!-- 롯데영플라자 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=057">롯데아울렛
-                                <!-- 롯데아울렛 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=054&amp;gubun=1">롯데프리미엄아울렛
-                                <!-- 롯데프리미엄아울렛 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.mujikorea.net/">무인양품
-                                <!-- 무인양품 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.uniqlo.kr/">유니클로
-                                <!-- 유니클로 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotteria.com/">롯데리아
-                                <!-- 롯데리아 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.angelinus.co.kr/">엔제리너스커피
-                                <!-- 엔제리너스커피 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.tgif.co.kr/">T.G.I FRIDAY'S
-                                <!-- T.G.I FRIDAY'S --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.natuur.co.kr/">나뚜루POP
-                                <!-- 나뚜루POP --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.krispykreme.co.kr/">크리스피크림도넛
-                                <!-- 크리스피크림도넛 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.boulangerie.co.kr/">보네스뻬
-                                <!-- 보네스뻬 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottecinema.co.kr/">롯데시네마
-                                <!-- 롯데시네마 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotteworld.com/">롯데월드 어드벤처
-                                <!-- 롯데월드 어드벤처 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotteworld.com/aquarium/index.asp">롯데월드 아쿠아리움
-                                <!-- 롯데월드 아쿠아리움 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lotteworld.com/waterpark/index.asp">롯데 워터파크
-                                <!-- 롯데 워터파크 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.giantsclub.com/">롯데자이언츠
-                                <!-- 롯데자이언츠 --></a></li>
-                        <li><a target="_blank" onclick="return fnWindowOpen(this.href);" title="새 창" href="http://www.lottejtb.com/">롯데제이티비
-                                <!-- 롯데제이티비 --></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
