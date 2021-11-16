@@ -187,6 +187,3 @@ function bgOpacityReset(i){
 	$(".reserve_btn"+i).css({"display" : "none"})
 	$(".detail_btn"+i).css({"display" : "none"})
 }
-
-
-
