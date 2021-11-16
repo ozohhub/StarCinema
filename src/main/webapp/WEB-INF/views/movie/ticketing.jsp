@@ -1,97 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDate"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-
-    <head>
-        <title>예매 - 롯데시네마</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-
-        <meta id="description" content="Happy Memories 롯데시네마는 최상의 관람 환경과 양질의 켄텐츠로 영화를 통해 고객에게 행복한 기억을 선물합니다.">
-        <meta id="Keywords" content="롯데시네마, LOTTE CINEMA, 롯시, 시네마, CINEMA, 영화, 영화관, 극장, 티켓, 박스오피스, Movie, Theater, 예매, 현재상영작, 상영예정작, 개봉영화, 영화예매, 영화예매순위, 영화순위, 상영시간표">
-        <link href="https://www.lottecinema.co.kr/NLCHS/favicon.ico?v=1" rel="shortcut icon" type="image/x-icon">
-        <script async="" type="text/javascript" src="https://tag-deepad.lpoint.com/cookie?mid=4&amp;cid=381071758.1636073813"></script>
-        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-        <script async="" src="//dsp.dmcmedia.co.kr/selper/js/selperevt.js?ver=0.1.4.1"></script>
-        <script src="https://connect.facebook.net/signals/config/233523444404890?v=2.9.48&amp;r=stable" async=""></script>
-        <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
-        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-        <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-164790289-1"></script>
-        <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-PJ6LCKF"></script>
-        <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-K8MP435"></script>
-        <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-        <script type="text/javascript">
-            var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson', 'Windows Phone');
-
-            for (var word in mobileKeyWords) {
-
-                if (navigator.userAgent.match(mobileKeyWords[word]) != null) {
-
-                    location.href = "/NLCMW/";
-
-                    break;
-                }
-            }
-        </script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/swiper.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mCustomScrollbar.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content_lc21new.css" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dev.css" />
-
-
-        <script type="text/javascript">
-            var CinemaServerDomain = "https://www.lottecinema.co.kr";
-            var EventServerDomain = "https://event.lottecinema.co.kr";
-            var CinemaServiceDomain = "";
-            var Language = "KR";
-            var lottecinemaVodDomain = "https://www.lottecinemavod.co.kr";
-            var seechuAgreeMode = ""; //롯데시네마 VOD 동의 호출 경로(main, vod)
-            //서비스플랫폼 NLCMW:모바일웹, NLCMS:모바일앱, NLCHS:웹
-            var PLATFORM_TYPE = "NLCHS";
-            var CHANNEL_TYPE = "HO";
-            const headTitle = "바로예매_index";
-        </script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery-1.12.3.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.jplayer.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.lazy.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery-ui.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.cookie.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/owl.carousel-2.3.4-custom.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/plugin.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/pl_custom.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Library/moment.js"></script>
-        <script type="text/javascript" src="https://members.lpoint.com/api/js/lotte.sso.api.js"></script>
-        <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
-        <script src="https://www.lottecinema.co.kr/NLCHS/Content/js/common.js?v=202111141143"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/Cookie.js?v=202111141143"></script>
-
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Library/jquery.blockUI.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Library/React/remarkable.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Library/React/axios.min.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/URLSearchParamsCustom.js"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/Util.js?v=202111141143"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/Common.js?v=202111141143"></script>
-
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/ShareSNS.js?v=202111141143"></script>
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/Member/Member.js"></script>
-        <script type="text/javascript">
-            var MypageCommonQuery = RequestParams(document.location.search); //페이지 파라메터
-        </script>
-
-        <!-- Google Tag Manager -->
-
-        <script src="https://www.lottecinema.co.kr/NLCHS/Scripts/common/lcga.js?v=202111141143"></script>
-        <!-- Google Tag Manager -->
-
-    </head>
 </head>
-
 <body>
     <div id="contents" class="contents_full contents_reserve" style="">
         <div class="wrap_reserve">
@@ -111,7 +30,7 @@
                         <h4 class="tit">영화관</h4>
                     </div>
                     <div class="inner">
-                        <ul class="tab_wrap outer"><button type="button" class="tab_tit" style="width: 50%; left: 0%;"><span>전체</span></button>
+                        <ul class="tab_wrap outer">
                             <li class="active">
                                 <div class="tab_con">
                                     <h5 class="hidden">전체</h5>
@@ -123,7 +42,7 @@
                                                         <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
                                                             <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
                                                                 <ul>
-                                                                    <li class="active"><a href="#none">김포공항</a></li>
+                                                                    <li class=""><a href="#none">김포공항</a></li>
                                                                     <li class=""><a href="#none">청량리</a></li>
                                                                     <li class=""><a href="#none">홍대입구</a></li>
                                                                 </ul>
@@ -334,122 +253,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><button type="button" class="tab_tit" style="width: 50%; left: 50%;"><span>스페셜관</span></button>
-                                <div class="tab_con">
-                                    <h5 class="hidden">전체</h5>
-                                    <div class="cinema_select_wrap cinemaSelect">
-                                        <ul>
-                                            <li class="depth1 active"><a href="#none">샤롯데<em>(0)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class="disabled"><a href="#none">월드타워</a></li>
-                                                        <li class="disabled"><a href="#none">동탄</a></li>
-                                                        <li class="disabled"><a href="#none">건대입구</a></li>
-                                                        <li class="disabled"><a href="#none">에비뉴엘(명동)</a></li>
-                                                        <li class="disabled"><a href="#none">김포공항</a></li>
-                                                        <li class="disabled"><a href="#none">안산</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">수퍼플렉스 G<em>(1)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">월드타워</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">수퍼 S<em>(2)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">월드타워</a></li>
-                                                        <li class=""><a href="#none">건대입구</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">수퍼플렉스<em>(4)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">수지</a></li>
-                                                        <li class=""><a href="#none">은평(롯데몰)</a></li>
-                                                        <li class=""><a href="#none">상인</a></li>
-                                                        <li class=""><a href="#none">광복</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">수퍼 4D<em>(3)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">수완(아울렛)</a></li>
-                                                        <li class=""><a href="#none">평촌(범계역)</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">컬러리움<em>(1)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">수원(수원역)</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">씨네살롱<em>(0)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class="disabled"><a href="#none">도곡</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">씨네패밀리<em>(0)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class="disabled"><a href="#none">월드타워</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">씨네커플<em>(15)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">사천</a></li>
-                                                        <li class=""><a href="#none">도곡</a></li>
-                                                        <li class=""><a href="#none">대전관저</a></li>
-                                                        <li class=""><a href="#none">원주무실</a></li>
-                                                        <li class=""><a href="#none">은평(롯데몰)</a></li>
-                                                        <li class=""><a href="#none">대영</a></li>
-                                                        <li class=""><a href="#none">파주운정</a></li>
-                                                        <li class=""><a href="#none">청주용암</a></li>
-                                                        <li class=""><a href="#none">군산나운</a></li>
-                                                        <li class=""><a href="#none">제주삼화지구</a></li>
-                                                        <li class=""><a href="#none">의정부민락</a></li>
-                                                        <li class=""><a href="#none">오투(부산대)</a></li>
-                                                        <li class=""><a href="#none">상인</a></li>
-                                                        <li class=""><a href="#none">월드타워</a></li>
-                                                        <li class=""><a href="#none">광복</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">씨네비즈<em>(2)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">안양(안양역)</a></li>
-                                                        <li class=""><a href="#none">울산(백화점)</a></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li class="depth1"><a href="#none">씨네컴포트(리클라이너)<em>(6)</em></a>
-                                                <div class="depth2">
-                                                    <ul>
-                                                        <li class=""><a href="#none">동탄</a></li>
-                                                        <li class=""><a href="#none">사천</a></li>
-                                                        <li class=""><a href="#none">제주삼화지구</a></li>
-                                                        <li class=""><a href="#none">용인역북</a></li>
-                                                        <li class=""><a href="#none">수지</a></li>
-                                                        <li class=""><a href="#none">대전센트럴</a></li>
-                                                    </ul>
                                                 </div>
                                             </li>
                                         </ul>
@@ -1159,7 +962,7 @@
                 </div>
                 <div class="article article_time">
                     <div class="group_top">
-                        <h4 class="tit">2021-11-12(오늘)</h4>
+                        <h4 class="tit"><%=LocalDate.now() %>(오늘)</h4>
                     </div>
                     <div class="inner">
                         <div class="date_select_wrap dateReserveWrap">
@@ -1167,99 +970,71 @@
                                 <ul class="owl-carousel owl-loaded owl-drag">
                                     <div class="owl-stage-outer">
                                         <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1470px;">
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><strong class="month">11월</strong><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-12" data-isplaydate="Y" data-playweek="오늘" checked=""><strong>12</strong><em>오늘</em></label></span></li>
+                                        	<%
+		                                    LocalDate start = LocalDate.now();
+		                                    LocalDate end = start.plusDays(7);
+		                                    
+		                                    LocalDate next = start.minusDays(1);
+		                                    while ((next = next.plusDays(1)).isBefore(end.plusDays(1))) {
+												    String dayOfWeek = "";
+                                                	switch(next.getDayOfWeek().getValue()) {
+	                                                	case 1:
+	                                                		dayOfWeek = "월";
+	                                                		break;
+	                                                	case 2:
+	                                                		dayOfWeek = "화";
+	                                                		break;
+	                                                	case 3:
+	                                                		dayOfWeek = "수";
+	                                                		break;
+	                                                	case 4:
+	                                                		dayOfWeek = "목";
+	                                                		break;
+	                                                	case 5:
+	                                                		dayOfWeek = "금";
+	                                                		break;
+	                                                	case 6:
+	                                                		dayOfWeek = "토";
+	                                                		break;
+	                                                	case 7:
+	                                                		dayOfWeek = "일";
+	                                                		break;
+                                                	}
+                                                	if (start.getDayOfMonth() == next.getDayOfMonth()) {
+                                                		dayOfWeek = "오늘";
+                                                	} %>
+		                                   <div class="owl-item active" style="width: 52.5px;">
+	                                            <li class="item">
+	                                                <%if (dayOfWeek.equals("오늘")) { %>
+	                                                	<strong class="month"><%=start.getMonthValue()%>월</strong>
+	                                                <%} %>
+	                                                <%if (dayOfWeek.equals("일")) { %>
+	                                                	<span class="date sun">
+	                                                <%} else if (dayOfWeek.equals("토")) { %>
+	                                                	<span class="date sat">
+	                                                <%} else {%>
+	                                                	<span class="date">
+	                                                <%} %>
+	                                                <label>
+	                                                <% if (dayOfWeek.equals("오늘")) { %>
+	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%> checked="checked">
+	                                                <% } else {%>
+	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%>>
+	                                                <% } %>
+	                                                <strong><%=next.getDayOfMonth() %></strong>
+                                                	<em><%=dayOfWeek %></em>
+                                                	</label>
+                                                </span>
+                                                </li>
                                             </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date sat"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-13" data-isplaydate="Y" data-playweek="토"><strong>13</strong><em>토</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date sun"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-14" data-isplaydate="Y" data-playweek="일"><strong>14</strong><em>일</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-15" data-isplaydate="Y" data-playweek="월"><strong>15</strong><em>월</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-16" data-isplaydate="Y" data-playweek="화"><strong>16</strong><em>화</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-17" data-isplaydate="Y" data-playweek="수"><strong>17</strong><em>수</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-18" data-isplaydate="Y" data-playweek="목"><strong>18</strong><em>목</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item active" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-19" data-isplaydate="Y" data-playweek="금"><strong>19</strong><em>금</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sat"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-20" data-isplaydate="Y" data-playweek="토"><strong>20</strong><em>토</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sun"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-21" data-isplaydate="Y" data-playweek="일"><strong>21</strong><em>일</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-22" data-isplaydate="Y" data-playweek="월"><strong>22</strong><em>월</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-23" data-isplaydate="Y" data-playweek="화"><strong>23</strong><em>화</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-24" data-isplaydate="N" data-playweek="수"><strong>24</strong><em>수</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-25" data-isplaydate="N" data-playweek="목"><strong>25</strong><em>목</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-26" data-isplaydate="N" data-playweek="금"><strong>26</strong><em>금</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sat"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-11-27" data-isplaydate="Y" data-playweek="토"><strong>27</strong><em>토</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sun disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-28" data-isplaydate="N" data-playweek="일"><strong>28</strong><em>일</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-29" data-isplaydate="N" data-playweek="월"><strong>29</strong><em>월</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-11-30" data-isplaydate="N" data-playweek="화"><strong>30</strong><em>화</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><strong class="month">12월</strong><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-01" data-isplaydate="N" data-playweek="수"><strong>1</strong><em>수</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-02" data-isplaydate="N" data-playweek="목"><strong>2</strong><em>목</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-03" data-isplaydate="N" data-playweek="금"><strong>3</strong><em>금</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sat"><label><input type="radio" name="radioDate1" data-displayyn="Y" data-playdate="2021-12-04" data-isplaydate="Y" data-playweek="토"><strong>4</strong><em>토</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date sun disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-05" data-isplaydate="N" data-playweek="일"><strong>5</strong><em>일</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-06" data-isplaydate="N" data-playweek="월"><strong>6</strong><em>월</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-07" data-isplaydate="N" data-playweek="화"><strong>7</strong><em>화</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-08" data-isplaydate="N" data-playweek="수"><strong>8</strong><em>수</em></label></span></li>
-                                            </div>
-                                            <div class="owl-item" style="width: 52.5px;">
-                                                <li class="item"><span class="date disabled"><label><input type="radio" name="radioDate1" data-displayyn="N" data-playdate="2021-12-09" data-isplaydate="N" data-playweek="목"><strong>9</strong><em>목</em></label></span></li>
-                                            </div>
+		                                    <% } %>
                                         </div>
                                     </div>
-                                    <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
-                                    <div class="owl-dots disabled"></div>
                                 </ul>
                             </div>
                         </div>
                         <ul class="tab_wrap outer sml">
-                            <li class="active"><button type="button" class="tab_tit" style="width: 16.6667%; left: 0%;"><span>전체</span></button>
+                            <li class="active">
                                 <div class="tab_con ty5">
                                     <h5 class="hidden">전체</h5>
                                     <div class="mCustomScrollbar timeScroll _mCS_11 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
@@ -1288,6 +1063,21 @@
             </div>
         </div>
     </div>
+    
+    <script>
+	    jQuery(document).ready(function() {
+	        $(".depth1").on("click", function(event) {
+	        	$('.depth1').attr("class", "depth1");
+	        	$(this).attr("class","depth1 active");
+	        	
+	        });
+	        $(".depth1").on("click", "li", function(event) {
+	        	$(this).attr("class","active");
+	        	
+	        });
+	    });
+	</script>
+    
 </body>
 
 </html>

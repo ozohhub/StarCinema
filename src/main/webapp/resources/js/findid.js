@@ -18,3 +18,13 @@ function fnCheck() {
 		return;
 	}
 }
+
+//아이디 확인(비밀번호 찾기)
+function fnCheckId() {
+	var objId = document.getElementById("user-id");
+	if (objId.value == "") {
+		alert("아이디를 입력하세요.");
+		objName.focus();
+		return;
+	}
+}

@@ -106,6 +106,16 @@ public class HomeController {
 		return "customer/questionWrite";
 	}
 	
+	@RequestMapping(value="/findid")
+	public String findid() {
+		return "manage/findid";
+	}
+	
+	@RequestMapping(value="/findpw")
+	public String findpw() {
+		return "manage/findpw";
+	}
+	
 	
 	
 	
