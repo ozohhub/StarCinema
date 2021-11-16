@@ -64,6 +64,16 @@ public class HomeController {
 	public String pay() {
 		return "movie/pay";
 	}
+
+	@RequestMapping(value="/movie")
+	public String movie() {
+		return "movie/movie";
+	}
+
+	@RequestMapping(value = "/movieInfoList")
+	public String movieInfoList() {
+		return "movie/movieInfoList";
+	}
 	
 	@RequestMapping(value="/myPage")
 	public String myPage() {
@@ -90,10 +100,6 @@ public class HomeController {
 		return "myPage/memberDelete";
 	}
 	
-	@RequestMapping(value="/movie")
-	public String movie() {
-		return "movie/movie";
-	}
 	
 	@RequestMapping(value="/customer")
 	public String customer() {
@@ -105,8 +111,5 @@ public class HomeController {
 	public String questionWrite() {
 		return "customer/questionWrite";
 	}
-	
-	
-	
 	
 }
