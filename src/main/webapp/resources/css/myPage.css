@@ -332,16 +332,118 @@ a:focus{
     vertical-align: middle;
 }
 
-.grade.gr_12{
-	content: "12";
-    background-color: #4DD6FF;
-    font-size : 13px;
- 
-}
-
 .grade.gr_all{
 	content: "전체";
     background-color: #5BC77E;;
     font-size : 11px;
- 
+}
+
+.grade.gr_12{
+	content: "12";
+    background-color: #4DD6FF;
+    font-size : 13px;
+}
+
+.grade.gr_15{
+	content: "15";
+    background-color: #FFC134;
+    font-size : 13px;
+}
+.grade.gr_18{
+	content: "청불";
+    background-color: #ED4C6B;
+    font-size : 11px;
+}
+
+.detail{
+	margin-left : -70px;
+	margin-top: 50px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #EBEBEB;
+	padding-top: 3px;
+}
+
+.myLike_list span{
+	vertical-align: middle;
+}
+
+.myLike_list span em{
+	font-size : 14px;
+}
+
+.myLike_list span strong{
+	margin-left: 1px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.myLike_list .score em{
+	display: inline-block;
+    text-indent: -9999em;
+	width: 14px;
+    height: 14px;
+    margin: -2px 3px 0 10px;
+    background: url(../images/myPage/star.png) no-repeat 0 0;
+}
+
+.heart_btn{
+	margin-left : 10px;
+	background-image: url(../images/myPage/heart_on.png);
+	width: 19px;
+    height: 19px;
+    border: 0 none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.review_box{
+	cursor : pointer;
+}
+
+.review_box dt{
+	color: #FF7787;
+    font-size: 12px;
+    font-weight: bold;
+    text-align : left;
+}
+
+.review_box dd{
+	margin-top : 10px;
+	font-size: 13px;
+    line-height: 18px;
+    letter-spacing: -.5px;
+    height: 76px;
+    overflow: hidden;
+    text-align : left;
+}
+
+.reserve_btn_area{
+	position: absolute;
+    left: 204px;
+    bottom: 0;
+    font-size: 0;
+}
+.reserve_btn_area a{
+	border-radius: 8px;
+	height: 25px;
+    line-height: 23px;
+    padding: 0 12px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+
+.reserve_btn_area a span{
+	padding-left: 21px;
+    font-size: 11px;
+    background: url(../images/myPage/reserve.png) no-repeat 0 center;
+}
+
+.last_list{
+	clear : both;
 }
