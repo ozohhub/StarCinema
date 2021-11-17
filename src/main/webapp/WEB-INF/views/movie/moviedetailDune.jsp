@@ -244,68 +244,7 @@ $(document).ready(function(){
 											</div>
 										</div>					
 								</div>
-								<div class="right_con">
-									<strong class="tit_info">관람 선호도</strong>
-									<div class="group_graph">
-										<div class="bx_graph01">
-										<div class="bg"></div>
-											<dl>
-												<dt class="mal">남성</dt>
-													<dd class="mal">
-														<span class="bar" style="height: 42.1%;"></span>
-														<strong>
-														42.1
-														<span>%</span>
-														</strong>
-													</dd>
-												<dt class="fem">여성</dt>
-													<dd class="fem">
-														<span class="bar" style="height: 57.9%;"></span>
-														<strong>
-														57.9
-														<span>%</span>
-														</strong>
-													</dd>
-											</dl>
-										</div>
-										<div class="bx_graph02">
-											<dl>
-												<dt class="gen10">10대</dt>
-													<dd class="gen10 undefined" style="height: 6.8%;">
-													<span class="bar"></span>
-														<strong>
-														6.8
-														<span>%</span>
-														</strong>
-													</dd>
-												<dt class="gen20">20대</dt>
-													<dd class="gen20 top" style="height: 48%;">
-													<span class="bar"></span>
-														<strong>
-														48.0
-														<span>%</span>
-														</strong>
-													</dd>
-												<dt class="gen30">30대</dt>
-													<dd class="gen30 undefined" style="height: 27%;">
-													<span class="bar"></span>
-														<strong>
-														27.0
-														<span>%</span>
-														</strong>
-													</dd>
-												<dt class="gen40">40대</dt>
-													<dd class="gen40 undefined" style="height: 18.2%;">
-													<span class="bar"></span>
-														<strong>
-														18.2
-														<span>%</span>
-														</strong>
-													</dd>
-												</dl>
-											</div>
-										</div>
-							</div>
+								
 						</div>
 					</div>
 					
@@ -422,7 +361,32 @@ $(document).ready(function(){
 												<span id="recommandcount_2525249">0</span>
 												</button>
 												</div>
-											</li><li><span class="img_info"><img src="${pageContext.request.contextPath}/resources/images/icon/angry.png" alt=""></span><div class="top_info"><span class="name_info">장*호</span><span class="txt_ic_score ty2"><em>평점</em><strong>2 </strong></span><span class=""></span></div><div class="review_info">3시간짜리 예고편 </div><div class="btm_info"><span class="date_info">2021.11.18 </span><button type="button" class="btn_ic_good" id="reviewid_2525246"><em>좋아요</em><span id="recommandcount_2525246">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_02.png" alt=""></span><div class="top_info"><span class="name_info">김*희</span><span class="txt_ic_score ty2"><em>평점</em><strong>8 </strong></span><span class=""></span></div><div class="review_info">졸릴만 하면 음악이 웅장해지면서 나를 깨워줌 세계관을 자세하게 설명해주는데 다소 지루함 </div><div class="btm_info"><span class="date_info">2021.11.18 </span><button type="button" class="btn_ic_good" id="reviewid_2525243"><em>좋아요</em><span id="recommandcount_2525243">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">박*향</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">사운드가 진짜 최고!!
+											</li>
+											<li>
+												<span class="img_info">
+												<img src="${pageContext.request.contextPath}/resources/images/icon/angry.png" alt="">
+												</span>
+												<div class="top_info">
+												<span class="name_info">장*호</span>
+												<span class="txt_ic_score ty2">
+												<em>평점</em>
+												<strong>2 </strong>
+												</span>
+												<span class=""></span>
+												</div>
+												<div class="review_info">3시간짜리 예고편 </div>
+												<div class="btm_info">
+													<span class="date_info">2021.11.18 </span>
+													<button type="button" class="btn_ic_good" id="reviewid_2525246">
+													<em>좋아요</em>
+													<span id="recommandcount_2525246">0</span>
+													</button>
+												</div>
+											</li>
+											<li>
+											<span class="img_info">
+												<img src="${pageContext.request.contextPath}/resources/images/icon/smile.png" alt="">
+											</span><div class="top_info"><span class="name_info">김*희</span><span class="txt_ic_score ty2"><em>평점</em><strong>8 </strong></span><span class=""></span></div><div class="review_info">졸릴만 하면 음악이 웅장해지면서 나를 깨워줌 세계관을 자세하게 설명해주는데 다소 지루함 </div><div class="btm_info"><span class="date_info">2021.11.18 </span><button type="button" class="btn_ic_good" id="reviewid_2525243"><em>좋아요</em><span id="recommandcount_2525243">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">박*향</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">사운드가 진짜 최고!!
 영화속 분위기랑 저렇게 까지 표현 가능한게 놀랐습니다. </div><div class="btm_info"><span class="date_info">2021.11.18 </span><button type="button" class="btn_ic_good" id="reviewid_2525223"><em>좋아요</em><span id="recommandcount_2525223">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">조*영</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">영상과 음악이 좋았습니다 다음 편도 기대되네요 </div><div class="btm_info"><span class="date_info">2021.11.18 </span><button type="button" class="btn_ic_good" id="reviewid_2525215"><em>좋아요</em><span id="recommandcount_2525215">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_02.png" alt=""></span><div class="top_info"><span class="name_info">이*희</span><span class="txt_ic_score ty2"><em>평점</em><strong>8 </strong></span><span class=""></span></div><div class="review_info">다음편이 꼭 나왔으면 좋겠다. </div><div class="btm_info"><span class="date_info">2021.11.17 </span><button type="button" class="btn_ic_good" id="reviewid_2525202"><em>좋아요</em><span id="recommandcount_2525202">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">최*배</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">재밋어요 2편이 더기대되요 </div><div class="btm_info"><span class="date_info">2021.11.17 </span><button type="button" class="btn_ic_good" id="reviewid_2525187"><em>좋아요</em><span id="recommandcount_2525187">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">남0911</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">꿀잼입니다 꼭 보세요  </div><div class="btm_info"><span class="date_info">2021.11.17 </span><button type="button" class="btn_ic_good" id="reviewid_2525183"><em>좋아요</em><span id="recommandcount_2525183">0</span></button></div></li><li><span class="img_info"><img src="../Content/images/customer/ic_survey_01.png" alt=""></span><div class="top_info"><span class="name_info">이*지</span><span class="txt_ic_score ty2"><em>평점</em><strong>10 </strong></span><span class=""></span></div><div class="review_info">올해 본 최고 
 영상 음악 영화
 소년에서 영웅으로 성장하는 티모시의 매력이 돋보였다. 원작을 읽고 싶다 </div><div class="btm_info"><span class="date_info">2021.11.17 
