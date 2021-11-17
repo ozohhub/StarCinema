@@ -51,8 +51,8 @@
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="index?formpath=movie" title="홈">홈</a></li>
-							<li class=""><a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=1" title="현재상영작">현재상영작</a></li>
-							<li><a href="https://www.lottecinema.co.kr/NLCHS/Movie/List?flag=5" title="상영예정작">상영예정작</a></li>
+							<li class=""><a href="index?formpath=movieInfoList&page=1" title="현재상영작">현재상영작</a></li>
+							<li><a href="index?formpath=movieInfoList&page=2" title="상영예정작">상영예정작</a></li>
 						
 						</ul>
 					</div>
