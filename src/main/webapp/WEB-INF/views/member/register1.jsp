@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/register.css" />
 
 <script src="<c:url value="/resources/js/register.js" />"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <c:url var="root" value="/"/>
 
 <!-- 약관동의페이지-->
@@ -63,6 +64,7 @@
 	           		</li>
 				</ul>
 	           </form>
+	           <label class="agree_chk">안녕</label>
           </div> 
           
             <div class="agree_btn_area" align="right">

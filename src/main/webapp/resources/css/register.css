@@ -59,6 +59,12 @@ input[type='checkbox']{
 }
 .terms_box .article{font-size:12px;line-height:16px;color:#666}
 
+.agree_chk{
+    position :relative;
+    left : 40px;
+    color : red;
+    font-weight : bold;   
+}
 
 /* 약관동의 버튼 */
 .agree_btn_area{
@@ -118,7 +124,7 @@ input[type='checkbox']{
 	width : 65%
 }
 
-.emailTb td button, .registerTb td button {
+.emailTb td button, .registerTb td input[type='button'] {
 	height : 30px;
 	border-color : transparent;
 	font-weight: bold;

@@ -42,7 +42,7 @@
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="index?formpath=ticketing" title="예매하기">예매하기</a></li>
-							<li><a href="https://www.lottecinema.co.kr/NLCHS/Ticketing/Schedule" title="상영시간표">상영시간표</a></li>
+							<li><a href="#" title="상영시간표">상영시간표</a></li>
 						</ul>
 					</div>
 				</li>
@@ -64,72 +64,72 @@
 							<li><a href="#" title="스페셜관">스페셜관</a>
 								<div style="display: none;">
 									<ul style="opacity: 0;">
-										<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialIndex">홈</a></li>
-										<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=300">샤롯데</a></li>
-										<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/SpecialCinema?divisionCode=2&amp;screendivcd=941">수퍼플렉스 G</a></li>
+										<li><a href="#">홈</a></li>
+										<li><a href="#">샤롯데</a></li>
+										<li><a href="#">수퍼플렉스 G</a></li>
 									</ul>
 								</div>
 							</li>
 							<li><a href="#" title="서울">서울</a>
 								<div style="display: none;">
 									<ul style="opacity: 0;">
-										<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=1013">가산디지털</a></li>
-										<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=1&amp;cinemaID=9094">가양</a></li>
+										<li><a href="#">가산디지털</a></li>
+										<li><a href="#">가양</a></li>
 									</ul>
 								</div>
 							</li>
 							<li><a href="#" title="경기/인천">경기/인천</a>
 								<div style="display: none;"><ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3030">광교아울렛</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=2&amp;cinemaID=3027">광명(광명사거리)</a></li>
+									<li><a href="#">광교아울렛</a></li>
+									<li><a href="#">광명(광명사거리)</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="충청/대전">충청/대전</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=9085">당진</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=3&amp;cinemaID=4002">대전(백화점)</a></li>
+									<li><a href="#">당진</a></li>
+									<li><a href="#">대전(백화점)</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="전라/광주">전라/광주</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=6001">광주(백화점)</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=4&amp;cinemaID=9065">광주광산</a></li>
+									<li><a href="#">광주(백화점)</a></li>
+									<li><a href="#">광주광산</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="경북/대구">경북/대구</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=5008">경산</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=5&amp;cinemaID=9090">경주</a></li>
+									<li><a href="#">경산</a></li>
+									<li><a href="#">경주</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="경남/부산/울산">경남/부산/울산</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=9082">거창</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=101&amp;cinemaID=2009">광복</a></li>
+									<li><a href="#">거창</a></li>
+									<li><a href="#">광복</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="강원">강원</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=7001">남원주</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=6&amp;cinemaID=7002">동해</a></li>
+									<li><a href="#">남원주</a></li>
+									<li><a href="#">동해</a></li>
 								</ul>
 							</div>
 						</li>
 						<li><a href="#" title="제주">제주</a>
 							<div style="display: none;">
 								<ul style="opacity: 0;">
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=7&amp;cinemaID=9013">서귀포</a></li>
-									<li><a href="https://www.lottecinema.co.kr/NLCHS/Cinema/Detail?divisionCode=1&amp;detailDivisionCode=7&amp;cinemaID=9068">제주삼화지구</a></li>
+									<li><a href="#">서귀포</a></li>
+									<li><a href="#">제주삼화지구</a></li>
 								</ul>
 							</div>
 						</li>

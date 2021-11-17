@@ -31,7 +31,26 @@ function agreeChk(){
 
 /* 약관동의 - 확인버튼 클릭시 */
 function nextStep1(){
-	document.getElementById('agreeForm').submit();
+	var check = document.getElementsByName("check");
+	var info = {agree1 : check[0], agree2 : check[1]};
+		
+	$.ajax({		
+		url: "agreeCheck", type: "POST",		
+		data: JSON.stringify(info), 			
+		contentType: "application/json; charset=utf-8", 	
+		dataType: "json", 
+	
+		success : function(map){		
+			$('.agreeChk').text(map.msg);	
+		
+		},
+		error : function(){
+			$('.agreeChk').text('error');
+		}
+	})
+	
+	
+//	document.getElementById('agreeForm').submit();
 }
 
 /* 키보드 입력시 숫자 형식인지 확인 */
@@ -55,4 +74,25 @@ function registerStep(){
 	document.getElementById('registerForm').submit();
 }
 
+
+/* 회원정보입력 페이지 - 우편번호 */
+function daumPost(){		
+	new daum.Postcode({
+		oncomplete:function(data){	
+			var addr = "";
+			if(data.userSelectedType === "R"){	
+				addr = data.roadAddress;
+			}else{	
+				addr = data.jibunAddress;
+			}
+
+			$('#zipcode').val(data.zonecode);
+			$('#zipcode').prop('readonly', true); 
+
+			$('#addr1').val(addr);
+			$('#addr1').prop('readonly', true); 
+			$('#addr2').focus();
+		}
+	}).open();
+}
 

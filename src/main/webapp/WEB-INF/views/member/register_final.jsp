@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/register.css" />
 
 <script src="<c:url value="/resources/js/register.js" />"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <c:url var="root" value="/"/>
 
 <!-- 정보작성페이지 -->
@@ -23,7 +25,7 @@
 				<th><font class="must">*</font> <label class="title">아이디</label></th>
 				<td>
 					<input type="text" id = "id" placeholder="아이디입력" maxlength="15">
-					<button>중복확인</button><br>
+					<input type="button" value="중복확인"><br>
 					<label></label>
 				</td>
 				
@@ -80,7 +82,7 @@
 			<tr>
 				<th><font class="must">*</font> <label class="title">주소</label></th>
 				<td class = "address">
-					<input type="text" id="zipcode" placeholder="우편번호"><button>우편번호 검색</button><br>
+					<input type="text" id="zipcode" placeholder="우편번호"><input type = "button" onclick="daumPost();" value="우편번호 검색"><br>
 					<input type="text" id="addr1" placeholder="주소"><br>
 					<input type="text" id="addr2" placeholder="상세주소"><br>
 					<label></label>
@@ -90,7 +92,7 @@
 			<tr>
 				<td colspan="3" class="register_btn_area">
 				  <input type="button" id="agreeNo" value="취소" onclick="location.href='${root}';">
-	              <input type="button" id="agreeYes" value="확인" onclick="registerStep();">
+	              <input type="submit" id="agreeYes" value="확인" onclick="registerStep();">
 				</td>
 			</tr>
 		</table>

@@ -6,15 +6,15 @@
 				<img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_footer.gif" alt="LOTTE CINEMA">
 			</span>
 			<ul class="f_menu">
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/MemberClause" title="회원약관" target="_self">회원약관</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/IndividualInfomationHandlingPolicy" title="개인정보처리방침" target="_self"><strong>개인정보처리방침</strong></a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/EmailCollectionRefusal" title="이메일무단수집거부" target="_self">이메일무단수집거부</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/ElectronicManagementPolicy" title="영상정보처리기기 운영 및 관리방침" target="_self">영상정보처리기기 운영 및 관리방침</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/AssignStandard" title="배정기준" target="_self">배정기준</a></li>
-				<li><a href="http://www.lottecinema.co.kr/LCCS/Contents/employ/individuals.aspx" title="채용안내" target="_blank">채용안내</a></li>
-				<li><a href="https://www.lottecinema.co.kr/LCCS/Contents/ad/advertinquiry.aspx" title="광고/임대문의" target="_blank">광고/임대문의</a></li>
-				<li><a href="http://www.lottecinema.co.kr/LCCS/Contents/ethical/ethicsintroduce.aspx" title="윤리경영" target="_self">윤리경영</a></li>
-				<li><a href="http://www.lottecinema.co.kr/LCCS/index.aspx" title="기업정보" target="_blank">기업정보</a></li>
+				<li><a href="#" title="회원약관" target="_self">회원약관</a></li>
+				<li><a href="#" title="개인정보처리방침" target="_self"><strong>개인정보처리방침</strong></a></li>
+				<li><a href="#" title="이메일무단수집거부" target="_self">이메일무단수집거부</a></li>
+				<li><a href="#" title="영상정보처리기기 운영 및 관리방침" target="_self">영상정보처리기기 운영 및 관리방침</a></li>
+				<li><a href="#" title="배정기준" target="_self">배정기준</a></li>
+				<li><a href="#" title="채용안내" target="_blank">채용안내</a></li>
+				<li><a href="#" title="광고/임대문의" target="_blank">광고/임대문의</a></li>
+				<li><a href="#" title="윤리경영" target="_self">윤리경영</a></li>
+				<li><a href="#" title="기업정보" target="_blank">기업정보</a></li>
 			</ul>
 			<div class="bx_address">
 				<address>서울특별시 송파구 올림픽로 300 롯데월드타워 27층</address>
