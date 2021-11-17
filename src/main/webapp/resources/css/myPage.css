@@ -84,17 +84,32 @@ a:focus{
 }
 
 /* 예매내역 페이지 */
+.detail_reserve1,.detail_reserve2,.detail_reserve3{
+	margin-top: 10px;
+    padding-bottom: 10px;
+    font-size : 14px;
+}
+.detail_reserve1{
+	margin-top : 60px;
+	margin-left : -100px;
+}
+.detail_reserve2{
+	margin-left : -118px;
+}
+.detail_reserve3{
+	margin-left : -145px;
+}
 
 /* 찜목록 페이지 */
-.myLike_title{
+.myLike_title, .myTicketing_title{
 	text-align: left;
 }
-.myLike_title h4, .myLike_title span{
+.myLike_title h4, .myLike_title span, .myTicketing_title h4, .myTicketing_title span {
     font-size: 22px;
     font-family: 'Roboto';
 
 }
-.myLike_title h4{
+.myLike_title h4, .myTicketing_title h4{
 	display: inline-block;
 }
 
@@ -106,12 +121,12 @@ a:focus{
     text-decoration: underline;
 }
 
-.myLike_list{
+.myLike_list, .myTicketing_list{
 	margin-left: -40px;
 	list-style: none;
 }
 
-.myLike_list li{
+.myLike_list li, .myTicketing_list li{
 	display: block;
 	position: relative;
     float: left;
@@ -122,7 +137,7 @@ a:focus{
     min-height: 262px;
 }
 
-.myLike_poster{
+.myLike_poster, .myTicketing_poster{
 	position: absolute;
     left: 0;
     top: 0;
@@ -134,7 +149,7 @@ a:focus{
  
 }
 
-.myLike_poster img{
+.myLike_poster img, .myTicketing_poster img{
 	height: 262px;
 	width : auto;
 }
@@ -196,7 +211,9 @@ a:focus{
 	padding-top: 3px;
 }
 
-.myLike_list span{
+
+
+.myLike_list span, .detail_info{
 	vertical-align: middle;
 }
 

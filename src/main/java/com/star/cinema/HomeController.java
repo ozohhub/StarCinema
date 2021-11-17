@@ -79,6 +79,10 @@ public class HomeController {
 	public String myPage() {
 		return "myPage/myPage";
 	}
+	@RequestMapping(value="/myMovieHistory")
+	public String myMovieHistory() {
+		return "myPage/myMovieHistory";
+	}
 	
 	@RequestMapping(value="/myQuestion")
 	public String myQuestion() {

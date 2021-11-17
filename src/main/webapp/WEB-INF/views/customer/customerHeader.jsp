@@ -14,7 +14,6 @@
 						<a href="index?formpath=customer" class = "main_a" style="width : 50%; left : 0%;">
 							<span>공지사항</span>
 						</a>
-	
 					</li>
 								
 					<li class="main_li">

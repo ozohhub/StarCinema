@@ -19,6 +19,11 @@
 								<span>예매내역</span>
 							</a>
 						</li>
+						<li>
+							<a href="index?formpath=myMovieHistory" class="sub_a" style="left : 0px; margin-left : 28.85px;">
+								<span>관람내역</span>
+							</a>
+						</li>
 					</ul>
 					
 				</li>
