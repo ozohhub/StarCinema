@@ -8,6 +8,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/movie.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pay.css" />
 </head>
 
 <body>

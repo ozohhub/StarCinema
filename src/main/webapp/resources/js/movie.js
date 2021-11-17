@@ -149,3 +149,16 @@ function laterMovieInfo() {
 	$(".nonActive").css({"border-bottom" : "1px solid #000", "color":"balck"})
 	$(".later_span").css({"color" : "black"})
 }
+
+function InputMovieInfo() {
+	var check = ["name", "genre", "director", "age", "country", "openDate", "time", "performer", "explanation", ];
+	for (var i = 0; i < check.length; i++) {
+		var object = document.getElementById("input-movie-"+check[i]);
+		if (object.value == "") {
+			alert("정보를 입력 해 주세요.");
+			object.focus();
+			return;
+		}
+	}
+	
+}
