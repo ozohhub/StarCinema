@@ -1816,7 +1816,7 @@ ol.default_txt > li ul.privacy_list li {margin-left:0; text-indent:0}
 .fieldset_box input:read-only {color:#ccc;}
 .fieldset_box input[type="checkbox"] + label.ty2:before {position:absolute; right:15px; top:20px;}
 .fieldset_box input[type="checkbox"] + label.ty2.disabled:before {display: none;} /* 2020-01-06, eskang fixed */
-input, select, button {vertical-align:middle; appearance:none; -webkit-appearance:none; -moz-appearance:none;}
+
 input::-ms-clear {display:none;}
 input[type="text"]:disabled,
 input[type="text"].ty2:disabled,
