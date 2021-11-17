@@ -29,7 +29,7 @@
 	         	<ul class="terms_bx_list">
 	                 <li class="terms_bx">
 						<span class="input_chk">
-							<input type="checkbox" id="termsService" name="check"  onclick="agreeChk();">
+							<input type="checkbox" id="termsService" name="check" value="yes" onclick="agreeChk();">
 							<label for="termsService">롯지브이 이용약관 동의<span class="terms_necessary">(필수)</span></label>
 						</span>
 				
@@ -52,7 +52,7 @@
 					 
 	                 <li class="terms_bx">
 						<span class="input_chk">
-							<input type="checkbox" id="termsPrivacy" name="check" onclick="agreeChk();">
+							<input type="checkbox" id="termsPrivacy" name="check" value="yes" onclick="agreeChk();">
 							<label for="termsPrivacy">개인정보 수집 및 이용 동의<span class="terms_choice">(필수)</span></label>     
 						</span>
 					

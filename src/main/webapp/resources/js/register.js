@@ -29,28 +29,33 @@ function agreeChk(){
 	}
 }
 
-/* 약관동의 - 확인버튼 클릭시 */
+/* 약관동의 - 확인버튼 클릭시 > 약관동의여부 확인후 모두 동의시에만 페이지 이동 */
 function nextStep1(){
-	var check = document.getElementsByName("check");
-	var info = {agree1 : check[0], agree2 : check[1]};
+	var agreeArr = [];
+	$("input[name='check']:checked").each(function(){
+		agreeArr.push($(this).val());
+	})
+	var data = {"agree" : agreeArr};
 		
 	$.ajax({		
 		url: "agreeCheck", type: "POST",		
-		data: JSON.stringify(info), 			
+		data: JSON.stringify(data), 			
 		contentType: "application/json; charset=utf-8", 	
 		dataType: "json", 
 	
-		success : function(map){		
-			$('.agreeChk').text(map.msg);	
-		
+		success : function(result){		
+			$('.agree_chk').text(result.msg);
+			if(result.msg == ''){
+				document.getElementById('agreeForm').submit();	
+			}		
 		},
 		error : function(){
-			$('.agreeChk').text('error');
+			$('.agree_chk').text('error');
 		}
 	})
 	
 	
-//	document.getElementById('agreeForm').submit();
+
 }
 
 /* 키보드 입력시 숫자 형식인지 확인 */
