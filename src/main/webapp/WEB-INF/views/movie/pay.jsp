@@ -141,14 +141,17 @@
                         <div class="inner">
 							<div class="select_item_wrap">
 							    <div class="group_item active">
-							        <div class="bx_item"><input type="checkbox" id="chkSavingTerm" onclick="selectAll();"><label for="chkSavingTerm" class="ty2">결제대행서비스 약관 동의</label></div>
+							        <div class="bx_item">
+							        	<input type="checkbox" id="chkSavingTerm" onclick="selectAll();">
+							        	<label for="chkSavingTerm" class="ty2">결제대행서비스 약관 동의</label>
+							        </div>
 							        <div class="group_side">
 							            <div class="bx_provision">
 							                <ul class="provision_list">
-							                    <li><input type="checkbox" id="chkProvisionTerm01" name="select"><label for="chkProvisionTerm01" class="ty2">전자금융거래 이용약관 동의</label><button class="btn_txt_more ty2">약관보기</button></li>
-							                    <li><input type="checkbox" id="chkProvisionTerm02" name="select"><label for="chkProvisionTerm02" class="ty2">고유식별정보 수집 및 이용안내</label><button class="btn_txt_more ty2">약관보기</button></li>
-							                    <li><input type="checkbox" id="chkProvisionTerm03" name="select"><label for="chkProvisionTerm03" class="ty2">개인정보 수집 및 이용동의</label><button class="btn_txt_more ty2">약관보기</button></li>
-							                    <li><input type="checkbox" id="chkProvisionTerm04" name="select"><label for="chkProvisionTerm04" class="ty2">개인정보 제3자 제공/위탁동의</label><button class="btn_txt_more ty2">약관보기</button></li>
+							                    <li><input type="checkbox" id="chkProvisionTerm01" name="select" onclick="agreeChk();"><label for="chkProvisionTerm01" class="ty2">전자금융거래 이용약관 동의</label><button class="btn_txt_more ty2">약관보기</button></li>
+							                    <li><input type="checkbox" id="chkProvisionTerm02" name="select" onclick="agreeChk();"><label for="chkProvisionTerm02" class="ty2">고유식별정보 수집 및 이용안내</label><button class="btn_txt_more ty2">약관보기</button></li>
+							                    <li><input type="checkbox" id="chkProvisionTerm03" name="select" onclick="agreeChk();"><label for="chkProvisionTerm03" class="ty2">개인정보 수집 및 이용동의</label><button class="btn_txt_more ty2">약관보기</button></li>
+							                    <li><input type="checkbox" id="chkProvisionTerm04" name="select" onclick="agreeChk();"><label for="chkProvisionTerm04" class="ty2">개인정보 제3자 제공/위탁동의</label><button class="btn_txt_more ty2">약관보기</button></li>
 							                </ul>
 							            </div>
 							        </div>

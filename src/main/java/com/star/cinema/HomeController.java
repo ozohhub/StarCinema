@@ -14,6 +14,7 @@ public class HomeController {
 	@RequestMapping(value = "/")
 	public String main(Model model) {
 		model.addAttribute("formpath", "main");
+		model.addAttribute("page","2");
 		return "index";
 	}
 	@RequestMapping(value = "/main")
@@ -71,7 +72,8 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/movieInfoList")
-	public String movieInfoList() {
+	public String movieInfoList(Model model, String page) {
+		model.addAttribute("page", page);
 		return "movie/movieInfoList";
 	}
 	

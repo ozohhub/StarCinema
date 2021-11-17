@@ -10,7 +10,6 @@
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/IndividualInfomationHandlingPolicy" title="개인정보처리방침" target="_self"><strong>개인정보처리방침</strong></a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/EmailCollectionRefusal" title="이메일무단수집거부" target="_self">이메일무단수집거부</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/ElectronicManagementPolicy" title="영상정보처리기기 운영 및 관리방침" target="_self">영상정보처리기기 운영 및 관리방침</a></li>
-				<li><a href="https://www.lottecinema.co.kr/NLCHS/Membership/l_point" title="L.POINT회원안내" target="_self">L.POINT회원안내</a></li>
 				<li><a href="https://www.lottecinema.co.kr/NLCHS/Etc/AssignStandard" title="배정기준" target="_self">배정기준</a></li>
 				<li><a href="http://www.lottecinema.co.kr/LCCS/Contents/employ/individuals.aspx" title="채용안내" target="_blank">채용안내</a></li>
 				<li><a href="https://www.lottecinema.co.kr/LCCS/Contents/ad/advertinquiry.aspx" title="광고/임대문의" target="_blank">광고/임대문의</a></li>

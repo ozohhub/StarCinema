@@ -46,6 +46,18 @@ function selectAll() {
 	}
 }
 
+function agreeChk(){	
+	var select = document.getElementsByName("select");
+	var selectAll = document.getElementById("chkSavingTerm");
+		
+	for(var i=0; i<select.length;i++){
+		if(select[i].checked == false){
+			selectAll.checked = false;
+			break;
+		}
+	}
+}
+
 function card_pay() {
 	$("#card_chk").css({"border" : "1px solid #000"})
 	$("#card_payment").css({"display" : "inline"})
@@ -95,25 +107,14 @@ function check_button(i){
 }
 
 function pay_final_chk() {
-	var select = document.getElementsByName("select");
-	/*
-	var case1 = document.getElementsByClassName("cate1");
-	var case3 = document.getElementsByClassName("cate3");
-	var case4 = document.getElementsByClassName("cate4");
-	var case5 = document.getElementsByClassName("cate5");
+	var selectAll = document.getElementById("chkSavingTerm").checked;
 	
-	if(case1.checked == false || case3.checked == false || case4.checked == false || case5.checked == false) {
-		alert('결제수단을 선택해 주십시오.');
-		history.back();
-	}
-	*/
-	
-	if(select.checked == true) {
+	if(selectAll === true) {
 		location.href='index?formpath=myPage';
 	}
 	else {
 		alert('결제대행서비스 약관에 동의하셔야 구매가 가능합니다.');
-		history.back();
+		location.href='index?formpath=pay';
 	}
 }
 
@@ -135,16 +136,16 @@ function nowMovieInfo() {
 	
 	$(".active").css({"border-bottom" : "1px solid #000"})
 	$(".now_span").css({"color" : "black"})
-	$(".nonActive").css({"border-bottom" : "none", "color":"#666666"})
-	$(".later_span").css({"color" : "#666666"})
+	$(".nonActive").css({"border-bottom" : "none", "color":"#BDBDBD"})
+	$(".later_span").css({"color" : "#BDBDBD"})
 }
 
 function laterMovieInfo() {
 	$("#nowInfo").css({"display" : "none"})
 	$("#laterInfo").css({"display" : "block"})
 	
-	$(".active").css({"border-bottom" : "none", "color":"#666666"})
-	$(".now_span").css({"color" : "#666666"})
+	$(".active").css({"border-bottom" : "none", "color":"#BDBDBD"})
+	$(".now_span").css({"color" : "#BDBDBD"})
 	$(".nonActive").css({"border-bottom" : "1px solid #000", "color":"balck"})
 	$(".later_span").css({"color" : "black"})
 }
