@@ -91,29 +91,59 @@ a:focus{
 }
 .detail_reserve1{
 	margin-top : 60px;
-	margin-left : -100px;
+	margin-left : -112px;
 }
 .detail_reserve2{
-	margin-left : -118px;
+	margin-left : -130px;
 }
 .detail_reserve3{
-	margin-left : -145px;
+	margin-left : -158px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #EBEBEB;
 }
 
-/* 찜목록 페이지 */
-.myLike_title, .myTicketing_title{
+/* 관람내역 페이지 */
+
+.reviewWrite_btn_area a span{
+	padding-left: 21px;
+    font-size: 11px;
+    background: url(../images/myPage/review_write.png) no-repeat 0 center;
+}
+
+.detail_history1,.detail_history2,.detail_history3{
+    padding-bottom: 10px;
+    font-size : 14px;
+}
+.detail_history1{
+	margin-top : 50px;
+	margin-left : -102px;
+}
+.detail_history2{
+	margin-left : -130px;
+}
+.detail_history3{
+	margin-left : -158px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #EBEBEB;
+}
+.detail_history1 span, .detail_history2 span,.detail_history3 span{
+	padding-left : 10px;
+}
+
+/* 찜목록 페이지, 예매내역, 관람내역 페이지 */
+.myLike_title, .myTicketing_title, .myMovieHistory_title{
 	text-align: left;
 }
-.myLike_title h4, .myLike_title span, .myTicketing_title h4, .myTicketing_title span {
+.myLike_title h4, .myLike_title span, .myTicketing_title h4, .myTicketing_title span, .myMovieHistory_title h4, .myMovieHistory_title span {
     font-size: 22px;
     font-family: 'Roboto';
 
 }
-.myLike_title h4, .myTicketing_title h4{
+.myLike_title h4, .myTicketing_title h4, .myMovieHistory_title h4{
 	display: inline-block;
 }
 
-.myLike_title span em{
+.myLike_title span em, .myMovieHistory_title span em{
 	margin-left: 22px;
 	color: #FF243E;
     font-size: 21px;
@@ -121,12 +151,12 @@ a:focus{
     text-decoration: underline;
 }
 
-.myLike_list, .myTicketing_list{
+.myLike_list, .myTicketing_list, .myMovieHistory_list{
 	margin-left: -40px;
 	list-style: none;
 }
 
-.myLike_list li, .myTicketing_list li{
+.myLike_list li, .myTicketing_list li, .myMovieHistory_list li{
 	display: block;
 	position: relative;
     float: left;
@@ -137,7 +167,7 @@ a:focus{
     min-height: 262px;
 }
 
-.myLike_poster, .myTicketing_poster{
+.myLike_poster, .myTicketing_poster, .myMovieHistory_poster{
 	position: absolute;
     left: 0;
     top: 0;
@@ -146,10 +176,9 @@ a:focus{
     overflow: hidden;
     border-radius: 4px;
     cursor: pointer;
- 
 }
 
-.myLike_poster img, .myTicketing_poster img{
+.myLike_poster img, .myTicketing_poster img, .myMovieHistory_poster img{
 	height: 262px;
 	width : auto;
 }
@@ -211,8 +240,6 @@ a:focus{
 	padding-top: 3px;
 }
 
-
-
 .myLike_list span, .detail_info{
 	vertical-align: middle;
 }
@@ -251,14 +278,14 @@ a:focus{
 	cursor : pointer;
 }
 
-.review_box dt{
+.review_box dt, .cancel_box dt{
 	color: #FF7787;
     font-size: 12px;
     font-weight: bold;
     text-align : left;
 }
 
-.review_box dd{
+.review_box dd, .cancel_box dd{
 	margin-top : 10px;
 	font-size: 13px;
     line-height: 18px;
@@ -268,13 +295,13 @@ a:focus{
     text-align : left;
 }
 
-.reserve_btn_area{
+.reserve_btn_area, .reviewWrite_btn_area, .cancel_btn_area{
 	position: absolute;
     left: 204px;
     bottom: 0;
     font-size: 0;
 }
-.reserve_btn_area a{
+.reserve_btn_area a, .reviewWrite_btn_area a, .cancel_btn_area a{
 	border-radius: 8px;
 	height: 25px;
     line-height: 23px;
@@ -287,7 +314,7 @@ a:focus{
     font-size: 14px;
 }
 
-.reserve_btn_area a span{
+.reserve_btn_area a span, .cancel_btn_area a span{
 	padding-left: 21px;
     font-size: 11px;
     background: url(../images/myPage/reserve.png) no-repeat 0 center;
@@ -298,7 +325,7 @@ a:focus{
 }
 
 /* 1:1 문의페이지 */
-.myQuestion , .myLike, .memberModify, .memberDelete, .myTicketing{
+.myQuestion , .myLike, .memberModify, .memberDelete, .myTicketing, .myMovieHistory{
 	margin-top : 65px;
 	width : 980px;
 }

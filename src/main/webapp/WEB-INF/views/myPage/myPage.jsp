@@ -57,8 +57,12 @@
 							<strong>n명</strong>
 						</span>
 					</div>
+					<dl class="cancel_box">
+						<dt>취소 관련 주의사항</dt>
+						<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
+					</dl>
 					
-					<div class="reserve_btn_area">
+					<div class="cancel_btn_area">
 						<a href="#">
 							<span>취소하기</span>
 						</a>
@@ -102,8 +106,12 @@
 							<strong>n명</strong>
 						</span>
 					</div>
+					<dl class="cancel_box">
+						<dt>취소 관련 주의사항</dt>
+						<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
+					</dl>
 					
-					<div class="reserve_btn_area">
+					<div class="cancel_btn_area">
 						<a href="#">
 							<span>취소하기</span>
 						</a>
