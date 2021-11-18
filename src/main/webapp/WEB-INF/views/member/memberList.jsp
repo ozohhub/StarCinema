@@ -37,20 +37,19 @@
 								</tr>
 							</thead>
 							<tbody id="tab">
+							<c:forEach var="db" items="${list }">
 								<tr class="acc_head" aria-expanded="false" role="button" id="tr_180">
-									<td id="row0" headers="thead0"> 번호 </td>
-									<td id="row0" headers="thead0"> 아이디 </td>
-									<td id="row0" headers="thead0"> 이름 </td>
-									<td id="row0" headers="thead0"> 이메일 </td>
+									<td id="row0" headers="thead0">${db.getnum() }</td>
+									<td id="row0" headers="thead0">${db.id }</td>
+									<td id="row0" headers="thead0">${db.getName() }</td>
+									<td id="row0" headers="thead0">${db.getEmail() }</td>
 									
 								</tr>
+							</c:forEach>
 							</tbody>
 						</table>
 						<div class="brd_paginate">
-							<ol>
-								<li><strong title="현재 페이지">1</strong></li>
-								<li><a href="#none">2</a></li>
-							</ol>
+							${page }
 						</div>
 					</div>
 				</li>

@@ -151,6 +151,13 @@ public class HomeController {
 		return "manage/findpw";
 		
 	}
+	
+	@RequestMapping(value="/movieManagement")
+	public String movieManagement() {
+		return "manage/movieManagement";
+		
+	}
+
 	@RequestMapping(value="/moviedetailDune")
 	public String moviedetailDune() {
 		return "movie/moviedetailDune";
