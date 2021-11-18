@@ -19,4 +19,3 @@
 	<div id="footer_section" class="footer" style="background-color: white;">
 		<%@ include file="common/footer.jsp" %>
 	</div>
-	
