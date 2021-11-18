@@ -14,6 +14,8 @@
 ver : 1.00
 ============================== */
 
+/* 로그인 영역 체크박스 */
+input[type="checkbox"] {position:relative; top:0; left:0; width:20px; height:20px; padding:0; margin:0; overflow:hidden; clip:rect(0, 0, 0, 0); vertical-align:middle; border:none 0;}
 
 /* 공통 */
 .ad_wrap {margin-top:70px;}

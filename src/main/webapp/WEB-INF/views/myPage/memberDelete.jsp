@@ -31,8 +31,7 @@
 				</div>
 				
 				<div class="deleteAgree">
-					<input type="checkbox" class="deleteCheck">
-					<label class="deleteLabel">위 유의사항을 모두 확인하였고 회원탈퇴에 동의합니다.</label>
+					<input type="checkbox" class="deleteCheck"><label class="deleteLabel">위 유의사항을 모두 확인하였고 회원탈퇴에 동의합니다.</label>
 				</div>
 				
 				<div class="delete_btn_area">

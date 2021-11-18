@@ -64,7 +64,7 @@
 	           		</li>
 				</ul>
 	           </form>
-	           <label class="agree_chk">안녕</label>
+	           <label class="agree_chk"></label>
           </div> 
           
             <div class="agree_btn_area" align="right">

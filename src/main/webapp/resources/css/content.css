@@ -1849,24 +1849,7 @@ textarea {width:100%; line-height:1.5; box-sizing:border-box; padding:13px 18px;
 textarea:disabled{background:#EFEFEF; color:#666;}
 textarea.ty2 {background-color:#F8F8F8; border-color:#DDD;}
 textarea.ty3 {background-color:#F8F8F8; border-color:transparent;}
-input[type="radio"],
-input[type="checkbox"] {position:relative; top:0; left:0; width:0px; height:0px; padding:0; margin:0; overflow:hidden; clip:rect(0, 0, 0, 0); vertical-align:middle; border:none 0;}
-input[type="radio"] + label,
-input[type="checkbox"] + label {position:relative; display:inline-block; margin-right:20px; vertical-align:middle;}
-input[type="radio"] + label:last-of-type,
-input[type="checkbox"] + label:last-of-type {margin-right:0px;}
-input[type="radio"]:focus + label,
-input[type="checkbox"]:focus + label {outline:#666 dotted 1px;}
-input[type="radio"] + label:before {content:""; display:inline-block; width:18px; height:18px; margin-right:5px;background:#fff; border:1px solid #DDD; border-radius:50%; vertical-align:-5px;}
-input[type="radio"]:checked + label:before {border-color:#000; background:#fff url("../images/icon/rad_12.png") no-repeat center center;}
-input[type="radio"] + label.ty2:before {border-color:#BEBEBE; background:#fff url("../images/icon/rad_ty2_off.png") no-repeat center center;}
-input[type="radio"]:checked + label.ty2:before {border-color:#FFF; background:#FFF url("../images/icon/rad_ty2_on.png") no-repeat center center;}
-input[type="checkbox"] + label:before {content:""; display:inline-block; border:1px solid #DDD; background-color:#fff; width:18px; height:18px; margin-right:5px; vertical-align:-5px; -webkit-border-radius:3px; border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px;}
-input[type="checkbox"] + label.disabled:before {display: none;} /* 2020-01-06, eskang fixed */
-input[type="checkbox"]:checked + label:before {border-color:#000; background:#fff url("../images/icon/chk_8.png") no-repeat center 6px;}
-input[type="checkbox"] + label.ty2:before {border-color:#BEBEBE; border-radius:50%; background:#fff url("../images/movie/chk_pay.png") no-repeat center 6px; vertical-align:-5px; -webkit-border-radius:50%; -moz-border-radius:50%; -ms-border-radius:50%; -o-border-radius:50%;}
-input[type="checkbox"]:checked + label.ty2:before {border-color:#000; background:#000 url("../images/movie/chk_black.png") no-repeat center 6px;}
-input[type="checkbox"] + label.ty2.disabled:before {border-color:#BEBEBE; pointer-events:none; cursor:default; background:#BEBEBE url("../images/icon/chk_disabled_14.png") no-repeat center center;}
+
 
 /* scroll */
 .fieldset_box .bx_list_scroll {overflow-y:scroll; height:124px; margin:10px 0;}
