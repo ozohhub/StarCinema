@@ -101,3 +101,45 @@ function daumPost(){
 	}).open();
 }
 
+/* 이메일 인증 */
+function sendAuth(){		
+	var e = document.getElementById("email").value;
+	var n = document.getElementById("name").value;
+	var info = {email : e, name: n};
+	
+	$.ajax({		
+		url: "sendAuth", type: "POST",		
+		data: JSON.stringify(info), 			
+		contentType: "application/json; charset=utf-8", 	
+		dataType: "json", 
+	
+		success : function(result){		
+			$('#authLabel').text(result.msg);	
+
+		},
+		error : function(){
+			$('#authLabel').text('error');
+		}
+	})
+	
+}
+
+function authConfirm(){		
+	var a = document.getElementById("authNum").value;
+	var info = {authNum : a};
+	
+	$.ajax({		
+		url: "authConfirm", type: "POST",		
+		data: JSON.stringify(info), 			
+		contentType: "application/json; charset=utf-8", 	
+		dataType: "json", 
+	
+		success : function(result){		
+			$('#result').text(result.msg);	
+
+		},
+		error : function(){
+			$('#result').text('error');
+		}
+	})	
+}

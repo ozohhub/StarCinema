@@ -119,12 +119,12 @@ input[type='checkbox']{
 	color: gray;
 }
 
-.emailTb td input{
+.emailTb td input[type='text']{
 	height : 30px;
 	width : 65%
 }
 
-.emailTb td button, .registerTb td input[type='button'] {
+.emailTb td input[type='button'], .registerTb td input[type='button'] {
 	height : 30px;
 	border-color : transparent;
 	font-weight: bold;
@@ -155,8 +155,7 @@ select{
     font-size: 13px;
     font-family: "Roboto";
     color: gray;;
-    padding-left : 5px;
-	
+    padding-left : 5px;	
 }
 
 #id{

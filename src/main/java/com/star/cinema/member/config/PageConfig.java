@@ -1,4 +1,4 @@
-package com.star.cinema.member.service;
+package com.star.cinema.member.config;
 
 public class PageConfig {
 	public static String getNavi(int currentPage, int pageBlock, int totalPage, String url) {

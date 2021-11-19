@@ -93,8 +93,7 @@ $(document).ready(function(){
 	
 	<div class="empty_space">
 		
-		
-		
+	
 	</div>
 	<div id="contents" class="contents_movie_detail">
 		<div class="detail_top_wrap">
@@ -399,8 +398,6 @@ $(document).ready(function(){
 				</div>
 			</li>
 			</ul>
-		
-		
 	</div>
 	
 		

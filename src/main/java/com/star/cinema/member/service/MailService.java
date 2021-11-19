@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MailService {	
-	 private JavaMailSender mailSender;
+	@Autowired private JavaMailSender mailSender;
 
     public void sendMail(String to, String subject, String body) {
 		MimeMessage message = mailSender.createMimeMessage();	

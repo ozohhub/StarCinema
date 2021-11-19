@@ -20,15 +20,15 @@
 		<table class="emailTb">
 			<tr>
 				<th><font class="must">*</font> <label class="title">이름</label></th>
-				<td><input type="text" placeholder="한글 또는 영문으로 입력해주세요." maxlength="20"></td>
+				<td><input type="text" id = "name" name = "name" placeholder="한글 또는 영문으로 입력해주세요." maxlength="20"></td>
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">이메일 주소</label></th>
-				<td><input type="text" placeholder="이메일주소를 입력해주세요." maxlength="30"> <button>메일발송</button></td>
+				<td><input type="text" id="email" name="email" placeholder="이메일주소를 입력해주세요." maxlength="30"> <input type="button" value="메일발송"></td>
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">인증번호</label></th>
-				<td><input type="text" id = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <button>인증확인</button></td>
+				<td><input type="text" id = "authNum" name = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <input type="button" value="인증확인"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><label id="authLabel"></label></td>
