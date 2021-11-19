@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/register.css" />
 
 <script src="<c:url value="/resources/js/register.js" />"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <c:url var="root" value="/"/>
 
 <!-- 이메일인증페이지 -->
@@ -24,11 +25,11 @@
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">이메일 주소</label></th>
-				<td><input type="text" id="email" name="email" placeholder="이메일주소를 입력해주세요." maxlength="30"> <input type="button" value="메일발송"></td>
+				<td><input type="text" id="email" name="email" placeholder="이메일주소를 입력해주세요." maxlength="30"> <input type="button" value="메일발송" onclick="sendAuth();"></td>
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">인증번호</label></th>
-				<td><input type="text" id = "authNum" name = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <input type="button" value="인증확인"></td>
+				<td><input type="text" id = "authNum" name = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <input type="button" value="인증확인" onclick="authConfirm()"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><label id="authLabel"></label></td>

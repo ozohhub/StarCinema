@@ -72,7 +72,14 @@ function numberChk(){
 
 /* 이메일인증 - 확인버튼 클릭시 */
 function nextStep2(){
-	document.getElementById('authForm').submit();
+	var authState = document.getElementById('authLabel').innerText; 
+	
+	if(authState == '인증 성공'){
+		document.getElementById('authForm').submit();
+	}else{
+		document.getElementById('authLabel').innerHTML = "이메일 인증을 해주세요";
+	}
+	
 }
 
 function registerStep(){
@@ -135,11 +142,11 @@ function authConfirm(){
 		dataType: "json", 
 	
 		success : function(result){		
-			$('#result').text(result.msg);	
+			$('#authLabel').text(result.msg);	
 
 		},
 		error : function(){
-			$('#result').text('error');
+			$('#authLabel').text('error');
 		}
 	})	
 }

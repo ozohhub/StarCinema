@@ -21,7 +21,6 @@ public class RegisterController {
 	final static Logger logger = LoggerFactory.getLogger(RegisterController.class);
 	@Autowired IRegisterService service;
 	
-
 	@RequestMapping(value="/registerProc", method=RequestMethod.POST)
 	public String registerProc() {
 		return "forward:index";
@@ -59,6 +58,7 @@ public class RegisterController {
 		
 		String email = map.get("email");
 		String name = map.get("name");
+		logger.warn(email +  ", " + name);
 			
 		if(email == "" || name == "") {
 			map.put("msg", "이름과 이메일을 모두 입력해주세요.");
@@ -77,6 +77,7 @@ public class RegisterController {
 	public Map<String,String> authConfirm(@RequestBody Map<String,String> map, HttpSession session) {
 		
 		String authNum = map.get("authNum");
+		logger.warn(authNum);
 		
 		if(authNum == "") {
 			map.put("msg", "인증번호를 입력해주세요.");

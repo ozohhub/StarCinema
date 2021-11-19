@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterServiceImpl implements IRegisterService {
-	
+	final static Logger logger = LoggerFactory.getLogger(RegisterServiceImpl.class);
 	@Autowired MailService mailService;
 	@Autowired HttpSession session;
 	
@@ -25,6 +25,7 @@ public class RegisterServiceImpl implements IRegisterService {
 			mailService.sendMail(email, "[인증번호]", authNum);
 			session.setAttribute("authNum", authNum);
 			session.setMaxInactiveInterval(60);	
+			logger.warn(authNum);
 	
 		}
 		
@@ -32,8 +33,18 @@ public class RegisterServiceImpl implements IRegisterService {
 
 	@Override
 	public String authConfirm(String authNum) {
-		
-		return null;
+		String saveAuthNum = (String)session.getAttribute("authNum");
+		String msg = "";
+		if(saveAuthNum == null) {
+			msg = "인증번호를 전송을 눌러주세요.";
+		}else if(!saveAuthNum.equals(authNum)){
+			msg = "인증 실패";
+			session.setAttribute("authState", "no");	// 인증성공 후 다시 인증실패했을때 no로
+		}else {
+			msg = "인증 성공";
+			session.setAttribute("authState", "yes");
+		}		
+		return msg;
 	}
 
 	
