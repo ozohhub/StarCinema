@@ -15,8 +15,8 @@ public class MemberDTO {
 	public int getMemberNum() {
 		return memberNum;
 	}
-	public void setMemberNum(int num) {
-		this.memberNum = num;
+	public void setMemberNum(int memberNum) {
+		this.memberNum = memberNum;
 	}
 	public String getId() {
 		return id;

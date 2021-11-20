@@ -24,5 +24,4 @@ public class CustomerController {
 	public String noticeDeleteProc(HttpSession session) {
 		return "forward:index?formpath=customer";
 	}
-	
 }

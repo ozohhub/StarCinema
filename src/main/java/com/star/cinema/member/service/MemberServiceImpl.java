@@ -15,16 +15,13 @@ public class MemberServiceImpl implements IMemberService{
 	@Autowired IMemberDAO dao;
 	
 	@Override
-	public void memberList(Model model, int currentPage, String select, String search) {
+	public void memberList(Model model, int currentPage) {
 		int pageBlock = 10;
 		int totalCount = dao.memberCount();
-		int end = currentPage * pageBlock;
-		int begin = end + 1 - pageBlock;
-		ArrayList<MemberDTO> list = dao.memberList(begin, end, select, search);
-		model.addAttribute("list", list);
+		ArrayList<MemberDTO> list = dao.memberList();
+		model.addAttribute("memberList", list);
 		
-		String url = "/cinema/memberList?currentPage=";
+		String url = "/cinema/memberListProc?currentPage=";
 		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
 	}
-
 }

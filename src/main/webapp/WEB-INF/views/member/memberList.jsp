@@ -37,12 +37,12 @@
 								</tr>
 							</thead>
 							<tbody id="tab">
-							<c:forEach var="db" items="${list }">
+							<c:forEach var="user" items="${memberList }">
 								<tr class="acc_head" aria-expanded="false" role="button" id="tr_180">
-									<td id="row0" headers="thead0">${db.getnum() }</td>
-									<td id="row0" headers="thead0">${db.id }</td>
-									<td id="row0" headers="thead0">${db.getName() }</td>
-									<td id="row0" headers="thead0">${db.getEmail() }</td>
+									<td id="row0" headers="thead0">${user.getMemberNum() }</td>
+									<td id="row0" headers="thead0">${user.id }</td>
+									<td id="row0" headers="thead0">${user.getName() }</td>
+									<td id="row0" headers="thead0">${user.getEmail() }</td>
 									
 								</tr>
 							</c:forEach>
