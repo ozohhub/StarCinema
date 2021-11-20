@@ -130,6 +130,7 @@ input[type='checkbox']{
 	font-weight: bold;
 	color : white;
 	background-color : #FF4848;
+	cursor: pointer;
 }
 
 #authLabel{
@@ -187,4 +188,8 @@ select{
 	line-height : 10;
 }
 
+.registerTb td label{
+	font-size : 10px;
+	color : gray;
+}
 

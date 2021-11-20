@@ -1,5 +1,7 @@
 package com.star.cinema;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,8 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/")
-	public String main(Model model) {
+	public String main(Model model, HttpSession session) {
+		session.removeAttribute("authState");
 		model.addAttribute("formpath", "main");
 		model.addAttribute("page","2");
 		return "index";

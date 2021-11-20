@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.star.cinema.member.dao.IMemberDAO">
+
+	<resultMap type="com.star.cinema.member.dto.MemberDTO" id="member">	
+		<result column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="name" property="name"/>
+		<result column="email" property="email"/>
+		<result column="birth" property="birth"/>
+		<result column="phone" property="phone"/>
+		<result column="address" property="address"/>
+		<result column="zipcode" property="zipcode"/>
+		<result column="gender" property="gender"/>
+	</resultMap>
+	
+	<select id="memberList" resultMap="member" >
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM member
+				<choose>
+					<when test="sel == 'id'">WHERE id LIKE '%'||#{search}||'%'</when>
+					<when test="sel == 'email'">WHERE email LIKE '%'||#{search}||'%'</when>
+				</choose>
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="memberCount" resultType="int">
+		SELECT count(*) FROM member
+	</select>
+	
+	<select id ="isExistId" resultMap="member" parameterType="String">
+		SELECT * FROM member where id = #{id}
+	</select>
+	
+	<insert id = "insertMember" parameterType="com.star.cinema.member.dto.MemberDTO">
+		<selectKey keyProperty="memberNum" resultType="int" order="BEFORE">
+			select nvl(max(memberNum),0)+1 from member
+		</selectKey>
+		
+		INSERT INTO member values(
+			#{memberNum}, #{id}, #{pw}, #{name}, #{email}, #{birth},
+			#{phone}, #{address}, #{zipcode}, #{gender})
+	</insert>
+</mapper>

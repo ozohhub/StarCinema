@@ -25,11 +25,11 @@
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">이메일 주소</label></th>
-				<td><input type="text" id="email" name="email" placeholder="이메일주소를 입력해주세요." maxlength="30"> <input type="button" value="메일발송" onclick="sendAuth();"></td>
+				<td><input type="text" id="email" name="email" placeholder="이메일주소를 입력해주세요." maxlength="30"> <input type="button" id="sendMailBtn" value="메일발송" onclick="sendAuth();"></td>
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">인증번호</label></th>
-				<td><input type="text" id = "authNum" name = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <input type="button" value="인증확인" onclick="authConfirm()"></td>
+				<td><input type="text" id = "authNum" name = "authNum" placeholder="인증번호를 입력해주세요." maxlength="6" onkeyup="numberChk();"> <input type="button" id = "authBtn" value="인증확인" onclick="authConfirm()"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><label id="authLabel"></label></td>

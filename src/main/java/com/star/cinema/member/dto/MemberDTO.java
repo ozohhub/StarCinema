@@ -1,7 +1,7 @@
 package com.star.cinema.member.dto;
 
 public class MemberDTO {
-	private int num;
+	private int memberNum;
 	private String id;
 	private String pw;
 	private String name;
@@ -10,12 +10,13 @@ public class MemberDTO {
 	private String phone;
 	private String address;
 	private String zipcode;
+	private String gender;
 	
-	public int getNum() {
-		return num;
+	public int getMemberNum() {
+		return memberNum;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setMemberNum(int num) {
+		this.memberNum = num;
 	}
 	public String getId() {
 		return id;
@@ -65,4 +66,11 @@ public class MemberDTO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
 }
