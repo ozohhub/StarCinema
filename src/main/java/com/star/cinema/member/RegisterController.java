@@ -32,19 +32,10 @@ public class RegisterController {
 			result.put("msg", "약관을 모두 동의해주세요.");
 			return result;
 		}
-					
+			
 		String[] agree = (String[]) map.get("agree");
-		
-		int agreeCnt = 0;
-		for(int i=0; i < agree.length; i++) {
-			if(agree[i].equals("yes")) {
-				agreeCnt++;
-			}
-		}
-		
-		if(agreeCnt != 2) result.put("msg", "약관을 모두 동의해주세요.");	
-		else result.put("msg", "");	
-				
+		result.put("msg", service.agreeCheck(agree));
+					
 		return result;
 	}
 	
@@ -54,17 +45,10 @@ public class RegisterController {
 	public Map<String,String> sendAuth(@RequestBody Map<String,String> map, HttpSession session) {
 		
 		String email = map.get("email");
-		String name = map.get("name");
-			
-		if(email == "" || name == "") {
-			map.put("msg", "이름과 이메일을 모두 입력해주세요.");
-		}else if(service.nameCheck(name) == false) {
-			map.put("msg", "이름은 한글 또는 영문만 가능합니다.");
-		}else {
-			service.sendAuth(email);
-			map.put("msg", "이메일을 확인하세요.");
-		}
+		String name = map.get("name");	
 		
+		map.put("msg", service.sendAuth(email, name));
+
 		return map;
 	}
 	
@@ -73,13 +57,8 @@ public class RegisterController {
 	@ResponseBody
 	public Map<String,String> authConfirm(@RequestBody Map<String,String> map, HttpSession session) {
 		
-		String authNum = map.get("authNum");
-		
-		if(authNum == "") {
-			map.put("msg", "인증번호를 입력해주세요.");
-		}else {
-			map.put("msg", service.authConfirm(authNum));
-		}
+		String authNum = map.get("authNum");		
+		map.put("msg", service.authConfirm(authNum));
 		return map;
 	}
 	
@@ -90,15 +69,9 @@ public class RegisterController {
 		
 		String name = map.get("name");
 		String email = map.get("email");
-		String authState = (String)session.getAttribute("authState");
+	
+		map.put("msg", service.authProc(name, email));
 		
-		if(name != "" && email != "" && (authState != null && authState.equals("yes"))) {
-			map.put("msg", "인증 성공");
-		}else if(name == "" || email == "") {
-			map.put("msg", "빈 항목이 존재합니다.");
-		}else {
-			map.put("msg", "이메일 인증을 해주세요.");
-		}		
 		return map;
 	}
 	
@@ -118,10 +91,8 @@ public class RegisterController {
 	@ResponseBody
 	public Map<String,String> pwCheck(@RequestBody Map<String,String> map, HttpSession session) {
 		
-		String pw = map.get("pw");
-		
-		if(service.pwCheck(pw)) map.put("msg", "사용가능한 비밀번호 입니다.");
-		else map.put("msg", "영문자+숫자 조합 / 특수문자는 -_!@#$%^&*?만 가능합니다.(8~16자)");
+		String pw = map.get("pw");		
+		map.put("msg", service.pwCheck(pw));
 			
 		return map;
 	}
@@ -139,7 +110,8 @@ public class RegisterController {
 			
 		return map;
 	}
-		
+	
+	/* register_final에서 확인버튼 눌렀을 때 - 생년월일 & 만 14세이상인지 확인 */	
 	@RequestMapping(value = "birthCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> birthCheck(@RequestBody Map<String,String> map, HttpSession session) {
@@ -151,7 +123,7 @@ public class RegisterController {
 		return map;
 	}
 	
-	
+	/* register_final에서 확인버튼 눌렀을 때 - 핸드폰번호 자리수 확인 */	
 	@RequestMapping(value = "phoneCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> phoneCheck(@RequestBody Map<String,String> map, HttpSession session) {
@@ -163,6 +135,7 @@ public class RegisterController {
 		return map;
 	}
 	
+	/* register_final에서 확인버튼 눌렀을 때 - 주소 확인 */	
 	@RequestMapping(value = "addrCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> addrCheck(@RequestBody Map<String,String> map, HttpSession session) {
@@ -174,7 +147,7 @@ public class RegisterController {
 		return map;
 	}
 	
-
+	/* 입력 검증 끝낸 후 최종 가입*/
 	@RequestMapping(value="/registerProc", method=RequestMethod.POST)
 	public String registerProc(String id, String pw, String year, String month, String day, String gender, 
 			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email, MemberDTO dto){

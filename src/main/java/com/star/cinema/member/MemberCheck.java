@@ -11,6 +11,11 @@ public class MemberCheck {
 		return !name.matches(regName) ? false : true;
 	}
 	
+	public boolean emailCheck(String email) { // 이메일 id부 : 영문자(소,대), 숫자, -_. (4~12자리)/이메일 도메인 앞자리 : 영문자(소,대), 숫자, .- /뒷자리 : 영문자(소,대) 2~6자리
+		String regEmail = "^[a-zA-Z0-9-_.]{4,12}+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+		return !email.matches(regEmail) ? false : true;
+	}
+	
 	public boolean idCheck(String id) {		// 아이디 : 소문자로 시작, 소문자/숫자/-_만 가능(5~12자)
 		String regId = "^[a-z][a-z0-9-_]{4,12}$";
 		return !id.matches(regId) ? false : true;
@@ -56,10 +61,8 @@ public class MemberCheck {
 		int month = cal.get(Calendar.MONTH) + 1;
 		int day = cal.get(Calendar.DAY_OF_MONTH);
 		
-		int age = year - birthY;
-		
-		if(birthM*100+birthD > month*100+day) age--;
-		
+		int age = year - birthY;	
+		if(birthM*100+birthD > month*100+day) age--;	
 		return age;
 	}
 	

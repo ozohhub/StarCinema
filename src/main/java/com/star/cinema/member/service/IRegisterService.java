@@ -3,16 +3,17 @@ package com.star.cinema.member.service;
 import com.star.cinema.member.dto.MemberDTO;
 
 public interface IRegisterService {
-
-	public boolean nameCheck(String name);
+	public String agreeCheck(String[] agree);
 	
-	public void sendAuth(String email);
+	public String sendAuth(String email, String name);
 
 	public String authConfirm(String authNum);
+	
+	public String authProc(String name, String email);
 		
 	public String isExistId(String id);
 	
-	public boolean pwCheck(String pw);
+	public String pwCheck(String pw);
 
 	public String birthCheck(String y, String m, String d);
 
@@ -21,6 +22,10 @@ public interface IRegisterService {
 	public String addrCheck(String zip, String addr2, String addr3);
 
 	public void insertMember(MemberDTO dto);
+
+	
+
+	
 	
 
 

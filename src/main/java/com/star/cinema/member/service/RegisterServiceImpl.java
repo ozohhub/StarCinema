@@ -23,23 +23,46 @@ public class RegisterServiceImpl implements IRegisterService {
 	@Autowired IMemberDAO dao;
 	
 	@Override
-	public boolean nameCheck(String name) {
-		return memCheck.nameCheck(name) == false ? false : true;
+	public String agreeCheck(String[] agree) {
+		String msg = "";
+		int agreeCnt = 0;
+		for(int i=0; i < agree.length; i++) {
+			if(agree[i].equals("yes")) {
+				agreeCnt++;
+			}
+		}
+		
+		if(agreeCnt != 2) msg = "약관을 모두 동의해주세요.";
+		else msg = "";
+		
+		return msg;
 	}
 	
 	@Override
-	public void sendAuth(String email) {
-		Random random = new Random();
-		String authNum = String.format("%06d", random.nextInt(1000000));
-		mailService.sendMail(email, "[인증번호]", authNum);
-		session.setAttribute("authNum", authNum);
-		session.setMaxInactiveInterval(60);	
-		logger.warn(authNum);	
+	public String sendAuth(String email, String name) {
+		
+		if(email == "" || name == "") {
+			return "이메일과 이름을 모두 입력해주세요";
+		}else if(memCheck.nameCheck(name) == false) {
+			return "이름은 한글 또는 영문만 가능합니다.";
+		}else if(memCheck.emailCheck(email) == false) {
+			return "이메일 형식이 올바르지 않습니다.";
+		}else {
+			Random random = new Random();
+			String authNum = String.format("%06d", random.nextInt(1000000));
+			mailService.sendMail(email, "[인증번호]", authNum);
+			session.setAttribute("authNum", authNum);
+			session.setMaxInactiveInterval(60);	
+			logger.warn(authNum);	
+			return "이메일을 확인해주세요";
+		}
 	
 	}
 
 	@Override
 	public String authConfirm(String authNum) {
+		if(authNum == "") return "인증번호를 입력해주세요";
+		
 		String saveAuthNum = (String)session.getAttribute("authNum");
 		String msg = "";
 		if(saveAuthNum == null) {
@@ -53,6 +76,23 @@ public class RegisterServiceImpl implements IRegisterService {
 		}		
 		return msg;
 	}
+	
+	@Override
+	public String authProc(String name, String email) {
+		String authState = (String)session.getAttribute("authState");
+		String msg = "";
+		
+		if(name != "" && email != "" && (authState != null && authState.equals("yes"))) {
+			msg = "인증 성공";
+		}else if(name == "" || email == "") {
+			msg = "빈 항목이 존재합니다.";
+		}else {
+			msg = "이메일 인증을 해주세요.";
+		}		
+
+		return msg;
+	}
+
 
 	@Override
 	public String isExistId(String id) {
@@ -66,14 +106,17 @@ public class RegisterServiceImpl implements IRegisterService {
 		
 		if(dto != null) msg = "중복 아이디 입니다.";
 		else msg = "사용 가능한 아이디 입니다.";
-	
 		
 		return msg;
 	}
 
 	@Override
-	public boolean pwCheck(String pw) {
-		return memCheck.pwCheck(pw) == false ? false : true;
+	public String pwCheck(String pw) {		
+		if(memCheck.pwCheck(pw)) {
+			return "사용가능한 비밀번호 입니다.";
+		}else {
+			return "영문자+숫자 조합 / 특수문자는 -_!@#$%^&*?만 가능합니다.(8~16자)";
+		}
 	}
 
 	@Override
@@ -121,6 +164,8 @@ public class RegisterServiceImpl implements IRegisterService {
 		dao.insertMember(dto);
 		session.invalidate();		// 회원가입 다되면 세션삭제
 	}
+
+
 
 	
 }

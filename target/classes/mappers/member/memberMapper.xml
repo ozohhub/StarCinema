@@ -3,6 +3,7 @@
 <mapper namespace="com.star.cinema.member.dao.IMemberDAO">
 
 	<resultMap type="com.star.cinema.member.dto.MemberDTO" id="member">	
+		<result column="memberNum" property="memberNum"/>
 		<result column="id" property="id"/>
 		<result column="pw" property="pw"/>
 		<result column="name" property="name"/>

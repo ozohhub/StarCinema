@@ -99,7 +99,7 @@ function authConfirm(){
 		contentType: "application/json; charset=utf-8", 	
 		dataType: "json", 
 	
-		success : function(result){		// 인증 성공시 이름과 이메일주소 -readonly, 메일발송 disabled
+		success : function(result){		// 인증 성공시 이름과 이메일주소 -readonly, 메일발송, 인증버튼 disabled
 			$('#authLabel').text(result.msg);	
 			if(result.msg =="인증 성공"){
 				$('#name').prop('readonly', true); 
@@ -121,9 +121,8 @@ function nextStep2(){
 	
 	var e = document.getElementById("email").value;
 	var n = document.getElementById("name").value;
-	var as = document.getElementById('authLabel').innerText; 
 	
-	var info = {email : e, name: n, authState : as};
+	var info = {email : e, name: n};
 	
 	$.ajax({		
 		url: "authProc", type: "POST",		
@@ -288,7 +287,7 @@ function birthCheck(){
 	})	
 	return check;	
 }
-
+/* 핸드폰 번호 확인  */
 function phoneCheck(){	
 	var p1 = document.getElementById("phone1").value;
 	var p2 = document.getElementById("phone2").value;
@@ -318,7 +317,7 @@ function phoneCheck(){
 	})	
 	return check;		
 }
-
+/* 주소 비어있는지 확인 */
 function addrCheck(){
 	var z = document.getElementById("zipcode").value;
 	var a1 = document.getElementById("addr1").value;
@@ -360,11 +359,7 @@ function registerStep(){
 	var addc = addrCheck();
 		
 	if(idc == true && pwc == true && con == true && bc == true && phonc == true && addc == true) {
-		registerProc();
+		document.getElementById('registerForm').submit(); 
 	}
-}
-
-function registerProc(){
-	document.getElementById('registerForm').submit(); 
 }
 
