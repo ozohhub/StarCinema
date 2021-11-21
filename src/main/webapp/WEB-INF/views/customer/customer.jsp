@@ -44,19 +44,28 @@
 					</tr>
 				</thead>
 				<tbody class="notice_td">
-					<tr>
-						<td>1</td>
-						<td>구분나오는곳</td>
-						<td><a href="index?formpath=noticeView">제목나오는곳</a></td>
-						<td>등록일나오는곳</td>				
-					</tr>
-					<tr>
-						<td colspan="4">
-							<div class="noNotice">
-								<p>문의내역이 존재하지 않습니다.</p>
-							</div>
-						</td>
-					<tr>
+				
+					<c:choose>
+						<c:when test="${list.isEmpty() == false}">
+							<c:forEach var="dto" items="${list }">
+								<tr>
+									<td>${dto.noticeNum}</td>
+									<td>${dto.division}</td>
+									<td><a href="index?formpath=noticeView">${dto.title}</a></td>
+									<td>${dto.regDate}</td>				
+								</tr>							
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<tr>
+								<td colspan="4">
+									<div class="noNotice">
+										<p>문의내역이 존재하지 않습니다.</p>
+									</div>
+								</td>
+							<tr>
+						</c:otherwise>
+					</c:choose>
 					
 				</tbody>
 			</table>
@@ -73,14 +82,10 @@
 			<div align = "right">
 	   			<!-- admin 계정일때만 작성 활성화시킴 -->		
 					<input type="button" id = "writeYes" value="작성" onclick="location.href='index?formpath=noticeWrite';">
- 			</div>		
+ 			
+			</div>
 		</div>
 		
-		
 	</div>
-
-
 </div>
-
-
 </center>

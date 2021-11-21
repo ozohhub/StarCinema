@@ -10,6 +10,11 @@
 
 <%@ include file="customerHeader.jsp" %>
 
+
+<c:if test="${not empty msg }">
+	<script>alert('${msg}');</script>
+</c:if>
+
 <center>
 	<div class="sub_content">
 		<div class="notice_write">
@@ -28,11 +33,15 @@
 					</tr>
 					<tr>
 						<th><font class="must">*</font> <label class="title">제목</label></th>
-						<td><input type="text" id = "title" placeholder="제목을 입력해주세요"></td>
+						<td><input type="text" id = "title" name = "title" placeholder="제목을 입력해주세요"></td>
 					</tr>
 					<tr class="notice_content">
 						<th><font class="must">*</font> <label class="title">내용</label></th>
-						<td><textarea placeholder="내용을 입력해주세요"></textarea></td>
+						<td><textarea placeholder="내용을 입력해주세요" id = "content" name="content"></textarea></td>
+					</tr>
+					<tr>
+						<th></th>
+						<td><label id="inputCheck"></label></td>
 					</tr>
 
 					<tr>

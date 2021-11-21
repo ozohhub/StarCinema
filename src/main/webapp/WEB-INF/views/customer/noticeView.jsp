@@ -47,7 +47,7 @@
 								<input type="button" value="수정" onclick="location.href='index?formpath=noticeModify';">
 								<input type="button" value="삭제" onclick="location.href='noticeDeleteProc';">
 						
-							<input type="button" value="목록으로" onclick="location.href='index?formpath=customer';">
+							<input type="button" value="목록으로" onclick="location.href='customerList';">
 						</td>
 					</tr>
 				</tbody>

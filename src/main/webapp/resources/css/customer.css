@@ -267,6 +267,10 @@ a:focus{
 #title{
 	width : 100%;
 }
+
+#inputCheck{
+	color : red;
+}
 .question_btn_area, .noticeWrite_btn_area{
 	padding-top : 50px;
 	text-align: center;

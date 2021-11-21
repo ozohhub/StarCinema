@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.star.cinema.customer.dao.ICustomerDAO">
+
+	<resultMap type="com.star.cinema.customer.dto.NoticeDTO" id="notice">	
+		<result column="noticeNum" property="noticeNum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="regDate" property="regDate"/>
+		<result column="division" property="division"/>
+		<result column="hit" property="hit"/>
+	</resultMap>
+	
+	<insert id="insertNotice" parameterType="com.star.cinema.customer.dto.NoticeDTO">
+		<selectKey keyProperty="noticeNum" resultType="int" order="BEFORE">
+			select nvl(max(noticeNum),0)+1 from notice
+		</selectKey>
+		
+		INSERT INTO notice values(#{noticeNum}, #{title}, #{content},#{regDate},#{division},0)
+	</insert>
+
+	<select id="customerList" resultMap="notice">
+		SELECT * FROM notice order by regDate desc
+	</select>
+</mapper>

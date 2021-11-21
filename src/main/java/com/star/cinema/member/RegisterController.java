@@ -40,7 +40,7 @@ public class RegisterController {
 	}
 	
 	/* register2에서 메일발송 버튼 눌렀을 때 */
-	@RequestMapping(value = "sendAuth", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/sendAuth", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> sendAuth(@RequestBody Map<String,String> map, HttpSession session) {
 		
@@ -53,7 +53,7 @@ public class RegisterController {
 	}
 	
 	/* register2에서 인증번호 확인 눌렀을 때 */
-	@RequestMapping(value = "authConfirm", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/authConfirm", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> authConfirm(@RequestBody Map<String,String> map, HttpSession session) {
 		
@@ -76,7 +76,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 중복확인 눌렀을 때 */
-	@RequestMapping(value = "isExistId", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/isExistId", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> isExistId(@RequestBody Map<String,String> map, HttpSession session) {
 		
@@ -87,7 +87,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 비밀번호 입력했을 때 -  유효성검사 */
-	@RequestMapping(value = "pwCheck", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/pwCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> pwCheck(@RequestBody Map<String,String> map, HttpSession session) {
 		
@@ -98,7 +98,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 비밀번호 확인 입력했을 때 -  비밀번호와 일치하는지 여부 확인 */
-	@RequestMapping(value = "pwConfirm", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/pwConfirm", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> pwConfirm(@RequestBody Map<String,String> map, HttpSession session) {
 		String pw = map.get("pw");
@@ -112,7 +112,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 확인버튼 눌렀을 때 - 생년월일 & 만 14세이상인지 확인 */	
-	@RequestMapping(value = "birthCheck", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/birthCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> birthCheck(@RequestBody Map<String,String> map, HttpSession session) {
 		String y = map.get("year");
@@ -124,7 +124,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 확인버튼 눌렀을 때 - 핸드폰번호 자리수 확인 */	
-	@RequestMapping(value = "phoneCheck", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/phoneCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> phoneCheck(@RequestBody Map<String,String> map, HttpSession session) {
 		String phone1 = map.get("phone1");
@@ -136,7 +136,7 @@ public class RegisterController {
 	}
 	
 	/* register_final에서 확인버튼 눌렀을 때 - 주소 확인 */	
-	@RequestMapping(value = "addrCheck", produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/addrCheck", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> addrCheck(@RequestBody Map<String,String> map, HttpSession session) {
 		String zip = map.get("zip");

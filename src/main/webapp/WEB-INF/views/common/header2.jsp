@@ -28,7 +28,7 @@
 				<li><a href="index?formpath=movieManagement">영화관리</a></li>
 				<li><a href="index?formpath=memberList">회원관리</a></li>
 				<li><a href="index?formpath=myPage">멤버십</a></li>
-				<li><a href="index?formpath=customer">고객센터</a></li>
+				<li><a href="${root }customerList">고객센터</a></li>
 				<li><a href="index?formpath=login">로그인</a></li>
 			</ul>
 			<ul class="g_menu3">

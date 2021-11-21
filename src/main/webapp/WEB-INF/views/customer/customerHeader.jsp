@@ -11,7 +11,7 @@
 			<h2>고객센터</h2>
 				<ul class = "main">
 					<li class="main_li">
-						<a href="index?formpath=customer" class = "main_a" style="width : 50%; left : 0%;">
+						<a href="customerList" class = "main_a" style="width : 50%; left : 0%;">
 							<span>공지사항</span>
 						</a>
 					</li>
