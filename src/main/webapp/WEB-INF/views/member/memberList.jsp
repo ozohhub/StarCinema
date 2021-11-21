@@ -17,11 +17,13 @@
 				<li class="active">
 					<div class="tab_con ty2">
 						<h3 class="hidden">FAQ</h3>
-						<fieldset class="search_wrap ty2">
-							<legend>영화관 FAQ 검색하기</legend>
-							<input type="text" placeholder="검색어를 입력해주세요." id="searchKeyword" title="검색어를 입력해주세요">
-							<button type="button" class="btn_col2">검색</button>
-						</fieldset>
+						<form action="" method="post">
+							<fieldset class="search_wrap ty2">
+								<legend>영화관 FAQ 검색하기</legend>
+								<input type="text" name="search" placeholder="이름을 입력해주세요." id="search" title="검색어를 입력해주세요">
+								<button type="submit" name='searchBtn' class="btn_col2">검색</button>
+							</fieldset>
+						</form>
 						<table class="tb_acc_wrap" summary="FAQ 표입니다. 구분, 질문 순서로 행이 구성되어 있습니다.">
 							<caption>FAQ</caption>
 							<colgroup>
@@ -43,7 +45,6 @@
 									<td id="row0" headers="thead0">${user.id }</td>
 									<td id="row0" headers="thead0">${user.getName() }</td>
 									<td id="row0" headers="thead0">${user.getEmail() }</td>
-									
 								</tr>
 							</c:forEach>
 							</tbody>
