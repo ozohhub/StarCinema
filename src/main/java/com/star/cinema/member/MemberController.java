@@ -13,9 +13,12 @@ public class MemberController {
 	@Autowired IMemberService service;
 	
 	@RequestMapping(value = "memberListProc")
-	public String memberList(Model model,
-				@RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage) {
-		service.memberList(model,currentPage);
+	public String memberList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, String search) {
+		if (search == null || search == "") {
+			service.memberList(model, currentPage);
+		} else {
+			service.memberSearch(model, search);
+		}
 		return "forward:/index?formpath=memberList";
 	}
 }

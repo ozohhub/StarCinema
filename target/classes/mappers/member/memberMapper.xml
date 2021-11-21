@@ -19,12 +19,12 @@
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
 				SELECT * FROM member
-				<choose>
-					<when test="sel == 'id'">WHERE id LIKE '%'||#{search}||'%'</when>
-					<when test="sel == 'email'">WHERE email LIKE '%'||#{search}||'%'</when>
-				</choose>
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="memberSearch" resultMap="member">
+		SELECT * FROM member where name LIKE '%'||#{search}||'%'
 	</select>
 	
 	<select id="memberCount" resultType="int">

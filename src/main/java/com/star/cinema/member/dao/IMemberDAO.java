@@ -11,7 +11,8 @@ import com.star.cinema.member.dto.MemberDTO;
 @Repository
 public interface IMemberDAO {
 	public int memberCount();
-	public ArrayList<MemberDTO> memberList();
+	public ArrayList<MemberDTO> memberList(@Param("b")int begin, @Param("e")int end);
+	public ArrayList<MemberDTO> memberSearch(String search);
 	
 	public MemberDTO isExistId(String id);	
 	public void insertMember(MemberDTO member);
