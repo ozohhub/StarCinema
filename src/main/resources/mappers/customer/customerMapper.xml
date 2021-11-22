@@ -16,6 +16,44 @@
 	</insert>
 
 	<select id="customerList" resultMap="notice">
-		SELECT * FROM notice order by regDate desc
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM notice order by noticeNum desc
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="customerSearchCount" resultMap="notice" parameterType="String">
+		SELECT count(*) FROM notice
+				<choose>
+					<when test="select=='tit'">WHERE title LIKE '%'||#{search}||'%'</when>
+					<when test="select=='con'">WHERE content LIKE '%'||#{search}||'%'</when>
+					<when test="select=='all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
+				</choose>	
+	</select>
+	
+	<select id="customerSearch" resultMap="notice">
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM notice
+				<choose>
+					<when test="select == 'tit'">WHERE title LIKE '%'||#{search}||'%'</when>
+					<when test="select == 'con'">WHERE content LIKE '%'||#{search}||'%'</when>
+					<when test="select == 'all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
+				</choose>
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+		
+	<select id="customerCount" resultType="int">
+		SELECT count(*) FROM notice
+	</select>
+	
+	<update id="updateHit" parameterType="int">
+		UPDATE notice set hit=hit+1 where noticeNum = #{noticeNum}
+	</update>
+	
+	<select id="selectNum" parameterType="int" resultMap="notice">
+		SELECT * FROM notice where noticeNum = #{noticeNum}
 	</select>
 </mapper>

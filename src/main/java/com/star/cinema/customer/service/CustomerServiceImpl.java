@@ -8,9 +8,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.star.cinema.customer.dao.ICustomerDAO;
 import com.star.cinema.customer.dto.NoticeDTO;
+import com.star.cinema.member.config.PageConfig;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService{
@@ -19,8 +21,33 @@ public class CustomerServiceImpl implements ICustomerService{
 
 
 	@Override
-	public ArrayList<NoticeDTO> customerList() {
-		return dao.customerList();
+	public void customerList(Model model, int currentPage) {
+		int pageBlock = 10;
+		int totalCount = dao.customerCount();
+		int end = currentPage * pageBlock;
+		int begin = end + 1 - pageBlock;
+		ArrayList<NoticeDTO> list = dao.customerList(begin, end);
+		model.addAttribute("list", list);
+		
+		String url = "/cinema/customerList?currentPage=";
+		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
+		
+	}
+
+	@Override
+	public void customerSearch(Model model, int currentPage, String search, String sel) {
+		
+		int pageBlock = 10;
+		int totalCount = dao.customerSearchCount(search, sel);
+		int end = currentPage * pageBlock;
+		int begin = end + 1 - pageBlock;
+		
+		ArrayList<NoticeDTO> list = dao.customerSearch(begin,end,search,sel);
+		model.addAttribute("list", list);
+		
+		String url = "/cinema/customerList?currentPage=";
+		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
+		
 	}
 	
 	@Override
@@ -41,6 +68,20 @@ public class CustomerServiceImpl implements ICustomerService{
 				
 		return true;
 	}
+
+	@Override
+	public NoticeDTO noticeViewProc(String num) {
+		if(num == null) {
+			return null;
+		}
+		
+		int noticeNum = Integer.parseInt(num);
+		
+		dao.updateHit(noticeNum);
+		return dao.selectNum(noticeNum);
+	}
+
+
 
 	
 }

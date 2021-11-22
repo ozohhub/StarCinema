@@ -34,10 +34,16 @@ public class CustomerController {
 	
 	/* 공지사항 리스트 */
 	@RequestMapping("/customerList")
-	public String customerList(Model model) {
-		ArrayList<NoticeDTO> list = service.customerList();
-		model.addAttribute("list", list);
-		return "forward:index?formpath=customer";
+	public String customerList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, String search, String sel) {
+		if(search == null || search == "") {
+			service.customerList(model, currentPage);
+		}
+		else {
+			service.customerSearch(model,currentPage,search,sel);
+		}
+		
+		model.addAttribute("cp", currentPage);
+		return "forward:/index?formpath=customer";
 	}
 	
 	
@@ -54,7 +60,15 @@ public class CustomerController {
 		return "forward:customerList";
 	}
 	
+	@RequestMapping(value="/noticeViewProc")
+	public String noticeViewProc(String num, String cp, Model model) {
+		NoticeDTO dto = service.noticeViewProc(num);
+		model.addAttribute("view", dto);
+		int currentPage = Integer.parseInt(cp);
+		model.addAttribute("currentPage",currentPage);
 		
+		return "forward:index?formpath=noticeView";
+	}
 	@RequestMapping(value="/noticeDeleteProc")
 	public String noticeDeleteProc(HttpSession session) {
 		return "forward:customerList";

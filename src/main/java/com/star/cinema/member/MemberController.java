@@ -43,6 +43,7 @@ public class MemberController {
 		service.userInfo(model, id);
 		return "forward:/index?formpath=managerModify";
 	}
+
 	
 	@RequestMapping(value = "deleteMemberProc")
 	public String deleteMemberProc(Model model, String id) {

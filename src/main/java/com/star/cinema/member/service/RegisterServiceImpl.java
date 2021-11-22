@@ -171,7 +171,4 @@ public class RegisterServiceImpl implements IRegisterService {
 		session.invalidate();		// 회원가입 다되면 세션삭제
 	}
 
-
-
-	
 }

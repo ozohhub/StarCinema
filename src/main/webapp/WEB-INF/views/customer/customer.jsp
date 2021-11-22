@@ -12,19 +12,22 @@
 <center>
 
 <div class="content">
-	<div class="search_wrap">
-		<fieldset>
-			<legend>공지 검색</legend>
-			<select id="searchSel">
-				<option>제목</option>
-				<option>내용</option>
-				<option>제목+내용</option>
-			</select>
-			<input type="text" id="searchWord" placeholder="검색어를 입력해주세요">
-			<input type="button" id="searchBtn" value="검색">
-		</fieldset>
-	</div>
-	
+	<form action="" method="post">
+		<div class="search_wrap">
+				<fieldset>
+					<legend>공지 검색</legend>
+					<select id="sel" name = "sel">
+						<option value="tit">제목</option>
+						<option value="con">내용</option>
+						<option value="all">제목+내용</option>
+					</select>
+					<input type="text" id="search" name = "search" placeholder="검색어를 입력해주세요">
+					<input type="submit" id="searchBtn" value="검색">
+					<input type="hidden" value=${currentPage } >
+				</fieldset>
+		</div>
+	</form>
+		
 	<div class="sub_content">
 		<div class="customer">
 			<table class="notice">
@@ -51,7 +54,7 @@
 								<tr>
 									<td>${dto.noticeNum}</td>
 									<td>${dto.division}</td>
-									<td><a href="index?formpath=noticeView">${dto.title}</a></td>
+									<td><a href="noticeViewProc?num=${dto.noticeNum}&cp=${cp}">${dto.title}</a></td>
 									<td>${dto.regDate}</td>				
 								</tr>							
 							</c:forEach>
@@ -70,14 +73,10 @@
 				</tbody>
 			</table>
 		</div>
-		
 	
-		
 		<div class="notice_paging">
-			<div class="paging_ctrl">
-				<a>prev</a>
-				<a>1</a>
-				<a>next</a>
+			<div class="paging_ctrl">				
+				${page }		
 			</div>
 			<div align = "right">
 	   			<!-- admin 계정일때만 작성 활성화시킴 -->		

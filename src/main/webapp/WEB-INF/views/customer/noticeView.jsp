@@ -16,25 +16,25 @@
 				<colgroup><col style="width : auto;"></colgroup>
 				<thead>
 					<tr>
-						<th scope="col">제목 나오는 곳</th>
+						<th scope="col">${view.title}</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="detail_th">
 						<td>
 							<span class="tit1">영화관</span><span class="line"></span>
-							<span>구분나오는곳</span>
+							<span>${view.division} </span>
 							<span class="tit2">등록일</span><span class="line"></span>
-							<span>등록일나오는곳</span>
+							<span>${view.regDate}</span>
 							<span class="tit3">조회수</span><span class="line"></span>
-							<span>조회수나오는곳</span>
+							<span>${view.hit}</span>
 						
 						</td>
 					<tr class="detail_con">
 						<td>
 							<div class="detail_notice_con">
 							<p>
-								내용 나오는 곳
+								${view.content}
 							</p>
 							</div>
 						</td>
@@ -46,8 +46,7 @@
 								<input type="button" value="작성" onclick="location.href='index?formpath=noticeWrite';">
 								<input type="button" value="수정" onclick="location.href='index?formpath=noticeModify';">
 								<input type="button" value="삭제" onclick="location.href='noticeDeleteProc';">
-						
-							<input type="button" value="목록으로" onclick="location.href='customerList';">
+								<input type="button" value="목록으로" onclick="location.href='customerList?currentPage=${currentPage}';">
 						</td>
 					</tr>
 				</tbody>
