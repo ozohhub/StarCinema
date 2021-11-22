@@ -3,6 +3,7 @@ package com.star.cinema.member.service;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -43,6 +44,10 @@ public class MemberServiceImpl implements IMemberService{
 
 	@Override
 	public boolean memberModify(MemberDTO dto) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String securePw = encoder.encode(dto.getPw());
+		dto.setPw(securePw);
+		
 		if(dao.modifyMember(dto)) {
 			return true;
 		}

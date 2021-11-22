@@ -26,17 +26,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "modifyMemberProc", method = RequestMethod.POST)
-	public String modifyMemberProc(Model model, String id, String pw, String year, String month, String day, String gender, 
-			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email, MemberDTO dto) {
+	public String modifyMemberProc(Model model, String id, String pw, MemberDTO dto) {
 		dto.setId(id);
 		dto.setPw(pw);
-		dto.setEmail(email);
-		dto.setName(name);
-		dto.setGender(gender);
-		dto.setBirth(year+"-"+month+"-"+day);
-		dto.setPhone(phone1+"-"+phone2+"-"+phone3);
-		dto.setZipcode(zipcode);
-		dto.setAddress(addr1+"&&"+addr2);
 		
 		boolean check = service.memberModify(dto);
 		if(check == false)

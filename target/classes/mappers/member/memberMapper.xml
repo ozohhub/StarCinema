@@ -54,6 +54,6 @@
 	</delete>
 	
 	<update id="modifyMember" parameterType="com.star.cinema.member.dto.MemberDTO">
-		UPDATE member SET pw=#{pw}, email=#{email}, phone=#{phone}, address=#{address}, zipcode=#{zipcode} WHERE id=#{id}
+		UPDATE member SET pw=#{pw} WHERE id=#{id}
 	</update>
 </mapper>
