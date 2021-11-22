@@ -32,4 +32,27 @@ public class MemberServiceImpl implements IMemberService{
 		ArrayList<MemberDTO> list = dao.memberSearch(search);
 		model.addAttribute("memberList", list);
 	}
+
+	@Override
+	public boolean memberDelete(String id) {
+		if(dao.deleteMember(id)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean memberModify(MemberDTO dto) {
+		if(dao.modifyMember(dto)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void userInfo(Model model, String id) {
+		ArrayList<MemberDTO> past = dao.selectMember(id);
+		model.addAttribute("past", past);
+	}
+	
 }

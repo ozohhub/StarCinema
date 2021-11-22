@@ -16,5 +16,8 @@ public interface IMemberDAO {
 	
 	public MemberDTO isExistId(String id);	
 	public void insertMember(MemberDTO member);
+	public ArrayList<MemberDTO> selectMember(String id);
+	public boolean deleteMember(String id);
+	public boolean modifyMember(MemberDTO dto);
 	
 }

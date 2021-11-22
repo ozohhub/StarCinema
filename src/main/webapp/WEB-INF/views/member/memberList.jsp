@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>롯지브이</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+<c:if test="${not empty msg }">
+	<script>alert('${msg}')</script>
+</c:if>
 </head>
 <body>
 	<div id="contents" class="contents_customer">
@@ -36,6 +39,8 @@
 									<th scope="col" id="thead1">아이디</th>
 									<th scope="col" id="thead1">이름</th>
 									<th scope="col" id="thead1">이메일</th>
+									<th scope="col" id="thead1">수정</th>
+									<th scope="col" id="thead1">삭제</th>
 								</tr>
 							</thead>
 							<tbody id="tab">
@@ -45,6 +50,8 @@
 									<td id="row0" headers="thead0">${user.id }</td>
 									<td id="row0" headers="thead0">${user.getName() }</td>
 									<td id="row0" headers="thead0">${user.getEmail() }</td>
+									<td id="row0" headers="thead0" onclick="location.href='userInfoProc?id=${user.id }'">수정하기</td>
+									<td id="row0" headers="thead0" onclick="location.href='deleteMemberProc?id=${user.id }'">삭제하기</td>
 								</tr>
 							</c:forEach>
 							</tbody>

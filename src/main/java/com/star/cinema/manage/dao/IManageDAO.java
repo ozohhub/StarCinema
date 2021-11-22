@@ -4,5 +4,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IManageDAO {
+	public void cinemaList();
 	public void cinemaDelete();
 }

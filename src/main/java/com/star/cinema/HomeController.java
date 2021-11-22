@@ -49,6 +49,11 @@ public class HomeController {
 		return "member/memberList";
 	}
 	
+	@RequestMapping(value = "/managerModify")
+	public String managerModify() {
+		return "member/managerModify";
+	}
+	
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "member/login";
@@ -146,25 +151,26 @@ public class HomeController {
 	@RequestMapping(value="/findid")
 	public String findid() {
 		return "manage/findid";
-
 	}
 	
 	@RequestMapping(value="/findpw")
 	public String findpw() {
 		return "manage/findpw";
-		
 	}
 	
 	@RequestMapping(value="/movieManagement")
 	public String movieManagement() {
 		return "manage/movieManagement";
-		
+	}
+	
+	@RequestMapping(value="/cinemaList")
+	public String cinemaList() {
+		return "manage/cinemaList";
 	}
 
 	@RequestMapping(value="/moviedetailDune")
 	public String moviedetailDune() {
 		return "movie/moviedetailDune";
-		
 	}
 	
 }
