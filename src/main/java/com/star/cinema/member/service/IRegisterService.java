@@ -13,13 +13,13 @@ public interface IRegisterService {
 		
 	public String isExistId(String id);
 	
-	public String pwCheck(String pw);
+	public boolean pwCheck(String pw, String pwChk);
 
-	public String birthCheck(String y, String m, String d);
+	public boolean birthCheck(String y, String m, String d);
 
-	public String phoneCheck(String phone1, String phone2, String phone3);
+	public boolean phoneCheck(String phone1, String phone2, String phone3);
 
-	public String addrCheck(String zip, String addr2, String addr3);
+	public boolean addrCheck(String zip, String addr2, String addr3);
 
 	public void insertMember(MemberDTO dto);
 

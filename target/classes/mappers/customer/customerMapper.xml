@@ -11,12 +11,8 @@
 		<result column="hit" property="hit"/>
 	</resultMap>
 	
-	<insert id="insertNotice" parameterType="com.star.cinema.customer.dto.NoticeDTO">
-		<selectKey keyProperty="noticeNum" resultType="int" order="BEFORE">
-			select nvl(max(noticeNum),0)+1 from notice
-		</selectKey>
-		
-		INSERT INTO notice values(#{noticeNum}, #{title}, #{content},#{regDate},#{division},0)
+	<insert id="insertNotice" parameterType="com.star.cinema.customer.dto.NoticeDTO">		
+		INSERT INTO notice values(notice_seq.nextval, #{title}, #{content},#{regDate},#{division},0)
 	</insert>
 
 	<select id="customerList" resultMap="notice">

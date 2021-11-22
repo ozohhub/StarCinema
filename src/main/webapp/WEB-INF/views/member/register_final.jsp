@@ -29,6 +29,7 @@
 					<input type="text" id = "id" name = "id" placeholder="아이디" maxlength="15">
 					<input type="button" value="중복확인" onclick="isExistId()"><br>
 					<label id = "idLabel">소문자로 시작하며 소문자, 숫자, -_기호만 가능합니다.(5~12자)</label>
+					<input type="hidden" id = "authId" value="no">
 				</td>
 				
 			</tr>

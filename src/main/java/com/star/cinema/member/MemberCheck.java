@@ -32,13 +32,13 @@ public class MemberCheck {
 		return !num.matches(regNum)? false : true;
 	}
 	
-	public String birthCheck(String birth[]) {
-		String check = "";
+	public boolean birthCheck(String birth[]) {
+
 		int year = Integer.parseInt(birth[0]);
 		int month = Integer.parseInt(birth[1]);
 		int day = Integer.parseInt(birth[2]);
 		
-		if(month > 12 || month < 0) return "생년월일을 확인해주세요";
+		if(month > 12 || month < 0) return false;
 		
 		int[] maxDaysInMonth = {31,28,31,30,31,30,31,31,30,31,30,31};
 		int maxDay = maxDaysInMonth[month-1];
@@ -47,13 +47,14 @@ public class MemberCheck {
 	        maxDay = 29;
 	    }
 		
-		if(day > maxDay) check = "생년월일을 확인해주세요";
+		if(day > maxDay) return false;
 		int age = calcAge(year,month,day);
 		
-		if(age < 14) check = "만 14세 미만은 가입이 불가능합니다.";
+		if(age < 14) return false;
 				
-		return check;		
+		return true;		
 	}
+	
 	// 현재 나이 구하기(생년, 월, 일)
 	public int calcAge(int birthY, int birthM, int birthD) {
 		Calendar cal = Calendar.getInstance();

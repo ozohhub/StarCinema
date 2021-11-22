@@ -54,11 +54,7 @@ public class CustomerController {
 		return "forward:customerList";
 	}
 	
-	
-	
-	
-	
-	
+		
 	@RequestMapping(value="/noticeDeleteProc")
 	public String noticeDeleteProc(HttpSession session) {
 		return "forward:customerList";

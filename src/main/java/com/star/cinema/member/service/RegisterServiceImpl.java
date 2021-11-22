@@ -93,7 +93,6 @@ public class RegisterServiceImpl implements IRegisterService {
 		return msg;
 	}
 
-
 	@Override
 	public String isExistId(String id) {
 		String msg = "";
@@ -101,58 +100,65 @@ public class RegisterServiceImpl implements IRegisterService {
 		
 		if(memCheck.idCheck(id) == false) {
 			msg = "소문자로 시작하며 소문자, 숫자, -_기호만 가능합니다.(5~12자)";
+			session.setAttribute("useable", "no");
 			return msg;
 		}
 		
-		if(dto != null) msg = "중복 아이디 입니다.";
-		else msg = "사용 가능한 아이디 입니다.";
+		if(dto != null) {
+			msg = "중복 아이디 입니다.";
+			session.setAttribute("useable", "no");
+		}else{
+			msg = "사용 가능한 아이디 입니다.";
+			session.setAttribute("useable", "yes");
+		}
 		
 		return msg;
 	}
 
 	@Override
-	public String pwCheck(String pw) {		
-		if(memCheck.pwCheck(pw)) {
-			return "사용가능한 비밀번호 입니다.";
+	public boolean pwCheck(String pw, String pwChk) {		
+		if(memCheck.pwCheck(pw) && pw.equals(pwChk)) {
+			return true;
 		}else {
-			return "영문자+숫자 조합 / 특수문자는 -_!@#$%^&*?만 가능합니다.(8~16자)";
+			return false;
 		}
 	}
 
 	@Override
-	public String birthCheck(String y, String m, String d) {
+	public boolean birthCheck(String y, String m, String d) {
 		if(y == "" || m == "" || d == "" || y == null || m == null || d == null) {
-			return "생년월일을 모두 입력해주세요.";
+			return false;
 		}
 		
-		if(memCheck.numCheck(m) == false || memCheck.numCheck(d) == false ) {
-			return "생년월일은 숫자만 가능합니다.";
+		if(memCheck.numCheck(m) == false || memCheck.numCheck(d) == false) {
+			return false;
 		}
 		
 		String[] birth = {y,m,d};
+		if(memCheck.birthCheck(birth) == false) return false;
+
 		
-		return memCheck.birthCheck(birth);
+		return true;
 	}
 
 	@Override
-	public String phoneCheck(String phone1, String phone2, String phone3) {
-		String check = "";
+	public boolean phoneCheck(String phone1, String phone2, String phone3) {
+
 		if(phone1 == "" || phone2 == "" || phone3 == "" || phone1 == null || phone2 == null || phone3 == null) {
-			return "휴대폰번호를 모두 입력해주세요.";
+			return false;
 		}
 		
 		if(memCheck.phoneCheck(phone2, phone3) == false) {
-			return "번호형식을 확인해주세요";
+			return false;
 		}
 		
-		return check;
+		return true;
 	}
 
 	@Override
-	public String addrCheck(String zip, String addr2, String addr3) {
-		String check = "";
-		if(zip == "" || addr2 == "" || addr3 == "") return "주소를 입력해주세요";
-		return check;
+	public boolean addrCheck(String zip, String addr2, String addr3) {
+		if(zip == "" || addr2 == "" || addr3 == "") return false;
+		return true;
 	}
 
 	@Override

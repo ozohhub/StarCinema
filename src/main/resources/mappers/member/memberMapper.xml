@@ -35,13 +35,9 @@
 		SELECT * FROM member where id = #{id}
 	</select>
 	
-	<insert id = "insertMember" parameterType="com.star.cinema.member.dto.MemberDTO">
-		<selectKey keyProperty="memberNum" resultType="int" order="BEFORE">
-			select nvl(max(memberNum),0)+1 from member
-		</selectKey>
-		
+	<insert id = "insertMember" parameterType="com.star.cinema.member.dto.MemberDTO">		
 		INSERT INTO member values(
-			#{memberNum}, #{id}, #{pw}, #{name}, #{email}, #{birth},
+			mem_seq.nextval, #{id}, #{pw}, #{name}, #{email}, #{birth},
 			#{phone}, #{address}, #{zipcode}, #{gender})
 	</insert>
 </mapper>

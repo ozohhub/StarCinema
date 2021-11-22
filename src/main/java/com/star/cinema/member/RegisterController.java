@@ -86,98 +86,30 @@ public class RegisterController {
 		return map;
 	}
 	
-	/* register_final에서 비밀번호 입력했을 때 -  유효성검사 */
-	@RequestMapping(value = "/pwCheck", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String,String> pwCheck(@RequestBody Map<String,String> map, HttpSession session) {
-		
-		String pw = map.get("pw");		
-		map.put("msg", service.pwCheck(pw));
-			
-		return map;
-	}
 	
-	/* register_final에서 비밀번호 확인 입력했을 때 -  비밀번호와 일치하는지 여부 확인 */
-	@RequestMapping(value = "/pwConfirm", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String,String> pwConfirm(@RequestBody Map<String,String> map, HttpSession session) {
-		String pw = map.get("pw");
-		String pwChk = map.get("pwChk");
-		
-		if(!pw.equals(pwChk)) {
-			map.put("msg", "비밀번호가 일치하지 않습니다.");
-		}else map.put("msg", "");
-			
-		return map;
-	}
-	
-	/* register_final에서 확인버튼 눌렀을 때 - 생년월일 & 만 14세이상인지 확인 */	
-	@RequestMapping(value = "/birthCheck", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String,String> birthCheck(@RequestBody Map<String,String> map, HttpSession session) {
-		String y = map.get("year");
-		String m = map.get("month");
-		String d = map.get("day");
-		
-		map.put("msg", service.birthCheck(y,m,d));			
-		return map;
-	}
-	
-	/* register_final에서 확인버튼 눌렀을 때 - 핸드폰번호 자리수 확인 */	
-	@RequestMapping(value = "/phoneCheck", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String,String> phoneCheck(@RequestBody Map<String,String> map, HttpSession session) {
-		String phone1 = map.get("phone1");
-		String phone2 = map.get("phone2");
-		String phone3 = map.get("phone3");
-				
-		map.put("msg", service.phoneCheck(phone1,phone2,phone3));			
-		return map;
-	}
-	
-	/* register_final에서 확인버튼 눌렀을 때 - 주소 확인 */	
-	@RequestMapping(value = "/addrCheck", produces = "application/json; charset=utf-8")
-	@ResponseBody
-	public Map<String,String> addrCheck(@RequestBody Map<String,String> map, HttpSession session) {
-		String zip = map.get("zip");
-		String addr2 = map.get("addr2");
-		String addr3 = map.get("addr3");
-				
-		map.put("msg", service.addrCheck(zip,addr2,addr3));			
-		return map;
-	}
-	
-	/* 입력 검증 끝낸 후 최종 가입*/
+	/* register_final에서 정보 입력 후 확인버튼 눌렀을 때 -> 서버에서 유효성 검사 다시 진행 후 db저장*/
 	@RequestMapping(value="/registerProc", method=RequestMethod.POST)
-	public String registerProc(String id, String pw, String year, String month, String day, String gender, 
-			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email, MemberDTO dto){
+	@ResponseBody
+	public Map<String,String> registerProc(String id, String pw, String pwChk, String year, String month, String day, String gender, 
+			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email, MemberDTO dto, HttpSession session){
 		
+		Map<String,String> map = new HashMap<String,String>();
+		
+		if(session.getAttribute("useable").equals("no") || service.pwCheck(pw,pwChk) == false || 
+				service.birthCheck(year,month,day) == false || service.phoneCheck(phone1,phone2,phone3) == false ||
+				service.addrCheck(zipcode,addr1,addr2) == false) {
+
+			map.put("msg", "모든 항목을 만족해야 합니다.");
+		}
+				
 		dto.setId(id); dto.setPw(pw); dto.setEmail(email); dto.setName(name); dto.setGender(gender);
 		dto.setBirth(year+"-"+month+"-"+day); dto.setPhone(phone1+"-"+phone2+"-"+phone3); dto.setZipcode(zipcode);
 		dto.setAddress(addr1+"&&"+addr2);
 		
 		service.insertMember(dto);
+		map.put("msg","회원가입 성공");
 		
-		return "forward:index";
+		return map;
 	}
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 	
 }

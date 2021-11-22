@@ -152,7 +152,7 @@ function nextStep2(){
 /* 아이디 중복확인 */
 
 function isExistId(){
-	var i = document.getElementById("id").value;
+	var i = document.getElementById("id").value;		
 	var info = {id : i};
 	var check = false;
 	
@@ -168,6 +168,7 @@ function isExistId(){
 			if(result.msg == "사용 가능한 아이디 입니다."){
 				check = true;
 				$('#id').prop('readonly', true);
+				$('#authId').val("yes");
 			}else{
 				check = false;
 			}
@@ -177,6 +178,7 @@ function isExistId(){
 			$('#idLabel').text('error');
 		}
 	})	
+
 	return check;
 }
 
@@ -198,124 +200,118 @@ function daumPost(){
 	}).open();
 }
 
+
 /* 비밀번호 유효성 */
 function pwCheck(){
-	var p = document.getElementById("pw").value;
-	var info = {pw : p};
-	var check = false;
+	var pw = document.getElementById("pw").value;
+	var reg = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z\d-_!@#$%^&*?]{8,16}$/;
 	
-	$.ajax({		
-		url: "pwCheck", type: "POST",		
-		data: JSON.stringify(info), 			
-		contentType: "application/json; charset=utf-8", 	
-		dataType: "json", 
-		async:false,
-	
-		success : function(result){		
-			$('#pwLabel').text(result.msg);	
-			if(result.msg == "사용가능한 비밀번호 입니다."){
-				check = true;
-			}else{
-				check = false;
-			}
-
-		},
-		error : function(){
-			$('#pwLabel').text('error');
-		}
-	})	
-	
-	return check;
+	if(!reg.test(pw)){		
+		$('#pwLabel').text("영문자+숫자 조합 / 특수문자는 -_!@#$%^&*?만 가능합니다.(8~16자)");		
+		return false;
+	}else{
+		$('#pwLabel').text("사용가능한 비밀번호 입니다.");	
+		return true;
+	}
 }
 
 /* 비밀번호 확인 */
 function pwConfirm(){	
-	var p = document.getElementById("pw").value;
-	var pc = document.getElementById("pwChk").value;
-	var info = {pw : p, pwChk : pc};
-	var check = false;
+	var pw = document.getElementById("pw").value;
+	var pwChk = document.getElementById("pwChk").value;
+	if(pw == ""){
+		$('#pwChkLabel').text("비밀번호 확인을 해주세요.");	
+		return false;
+	}
 	
-	$.ajax({		
-		url: "pwConfirm", type: "POST",		
-		data: JSON.stringify(info), 			
-		contentType: "application/json; charset=utf-8", 	
-		dataType: "json", 
-		async:false,
+	if(pw != pwChk){
+		$('#pwChkLabel').text("비밀번호가 일치하지 않습니다.");	
+		return false;
+	}else{
+		$('#pwChkLabel').text("");	
+		return true;
+	}	
 	
-		success : function(result){		
-			$('#pwChkLabel').text(result.msg);	
-			if(result.msg == "비밀번호가 일치하지 않습니다."){
-				check =  false;
-			}else{
-				check =  true;
-			}
-		},
-		error : function(){
-			$('#pwChkLabel').text('error');
-		}
-	})	
-	return check;
 }
 
 /* 생년월일, 나이(만 14세이하 가입불가) */
 function birthCheck(){
-	var y = document.getElementById("year").value;
-	var m = document.getElementById("month").value;
-	var d = document.getElementById("day").value;
-		
-	var info = {year : y, month : m, day : d};
-	var check = false;
+	var year = document.getElementById("year").value;
+	var month = document.getElementById("month").value;
+	var day = document.getElementById("day").value;
 	
-	$.ajax({		
-		url: "birthCheck", type: "POST",		
-		data: JSON.stringify(info), 			
-		contentType: "application/json; charset=utf-8", 	
-		dataType: "json", 
-		async:false,
+	if(month == "" || day == ""){
+		$('#birthLabel').text("생년월일을 입력해주세요.");	
+         return false;
+	}
 	
-		success : function(result){		
-			$('#birthLabel').text(result.msg);	
-			if(result.msg == ""){
-				check =  true;
-			}else{
-				check =  false;
-			}
-		},
-		error : function(){
-			$('#birthLabel').text('error');
-		}
-	})	
-	return check;	
+	if(month > 12 || month < 0){
+		$('#birthLabel').text("생년월일을 다시 확인해주세요.");	
+         return false;
+	}
+	
+ 	var maxDaysInMonth = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+    var maxDay = maxDaysInMonth[month - 1];
+	if (month == 2 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {	
+        maxDay = 29;
+    }
+	
+  	if (day > maxDay) {
+		$('#birthLabel').text("생년월일을 다시 확인해주세요.");	
+         return false;
+    }
+  	
+  	birthday = year+month+day;
+  	var age = calcAge(birthday);
+  	
+  	if(age < 14){
+  		$('#birthLabel').text("만 14세 미만은 가입이 불가능합니다.");
+  		return false;
+  	}else{
+  		$('#birthLabel').text("");
+  		return true;
+  	}
 }
+
+function calcAge(birth){
+	 var date = new Date();
+     var year = date.getFullYear();
+     var month = (date.getMonth() + 1);
+     var day = date.getDate();
+     if (month < 10) month = '0' + month;
+     if (day < 10) day = '0' + day;
+     
+     var monthDay = month + '' + day;
+
+     var birthdayy = birth.substr(0, 4);
+     var birthdaymd = birth.substr(4, 4);
+
+     var age = monthDay < birthdaymd ? year - birthdayy - 1 : year - birthdayy;	
+     return age;
+}
+
 /* 핸드폰 번호 확인  */
 function phoneCheck(){	
-	var p1 = document.getElementById("phone1").value;
-	var p2 = document.getElementById("phone2").value;
-	var p3 = document.getElementById("phone3").value;
+	var phone1 = document.getElementById("phone1").value;
+	var phone2 = document.getElementById("phone2").value;
+	var phone3 = document.getElementById("phone3").value;
 	
-	var info = {phone1 : p1, phone2 : p2, phone3 : p3};
-	var check = false;
+	var phone2Reg = /\d{3,4}$/;
+	var phone3Reg = /\d{4}$/;
 	
-	$.ajax({		
-		url: "phoneCheck", type: "POST",		
-		data: JSON.stringify(info), 			
-		contentType: "application/json; charset=utf-8", 	
-		dataType: "json", 
-		async:false,
+	if(phone1 == "" || phone2 == "" || phone3 == "" ){
+		$('#phoneLabel').text("휴대폰 번호를 입력해주세요.");
+		return false;
+	}
 	
-		success : function(result){		
-			$('#phoneLabel').text(result.msg);	
-			if(result.msg == ""){
-				check =  true;
-			}else{
-				check =  false;
-			}
-		},
-		error : function(){
-			$('#phoneLabel').text('error');
-		}
-	})	
-	return check;		
+	if(!phone2Reg.test(phone2) || !phone3Reg.test(phone3)){
+		$('#phoneLabel').text("휴대폰 번호가 올바르지 않습니다.");
+		return false;
+	}else{
+		$('#phoneLabel').text("");
+		return true;
+	}
+		
 }
 /* 주소 비어있는지 확인 */
 function addrCheck(){
@@ -323,43 +319,52 @@ function addrCheck(){
 	var a1 = document.getElementById("addr1").value;
 	var a2 = document.getElementById("addr2").value;
 	
-	var info = {zip : z, addr1 : a1, addr2 : a2};
-	var check = false;
+	if(z == "" || a1 == "" || a2 == ""){
+		$('#addrLabel').text("주소를 입력해주세요.");
+		return false;
+	}else{
+		$('#addrLabel').text("");
+		return true;
+	}
+}
+
+/* 모든 입력값 최종 검증 후 가입 */
+function registerStep(){
+	var idchk = isExistId();
+	var pwchk = pwCheck();
+	var pwcon = pwConfirm();
+	var birchk = birthCheck();
+	var phchk = phoneCheck();
+	var addchk = addrCheck();
 	
+	if($("#authId").val() == "no"){
+		$('#idLabel').text("아이디 중복확인을 해주세요.");
+		return;
+	}		
+	if(idchk == false || pwchk == false || pwcon == false || birchk == false ||
+		phchk == false || addchk == false){
+		$('#addrLabel').text("모든 항목을 통과해야합니다.");
+	}else{
+		$('#addrLabel').text("");
+	var form = $("#registerForm").serialize();
+		
 	$.ajax({		
-		url: "addrCheck", type: "POST",		
-		data: JSON.stringify(info), 			
-		contentType: "application/json; charset=utf-8", 	
+		url: "registerProc", type: "POST",		
+		data: form, 			 	
 		dataType: "json", 
-		async:false,
 	
 		success : function(result){		
-			$('#addrLabel').text(result.msg);	
-			if(result.msg == ""){
-				check =  true;
+			if(result.msg == '회원가입 성공'){
+				location.href='index';
 			}else{
-				check =  false;
+				$('#addrLabel').text(result.msg);	
 			}
 		},
 		error : function(){
 			$('#addrLabel').text('error');
 		}
 	})	
-	return check;		
-	
 }
-
-/* 모든 입력값 최종 검증 후 가입 */
-function registerStep(){
-	var idc = isExistId();
-	var pwc = pwCheck();
-	var con = pwConfirm();
-	var bc = birthCheck();
-	var phonc = phoneCheck();
-	var addc = addrCheck();
-		
-	if(idc == true && pwc == true && con == true && bc == true && phonc == true && addc == true) {
-		document.getElementById('registerForm').submit(); 
-	}
+	
 }
 
