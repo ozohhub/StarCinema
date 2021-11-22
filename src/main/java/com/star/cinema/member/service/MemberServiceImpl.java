@@ -3,6 +3,7 @@ package com.star.cinema.member.service;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -32,4 +33,31 @@ public class MemberServiceImpl implements IMemberService{
 		ArrayList<MemberDTO> list = dao.memberSearch(search);
 		model.addAttribute("memberList", list);
 	}
+
+	@Override
+	public boolean memberDelete(String id) {
+		if(dao.deleteMember(id)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean memberModify(MemberDTO dto) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String securePw = encoder.encode(dto.getPw());
+		dto.setPw(securePw);
+		
+		if(dao.modifyMember(dto)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void userInfo(Model model, String id) {
+		ArrayList<MemberDTO> past = dao.selectMember(id);
+		model.addAttribute("past", past);
+	}
+	
 }

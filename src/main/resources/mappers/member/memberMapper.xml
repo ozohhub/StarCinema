@@ -24,7 +24,7 @@
 	</select>
 	
 	<select id="memberSearch" resultMap="member">
-		SELECT * FROM member where name LIKE '%'||#{search}||'%'
+		SELECT * FROM member WHERE name LIKE '%'||#{search}||'%'
 	</select>
 	
 	<select id="memberCount" resultType="int">
@@ -40,4 +40,16 @@
 			mem_seq.nextval, #{id}, #{pw}, #{name}, #{email}, #{birth},
 			#{phone}, #{address}, #{zipcode}, #{gender})
 	</insert>
+	
+	<select id="selectMember" resultMap="member">
+		SELECT * FROM member WHERE id=#{id}
+	</select>
+	
+	<delete id="deleteMember">
+		DELETE from member WHERE id=#{id}
+	</delete>
+	
+	<update id="modifyMember" parameterType="com.star.cinema.member.dto.MemberDTO">
+		UPDATE member SET pw=#{pw} WHERE id=#{id}
+	</update>
 </mapper>

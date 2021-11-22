@@ -544,6 +544,19 @@ a:focus{
 	text-align: center;
 }
 
+.modifyTb td label{
+	font-size : 10px;
+	color : gray;
+}
+.address input[type='button'] {
+	height : 40px;
+	border-color : transparent;
+	font-weight: bold;
+	color : white;
+	background-color : #FF4848;
+	cursor : pointer;
+}
+
 /* 회원탈퇴 페이지 */
 .memberDelete{
 	text-align: left;

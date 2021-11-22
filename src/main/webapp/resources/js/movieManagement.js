@@ -2,7 +2,7 @@ $(function () { $("#datepicker").datepicker({ changeMonth: true, changeYear: tru
 
 function cinemaDelete() {
 	if(confirm('정말 삭제하시겠습니까?')) {
-		location.href='${root}index?formpath=cinemaDelete&cinemaName=${user.id }';
+		location.href='index?formpath=cinemaDelete&cinemaName=${user.id }';
 		alert('삭제가 완료되었습니다.');
 	}
 	location.href='index?formpath=cinemaList';
