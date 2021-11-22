@@ -150,15 +150,202 @@ function laterMovieInfo() {
 	$(".later_span").css({"color" : "black"})
 }
 
+/*영화 추가*/
 function InputMovieInfo() {
-	var check = ["name", "genre", "director", "age", "country", "openDate", "time", "performer", "explanation", ];
+	var check = ["name", "poster", "genre", "director", "age", "country", "time", "actors", "open", "detail"];
 	for (var i = 0; i < check.length; i++) {
-		var object = document.getElementById("input-movie-"+check[i]);
+		var object = document.getElementById(check[i]);
 		if (object.value == "") {
 			alert("정보를 입력 해 주세요.");
 			object.focus();
 			return;
 		}
 	}
+	const Toast = Swal.mixin({
+	  toast: true,
+	  position: 'top-end',
+	  showConfirmButton: false,
+	  timer: 3000,
+	  timerProgressBar: true,
+	  didOpen: (toast) => {
+	    toast.addEventListener('mouseenter', Swal.stopTimer)
+	    toast.addEventListener('mouseleave', Swal.resumeTimer)
+	  }
+	})
 	
+	Toast.fire({
+	  icon: 'success',
+	  title: '추가가 완료 되었습니다.'
+	})
+	document.getElementById('movieInfoForm').submit(); 
+}
+
+/* 영화  정보 수정 */
+function movieInfoChange(movieName, poster) {
+	var datas = {"name" : movieName};
+	console.log(poster);	
+	Swal.fire({
+	  title: "영화 정보 수정",
+	  text: "["+movieName+"] 영화의 정보를 수정 하시겠어요?",
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+	  cancelButtonColor: '#d33',
+	  cancelButtonText: '취소',
+	  confirmButtonText: '수정',
+	  imageUrl: poster,
+	  imageWidth: 184,
+	  imageHeight: 262,
+
+	  
+	  
+	}).then((result) => {
+	  if (result.isConfirmed) {
+		
+		$.ajax({		
+			url: "movieInfoSelect",
+			method: 'post',		
+			data: JSON.stringify(datas),  			
+			contentType: "application/json; charset=utf-8", 	
+		
+			success : function(){	
+				window.location.reload();
+			},
+			error:function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		})
+
+	  }
+	})
+}
+
+/* 영화 정보 삭제 */
+function movieInfoDelete(movieName, poster) {
+	var datas = {"name" : movieName};
+	  	
+	Swal.fire({
+	  title: '영화 정보 삭제',
+	  text: "["+movieName+"] 영화의 정보를 삭제 하시겠어요?",
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+	  cancelButtonColor: '#d33',
+	  cancelButtonText: '취소',
+	  confirmButtonText: '삭제',
+	  imageUrl: poster,
+	  imageWidth: 184,
+	  imageHeight: 262,
+
+	}).then((result) => {
+	  if (result.isConfirmed) {
+		
+		$.ajax({		
+			url: "movieInfoDelete",
+			method: 'post',		
+			data: JSON.stringify(datas),  			
+			contentType: "application/json; charset=utf-8", 	
+		
+			success : function(){	
+			    Swal.fire({
+			      title: '삭제완료!',
+			      text: '삭제가 완료 되었습니다.',
+			      icon: 'success'
+			    }).then((result) => {
+				  window.location.reload();
+		    	})
+			},
+			error:function(request, status, error){
+				alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
+		})
+
+	  }
+	})
+}
+
+/* 영화 정보 수정창 */
+function movieInfoResult(cancel) {
+	if (cancel) {
+		Swal.fire({
+		  title: '정보 수정',
+		  text: "정보 수정을 그만 두시겠어요?",
+		  icon: 'question',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: '취소',
+		  confirmButtonText: '확인'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+		    location.href='movieInfoChangeCancel';
+		  }
+		})
+	} else {
+		var check = ["name", "poster", "genre", "director", "age", "country", "time", "actors", "open", "detail"];
+		for (var i = 0; i < check.length; i++) {
+			var object = document.getElementById(check[i]);
+			if (object.value == "") {
+				alert("정보를 입력 해 주세요.");
+				object.focus();
+				return;
+			}
+		}
+		
+		var name = document.getElementById("name").value;
+		var poster = document.getElementById("poster").value;
+		var genre = document.getElementById("genre").value;
+		var director = document.getElementById("director").value;
+		var age = document.getElementById("age").value;
+		var country = document.getElementById("country").value;
+		var time = document.getElementById("time").value;
+		var actors = document.getElementById("actors").value;
+		var open = document.getElementById("open").value;
+		var detail = document.getElementById("detail").value;
+		
+		var info = 
+		{
+			name : name, 
+			poster: poster, 
+			genre: genre, 
+			director: director, 
+			age: age, 
+			time: time,
+			country: country,
+			actors: actors,
+			open: open,
+			detail: detail,
+		};
+
+		Swal.fire({
+		  title: '정보 수정',
+		  text: "영화 정보를 수정 하시겠어요?",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: '취소',
+		  confirmButtonText: '수정'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+		  	$.ajax({		
+				url: "movieInfoChange",
+				method: 'post',		
+				data: JSON.stringify(info), 			
+				contentType: "application/json; charset=utf-8", 	
+			
+				success : function(){	
+				    Swal.fire({
+				      title: '정보 수정',
+				      text: '영화 정보가 수정 되었습니다.',
+				      icon: 'success'
+				    }).then((result) => {
+					  window.location.reload();
+			    	})
+				},
+				error:function(request, status, error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			})
+		  }
+		})
+	}
 }

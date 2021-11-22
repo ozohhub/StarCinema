@@ -14,6 +14,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 
 </head>
