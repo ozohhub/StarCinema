@@ -161,23 +161,63 @@ function InputMovieInfo() {
 			return;
 		}
 	}
-	const Toast = Swal.mixin({
-	  toast: true,
-	  position: 'top-end',
-	  showConfirmButton: false,
-	  timer: 3000,
-	  timerProgressBar: true,
-	  didOpen: (toast) => {
-	    toast.addEventListener('mouseenter', Swal.stopTimer)
-	    toast.addEventListener('mouseleave', Swal.resumeTimer)
-	  }
-	})
-	
-	Toast.fire({
-	  icon: 'success',
-	  title: '추가가 완료 되었습니다.'
-	})
-	document.getElementById('movieInfoForm').submit(); 
+		var name = document.getElementById("name").value;
+		var poster = document.getElementById("poster").value;
+		var genre = document.getElementById("genre").value;
+		var director = document.getElementById("director").value;
+		var age = document.getElementById("age").value;
+		var country = document.getElementById("country").value;
+		var time = document.getElementById("time").value;
+		var actors = document.getElementById("actors").value;
+		var open = document.getElementById("open").value;
+		var detail = document.getElementById("detail").value;
+		
+		var info = 
+		{
+			name : name, 
+			poster: poster, 
+			genre: genre, 
+			director: director, 
+			age: age, 
+			time: time,
+			country: country,
+			actors: actors,
+			open: open,
+			detail: detail,
+		};
+		
+		Swal.fire({
+		  title: '영화 추가',
+		  text: "영화를 추가 하시겠어요?",
+		  icon: 'question',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  cancelButtonText: '취소',
+		  confirmButtonText: '추가'
+		}).then((result) => {
+		  if (result.isConfirmed) {
+		  	$.ajax({		
+				url: "movieInfoInsert",
+				method: 'post',		
+				data: JSON.stringify(info), 			
+				contentType: "application/json; charset=utf-8", 	
+			
+				success : function(){	
+				    Swal.fire({
+				      title: '영화 추가',
+				      text: '영화가 추가 되었습니다.',
+				      icon: 'success'
+				    }).then((result) => {
+					  window.location.reload();
+			    	})
+				},
+				error:function(request, status, error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				}
+			})
+		  }
+		})
 }
 
 /* 영화  정보 수정 */

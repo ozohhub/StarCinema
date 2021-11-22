@@ -31,23 +31,23 @@ public class MovieManagementController {
 		return "manage/movieManagement";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value = "movieInfoInsert", method = RequestMethod.POST)
-	public String MovieInfoInsert(String name, String poster, String genre, String director, String actors, String country, String time, String age, String open, String detail) {
+	public void MovieInfoInsert(@RequestBody Map<String,String> map) {
 		MovieDTO movie = new MovieDTO();
-		movie.setMovieName(name);
-		movie.setMoviePoster(poster);
-		movie.setMovieGenre(genre);
-		movie.setMovieDirector(director);
-		movie.setMovieAge(age);
-		movie.setMovieCountry(country);
-		movie.setMovieTime(time);
-		movie.setMovieActors(actors);
-		movie.setMovieOpen(open);
-		movie.setMovieDetail(detail);
+		movie.setMovieName(map.get("name"));
+		movie.setMoviePoster(map.get("poster"));
+		movie.setMovieGenre(map.get("genre"));
+		movie.setMovieDirector(map.get("director"));
+		movie.setMovieAge(map.get("age"));
+		movie.setMovieCountry(map.get("country"));
+		movie.setMovieTime(map.get("time"));
+		movie.setMovieActors(map.get("actors"));
+		movie.setMovieOpen(map.get("open"));
+		movie.setMovieDetail(map.get("detail"));
 		
 		service.insertMovie(movie);
 		
-		return "redirect:index?formpath=movieManagement";
 	}
 	
 	@RequestMapping(value = "movieInfoDelete", produces = "application/json; charset=utf-8", method = RequestMethod.POST)
