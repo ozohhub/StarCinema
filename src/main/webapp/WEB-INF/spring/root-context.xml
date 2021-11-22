@@ -28,4 +28,5 @@
 	<mybatis-spring:scan base-package="com.star.cinema.member.dao"/>
 	<mybatis-spring:scan base-package="com.star.cinema.manage.dao"/>
 	<mybatis-spring:scan base-package="com.star.cinema.customer.dao"/>
+	<mybatis-spring:scan base-package="com.star.cinema.movie.dao"/>
 </beans>

@@ -158,11 +158,6 @@ public class HomeController {
 		return "manage/findpw";
 	}
 	
-	@RequestMapping(value="/movieManagement")
-	public String movieManagement() {
-		return "manage/movieManagement";
-	}
-	
 	@RequestMapping(value="/cinemaList")
 	public String cinemaList() {
 		return "manage/cinemaList";

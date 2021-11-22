@@ -28,7 +28,7 @@
                                             <input type="checkbox" name="loginCheck" id="checkSavedID">
                                             <label for="checkSavedID">아이디 저장</label>
                                         </div>
-                                        <div class="login_menu"><a href="#none" title="페이지 이동">회원가입</a>
+                                        <div class="login_menu"><a href="register1" title="페이지 이동">회원가입</a>
                                             <a href="findid" title="페이지 이동">아이디 찾기</a>
                                             <a href="findpw" title="페이지 이동">비밀번호 찾기</a>
                                         </div>
