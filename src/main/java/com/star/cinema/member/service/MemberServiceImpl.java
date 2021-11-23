@@ -2,6 +2,8 @@ package com.star.cinema.member.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import com.star.cinema.member.dto.MemberDTO;
 @Service
 public class MemberServiceImpl implements IMemberService{
 	@Autowired IMemberDAO dao;
+	@Autowired HttpSession session;
 	
 	@Override
 	public void memberList(Model model, int currentPage) {
@@ -56,8 +59,26 @@ public class MemberServiceImpl implements IMemberService{
 
 	@Override
 	public void userInfo(Model model, String id) {
-		ArrayList<MemberDTO> past = dao.selectMember(id);
+		MemberDTO past = dao.selectMember(id);
 		model.addAttribute("past", past);
+	}
+	
+	@Override
+	public boolean checkId(String id) {
+		return dao.selectMember(id) != null;
+	}
+	
+	@Override
+	public boolean checkPw(String id, String pw) {
+		MemberDTO member = dao.selectMember(id);
+		if (member == null) {
+			return false;
+		}
+		boolean suc = new BCryptPasswordEncoder().matches(pw, member.getPw());
+		if(suc) {
+			session.setAttribute("loginInfo", member);
+		}
+		return suc;
 	}
 	
 }

@@ -30,10 +30,18 @@
 				<li><a href="${root }memberListProc">회원관리</a></li>
 				<li><a href="index?formpath=myPage">멤버십</a></li>
 				<li><a href="${root }customerList">고객센터</a></li>
-				<li><a href="index?formpath=login">로그인</a></li>
+				<%if (session.getAttribute("loginInfo") != null) {%>
+					<li onclick="logOut"><a href="#">로그아웃</a></li>
+				<% } else { %>
+					<li><a href="index?formpath=login">로그인</a></li>
+				<% } %>
 			</ul>
 			<ul class="g_menu3">
-				<li><a href="register1" class="btn_my">회원가입</a></li>
+				<%if (session.getAttribute("loginInfo") != null) {%>
+					<li><a href="index?formpath=myPage" class="btn_my">마이</a></li>
+				<% } else { %>
+					<li><a href="register1" class="btn_my">회원가입</a></li>
+				<% } %>
 				<li><a href="index?formpath=ticketing" class="btn_reserve">바로 예매</a></li>
 				<li><button class="btn_menu_all">전체 메뉴 레이어 열기</button><div id="allmenu"></div></li>
 			</ul>

@@ -187,3 +187,11 @@ function bgOpacityReset(i){
 	$(".reserve_btn"+i).css({"display" : "none"})
 	$(".detail_btn"+i).css({"display" : "none"})
 }
+
+// 로그아웃
+function logOut() {
+	result = window.confirm("로그아웃 하시겠습니까?");
+	if (result) {
+		location.href='logoutRequest';
+	}
+}
