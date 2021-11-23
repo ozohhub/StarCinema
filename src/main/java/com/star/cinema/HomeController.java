@@ -162,6 +162,16 @@ public class HomeController {
 	public String cinemaList() {
 		return "manage/cinemaList";
 	}
+	
+	@RequestMapping(value="/timeInfo")
+	public String timeInfo() {
+		return "manage/timeInfo";
+	}
+	
+	@RequestMapping(value="/timeInfoInsert")
+	public String timeInfoInsert() {
+		return "manage/timeInfoInsert";
+	}
 
 	@RequestMapping(value="/moviedetailDune")
 	public String moviedetailDune() {

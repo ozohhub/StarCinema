@@ -23,4 +23,26 @@ public class ManageController {
 	public String cinemaDelete() {
 		return "index?formpath=cinemaList";
 	}
+	
+	@RequestMapping(value = "timeInfoProc")
+	public String timeInfoProc(Model model, 
+				@RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage) {
+		service.timeInfoList(model, currentPage);
+		return "forward:/index?formpath=timeInfo";
+	}
+	
+	@RequestMapping(value = "timeInfoDeleteProc")
+	public String timeInfoDeleteProc(Model model, String num) {
+		boolean check = service.timeInfoDeleteProc(num);
+		String msg = "";
+		if(check) {
+			msg = "삭제에 성공하였습니다.";
+		}
+		else {
+			msg = "삭제에 실패하였습니다.";
+		}
+		
+		model.addAttribute("msg", msg);
+		return "forward:/timeInfoProc";
+	}
 }
