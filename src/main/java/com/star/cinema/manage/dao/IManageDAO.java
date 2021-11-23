@@ -18,4 +18,7 @@ public interface IManageDAO {
 	public ArrayList<HallDTO> hallList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
 	public boolean timeInfoDelete(String num);
+	public void timeInfoInsert(TimeInfoDTO timeInfo);
+	public void hallInsert(HallDTO hall);
+	public void cinemaInsert(CinemaDTO cinema);
 }

@@ -7,4 +7,5 @@ public interface IManageService {
 	public boolean cinemaDelete();
 	public void timeInfoList(Model model, int currentPage);
 	public boolean timeInfoDeleteProc(String num);
+	public boolean timeInfoInsertProc(String countryName, String cinemaName, String hallName, String ticketDate, String startTime);
 }

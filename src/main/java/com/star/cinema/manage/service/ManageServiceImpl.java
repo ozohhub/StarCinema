@@ -61,11 +61,29 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public boolean timeInfoDeleteProc(String num) {
-		boolean check = dao.timeInfoDelete(num);
-		if(check) return true;
-		else return false;
+		return dao.timeInfoDelete(num);
 	}
-	
-	
-	
+
+	@Override
+	public boolean timeInfoInsertProc(String countryName, String cinemaName, String hallName, String ticketDate, String startTime) {
+		TimeInfoDTO timeInfo = new TimeInfoDTO();
+		HallDTO hall = new HallDTO();
+		CinemaDTO cinema = new CinemaDTO();
+		 
+		cinema.setCountryName(countryName);
+		cinema.setCinemaName(cinemaName);
+		
+		dao.cinemaInsert(cinema);
+		
+		hall.setHallName(hallName);
+		
+		dao.hallInsert(hall);
+		
+		timeInfo.setStartTime(startTime);
+		timeInfo.setTicketDate(ticketDate);
+		
+		dao.timeInfoInsert(timeInfo);
+		
+		return true;
+	}
 }
