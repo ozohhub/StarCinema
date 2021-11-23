@@ -11,7 +11,7 @@ public class PageConfig {
 		
 		for(int i=1;i<=blockCnt;i++) {
 			if(currentPage == i) result += "<b>";
-			result+="<a href'"+url+i+"'>"+i+"</a>";
+			result+="<a href='"+url+i+"'>"+i+"</a>";
 			if(currentPage == i) result += "</b>";
 		}
 		if(currentPage != blockCnt)

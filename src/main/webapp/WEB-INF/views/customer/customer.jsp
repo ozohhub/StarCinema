@@ -12,7 +12,7 @@
 <center>
 
 <div class="content">
-	<form action="" method="post">
+	<form action="customerList" method="post">
 		<div class="search_wrap">
 				<fieldset>
 					<legend>공지 검색</legend>
@@ -63,7 +63,7 @@
 							<tr>
 								<td colspan="4">
 									<div class="noNotice">
-										<p>문의내역이 존재하지 않습니다.</p>
+										<p>공지사항이 존재하지 않습니다.</p>
 									</div>
 								</td>
 							<tr>

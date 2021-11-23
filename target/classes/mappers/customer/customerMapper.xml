@@ -23,12 +23,12 @@
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
 	
-	<select id="customerSearchCount" resultMap="notice" parameterType="String">
+	<select id="customerSearchCount" resultType="int">
 		SELECT count(*) FROM notice
 				<choose>
-					<when test="select=='tit'">WHERE title LIKE '%'||#{search}||'%'</when>
-					<when test="select=='con'">WHERE content LIKE '%'||#{search}||'%'</when>
-					<when test="select=='all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
+					<when test="sel == 'tit'">WHERE title LIKE '%'||#{search}||'%'</when>
+					<when test="sel == 'con'">WHERE content LIKE '%'||#{search}||'%'</when>
+					<when test="sel == 'all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
 				</choose>	
 	</select>
 	
@@ -37,9 +37,9 @@
 			SELECT rownum rn, A.* FROM(
 				SELECT * FROM notice
 				<choose>
-					<when test="select == 'tit'">WHERE title LIKE '%'||#{search}||'%'</when>
-					<when test="select == 'con'">WHERE content LIKE '%'||#{search}||'%'</when>
-					<when test="select == 'all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
+					<when test="sel == 'tit'">WHERE title LIKE '%'||#{search}||'%'</when>
+					<when test="sel == 'con'">WHERE content LIKE '%'||#{search}||'%'</when>
+					<when test="sel == 'all'">WHERE title LIKE '%'||#{search}||'%' or content LIKE '%'||#{search}||'%' </when>
 				</choose>
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
@@ -50,10 +50,18 @@
 	</select>
 	
 	<update id="updateHit" parameterType="int">
-		UPDATE notice set hit=hit+1 where noticeNum = #{noticeNum}
+		UPDATE notice SET hit=hit+1 where noticeNum=#{noticeNum}
 	</update>
 	
 	<select id="selectNum" parameterType="int" resultMap="notice">
-		SELECT * FROM notice where noticeNum = #{noticeNum}
+		SELECT * FROM notice WHERE noticeNum=#{noticeNum}
 	</select>
+	
+	<update id = "updateNotice" parameterType="com.star.cinema.customer.dto.NoticeDTO">
+		UPDATE notice SET title=#{title}, content=#{content} WHERE noticeNum=#{noticeNum}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		DELETE FROM notice WHERE noticeNum=#{noticeNum}
+	</delete>
 </mapper>

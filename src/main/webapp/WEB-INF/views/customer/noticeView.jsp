@@ -44,9 +44,18 @@
 						<td>	 
 								<!-- admin계정일때만 작성, 수정 삭제 활성화시킴 -->
 								<input type="button" value="작성" onclick="location.href='index?formpath=noticeWrite';">
-								<input type="button" value="수정" onclick="location.href='index?formpath=noticeModify';">
-								<input type="button" value="삭제" onclick="location.href='noticeDeleteProc';">
-								<input type="button" value="목록으로" onclick="location.href='customerList?currentPage=${currentPage}';">
+								<input type="button" value="수정" onclick="location.href='noticeModifyForm?num=${view.noticeNum}';">
+								<input type="button" value="삭제" onclick="location.href='noticeDeleteProc?num=${view.noticeNum}';">
+								
+								<c:choose>
+									<c:when test="${not empty search }">
+										<input type="button" value="목록으로" onclick="location.href='customerList?currentPage=${currentPage}&sel=${search.sel }&search=${search.search }';">									
+									</c:when>
+									<c:otherwise>
+										<input type="button" value="목록으로" onclick="location.href='customerList?currentPage=${currentPage}';">
+									</c:otherwise>								
+								</c:choose>
+								
 						</td>
 					</tr>
 				</tbody>

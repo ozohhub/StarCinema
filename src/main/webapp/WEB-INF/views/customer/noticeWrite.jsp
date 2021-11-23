@@ -46,7 +46,7 @@
 
 					<tr>
 						<td colspan="2" class="noticeWrite_btn_area">
-						  <input type="button" id="writeNo" value="취소" onclick="location.href='${root}';">
+						  <input type="button" id="writeNo" value="취소" onclick="location.href='${root}customerList';">
 			              <input type="button" id="writeYes" value="확인" onclick="noticeWriteStep();">
 						</td>
 					</tr>

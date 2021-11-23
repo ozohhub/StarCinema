@@ -1,7 +1,5 @@
 package com.star.cinema.customer;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.star.cinema.customer.dto.NoticeDTO;
+import com.star.cinema.customer.dto.SearchDTO;
 import com.star.cinema.customer.service.ICustomerService;
 
 @Controller
@@ -30,24 +31,23 @@ public class CustomerController {
 			return "forward:index?formpath=questionWrite";	
 		}
 	}
-	
-	
+		
 	/* 공지사항 리스트 */
 	@RequestMapping("/customerList")
-	public String customerList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, String search, String sel) {
-		if(search == null || search == "") {
-			service.customerList(model, currentPage);
+	public String customerList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, SearchDTO dto) {
+	
+		if(dto.getSearch() == null || dto.getSearch() == "") {
+			service.customerList(model, currentPage);			
 		}
 		else {
-			service.customerSearch(model,currentPage,search,sel);
+			service.customerSearch(model,currentPage,dto);
 		}
-		
+				
 		model.addAttribute("cp", currentPage);
-		return "forward:/index?formpath=customer";
+		return "forward:index?formpath=customer";
 	}
 	
-	
-	
+		
 	/* 공지사항 작성 */
 	@RequestMapping(value="/noticeWriteProc")
 	public String noticeWriteProc(String theater, @RequestParam(value = "self_theater", required = false)String self_theater,
@@ -69,8 +69,31 @@ public class CustomerController {
 		
 		return "forward:index?formpath=noticeView";
 	}
+	
+	
+	@RequestMapping(value="/noticeModifyForm")
+	public String noticeModifyForm(String num, Model model) {
+		
+		NoticeDTO dto = service.noticeViewProc(num);
+		if(dto != null) model.addAttribute("view", dto);
+				
+		return "forward:index?formpath=noticeModify";
+	}
+	
+	@RequestMapping(value="/noticeModifyProc")
+	public String noticeModifyProc(NoticeDTO dto,RedirectAttributes ra,String num) {
+		if(dto.getTitle() == "" || dto.getContent() == "") {
+			ra.addFlashAttribute("msg", "빈 항목을 채워주세요.");
+			return "redirect:noticeModifyForm?num="+num;
+		}
+		
+		service.noticeModifyProc(dto,num);
+		return "forward:customerList";
+	}
+	
 	@RequestMapping(value="/noticeDeleteProc")
-	public String noticeDeleteProc(HttpSession session) {
+	public String noticeDeleteProc(String num) {
+		service.noticeDeleteProc(num);
 		return "forward:customerList";
 	}
 	

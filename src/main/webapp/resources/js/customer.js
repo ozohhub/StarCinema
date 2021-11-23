@@ -40,3 +40,4 @@ function noticeWriteStep(){
 	var check = inputCheckStep();
 	if(check == true) document.getElementById("noticeWriteForm").submit();
 }
+
