@@ -21,7 +21,7 @@
                                         <input type="text" id="userId" maxlength="50" placeholder="아이디 또는 이메일을 입력해 주세요." title="입력태그">
                                         <input type="password" id="userPassword" maxlength="15" placeholder="비밀번호를 입력해 주세요." title="입력태그">
                                         <input type="hidden" name="hidLoginType" id="hidLoginType" value="">
-                                        <button type="button" class="btn_login">로그인</button>
+                                        <button type="button" onclick="loginRequest()" class="btn_login">로그인</button>
                                     </div>
                                     <div class="login_bot_wrap">
                                         <div class="login_check">
@@ -42,5 +42,7 @@
         </div>
     </div>
 </body>
+
+	<script src="<c:url value="/resources/js/login.js" />"></script>
 
 </html>

@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.manage.manageMapper">
+<mapper namespace="com.star.cinema.manage.dao.IManageDAO">
+	<resultMap type="com.star.cinema.manage.dto.TimeInfoDTO" id="timeInfo">
+		<result column="timeInfoNum" property="timeInfoNum"/>
+		<result column="startTime" property="startTime"/>
+		<result column="movieNum" property="movieNum"/>
+		<result column="ticketDate" property="ticketDate"/>
+	</resultMap>
+	
+	<resultMap type="com.star.cinema.manage.dto.HallDTO" id="hall">
+		<result column="hallNum" property="hallNum"/>
+		<result column="hallName" property="hallName"/>
+	</resultMap>
+	
+	<resultMap type="com.star.cinema.manage.dto.CinemaDTO" id="cinema">
+		<result column="cinemaNum" property="cinemaNum"/>
+		<result column="countryName" property="countryName"/>
+		<result column="cinemaName" property="cinemaName"/>
+	</resultMap>
+	
+	<select id="timeInfoList" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM timeinfo ORDER BY timeInfoNum DESC
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="hallList" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM hall ORDER BY hallNum DESC
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="cinemaList" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM cinema ORDER BY cinemaNum DESC
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="cinemaCount" resultType="int">
+		SELECT count(*) FROM timeinfo
+	</select>
+	
+	<delete id="timeInfoDelete">
+		DELETE from timeinfo WHERE timeInfoNum=#{num}
+	</delete>
+	
+	<insert id="cinemaInsert" parameterType="com.star.cinema.manage.dto.CinemaDTO">
+		INSERT INTO cinema VALUES(cinema_seq.nextval, #{countryName}, #{cinemaName})
+	</insert>
+	
+	<insert id="hallInsert" parameterType="com.star.cinema.manage.dto.HallDTO">
+		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT MAX(cinemaNum) FROM cinema))
+	</insert>
+	
+	<insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
+		INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), movie_seq.nextval, #{ticketDate}, (SELECT MAX(cinemaNum) FROM cinema))
+	</insert>
 	
 </mapper>

@@ -346,25 +346,23 @@ function registerStep(){
 		$('#addrLabel').text("모든 항목을 통과해야합니다.");
 	}else{
 		$('#addrLabel').text("");
-	var form = $("#registerForm").serialize();
+		var form = $("#registerForm").serialize();
+			
+		$.ajax({		
+			url: "registerProc", type: "POST",		
+			data: form, 			 	
+			dataType: "json", 
 		
-	$.ajax({		
-		url: "registerProc", type: "POST",		
-		data: form, 			 	
-		dataType: "json", 
-	
-		success : function(result){		
-			if(result.msg == '회원가입 성공'){
-				location.href='index';
-			}else{
-				$('#addrLabel').text(result.msg);	
+			success : function(result){		
+				if(result.msg == '회원가입 성공'){
+					location.href='index';
+				}else{
+					$('#addrLabel').text(result.msg);	
+				}
+			},
+			error : function(){
+				$('#addrLabel').text('error');
 			}
-		},
-		error : function(){
-			$('#addrLabel').text('error');
-		}
-	})	
+		})	
+	}
 }
-	
-}
-

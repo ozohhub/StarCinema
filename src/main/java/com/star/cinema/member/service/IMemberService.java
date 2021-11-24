@@ -11,4 +11,7 @@ public interface IMemberService {
 	public boolean memberDelete(String id);
 	public boolean memberModify(MemberDTO dto);
 	public void userInfo(Model model, String id);
+	
+	public boolean checkId(String id);
+	public boolean checkPw(String id, String pw);
 }

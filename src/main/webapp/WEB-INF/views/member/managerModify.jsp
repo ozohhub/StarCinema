@@ -14,17 +14,16 @@
 <center>
 	<div class="sub_content">
 		<div class="memberModify">
-		<c:forEach var="info" items="${past }">
-			<form id="modifyForm" action="modifyMemberProc?id=${info.id }" method="post">
+			<form id="modifyForm" action="modifyMemberProc?id=${past.id }" method="post">
 				<p align="left">회원 정보 수정</p>
 				<table class="modifyTb">
 					<tr>
 						<th><font class="must">*</font> <label class="title">이름</label></th>
-						<td>${info.getName() }</td>
+						<td>${past.getName() }</td>
 					</tr>
 					<tr>
 						<th><font class="must">*</font> <label class="title">아이디</label></th>
-						<td>${info.id }</td>
+						<td>${past.id }</td>
 					</tr>
 					<tr>
 						<th><font class="must">*</font> <label class="title">비밀번호</label></th>
@@ -48,7 +47,6 @@
 					</tr>
 				</table>
 			</form>
-		</c:forEach>
 		</div>
 	</div>
 </center>
