@@ -11,6 +11,18 @@
 		<result column="hit" property="hit"/>
 	</resultMap>
 	
+	<resultMap type="com.star.cinema.customer.dto.QuestionDTO" id="question">
+		<result column="questionNum" property="questionNum"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="id" property="id"/>
+		<result column="fileName" property="fileName"/>
+		<result column="division" property="division"/>
+		<result column="kinds" property="kinds"/>
+		<result column="answer" property="answer"/>
+		<result column="regDate" property="regDate"/>
+	</resultMap>
+	
 	<insert id="insertNotice" parameterType="com.star.cinema.customer.dto.NoticeDTO">		
 		INSERT INTO notice values(notice_seq.nextval, #{title}, #{content},#{regDate},#{division},0)
 	</insert>
@@ -64,4 +76,9 @@
 	<delete id="deleteNotice" parameterType="int">
 		DELETE FROM notice WHERE noticeNum=#{noticeNum}
 	</delete>
+	
+	<insert id="insertQuestion" parameterType="com.star.cinema.customer.dto.QuestionDTO">
+		INSERT INTO question VALUES(que_seq.nextval,#{title},#{content},#{id},
+			#{fileName},#{division},#{kinds},#{answer},#{regDate})	
+	</insert>
 </mapper>

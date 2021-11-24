@@ -1,6 +1,7 @@
 package com.star.cinema.customer.service;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.star.cinema.customer.dto.NoticeDTO;
 import com.star.cinema.customer.dto.SearchDTO;
@@ -13,6 +14,9 @@ public interface ICustomerService {
 	public NoticeDTO noticeViewProc(String num);
 	public void noticeModifyProc(NoticeDTO dto,String num);
 	public void noticeDeleteProc(String num);
+	
+	String FILE_LOCATION ="C:\\java_folder\\upload";
+	public boolean questionWriteProc(MultipartHttpServletRequest req);
 
 	
 

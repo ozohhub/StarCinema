@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
-<script src="<c:url value="/resources/js/myPage.js" />"></script>
+<script src="<c:url value="/resources/js/question.js" />"></script>
 <c:url var="root" value="/"/>
 
 <title>1:1문의 내역 확인</title>

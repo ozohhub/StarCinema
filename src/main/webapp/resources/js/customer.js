@@ -41,3 +41,5 @@ function noticeWriteStep(){
 	if(check == true) document.getElementById("noticeWriteForm").submit();
 }
 
+
+

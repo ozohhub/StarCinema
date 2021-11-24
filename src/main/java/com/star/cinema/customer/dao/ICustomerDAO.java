@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import com.star.cinema.customer.dto.NoticeDTO;
+import com.star.cinema.customer.dto.QuestionDTO;
 
 @Repository
 public interface ICustomerDAO {
@@ -19,7 +20,9 @@ public interface ICustomerDAO {
 	public NoticeDTO selectNum(int noticeNum);
 	public void updateNotice(NoticeDTO dto);
 	public void deleteNotice(int noticeNum);
+	
+	
+	public void insertQuestion(QuestionDTO dto);
 
-	
-	
+		
 }

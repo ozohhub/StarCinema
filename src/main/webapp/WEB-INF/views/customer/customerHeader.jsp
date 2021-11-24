@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/customer.css" />
 <script src="<c:url value="/resources/js/customer.js" />"></script>
- 
+
 <center>
 	<div class="content">
 		<div class="top_menu">
