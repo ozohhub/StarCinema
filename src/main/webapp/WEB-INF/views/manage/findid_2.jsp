@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="root" value="/" />
+<%@ page import="com.star.cinema.member.dto.*" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,7 +28,7 @@
 	<script src="<c:url value="/resources/js/find.js" />"></script>
 	<script src="<c:url value="/resources/js/findid.js" />"></script>
 </head>
-<body id="KOR" data-device="0" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body id="KOR" data-device="0" oncontextmenu="return false">
     <!-- header -->
     <div id="mast-head">
         <div class="container">
@@ -46,25 +48,23 @@
                    	 아이디 찾기
                 </h2>
                 <!-- 아이디 찾기 -->
-                <c:choose>
-                	<c:when test="${not empty searchId }">
+                <% MemberDTO member = (MemberDTO) session.getAttribute("memberInfo");
+                	System.out.println(member);
+                	if (member != null) { %>
 		                <div class="headline">
 		                   	 입력하신 정보와<br>일치하는 아이디 정보입니다.
 		                </div>
-	                </c:when>
-	                <c:otherwise>
+	                <%} else { %>
 		                <div class="toparea">
 							<div class="headline __error">
 								입력하신 정보와<br>일치하는 아이디 정보가 없습니다.
 							</div>
 						</div>
-	                </c:otherwise>
-                </c:choose>
+	                <% } %>
             </div>
             <!-- //toparea -->
             <!-- contents -->
-            <c:choose>
-                <c:when test="${not empty searchId }">
+            <%if (member != null) { %>
 	            <div class="contents">
 	                <!-- section : 결과(공통) -->
 	                <div class="section __high">
@@ -82,7 +82,7 @@
 	                            </colgroup>
 	                            <tbody id="div-tBodyId">
 	                                <tr>
-	                                    <td>${searchId.id}</td>
+	                                    <td><%=member.getId() %></td>
 	                                </tr>
 	                            </tbody>
 	                        </table>
@@ -93,16 +93,14 @@
 
                 <!-- btn -->
                 <div class="btn-area" id="div-lgnBtn1">
-                    <button class="ui-button __dot" onclick="index?formpath=login;"><em>확인</em><!-- <em>확인</em> --></button>
+                    <button class="ui-button __dot" onclick="location.href='index?formpath=login';"><em>확인</em><!-- <em>확인</em> --></button>
                 </div>
             </div>
-            </c:when>
-	            <c:otherwise>
+            <% } else { %>
 	                	<div class="btn-area" id="div-lgnBtn1">
 	                    	<button class="ui-button __dot" onclick="location.href='index?formpath=login';"><em>확인</em><!-- <em>확인</em> --></button>
 	                	</div>
-	            </c:otherwise>
-            </c:choose>
+	        <% } %>
             <!-- //contents -->
         </div>
         </div>

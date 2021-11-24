@@ -32,6 +32,9 @@
         </div>
     </div>
     <!-- //header -->
+    
+    <!-- 아이디찾기 창 오면 저장되어있던 세션 제거 -->
+    <% if (session.getAttribute("memberInfo") != null) { session.removeAttribute("memberInfo"); } %>
 	
 
     <!-- mast body -->

@@ -64,8 +64,15 @@ public class MemberServiceImpl implements IMemberService{
 	}
 	
 	@Override
-	public boolean checkId(String id) {
-		return dao.selectMember(id) != null;
+	public boolean checkId(String id, String type) {
+		MemberDTO member = dao.selectMember(id);
+		if (member == null) {
+			return false;
+		}
+		if (type.equals("find")) { // 체크 타입이 아이디 찾기면 model에 값 추가
+			session.setAttribute("memberInfo", member);
+		}
+		return true;
 	}
 	
 	@Override
@@ -82,11 +89,10 @@ public class MemberServiceImpl implements IMemberService{
 	}
 	
 	@Override
-	public boolean searchWithEmailMember(Model model, String searchId, String searchEmail) {
+	public boolean searchWithEmailMember(String searchId, String searchEmail) {
 		MemberDTO member = dao.searchWithEmailMember(searchId, searchEmail);
 		if (member != null) {
-			model.addAttribute("searchId", member);
-			session.setAttribute("searchId", member);
+			session.setAttribute("memberInfo", member);
 			return true;
 		}
 		return false;

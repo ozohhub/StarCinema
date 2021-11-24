@@ -33,8 +33,7 @@
 <body id="KOR" data-device="0" oncontextmenu="return false" ondragstart="return false"> <!-- KOR / ENG / JPN / CHN-CN / CHN-TW -->
 
 
-	<!-- 비밀번호찾기 창 오면 저장되어있던 세션 제거 -->
-    <% if (session.getAttribute("memberInfo") != null) { session.removeAttribute("memberInfo"); } %>
+ 
 <!-- header -->
     <div id="mast-head">
         <div class="container" style="max-width:1170px;">
@@ -50,42 +49,55 @@
 <!-- mast body -->
 <div id="mast-body">
 	<div class="container">
-
+		<!-- toparea -->
 		<div class="toparea">
-			<h2 class="title">비밀번호 찾기 </h2> <!-- 비밀번호 찾기 -->
+			<h2 class="title">비밀번호 찾기</h2> <!-- 비밀번호 찾기 -->
 			<div class="headline">
-				아이디 확인 후<br>비밀번호를 다시 설정하실 수 있습니다.<!-- 아이디 확인 후<br>비밀번호를 다시 설정하실 수 있습니다. -->
+				본인확인 수단을<br>선택해주세요. <!-- 본인확인 수단을<br>선택해주세요. -->
 			</div>
 		</div>
+		<!-- //toparea -->
 
 		<!-- contents -->
 		<div class="contents">
-			<!-- section -->
-			<div class="section __half">
-				<h3 class="subject __underline"></h3>
-				<!-- 아이디 -->
+			<!-- section : 내 정보에 등록된 휴대폰 번호로 인증 -->
+			<div class="section __half __find ui-radio-accodion">
+				<div class="subject __underline"></div>
+
+				<!-- section : 본인인증으로 찾기 -->
 				<div class="row">
 					<div class="col-md">
-						<label for="user-id">아이디</label>
-					</div>
-					<div class="col-md">
-						<div class="form-wrap __normal __x1">
-							<div class="inner">
-								<div class="ui-input active">
-									<input type="text" id="user-id" title="아이디를 입력해주세요." class=""> <!-- 아이디를 입력해주세요. -->
-									<span class="placeholder">아이디를 입력해주세요. </span>
-								</div>
-								<button type="button" class="ui-button __square-small __black" id="checkId" onclick="fnCheckId();">확인</button><!-- 확인 -->
-							</div>
-
+						<!-- 선택 -->
+						<div class="ui-radio">
+							<input type="radio" id="find-way-certify" name="member-find-way" data-trigger="#section-find-certify" checked="checked">
+							<label for="find-way-certify" >본인인증</label>
 						</div>
+						<!-- 펼침 -->
+						<div id="section-find-certify" class="inner-content active">
+								<!-- section -->
+									<div id="section-certify-way">
+										<!-- 인증수단 -->
+										<div class="col-md">
+											<ul class="item-wrap">		
+												<li><a href="#" class="item certify-card" onclick="callEmailCtf()">이메일 인증</a></li> <!-- 카드인증방식 추가 2020.06.14 gun -->
+												
+											</ul>
+										</div>
+									</div>
+								<!-- //section -->
+							<div class="description">
+								<p>이메일 인증 버튼을 클릭 시 이메일로 인증번호가 전송 되오니, 인증번호를 팝업창에 입력하여 주시길 바랍니다.</p>
+							</div>
+						</div>
+						<!-- //펼침 -->
 					</div>
 				</div>
 			</div>
 
 			<!-- btn -->
 			<div class="btn-area __center">
-				<button type="button" class="ui-button __square-large __black" onclick="fnClose();">취소 </button><!-- 취소 -->
+				<button type="button" class="ui-button __square-large __black" onclick="fnBack();">이전 </button>
+				<button type="button" class="ui-button __square-large __point-color __none" id="nextButton" onclick="fnCert();">다음 </button>
 			</div>
 		</div>
 		<!-- //contents -->

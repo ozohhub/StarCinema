@@ -62,7 +62,20 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value = "findMemberId", method = RequestMethod.POST)
 	public boolean findMemberId(Model model, @RequestBody Map<String,String> map)  {
-		return service.searchWithEmailMember(model, map.get("searchId"), map.get("searchEmail"));
+		return service.searchWithEmailMember(map.get("searchId"), map.get("searchEmail"));
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "findMemberPw", method = RequestMethod.POST)
+	public boolean findMemberPw(Model model, @RequestBody Map<String,String> map)  {
+		return service.searchWithEmailMember(map.get("searchId"), map.get("searchEmail"));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "findIdCheck")
+	public boolean loginIdCheck(@RequestBody Map<String,String> map) {
+		return service.checkId(map.get("id"), "find");
 	}
 
 

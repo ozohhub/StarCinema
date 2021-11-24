@@ -12,7 +12,7 @@ public interface IMemberService {
 	public boolean memberModify(MemberDTO dto);
 	public void userInfo(Model model, String id);
 	
-	public boolean checkId(String id);
+	public boolean checkId(String id, String type);
 	public boolean checkPw(String id, String pw);
-	public boolean searchWithEmailMember(Model model, String searchId, String searchEmail);
+	public boolean searchWithEmailMember(String searchId, String searchEmail);
 }
