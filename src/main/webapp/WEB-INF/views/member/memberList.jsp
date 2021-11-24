@@ -20,7 +20,7 @@
 				<li class="active">
 					<div class="tab_con ty2">
 						<h3 class="hidden">FAQ</h3>
-						<form action="" method="post">
+						<form action="memberListProc" method="post">
 							<fieldset class="search_wrap ty2">
 								<legend>영화관 FAQ 검색하기</legend>
 								<input type="text" name="search" placeholder="이름을 입력해주세요." id="search" title="검색어를 입력해주세요">
@@ -50,8 +50,8 @@
 									<td id="row0" headers="thead0">${user.id }</td>
 									<td id="row0" headers="thead0">${user.getName() }</td>
 									<td id="row0" headers="thead0">${user.getEmail() }</td>
-									<td id="row0" headers="thead0" onclick="location.href='userInfoProc?id=${user.id }'">수정하기</td>
-									<td id="row0" headers="thead0" onclick="location.href='deleteMemberProc?id=${user.id }'">삭제하기</td>
+									<td style="cursor: pointer;" id="row0" headers="thead0" onclick="location.href='userInfoProc?id=${user.id }'">수정하기</td>
+									<td style="cursor: pointer;" id="row0" headers="thead0" onclick="location.href='deleteMemberProc?id=${user.id }'">삭제하기</td>
 								</tr>
 							</c:forEach>
 							</tbody>
