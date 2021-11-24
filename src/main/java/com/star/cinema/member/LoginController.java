@@ -21,8 +21,8 @@ public class LoginController {
 	
 	@ResponseBody
 	@RequestMapping(value = "loginIdCheck")
-	public boolean loginIdCheck(Model model, @RequestBody Map<String,String> map) {
-		return service.checkId(model, map.get("id"), "login");
+	public boolean loginIdCheck(@RequestBody Map<String,String> map) {
+		return service.checkId(map.get("id"), "login");
 	}
 	
 	@ResponseBody
