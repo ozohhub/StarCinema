@@ -14,10 +14,14 @@
     <meta http-equiv="Cache-Control" content="no-cache" />
     <title>아이디 찾기</title>
 
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://members.lpoint.com/resources/js/lib/jquery-1.12.3.min.js"></script>
+	<script src="https://members.lpoint.com/resources/js/lib/serialize.object.js"></script>
+	<script src="https://members.lpoint.com/resources/js/lib/json2.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/findid.css" />
+    <link rel="stylesheet" href="https://members.lpoint.com/resources/css/common.css?date=20200428000001">
+	<link rel="stylesheet" href="https://members.lpoint.com/resources/css/component.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/resize.css" />
 	<link rel="stylesheet" href="https://members.lpoint.com/resources/css/css_1050.css" type="text/css" media="screen"></head>
 	<script src="<c:url value="/resources/js/find.js" />"></script>
 	<script src="<c:url value="/resources/js/findid.js" />"></script>
@@ -32,81 +36,77 @@
         </div>
     </div>
     <!-- //header -->
-	
 
-    <!-- mast body -->
+
     <div id="mast-body">
         <div class="container">
             <!-- toparea -->
             <div class="toparea">
-                <h2 class="title">아이디 찾기 </h2><!-- 아이디 찾기 -->
-                <div class="headline">
-                    <!-- 등록된 회원정보로<br>아이디를 찾으실 수 있습니다. -->
-                    	등록된 회원정보로<br>아이디를 찾으실 수 있습니다.
-                </div>
+                <h2 class="title">
+                   	 아이디 찾기
+                </h2>
+                <!-- 아이디 찾기 -->
+                <c:choose>
+                	<c:when test="${not empty searchId }">
+		                <div class="headline">
+		                   	 입력하신 정보와<br>일치하는 아이디 정보입니다.
+		                </div>
+	                </c:when>
+	                <c:otherwise>
+		                <div class="toparea">
+							<div class="headline __error">
+								입력하신 정보와<br>일치하는 아이디 정보가 없습니다.
+							</div>
+						</div>
+	                </c:otherwise>
+                </c:choose>
             </div>
             <!-- //toparea -->
-
             <!-- contents -->
-            <div class="contents">
-                <!-- section : 아이디찾기 -->
-                <div class="section __half __find ui-radio-accodion" id="resident">
-                    <div class="subject __underline"></div>
-                    <!-- 이메일 주소로 찾기 -->
-                    <div class="row">
-                        <div class="col-md">
-                            <!-- 선택 -->
-                            <div class="ui-radio">
-                                <input type="radio" id="find-way-email" name="member-find-way" data-id="section-find-emailid" data-code="2" data-trigger="#section-find-emailid" checked="checked">
-                                <label for="find-way-email">이메일주소로 찾기 </label><!-- 이메일 주소로 찾기 -->
-                            </div>
-                            <!-- 펼침 -->
-                            <div id="section-find-emailid" class="inner-content active">
-                                <!-- 이름 -->
-                                <div class="row">
-                                    <div class="col-md">
-                                        <label for="find-email-user-name">이름</label><!-- 이름 -->
-                                    </div>
-                                    <div class="col-md">
-                                        <div class="form-wrap __normal">
-                                            <div class="ui-input">
-                                                <input type="text" id="find-email-user-name" data-type="cstNm" maxlength="20">
-                                                <span class="placeholder">한글 또는 영문으로 입력해주세요.</span><!-- 한글 또는 영문으로 입력해주세요. -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 이메일 주소 -->
-                                <div class="row">
-                                    <div class="col-md">
-                                        <label for="find-email-user-email">이메일 주소 </label><!-- 이메일 주소 -->
-                                    </div>
-                                    <div class="col-md">
-                                        <div class="form-wrap __normal">
-                                            <div class="ui-input">
-                                                <input type="email" id="find-email-user-email" data-type="elcAdd" maxlength="50">
-                                                <span class="placeholder">이메일주소를 입력해주세요.</span><!-- 이메일 주소를 입력해주세요. -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- //펼침 -->
-                        </div>
-                    </div>
-                </div>
+            <c:choose>
+                <c:when test="${not empty searchId }">
+	            <div class="contents">
+	                <!-- section : 결과(공통) -->
+	                <div class="section __high">
+	                    <h3 class="subject __underline">
+	                        <em class="idResultTitle">아이디 찾기 결과</em> <em class="frnIdResultTitle __none">There are<em class="IdCount __point-color __none"></em>
+	                            number of IDs.</em>
+	                    </h3>
+	                    <div class="row" id="div-idCstNm1">
+	                        <table class="normal-table">
+	                            <caption>
+	                                	아이디
+	                            </caption>
+	                            <colgroup>
+	                                <col>
+	                            </colgroup>
+	                            <tbody id="div-tBodyId">
+	                                <tr>
+	                                    <td>${searchId.id}</td>
+	                                </tr>
+	                            </tbody>
+	                        </table>
+	                    </div>
+	                </div>
 
-                <!-- //section -->
+               
 
                 <!-- btn -->
-                <div class="btn-area __center">
-                    <button type="button" class="ui-button __square-large __black" onclick="fnClose();">취소 </button>
-                    <button type="button" class="ui-button __square-large __point-color" onclick="fnCheck();">다음 </button>
+                <div class="btn-area" id="div-lgnBtn1">
+                    <button class="ui-button __dot" onclick="index?formpath=login;"><em>확인</em><!-- <em>확인</em> --></button>
                 </div>
             </div>
+            </c:when>
+	            <c:otherwise>
+	                	<div class="btn-area" id="div-lgnBtn1">
+	                    	<button class="ui-button __dot" onclick="location.href='index?formpath=login';"><em>확인</em><!-- <em>확인</em> --></button>
+	                	</div>
+	            </c:otherwise>
+            </c:choose>
             <!-- //contents -->
         </div>
-    </div>
+        </div>
+    <!-- //mast body -->
 
 
     <form name="formBack" action="mbrJoinS0101" id="formBack" method="post">
@@ -151,7 +151,5 @@
         </div>
     </div>
 </body>
-
-
 
 </html>

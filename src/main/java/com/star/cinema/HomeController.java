@@ -153,6 +153,12 @@ public class HomeController {
 		return "manage/findid";
 	}
 	
+	@RequestMapping(value="/findid2")
+	public String findid2() {
+		return "manage/findid_2";
+	}
+	
+	
 	@RequestMapping(value="/findpw")
 	public String findpw() {
 		return "manage/findpw";

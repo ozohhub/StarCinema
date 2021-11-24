@@ -19,6 +19,7 @@ public interface IMemberDAO {
 	public MemberDTO selectMember(String id);
 	public boolean deleteMember(String id);
 	public boolean modifyMember(MemberDTO dto);
+	public MemberDTO searchWithEmailMember(@Param("searchId")String searchId, @Param("searchEmail")String searchEmail);
 	
 	
 }

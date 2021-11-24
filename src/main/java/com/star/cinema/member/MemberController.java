@@ -1,11 +1,15 @@
 package com.star.cinema.member;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.member.service.IMemberService;
@@ -54,4 +58,12 @@ public class MemberController {
 			model.addAttribute("msg", "삭제에 성공하였습니다.");
 		return "forward:memberListProc";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "findMemberId", method = RequestMethod.POST)
+	public boolean findMemberId(Model model, @RequestBody Map<String,String> map)  {
+		return service.searchWithEmailMember(model, map.get("searchId"), map.get("searchEmail"));
+	}
+
+
 }

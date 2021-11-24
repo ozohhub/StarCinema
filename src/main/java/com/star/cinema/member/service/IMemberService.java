@@ -14,4 +14,5 @@ public interface IMemberService {
 	
 	public boolean checkId(String id);
 	public boolean checkPw(String id, String pw);
+	public boolean searchWithEmailMember(Model model, String searchId, String searchEmail);
 }

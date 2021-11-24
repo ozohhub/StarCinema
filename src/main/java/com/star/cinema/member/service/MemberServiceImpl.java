@@ -81,4 +81,15 @@ public class MemberServiceImpl implements IMemberService{
 		return suc;
 	}
 	
+	@Override
+	public boolean searchWithEmailMember(Model model, String searchId, String searchEmail) {
+		MemberDTO member = dao.searchWithEmailMember(searchId, searchEmail);
+		if (member != null) {
+			model.addAttribute("searchId", member);
+			session.setAttribute("searchId", member);
+			return true;
+		}
+		return false;
+	}
+	
 }
