@@ -2,6 +2,8 @@ package com.star.cinema.member;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,17 +67,24 @@ public class MemberController {
 		return service.searchWithEmailMember(map.get("searchId"), map.get("searchEmail"));
 	}
 	
-	
-	@ResponseBody
-	@RequestMapping(value = "findMemberPw", method = RequestMethod.POST)
-	public boolean findMemberPw(Model model, @RequestBody Map<String,String> map)  {
-		return service.searchWithEmailMember(map.get("searchId"), map.get("searchEmail"));
-	}
-	
 	@ResponseBody
 	@RequestMapping(value = "findIdCheck")
 	public boolean loginIdCheck(@RequestBody Map<String,String> map) {
 		return service.checkId(map.get("id"), "find");
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "sendEmailCode")
+	public void sendEmailCode(HttpSession session) {
+		String email = ((MemberDTO) session.getAttribute("memberInfo")).getEmail();
+		service.sendEmailCode(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "checkEmailCode", method = RequestMethod.POST)
+	public boolean checkEmailCode(@RequestBody Map<String,String> map)  {
+		return service.checkEmailCode(map.get("code"));
 	}
 
 

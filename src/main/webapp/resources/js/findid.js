@@ -136,25 +136,11 @@ function callEmailCtf() {
 	}).then((result) => {
 	  if (result.isConfirmed) {
 	  		$.ajax({		
-					url: "loginIdCheck", type: "POST",		
-					data: JSON.stringify(info), 			
+					url: "sendEmailCode", type: "POST",				
 					contentType: "application/json; charset=utf-8", 	
-					dataType: "json",
-				
-					success : function(result){	
-						if (result) {
-							location.href='findpw3';
-						} else {
-							Swal.fire({
-							  icon: 'error',
-							  title: 'Oops...',
-							  text: '인증 번호가 일치하지 않습니다.'
-							})
+					error:function(request, status, error){
+							alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 					}
-				},
-				error:function(request, status, error){
-						alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-				}
 			})
 	  		Swal.fire({
 			  title: '인증번호를 입력하세요.',
@@ -164,9 +150,9 @@ function callEmailCtf() {
 			}).then((result) => {
 			  if (result.isConfirmed) {
 			  	var text = `${result.value}`;
-			  	var info = {number : text};
+			  	var info = {code : text};
 			  	$.ajax({		
-					url: "loginIdCheck", type: "POST",		
+					url: "checkEmailCode", type: "POST",		
 					data: JSON.stringify(info), 			
 					contentType: "application/json; charset=utf-8", 	
 					dataType: "json",

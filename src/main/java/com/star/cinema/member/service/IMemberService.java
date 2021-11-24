@@ -15,4 +15,6 @@ public interface IMemberService {
 	public boolean checkId(String id, String type);
 	public boolean checkPw(String id, String pw);
 	public boolean searchWithEmailMember(String searchId, String searchEmail);
+	public boolean checkEmailCode(String code);
+	public void sendEmailCode(String email);
 }

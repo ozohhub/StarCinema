@@ -1,9 +1,12 @@
 package com.star.cinema.member.service;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,8 +18,11 @@ import com.star.cinema.member.dto.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements IMemberService{
+	final static Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 	@Autowired IMemberDAO dao;
 	@Autowired HttpSession session;
+	@Autowired MailService mailService;
+	
 	
 	@Override
 	public void memberList(Model model, int currentPage) {
@@ -96,6 +102,22 @@ public class MemberServiceImpl implements IMemberService{
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public void sendEmailCode(String email) {
+		Random random = new Random();
+		String authNum = String.format("%06d", random.nextInt(1000000));
+		mailService.sendMail(email, "[인증번호]", authNum);
+		session.setAttribute("code", authNum);
+		session.setMaxInactiveInterval(60);	
+		logger.warn(authNum);	
+	}
+	
+	@Override
+	public boolean checkEmailCode(String code) {
+		String saveAuthNum = (String)session.getAttribute("code");
+		return saveAuthNum.equals(code);
 	}
 	
 }
