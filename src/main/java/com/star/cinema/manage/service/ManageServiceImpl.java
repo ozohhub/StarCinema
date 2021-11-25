@@ -44,8 +44,8 @@ public class ManageServiceImpl implements IManageService{
 		for(TimeInfoDTO t : timeInfo) {
 			TimeManageDTO manage = new TimeManageDTO();
 			manage.setCountryName(cinema.get(index).getCountryName());
+			manage.setCinemaName(cinema.get(index).getCinemaName());
 			manage.setHallName(hall.get(index).getHallName());
-			manage.setHallNum(hall.get(index).getHallNum());
 			manage.setTicketDate(timeInfo.get(index).getTicketDate());
 			manage.setStartTime(timeInfo.get(index).getStartTime());
 			manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
@@ -60,8 +60,11 @@ public class ManageServiceImpl implements IManageService{
 	}
 
 	@Override
-	public boolean timeInfoDeleteProc(String num) {
-		return dao.timeInfoDelete(num);
+	public boolean timeInfoDeleteProc(String cinemaName) {
+		int num = dao.cinemaName(cinemaName);
+		dao.hallDelete(num);
+		dao.timeInfoDelete(num);
+		return dao.cinemaDelete(num);
 	}
 
 	@Override
@@ -85,5 +88,30 @@ public class ManageServiceImpl implements IManageService{
 		dao.timeInfoInsert(timeInfo);
 		
 		return true;
+	}
+
+	@Override
+	public void timeInfoSearch(Model model, String search) {
+		int cinemaNum = dao.cinemaName(search);
+		ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
+		ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
+		ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
+		
+		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
+		
+		int index = 0;
+		for(TimeInfoDTO t : timeInfo) {
+			TimeManageDTO manage = new TimeManageDTO();
+			manage.setCountryName(cinema.get(index).getCountryName());
+			manage.setCinemaName(cinema.get(index).getCinemaName());
+			manage.setHallName(hall.get(index).getHallName());
+			manage.setTicketDate(timeInfo.get(index).getTicketDate());
+			manage.setStartTime(timeInfo.get(index).getStartTime());
+			manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
+			list.add(manage);
+			index++;
+		}
+		
+		model.addAttribute("timeInfoList", list);
 	}
 }

@@ -47,8 +47,32 @@
 		SELECT count(*) FROM timeinfo
 	</select>
 	
+	<select id="cinemaName" resultType="int">
+		SELECT cinemaNum FROM cinema WHERE cinemaName LIKE '%'||#{search}||'%'
+	</select>
+	
+	<select id="timeSearch" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
+		SELECT * FROM timeinfo WHERE cinemaNum=#{cinemaNum}
+	</select>
+	
+	<select id="hallSearch" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
+		SELECT * FROM hall WHERE cinemaNum=#{cinemaNum}
+	</select>
+	
+	<select id="cinemaSearch" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">
+		SELECT * FROM cinema WHERE cinemaNum=#{cinemaNum}
+	</select>
+	
 	<delete id="timeInfoDelete">
-		DELETE from timeinfo WHERE timeInfoNum=#{num}
+		DELETE from timeinfo WHERE cinemaNum=#{num}
+	</delete>
+	
+	<delete id="hallDelete">
+		DELETE from hall WHERE cinemaNum=#{num}
+	</delete>
+	
+	<delete id="cinemaDelete">
+		DELETE from cinema WHERE cinemaNum=#{num}
 	</delete>
 	
 	<insert id="cinemaInsert" parameterType="com.star.cinema.manage.dto.CinemaDTO">

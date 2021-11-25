@@ -141,6 +141,7 @@
 								<input type="hidden" class="hallName" name="hallName">
 								<input type="hidden" class="moiveListName" name="moiveListName">
 								<input type="hidden" class="cinemaName" name="cinemaName">
+								
 								<!-- 결제 정보 -->
 								<input type="hidden" class="payMoney" name="payMoney">
 								<button type="button" class="reserve-button">결제하기</button>

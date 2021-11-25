@@ -26,14 +26,19 @@ public class ManageController {
 	
 	@RequestMapping(value = "timeInfoProc")
 	public String timeInfoProc(Model model, 
-				@RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage) {
-		service.timeInfoList(model, currentPage);
+				@RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, String search) {
+		if(search == null || search == "") {
+			service.timeInfoList(model, currentPage);
+		}
+		else {
+			service.timeInfoSearch(model, search);
+		}
 		return "forward:/index?formpath=timeInfo";
 	}
 	
 	@RequestMapping(value = "timeInfoDeleteProc")
-	public String timeInfoDeleteProc(Model model, String num) {
-		boolean check = service.timeInfoDeleteProc(num);
+	public String timeInfoDeleteProc(Model model, String cinemaName) {
+		boolean check = service.timeInfoDeleteProc(cinemaName);
 		if(check) {
 			model.addAttribute("msg", "삭제에 성공하였습니다.");
 		}

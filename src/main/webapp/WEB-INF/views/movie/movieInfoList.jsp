@@ -60,17 +60,6 @@ $(document).ready(function(){
 	        	</c:choose>
 	            
 	        </ul>
-	        <ul class="list_lnk" id="movietype1">
-	            <li class="on"><a href="javascript:void(0)" role="button">예매순</a></li>
-	            <li><a href="javascript:void(0)" role="button">평점순</a></li>
-	            <li><a href="javascript:void(0)" role="button">관람평 많은순</a></li>
-	            <li><a href="javascript:void(0)" role="button">보고싶어요순</a></li>
-	        </ul>
-	        <ul class="list_lnk" id="movietype2" style="display: none;">
-	            <li class="on"><a href="javascript:void(0)" role="button">개봉일순</a></li>
-	            <li><a href="javascript:void(0)" role="button">예매순</a></li>
-	            <li><a href="javascript:void(0)" role="button">보고싶어요순</a></li>
-	        </ul>
 	        <c:choose>
 	        	<c:when test="${page == '1' }">
 	        		<ul class="movie_list type2" id="nowInfo">
