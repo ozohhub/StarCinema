@@ -36,7 +36,7 @@ public class MemberController {
 		dto.setId(id);
 		dto.setPw(pw);
 		
-		boolean check = service.memberModify(dto);
+		boolean check = service.memberModify(dto, "find");
 		if(check == false)
 			model.addAttribute("msg", "수정에 실패하였습니다.");
 		else 
@@ -85,6 +85,16 @@ public class MemberController {
 	@RequestMapping(value = "checkEmailCode", method = RequestMethod.POST)
 	public boolean checkEmailCode(@RequestBody Map<String,String> map)  {
 		return service.checkEmailCode(map.get("code"));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "changePw", method = RequestMethod.POST)
+	public boolean changePw(@RequestBody Map<String,String> map)  {
+		MemberDTO member = new MemberDTO();
+		member.setId(map.get("id"));
+		member.setPw(map.get("pw"));
+		
+		return service.memberModify(member, "change");
 	}
 
 
