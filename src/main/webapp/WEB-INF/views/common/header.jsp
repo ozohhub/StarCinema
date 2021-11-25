@@ -79,7 +79,7 @@
 										<ul style="opacity: 0;">
 											<c:forEach var="cinema" items="${cinemaList }">
 												<c:if test="${cinema.countryName eq country}">
-													<li><a href="#">${cinema.cinemaName}</a></li>
+													<li><a href="index?formpath=ticketing">${cinema.cinemaName}</a></li>
 												</c:if>
 											</c:forEach>
 										</ul>
