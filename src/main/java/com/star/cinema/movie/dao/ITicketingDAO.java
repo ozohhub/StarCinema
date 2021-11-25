@@ -9,5 +9,6 @@ public interface ITicketingDAO {
 	public void seatProc(TicketingDTO dto);
 	public int searchMovieListNum(String movieName);
 	public int searchCinemaNum(String cinemaName);
+	public boolean deleteSeat(String id);
 	
 }

@@ -105,7 +105,7 @@
 							</div>
 						</div>
 						<div class="select-seat-information">
-							<div class="selected-movie movie">베놈</div>
+							<div class="selected-movie">베놈</div>
 							<div class="select-seat-information-wrapper">
 								<div class="select-theater-place selected-theater-place-info cinema">CGV강남</div>
 								<div style="width: 30px;" class="select-theater-place selected-theater-place-info hall">3관</div>
@@ -130,7 +130,7 @@
 							<form action="seatProc" class="seatForm" method="post">
 								<input type="hidden" class="title" name="title" id="title">
 								<input type="hidden" class="selectedTheater" name="selectedTheater" id="selectedTheater">
-								<input type="hidden" class="reserveDate" name="movieDate" id="movieDate">
+								<input type="hidden" class="reserveDate" name="reserveDate" id="reserveDate">
 								<input type="hidden" class="runningTime" name="runningTime" id="runningTime">
 								<input type="hidden" class="totalPrice" name="totalPrice" id="totalPrice">
 								<!-- 티켓의수(선택한 좌석) -->

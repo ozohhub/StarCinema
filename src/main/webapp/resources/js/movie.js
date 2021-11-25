@@ -26,10 +26,6 @@ function plus_click(i) {
 	result.innerText = number;
 }
 
-function reset(){
-	alert('결제수단을 전체 초기화하시겠습니까?');
-}
-
 function selectAll() {
 	var selectAll = document.getElementById("chkSavingTerm").checked;
 	var select = document.getElementsByName("select");
@@ -110,7 +106,7 @@ function pay_final_chk() {
 	var selectAll = document.getElementById("chkSavingTerm").checked;
 	
 	if(selectAll === true) {
-		location.href='index?formpath=myPage';
+		location.href='payProc';
 	}
 	else {
 		alert('결제대행서비스 약관에 동의하셔야 구매가 가능합니다.');

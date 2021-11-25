@@ -13,4 +13,8 @@
 		INSERT INTO ticketing VALUES (ticketing_seq.nextval, #{id}, #{movieListNum}, #{cinemaNum},
 			#{hallNum}, #{seatName}, #{openDate}, #{openTime}, #{people}, #{totalPrice})
 	</insert>
+	
+	<delete id="deleteSeat">
+		DELETE * FROM ticketing WHERE id=#{id}
+	</delete>
 </mapper>
