@@ -9,7 +9,21 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/seat.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-
+<script>
+	var seatCount = 0;
+	var list = [];
+	<c:forEach items = "${seats }" var="seat">
+	list.push("${seat.seat_name }");
+	</c:forEach>
+	for(var i=0;i<list.length;i++) {
+		for(var j=1;<$("input:checkbox[class='seat']").length + 1;j++) {
+			if(list[i] == $("input:checkbox[id='seat" + j + "']").val()) {
+				$("input:checkbox[id='seat" + j + "']").parents("td").attr("class", "booked");
+				$("input:checkbox[id='seat" + j + "']").attr('disabled', true);
+			}
+		}
+	}
+</script>
 </head>
 <body>
     <div id="contents" class="contents_full contents_reserve">

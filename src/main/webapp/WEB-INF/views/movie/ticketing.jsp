@@ -42,9 +42,9 @@
                                                         <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
                                                             <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: 0px;" dir="ltr">
                                                                 <ul>
-                                                                    <li class=""><a href="#none">김포공항</a></li>
-                                                                    <li class=""><a href="#none">청량리</a></li>
-                                                                    <li class=""><a href="#none">홍대입구</a></li>
+                                                                    <li class="cinema"><a href="#none">김포공항</a></li>
+                                                                    <li class="cinema"><a href="#none">청량리</a></li>
+                                                                    <li class="cinema"><a href="#none">홍대입구</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -1072,7 +1072,8 @@
 	        	
 	        });
 	        $(".depth1").on("click", "li", function(event) {
-	        	$(this).attr("class","active");
+	        	$('.cinema').attr("class", "cinema");
+	        	$(this).attr("class","cinema active");
 	        	
 	        });
 	    });
