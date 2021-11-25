@@ -1,21 +1,33 @@
 package com.star.cinema;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.star.cinema.manage.dao.IManageDAO;
+import com.star.cinema.manage.dto.CinemaDTO;
+
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@Autowired IManageDAO dao;
+	
+	public static List<CinemaDTO> cinemaList = new ArrayList<>();
+
 	@RequestMapping(value = "/")
 	public String main(Model model, HttpSession session) {
 		session.removeAttribute("authState");
+		headerCinemaAdd(model);
 		model.addAttribute("formpath", "main");
 		model.addAttribute("page","2");
 		return "index";
@@ -27,6 +39,7 @@ public class HomeController {
 	public String index(Model model, String formpath) {
 		if(formpath == null) formpath = "main";
 		model.addAttribute("formpath", formpath);
+		headerCinemaAdd(model);
 		logger.warn("formpath : " + formpath);
 		return "index";
 	}
@@ -186,6 +199,28 @@ public class HomeController {
 	@RequestMapping(value="/timeInfoInsert")
 	public String timeInfoInsert() {
 		return "manage/timeInfoInsert";
+	}
+	
+	public void headerCinemaAdd(Model model) {
+		cinemaList = dao.AllCinemaList();
+		
+		List<String> countryList = new ArrayList<>();
+		for (CinemaDTO info : this.cinemaList) {
+			boolean insert = true;
+			for (String check : countryList) {
+				if (check.equals(info.getCountryName())) {
+					insert = false;
+					break;
+				}
+			}
+			if (insert) {
+				countryList.add(info.getCountryName());
+			}
+		}
+		
+		
+		model.addAttribute("countryList", countryList);
+		model.addAttribute("cinemaList", cinemaList);
 	}
 	
 }

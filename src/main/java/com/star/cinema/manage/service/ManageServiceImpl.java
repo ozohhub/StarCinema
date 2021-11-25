@@ -20,19 +20,40 @@ public class ManageServiceImpl implements IManageService{
 	
 	@Override
 	public void cinemaList(Model model, int currentPage) {
+		int pageBlock = 10;
+		int totalCount = dao.cinemaCount();
+		int end = currentPage * pageBlock;
+		int begin = end + 1 - pageBlock;
+		ArrayList<CinemaDTO> list = dao.cinemaList(begin, end);
+		model.addAttribute("cinemaList", list);
 		
+		String url = "/cinema/cinemaListProc?currentPage=";
+		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
 	}
 	
 	@Override
-	public boolean cinemaDelete() {
-		// TODO Auto-generated method stub
-		return false;
+	public void cinemaSearch(Model model, String search) {
+		ArrayList<CinemaDTO> list = dao.cinemaSearchForName(search);
+		model.addAttribute("cinemaList", list);
+	}
+	
+	@Override
+	public void cinemaInsert(String countryName, String cinemaName) {
+		CinemaDTO cinema = new CinemaDTO();
+		cinema.setCountryName(countryName);
+		cinema.setCinemaName(cinemaName);
+		dao.cinemaInsert(cinema);
+	}
+	
+	@Override
+	public void cinemaDelete(int id) {
+		dao.cinemaDelete(id);
 	}
 
 	@Override
 	public void timeInfoList(Model model, int currentPage) {
 		int pageBlock = 10;
-		int totalCount = dao.cinemaCount();
+		int totalCount = dao.timeInfoCount();
 		int end = currentPage * pageBlock;
 		int begin = end + 1 - pageBlock;
 		ArrayList<TimeInfoDTO> timeInfo = dao.timeInfoList(begin, end);
@@ -114,4 +135,5 @@ public class ManageServiceImpl implements IManageService{
 		
 		model.addAttribute("timeInfoList", list);
 	}
+	
 }
