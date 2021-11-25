@@ -1,10 +1,14 @@
 package com.star.cinema.manage;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.star.cinema.manage.service.IManageService;
 
@@ -13,15 +17,26 @@ public class ManageController {
 	@Autowired IManageService service;
 	
 	@RequestMapping(value = "cinemaListProc")
-	public String memberList(Model model, 
-				@RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage) {
-		service.cinemaList(model, currentPage);
+	public String cinemaList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage , String search) {
+		if(search == null || search == "") {
+			service.cinemaList(model, currentPage);
+		} else {
+			service.cinemaSearch(model, search);
+		}
 		return "forward:/index?formpath=cinemaList";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/cinemaInsert")
+	public void cinemaInsert(@RequestBody Map<String,String> map) {
+		service.cinemaInsert(map.get("countryName"), map.get("cinemaName"));
+	}
+	
+	@ResponseBody
 	@RequestMapping(value = "/cinemaDelete")
-	public String cinemaDelete() {
-		return "index?formpath=cinemaList";
+	public void cinemaDelete(@RequestBody Map<String,String> map) {
+		int cinemaNum = Integer.parseInt(map.get("id"));
+		service.cinemaDelete(cinemaNum);
 	}
 	
 	@RequestMapping(value = "timeInfoProc")

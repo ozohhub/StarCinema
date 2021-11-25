@@ -55,9 +55,6 @@ const movie = document.querySelector('.movie');
 const moiveListName = document.querySelector('.moiveListName');
 const cinemaName = document.querySelector('.cinemaName');
 
-const date = document.querySelector('.date');
-const openDate = document.querySelector('.openDate');
-
 toastr.options = {
     positionClass: 'toast-top-right',
     progressBar: true,
@@ -231,7 +228,14 @@ function inputClickEvent(input) {
             clicked = document.querySelectorAll('.clicked');
             //선택한 번호의 갯수를 넘기면 동작 못하게 하는 코드
             console.log(allNumber);
-            if (clicked.length > allNumber) {
+           if(clicked && allNumber == 0) {
+				input.classList.remove('clicked');
+                toastr.error(
+                    alert('인원을 선택해주세요.')
+                );
+                return;
+			}
+            else if (clicked.length > allNumber) {
                 input.classList.remove('clicked');
                 toastr.error(
                     alert('지정한 인원수를 넘었습니다(최대 8명)')
@@ -299,8 +303,6 @@ reserveButton.addEventListener('click', function() {
     moiveListName.value = moiveListName.innerHTML;
     cinemaName.value = cinemaName.innerHTML;
     hallName.value = hall.innerHTML;
-    
-    openDate.value = date.innerHTML;
     
     console.log(allNumber + '임');
     console.log(ticketNumber.value);

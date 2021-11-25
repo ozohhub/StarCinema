@@ -9,7 +9,21 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/seat.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-
+<script>
+	var seatCount = 0;
+	var list = [];
+	<c:forEach items = "${seats }" var="seat">
+	list.push("${seat.seat_name }");
+	</c:forEach>
+	for(var i=0;i<list.length;i++) {
+		for(var j=1;<$("input:checkbox[class='seat']").length + 1;j++) {
+			if(list[i] == $("input:checkbox[id='seat" + j + "']").val()) {
+				$("input:checkbox[id='seat" + j + "']").parents("td").attr("class", "booked");
+				$("input:checkbox[id='seat" + j + "']").attr('disabled', true);
+			}
+		}
+	}
+</script>
 </head>
 <body>
     <div id="contents" class="contents_full contents_reserve">
@@ -105,7 +119,7 @@
 							</div>
 						</div>
 						<div class="select-seat-information">
-							<div class="selected-movie movie">베놈</div>
+							<div class="selected-movie">베놈</div>
 							<div class="select-seat-information-wrapper">
 								<div class="select-theater-place selected-theater-place-info cinema">CGV강남</div>
 								<div style="width: 30px;" class="select-theater-place selected-theater-place-info hall">3관</div>
@@ -130,7 +144,7 @@
 							<form action="seatProc" class="seatForm" method="post">
 								<input type="hidden" class="title" name="title" id="title">
 								<input type="hidden" class="selectedTheater" name="selectedTheater" id="selectedTheater">
-								<input type="hidden" class="reserveDate" name="movieDate" id="movieDate">
+								<input type="hidden" class="reserveDate" name="reserveDate" id="reserveDate">
 								<input type="hidden" class="runningTime" name="runningTime" id="runningTime">
 								<input type="hidden" class="totalPrice" name="totalPrice" id="totalPrice">
 								<!-- 티켓의수(선택한 좌석) -->

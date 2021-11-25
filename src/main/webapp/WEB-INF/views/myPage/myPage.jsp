@@ -5,7 +5,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
 <c:url var="root" value="/"/>
-
+<c:if test="${not empty msg }">
+	<script>alert('${msg}')</script>
+</c:if>
 <title>마이페이지 - 예매내역</title>
 
 <%@ include file="myPageHeader.jsp" %>

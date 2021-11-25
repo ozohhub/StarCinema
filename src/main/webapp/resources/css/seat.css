@@ -279,3 +279,9 @@
 	cursor: pointer;
 	font-size: 18px;
 }
+.checked {
+	pointer-events: none;
+	background-color: #3C3C3C;
+	color: black;
+	cursor: default;
+}

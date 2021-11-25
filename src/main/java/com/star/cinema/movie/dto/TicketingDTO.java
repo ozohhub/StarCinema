@@ -11,6 +11,7 @@ public class TicketingDTO {
 	private int movieListNum;
 	private int cinemaNum;
 	private int hallNum;
+	private String moiveName;
 	
 	public int getTicketingNum() {
 		return ticketingNum;
@@ -71,6 +72,12 @@ public class TicketingDTO {
 	}
 	public void setHallNum(int hallNum) {
 		this.hallNum = hallNum;
+	}
+	public String getMoiveName() {
+		return moiveName;
+	}
+	public void setMoiveName(String moiveName) {
+		this.moiveName = moiveName;
 	}
 	
 }
