@@ -92,10 +92,11 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class = "movieInfo">
-	                    <h3>영화3</h3>ss
-	                    <span>정보3</span>s
+	                    <h3>영화3</h3>
+	                    <span>정보3</span>
                		</div>
 				</li>
+				
 				<li>
 					<div class="boxBg4" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/venom.jpg');" onmouseover="bgOpacity(4);" onmouseout="bgOpacityReset(4);">
 						<div class="boxBtn4">	

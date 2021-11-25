@@ -4,6 +4,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.star.cinema.customer.dto.NoticeDTO;
+import com.star.cinema.customer.dto.QuestionDTO;
 import com.star.cinema.customer.dto.SearchDTO;
 
 public interface ICustomerService {
@@ -17,6 +18,9 @@ public interface ICustomerService {
 	
 	String FILE_LOCATION ="C:\\java_folder\\upload";
 	public boolean questionWriteProc(MultipartHttpServletRequest req);
+	public void questionList(Model model, int currentPage);
+	public QuestionDTO questionViewProc(String num);
+	public void answerUpdate(String answer, String num);
 
 	
 

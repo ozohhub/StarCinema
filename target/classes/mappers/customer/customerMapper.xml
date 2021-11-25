@@ -81,4 +81,25 @@
 		INSERT INTO question VALUES(que_seq.nextval,#{title},#{content},#{id},
 			#{fileName},#{division},#{kinds},#{answer},#{regDate})	
 	</insert>
+	
+	<select id="questionCount" resultType="int">
+		SELECT count(*) FROM question
+	</select>
+	
+	<select id="questionList" resultMap="question">
+		SELECT B.* FROM(
+			SELECT rownum rn, A.* FROM(
+				SELECT * FROM question order by questionNum desc
+			)A
+		)B WHERE rn BETWEEN #{b} and #{e}
+	</select>
+	
+	<select id="selectQuesion" parameterType="int" resultMap="question">
+		SELECT * FROM question WHERE questionNum = #{questionNum}
+	</select>
+	
+	<update id="answerUpdate">
+		UPDATE question SET answer=#{answer} WHERE questionNum = #{questionNum}
+	</update>
+	
 </mapper>

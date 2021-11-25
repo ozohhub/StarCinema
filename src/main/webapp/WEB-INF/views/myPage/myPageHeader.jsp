@@ -33,12 +33,12 @@
 					</a>
 				</li>
 				<li class="main_li">
-					<a href="index?formpath=myQuestion" class = "main_a" style="width : 12.5%; left : 0%;">
+					<a href="myQuestionList" class = "main_a" style="width : 12.5%; left : 0%;">
 						<span>1:1문의내역</span>
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="index?formpath=myQuestion" class="sub_a" style="left : 0px; margin-left : 28.85px;">
+							<a href="myQuestionList" class="sub_a" style="left : 0px; margin-left : 28.85px;">
 								<span>1:1문의리스트</span>
 							</a>
 						</li>

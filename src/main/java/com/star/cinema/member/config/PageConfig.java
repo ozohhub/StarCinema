@@ -1,6 +1,16 @@
 package com.star.cinema.member.config;
 
 public class PageConfig {
+	public static int[] setPage(int totalCount, int currentPage) {
+		int pageBlock = 10;
+		int end = currentPage * pageBlock;
+		int begin = end + 1 - pageBlock;
+		
+		int[] page = {begin, end, pageBlock, totalCount};
+		
+		return page;
+	}
+	
 	public static String getNavi(int currentPage, int pageBlock, int totalPage, String url) {
 		int blockCnt = totalPage / pageBlock;
 		if(totalPage % pageBlock > 0)

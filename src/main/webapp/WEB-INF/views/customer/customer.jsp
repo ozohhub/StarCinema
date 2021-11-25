@@ -78,11 +78,12 @@
 			<div class="paging_ctrl">				
 				${page }		
 			</div>
-			<div align = "right">
-	   			<!-- admin 계정일때만 작성 활성화시킴 -->		
-					<input type="button" id = "writeYes" value="작성" onclick="location.href='index?formpath=noticeWrite';">
- 			
-			</div>
+			
+			<c:if test="${not empty loginInfo and loginInfo.id == 'admin'}">	
+				<div align = "right">
+						<input type="button" id = "writeYes" value="작성" onclick="location.href='index?formpath=noticeWrite';">
+				</div>
+			</c:if>
 		</div>
 		
 	</div>

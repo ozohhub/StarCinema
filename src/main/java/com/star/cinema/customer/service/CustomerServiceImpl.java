@@ -20,6 +20,7 @@ import com.star.cinema.customer.dto.NoticeDTO;
 import com.star.cinema.customer.dto.QuestionDTO;
 import com.star.cinema.customer.dto.SearchDTO;
 import com.star.cinema.member.config.PageConfig;
+import com.star.cinema.member.dto.MemberDTO;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService{
@@ -31,36 +32,32 @@ public class CustomerServiceImpl implements ICustomerService{
 	@Override
 	public void customerList(Model model, int currentPage) {
 		session.removeAttribute("search");
-		int pageBlock = 10;
-		int totalCount = dao.customerCount();
-		int end = currentPage * pageBlock;
-		int begin = end + 1 - pageBlock;
-		ArrayList<NoticeDTO> list = dao.customerList(begin, end);
+		int[] page = PageConfig.setPage(dao.customerCount(), currentPage);
+	
+		ArrayList<NoticeDTO> list = dao.customerList(page[0], page[1]);
 		model.addAttribute("list", list);
 		
 		String url = "/cinema/customerList?currentPage=";
-		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
-		
+		model.addAttribute("page", PageConfig.getNavi(currentPage, page[2], page[3], url));		
 	}
 
 	@Override
 	public void customerSearch(Model model, int currentPage, SearchDTO dto) {
-		session.setAttribute("search", dto);		
-		int pageBlock = 10;		
-		int totalCount = dao.customerSearchCount(dto.getSearch(), dto.getSel());		
-		int end = currentPage * pageBlock;
-		int begin = end + 1 - pageBlock;
-		
-		ArrayList<NoticeDTO> list = dao.customerSearch(begin,end,dto.getSearch(), dto.getSel());
+		session.setAttribute("search", dto);
+		int[] page = PageConfig.setPage(dao.customerSearchCount(dto.getSearch(), dto.getSel()), currentPage);
+				
+		ArrayList<NoticeDTO> list = dao.customerSearch(page[0],page[1],dto.getSearch(), dto.getSel());
 		model.addAttribute("list", list);
 		
 		String url = "/cinema/customerList?currentPage=";
-		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
+		model.addAttribute("page", PageConfig.getNavi(currentPage, page[2], page[3], url));
 					
 	}
 	
 	@Override
 	public boolean insertNotice(String theater, String self_theater, String title, String content) {
+		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
+		if(member == null || !member.getId().equals("admin")) return false;
 		if((theater.equals("1") &&  self_theater == "") || title == "" || content == "") {
 			return false;
 		}
@@ -80,7 +77,7 @@ public class CustomerServiceImpl implements ICustomerService{
 
 	@Override
 	public NoticeDTO noticeViewProc(String num) {
-		if(num == null || num == "") {
+		if(num == null || num == "" ) {
 			return null;
 		}	
 		
@@ -91,7 +88,10 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 
 	@Override
-	public void noticeModifyProc(NoticeDTO dto,String num) {	
+	public void noticeModifyProc(NoticeDTO dto,String num) {
+		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
+		if(member == null ||  !member.getId().equals("admin")) return;
+		
 		int noticeNum = Integer.parseInt(num);
 		
 		dto.setNoticeNum(noticeNum);
@@ -100,19 +100,26 @@ public class CustomerServiceImpl implements ICustomerService{
 
 	@Override
 	public void noticeDeleteProc(String num) {
+		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
+		if(member == null || !member.getId().equals("admin")) return;
+		
 		int noticeNum = Integer.parseInt(num);		
 		dao.deleteNotice(noticeNum);	
 	}
 
 	@Override
 	public boolean questionWriteProc(MultipartHttpServletRequest req) {
-		String id = (String)session.getAttribute("id");
+			
+		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
+		if(member == null) return false;
+		
+		String id = member.getId();
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String division = req.getParameter("division");
 		String kinds = req.getParameter("kinds");
 		
-		if(title.isEmpty() == true || content.isEmpty() == true) {
+		if(title.isEmpty() == true || content.isEmpty() == true || division.isEmpty() == true || kinds.isEmpty() == true) {
 			return false;
 		}
 		
@@ -143,7 +150,39 @@ public class CustomerServiceImpl implements ICustomerService{
 			dao.insertQuestion(dto);
 			return true;
 		}
+
+	@Override
+	public void questionList(Model model, int currentPage) {
+		int[] page = PageConfig.setPage(dao.questionCount(), currentPage);
+		ArrayList<QuestionDTO> list = dao.questionList(page[0], page[1]);
+		model.addAttribute("list", list);
 		
+		String url = "/cinema/question?currentPage=";
+		model.addAttribute("page", PageConfig.getNavi(currentPage, page[2], page[3], url));	
+	}
+
+	@Override
+	public QuestionDTO questionViewProc(String num) {
+		
+		if(num == null || num == "" ) {
+			return null;
+		}	
+		
+		int questionNum = Integer.parseInt(num);
+		return dao.selectQuesion(questionNum);
+	}
+
+	@Override
+	public void answerUpdate(String answer, String num) {
+		if(answer == "" || num == "") return;
+		
+		int questionNum = Integer.parseInt(num);
+		
+		dao.answerUpdate(answer, questionNum);
+		
+	}
+		
+	
 	
 
 	

@@ -24,9 +24,11 @@
 		<property name="dataSource" ref="ds"/>
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml"/>
 	</bean>
+	
 	<!-- 마이바티스 xml파일과 dao빈 연결  -->
 	<mybatis-spring:scan base-package="com.star.cinema.member.dao"/>
 	<mybatis-spring:scan base-package="com.star.cinema.manage.dao"/>
 	<mybatis-spring:scan base-package="com.star.cinema.customer.dao"/>
 	<mybatis-spring:scan base-package="com.star.cinema.movie.dao"/>
+	<mybatis-spring:scan base-package="com.star.cinema.myPage.dao"/>
 </beans>

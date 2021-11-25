@@ -21,8 +21,7 @@
 					<col style="width : auto;">
 					<col style="width : 12%">
 					<col style="width : 12%">
-					<col style="width : 8%">
-					
+					<col style="width : 8%">					
 				</colgroup>
 				<thead class="question_th">
 					<tr>
@@ -35,29 +34,48 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>분류나오는곳</td>
-						<td><a href="index?formpath=questionView">제목나오는곳</a></td>
-						<td>작성자나오는곳</td>
-						<td>작성일나오는곳</td>
-						<td>답변여부(Y/N)</td>
-					</tr>
-					<tr>
-						<td colspan="6">
-							<div class="noQuestion">
-								<p>문의내역이 존재하지 않습니다.</p>
-							</div>
-						</td>
-					<tr>
+					<c:choose>
+					<c:when test="${list.isEmpty() == false }">
+						<c:forEach var="dto" items="${list }">
+							<c:set var="division" value=""/>
+							<c:if test="${dto.division == '1'}"><c:set var="division" value="영화관"/></c:if>
+							<c:if test="${dto.division == '2'}"><c:set var="division" value="영화"/></c:if>
+							<c:if test="${dto.division == '3'}"><c:set var="division" value="예매/결제"/></c:if>
+							<c:if test="${dto.division == '4'}"><c:set var="division" value="개인정보"/></c:if>
+								<tr>
+									<td>${dto.questionNum }</td>
+									<td>${division}</td>
+									<td><a href="questionViewProc?num=${dto.questionNum}&cp=${cp}">${dto.title}</a></td>
+									<td>${dto.id}</td>
+									<td>${dto.regDate}</td>
+							<c:choose>
+								<c:when test="${dto.answer == 'no' }">
+										<td>N</td>
+								</c:when>
+								<c:otherwise>
+										<td>Y</td>
+								</c:otherwise>
+							</c:choose>			
+								</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="6">
+								<div class="noQuestion">
+									<p>문의내역이 존재하지 않습니다.</p>
+								</div>
+							</td>
+						<tr>
+						</tr>
+					</c:otherwise>
+					</c:choose>
 				</tbody>
 			</table>
 		</div>
 		
 		<div class="question_paging" align="center">
-			<a>prev</a>
-			<a>1</a>
-			<a>next</a>
+			${page }
 		</div>
 		
 	</div>

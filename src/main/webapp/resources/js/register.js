@@ -193,7 +193,7 @@ function daumPost(){
 				addr = data.jibunAddress;
 			}
 
-			$('#zipcode').val(data.zonecode);
+			$('#zipcode').val(data.zonecode);			
 			$('#addr1').val(addr);
 			$('#addr2').focus();
 		}
@@ -343,9 +343,9 @@ function registerStep(){
 	}		
 	if(idchk == false || pwchk == false || pwcon == false || birchk == false ||
 		phchk == false || addchk == false){
-		$('#addrLabel').text("모든 항목을 통과해야합니다.");
+		$('#totalLabel').text("모든 항목을 통과해야합니다.");
 	}else{
-		$('#addrLabel').text("");
+		$('#totalLabel').text("");
 		var form = $("#registerForm").serialize();
 			
 		$.ajax({		
@@ -357,12 +357,52 @@ function registerStep(){
 				if(result.msg == '회원가입 성공'){
 					location.href='index';
 				}else{
-					$('#addrLabel').text(result.msg);	
+					$('#totalLabel').text(result.msg);	
 				}
 			},
 			error : function(){
-				$('#addrLabel').text('error');
+				$('#totalLabel').text('error');
 			}
 		})	
 	}
 }
+
+/* 정보수정페이지에서 확인버튼 클릭시 */
+function modifyStep(){
+		
+	var pwchk = pwCheck();
+	var pwcon = pwConfirm();
+	var phchk = phoneCheck();
+	var addchk = addrCheck();
+		
+	if( pwchk == false || pwcon == false || phchk == false || addchk == false){
+		$('#totalLabel').text("모든 항목을 통과해야합니다.");
+		
+	}else{
+		$('#totalLabel').text("");
+		var form = $("#modifyForm").serialize();
+		
+		$.ajax({		
+			url: "modifyProc", type: "POST",		
+			data: form, 			 	
+			dataType: "json", 
+		
+			success : function(result){		
+				$('#totalLabel').text(result.msg);
+				if(result.msg == '수정완료! 3초 후 로그아웃 됩니다.'){
+					setTimeout(function (){
+						location.href='logoutRequest';
+					}, 3000);
+				}
+			},
+			error : function(){
+				$('#totalLabel').text("error");
+			}
+		})		
+	}
+
+
+	
+
+}
+

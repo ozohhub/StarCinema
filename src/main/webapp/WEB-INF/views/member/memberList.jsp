@@ -20,7 +20,7 @@
 				<li class="active">
 					<div class="tab_con ty2">
 						<h3 class="hidden">FAQ</h3>
-						<form action="" method="post">
+						<form action="memberListProc" method="post">
 							<fieldset class="search_wrap ty2">
 								<legend>영화관 FAQ 검색하기</legend>
 								<input type="text" name="search" placeholder="이름을 입력해주세요." id="search" title="검색어를 입력해주세요">

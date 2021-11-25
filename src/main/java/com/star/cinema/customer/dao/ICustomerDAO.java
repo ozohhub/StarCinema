@@ -23,6 +23,10 @@ public interface ICustomerDAO {
 	
 	
 	public void insertQuestion(QuestionDTO dto);
+	public int questionCount();
+	public ArrayList<QuestionDTO> questionList(@Param("b")int begin, @Param("e")int end);
+	public QuestionDTO selectQuesion(int questionNum);
+	public void answerUpdate(@Param("answer") String answer, @Param("questionNum") int questionNum);
 
 		
 }
