@@ -43,7 +43,7 @@
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
 	
-	<select id="cinemaCount" resultType="int">
+	<select id="timeInfoCount" resultType="int">
 		SELECT count(*) FROM timeinfo
 	</select>
 	
@@ -63,6 +63,10 @@
 		SELECT * FROM cinema WHERE cinemaNum=#{cinemaNum}
 	</select>
 	
+	<select id="cinemaSearchForName" resultMap="cinema">
+		SELECT * FROM cinema WHERE cinemaName LIKE '%'||#{search}||'%'
+	</select>
+	
 	<delete id="timeInfoDelete">
 		DELETE from timeinfo WHERE cinemaNum=#{num}
 	</delete>
@@ -78,6 +82,10 @@
 	<insert id="cinemaInsert" parameterType="com.star.cinema.manage.dto.CinemaDTO">
 		INSERT INTO cinema VALUES(cinema_seq.nextval, #{countryName}, #{cinemaName})
 	</insert>
+	
+	<select id="cinemaCount" resultType="int">
+		SELECT count(*) FROM cinema
+	</select>
 	
 	<insert id="hallInsert" parameterType="com.star.cinema.manage.dto.HallDTO">
 		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT MAX(cinemaNum) FROM cinema))

@@ -12,19 +12,20 @@ import com.star.cinema.manage.dto.TimeManageDTO;
 
 @Repository
 public interface IManageDAO {
-	public void cinemaDelete();
 	public int cinemaCount();
+	public int timeInfoCount();
 	
 	public ArrayList<TimeInfoDTO> timeInfoList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<HallDTO> hallList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
-	public boolean timeInfoDelete(int num);
-	public boolean hallDelete(int num);
+	public ArrayList<CinemaDTO> cinemaSearchForName(@Param("search") String search);
 	public boolean cinemaDelete(int num);
-	public void timeInfoInsert(TimeInfoDTO timeInfo);
-	public void hallInsert(HallDTO hall);
 	public void cinemaInsert(CinemaDTO cinema);
 	public int cinemaName(String search);
+	public boolean timeInfoDelete(int num);
+	public boolean hallDelete(int num);
+	public void timeInfoInsert(TimeInfoDTO timeInfo);
+	public void hallInsert(HallDTO hall);
 	public ArrayList<TimeInfoDTO> timeSearch(int cinemaNum);
 	public ArrayList<HallDTO> hallSearch(int cinemaName);
 	public ArrayList<CinemaDTO> cinemaSearch(int cinemaNum);

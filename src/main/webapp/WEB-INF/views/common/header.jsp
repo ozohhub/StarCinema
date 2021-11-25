@@ -25,7 +25,7 @@
 			</h1>
 			<ul class="g_menu2" style="margin-top: -20px;">
 				<li><a href="${root }timeInfoProc">상영시간표관리</a></li>
-				<li><a href="index?formpath=cinemaList">영화관관리</a></li>
+				<li><a href="${root }cinemaListProc">영화관관리</a></li>
 				<li><a href="index?formpath=movieManagement">영화관리</a></li>
 				<li><a href="${root }memberListProc">회원관리</a></li>
 				<li><a href="index?formpath=myPage">멤버십</a></li>
