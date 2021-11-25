@@ -32,7 +32,7 @@
 				<li><a href="index?formpath=myPage">멤버십</a></li>
 				<li><a href="${root }customerList">고객센터</a></li>
 				<%if (session.getAttribute("loginInfo") != null) {%>
-					<li onclick="logOut"><a href="#">로그아웃</a></li>
+					<li onclick="logOut()"><a href="#">로그아웃</a></li>
 				<% } else { %>
 					<li><a href="index?formpath=login">로그인</a></li>
 				<% } %>

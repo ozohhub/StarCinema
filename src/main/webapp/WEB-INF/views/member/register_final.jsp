@@ -43,7 +43,7 @@
 			</tr>
 			<tr>
 				<th><font class="must">*</font> <label class="title">비밀번호 확인</label></th>
-				<td>
+				<td colspan="2">
 					<input type="password" id = "pwChk" name="pwChk" placeholder="비밀번호확인" maxlength="16" onkeyup="pwConfirm();"><br>
 					<label id = "pwChkLabel"></label>
 				</td>
@@ -94,10 +94,11 @@
 					<input type="text" id="zipcode" name="zipcode" placeholder="우편번호" readonly="readonly"><input type = "button" onclick="daumPost();" value="주소 검색"><br>
 					<input type="text" id="addr1" name = "addr1" placeholder="주소 검색을 눌러주세요." readonly="readonly"><br>
 					<input type="text" id="addr2" name = "addr2" placeholder="상세주소"><br>
-					<label id = "addrLabel"></label>
-				</td>
-			
+					<label id="addrLabel"></label><br>
+					<span id = "totalLabel"></span>
+				</td>					
 			</tr>
+					
 			<tr>
 				<td colspan="3" class="register_btn_area">
 				  <input type="button" id="agreeNo" value="취소" onclick="location.href='${root}';">

@@ -10,6 +10,10 @@
 
 <%@ include file="myPageHeader.jsp" %>
 
+<c:if test="${empty loginInfo }">
+	<script>location.href='index?formpath=login';</script>
+</c:if>
+
 <center>
 	<div class="sub_content">
 		<form id ="deleteForm" action="deleteProc">
@@ -31,8 +35,9 @@
 				</div>
 				
 				<div class="deleteAgree">
-					<input type="checkbox" class="deleteCheck"><label class="deleteLabel">위 유의사항을 모두 확인하였고 회원탈퇴에 동의합니다.</label>
+					<input type="checkbox" class="deleteCheck" id = "deleteCheck" name = "deleteCheck"><label class="deleteLabel">위 유의사항을 모두 확인하였고 회원탈퇴에 동의합니다.</label>
 				</div>
+				<label id = "deleteConfirm"></label>
 				
 				<div class="delete_btn_area">
 				  	<input type="button" id="modifyNo" value="취소" onclick="location.href='${root}';">

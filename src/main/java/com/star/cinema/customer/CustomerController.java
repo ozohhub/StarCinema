@@ -3,6 +3,7 @@ package com.star.cinema.customer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,14 +14,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.star.cinema.customer.dto.NoticeDTO;
+import com.star.cinema.customer.dto.QuestionDTO;
 import com.star.cinema.customer.dto.SearchDTO;
 import com.star.cinema.customer.service.ICustomerService;
+import com.star.cinema.member.dto.MemberDTO;
 
 @Controller
 public class CustomerController {
@@ -36,8 +41,7 @@ public class CustomerController {
 		}
 		else {
 			service.customerSearch(model,currentPage,dto);
-		}
-				
+		}			
 		model.addAttribute("cp", currentPage);
 		return "forward:index?formpath=customer";
 	}
@@ -47,9 +51,8 @@ public class CustomerController {
 	public String noticeWriteProc(String theater, @RequestParam(value = "self_theater", required = false)String self_theater,
 			String title, String content, Model model) {
 		
-		// !session.getAttribute("id").equals("admin") return "forward:index";
 		boolean check = service.insertNotice(theater,self_theater,title,content);
-		if(check == false) model.addAttribute("msg", "빈 항목이 존재합니다.");
+		if(check == false) model.addAttribute("msg", "권한이 없거나 빈 항목이 존재합니다.");
 		
 		return "forward:customerList";
 	}
@@ -70,9 +73,13 @@ public class CustomerController {
 	public String noticeModifyForm(String num, Model model) {
 		
 		NoticeDTO dto = service.noticeViewProc(num);
-		if(dto != null) model.addAttribute("view", dto);
-				
-		return "forward:index?formpath=noticeModify";
+		if(dto != null) {
+			model.addAttribute("view", dto);
+			return "forward:index?formpath=noticeModify";
+		}else {
+			return "forward:customerList";
+		} 
+
 	}
 	
 	/* 공지사항 수정 */
@@ -95,14 +102,18 @@ public class CustomerController {
 	
 	
 	@RequestMapping(value="/question")
-	public String question(HttpSession session) {
-		String LoginId = (String)session.getAttribute("id");
-		if(LoginId == null) return "forward:index?formpath=login";
-		if(LoginId.equals("admin")) {
+	public String question(HttpSession session, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage, Model model) {
+		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
+
+		if(member == null) return "forward:index?formpath=login";
+		if(member.getId().equals("admin")) {
+			service.questionList(model, currentPage);
+			model.addAttribute("cp",currentPage);
 			return "forward:index?formpath=questionList";	
 		}else {
 			return "forward:index?formpath=questionWrite";	
 		}
+		
 	}
 	
 	@RequestMapping(value="/questionWriteProc")
@@ -110,16 +121,31 @@ public class CustomerController {
 		boolean check = service.questionWriteProc(req);
 		
 		if(check == false) {
-			model.addAttribute("msg", "빈 항목이 존재합니다.");
+			model.addAttribute("msg", "로그인 되어있지 않거나 빈 항목이 존재합니다.");
 			return "forward:question";
 		}else {
 			model.addAttribute("msg", "글이 등록되었습니다.");
-			return "forward:customerList";
+			return "forward:myQuestionList";
 		}
 	}
 	
+	
+	@RequestMapping(value="/questionViewProc")
+	public String questionViewProc(String num, String cp, Model model) {
+		QuestionDTO dto = service.questionViewProc(num);
+		
+		if(dto.getAnswer().equals("no")) model.addAttribute("existA", "N");
+		
+		model.addAttribute("view", dto);
+
+		int currentPage = Integer.parseInt(cp);
+		model.addAttribute("cp",currentPage);
+		
+		return "forward:index?formpath=questionView";
+	}
+	
 	/* 파일 다운로드 */
-	@RequestMapping(value="download")
+	@RequestMapping(value="/download")
 	public void download(String fileName, HttpServletResponse res) throws IOException {
 		if(fileName == "" || fileName.equals("파일 없음"))
 			return;
@@ -130,6 +156,20 @@ public class CustomerController {
 		FileCopyUtils.copy(input, res.getOutputStream());  
 		input.close();
 	}
+	
+
+	@RequestMapping(value = "/answerUpdate", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public Map<String,String> answerUpdate(@RequestBody Map<String,String> map) {
+		
+		String answer = map.get("answer");
+		String num = map.get("num");
+			
+		service.answerUpdate(answer, num);
+		
+		return map;
+	}
+	
 		
 	
 	

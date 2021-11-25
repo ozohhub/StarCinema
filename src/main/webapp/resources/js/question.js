@@ -19,3 +19,5 @@ function questionWriteStep(){
 	var check = questionCheckStep();
 	if(check == true) document.getElementById("questionForm").submit();
 }
+
+
