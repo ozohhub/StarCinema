@@ -19,6 +19,7 @@ public interface IManageDAO {
 	public ArrayList<HallDTO> hallList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaSearchForName(@Param("search") String search);
+	public ArrayList<CinemaDTO> AllCinemaList();
 	public boolean cinemaDelete(int num);
 	public void cinemaInsert(CinemaDTO cinema);
 	public int cinemaName(String search);

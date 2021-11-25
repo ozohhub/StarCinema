@@ -67,6 +67,10 @@
 		SELECT * FROM cinema WHERE cinemaName LIKE '%'||#{search}||'%'
 	</select>
 	
+	<select id="AllCinemaList" resultMap="cinema">
+		SELECT * FROM cinema
+	</select>
+	
 	<delete id="timeInfoDelete">
 		DELETE from timeinfo WHERE cinemaNum=#{num}
 	</delete>

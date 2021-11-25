@@ -73,78 +73,19 @@
 					<a href="#">영화관</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
-							<li><a href="#" title="스페셜관">스페셜관</a>
-								<div style="display: none;">
-									<ul style="opacity: 0;">
-										<li><a href="#">홈</a></li>
-										<li><a href="#">샤롯데</a></li>
-										<li><a href="#">수퍼플렉스 G</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="#" title="서울">서울</a>
-								<div style="display: none;">
-									<ul style="opacity: 0;">
-										<li><a href="#">가산디지털</a></li>
-										<li><a href="#">가양</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="#" title="경기/인천">경기/인천</a>
-								<div style="display: none;"><ul style="opacity: 0;">
-									<li><a href="#">광교아울렛</a></li>
-									<li><a href="#">광명(광명사거리)</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="충청/대전">충청/대전</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">당진</a></li>
-									<li><a href="#">대전(백화점)</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="전라/광주">전라/광주</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">광주(백화점)</a></li>
-									<li><a href="#">광주광산</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="경북/대구">경북/대구</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">경산</a></li>
-									<li><a href="#">경주</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="경남/부산/울산">경남/부산/울산</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">거창</a></li>
-									<li><a href="#">광복</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="강원">강원</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">남원주</a></li>
-									<li><a href="#">동해</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="#" title="제주">제주</a>
-							<div style="display: none;">
-								<ul style="opacity: 0;">
-									<li><a href="#">서귀포</a></li>
-									<li><a href="#">제주삼화지구</a></li>
-								</ul>
-							</div>
-						</li>
+							<c:forEach var="country" items="${countryList }">
+								<li><a href="#" title="${country}">${country}</a>
+									<div style="display: none;">
+										<ul style="opacity: 0;">
+											<c:forEach var="cinema" items="${cinemaList }">
+												<c:if test="${cinema.countryName eq country}">
+													<li><a href="#">${cinema.cinemaName}</a></li>
+												</c:if>
+											</c:forEach>
+										</ul>
+									</div>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</li>
