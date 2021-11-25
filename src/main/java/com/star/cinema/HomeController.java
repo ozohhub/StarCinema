@@ -168,6 +168,11 @@ public class HomeController {
 		return "manage/findpw_2";
 	}
 	
+	@RequestMapping(value="/findpw3")
+	public String findpw3() {
+		return "manage/findpw_3";
+	}
+	
 	@RequestMapping(value="/cinemaList")
 	public String cinemaList() {
 		return "manage/cinemaList";
@@ -181,11 +186,6 @@ public class HomeController {
 	@RequestMapping(value="/timeInfoInsert")
 	public String timeInfoInsert() {
 		return "manage/timeInfoInsert";
-	}
-
-	@RequestMapping(value="/moviedetailDune")
-	public String moviedetailDune() {
-		return "movie/moviedetailDune";
 	}
 	
 }

@@ -9,7 +9,7 @@ public interface IMemberService {
 	public void memberList(Model model, int currentPage);
 	public void memberSearch(Model model, String search);
 	public boolean memberDelete(String id);
-	public boolean memberModify(MemberDTO dto);
+	public boolean memberModify(MemberDTO dto, String type);
 	public void userInfo(Model model, String id);
 	
 	public boolean checkId(String id, String type);

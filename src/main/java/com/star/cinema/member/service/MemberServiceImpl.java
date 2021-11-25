@@ -52,15 +52,17 @@ public class MemberServiceImpl implements IMemberService{
 	}
 
 	@Override
-	public boolean memberModify(MemberDTO dto) {
+	public boolean memberModify(MemberDTO dto, String type) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		if (type.equals("change")) {
+			MemberDTO saveDto = dto;
+			dto = dao.selectMember(dto.getId());
+			dto.setPw(saveDto.getPw());
+		}
 		String securePw = encoder.encode(dto.getPw());
 		dto.setPw(securePw);
-		
-		if(dao.modifyMember(dto)) {
-			return true;
-		}
-		return false;
+
+		return dao.modifyMember(dto);
 	}
 
 	@Override
@@ -117,6 +119,7 @@ public class MemberServiceImpl implements IMemberService{
 	@Override
 	public boolean checkEmailCode(String code) {
 		String saveAuthNum = (String)session.getAttribute("code");
+		session.removeAttribute("code");
 		return saveAuthNum.equals(code);
 	}
 	
