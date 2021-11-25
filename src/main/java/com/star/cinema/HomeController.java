@@ -188,4 +188,8 @@ public class HomeController {
 		return "manage/timeInfoInsert";
 	}
 	
+	@RequestMapping(value="/movieDetail")
+	public String movieDetail() {
+		return "movie/movieDetail";
+	}
 }
