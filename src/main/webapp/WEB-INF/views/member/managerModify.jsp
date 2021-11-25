@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 
-<script src="<c:url value="/resources/js/myPage.js" />"></script>
+<script src="<c:url value="/resources/js/memberList.js" />"></script>
 <script src="<c:url value="/resources/js/register.js" />"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" ></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -35,14 +35,14 @@
 					<tr>
 						<th><font class="must">*</font> <label class="title">비밀번호 확인</label></th>
 						<td>
-							<input type="password" id="pwChk" onkeyup="pwConfirm();"><br>
-							<label id = "pwChkLabel"></label>
+							<input type="password" id="pwChk" name="pwChk" onkeyup="pwConfirm();"><br>
+							<label id="pwChkLabel"></label>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" class="modify_btn_area">
 							<input type="button" id="modifyNo" value="취소" onclick="location.href='memberListProc';">
-					        <input type="button" id="modifyYes" value="확인" onclick="modifyStep();">
+					        <input type="button" id="modifyYes" value="확인" onclick="userModifyProc();">
 						</td>
 					</tr>
 				</table>

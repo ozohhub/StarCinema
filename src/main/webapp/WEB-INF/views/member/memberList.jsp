@@ -50,8 +50,8 @@
 									<td id="row0" headers="thead0">${user.id }</td>
 									<td id="row0" headers="thead0">${user.getName() }</td>
 									<td id="row0" headers="thead0">${user.getEmail() }</td>
-									<td id="row0" headers="thead0" onclick="location.href='userInfoProc?id=${user.id }'">수정하기</td>
-									<td id="row0" headers="thead0" onclick="location.href='deleteMemberProc?id=${user.id }'">삭제하기</td>
+									<td style="cursor: pointer;" id="row0" headers="thead0" onclick="location.href='userInfoProc?id=${user.id }'">수정하기</td>
+									<td style="cursor: pointer;" id="row0" headers="thead0" onclick="location.href='deleteMemberProc?id=${user.id }'">삭제하기</td>
 								</tr>
 							</c:forEach>
 							</tbody>

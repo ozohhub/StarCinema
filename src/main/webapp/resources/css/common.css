@@ -153,7 +153,6 @@ top:500px;}
 .tb_acc_wrap td .txt_new {margin:-2px 0 0 4px;}
 .tb_acc_wrap td.text_l {padding:20px;}
 .tb_acc_wrap thead th {border-bottom-color:#BBBBBB; font-weight:bold;}
-.tb_acc_wrap tbody tr.acc_head {cursor:pointer;}
 .tb_acc_wrap tbody tr.acc_head td:last-child:after {content:''; float:right; display:inline-block; background:url('../images/icon/arr_dw_13.png') no-repeat 50% 50%; width:15px; height:15px; margin-top:5px; margin-right:10px; margin-left:-10px; vertical-align:middle;transition: all 0.3s ease; transform: rotate(0deg);}
 .tb_acc_wrap tbody tr.acc_head.active td:last-child:after {/*background-image:url('../images/icon/arr_up_13.png');*/ transition: all 0.3s ease; transform: rotate(180deg);}
 .tb_acc_wrap tbody tr.acc_head.active+tr.acc_body,

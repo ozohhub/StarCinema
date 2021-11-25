@@ -389,3 +389,7 @@ function movieInfoResult(cancel) {
 		})
 	}
 }
+
+function seatChk() {
+	$("#a1").css({"background" : "#FF243E", "color" : "white"});
+}
