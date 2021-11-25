@@ -2,12 +2,13 @@ package com.star.cinema.movie.dto;
 
 public class TicketingDTO {
 	private int ticketingNum;
+	private String id;
 	private String seatName;
 	private String openDate;
 	private String openTime;
 	private String people;
 	private String totalPrice;
-	private int moiveListNum;
+	private int movieListNum;
 	private int cinemaNum;
 	private int hallNum;
 	
@@ -16,6 +17,12 @@ public class TicketingDTO {
 	}
 	public void setTicketingNum(int ticketingNum) {
 		this.ticketingNum = ticketingNum;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getSeatName() {
 		return seatName;
@@ -47,11 +54,11 @@ public class TicketingDTO {
 	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public int getMoiveListNum() {
-		return moiveListNum;
+	public int getMovieListNum() {
+		return movieListNum;
 	}
-	public void setMoiveListNum(int moiveListNum) {
-		this.moiveListNum = moiveListNum;
+	public void setMovieListNum(int movieListNum) {
+		this.movieListNum = movieListNum;
 	}
 	public int getCinemaNum() {
 		return cinemaNum;

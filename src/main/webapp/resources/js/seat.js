@@ -55,6 +55,9 @@ const movie = document.querySelector('.movie');
 const moiveListName = document.querySelector('.moiveListName');
 const cinemaName = document.querySelector('.cinemaName');
 
+const date = document.querySelector('.date');
+const openDate = document.querySelector('.openDate');
+
 toastr.options = {
     positionClass: 'toast-top-right',
     progressBar: true,
@@ -296,6 +299,8 @@ reserveButton.addEventListener('click', function() {
     moiveListName.value = moiveListName.innerHTML;
     cinemaName.value = cinemaName.innerHTML;
     hallName.value = hall.innerHTML;
+    
+    openDate.value = date.innerHTML;
     
     console.log(allNumber + '임');
     console.log(ticketNumber.value);

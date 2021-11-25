@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +46,7 @@
                     <h3 class="hidden">인원/좌석</h3>
                 </div>
                 <div id="reserveStep03" class="section_step_con step03 active">
+                <c:forEach var="seat" items="${sessionScope.seatList }">
                     <h3 class="hidden">결제</h3>
                     <div class="article article_sum_infor">
                         <div class="group_top">
@@ -58,25 +60,22 @@
                                 <strong class="tit"><span class="ic_grade gr_12"></span>&nbsp;이터널스(디지털)</strong>
                                 <dl class="dlist_infor">
                                     <dt>일시</dt>
-                                    <dd><strong>2021-11-14 (일) 16:10 ~ 18:55</strong></dd>
+                                    <dd><strong>${seat.getOpenDate } + " " + ${seat.getOpenTime }</strong></dd>
                                     <dt>영화관</dt>
                                     <dd>가산디지털 5관 - 2D</dd>
                                     <dt>인원</dt>
-                                    <dd>성인1</dd>
+                                    <dd>${seat.getPeople }</dd>
                                 </dl>
                             </div>
                             <div class="seat_infor">
                                 <dl class="dlist_infor">
                                     <dt>좌석</dt>
-                                    <dd><strong>E6</strong></dd>
+                                    <dd><strong>${seat.getSeatName }</strong></dd>
                                 </dl>
                             </div>
                         </div>
                     </div>
                     <div class="article article_pay_method">
-                        <div class="group_top">
-                            <h4 class="tit">결제수단</h4><button type="button" class="btn_txt_reset" onclick="reset();">초기화</button>
-                        </div>
                         <div class="inner">
                             <div class="mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
                                 <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
@@ -161,19 +160,16 @@
                             <div class="payment_sum_wrap">
                                 <dl>
                                     <dt>상품금액</dt>
-                                    <dd><strong>14,000</strong>원</dd>
-                                </dl>
-                                <dl>
-                                    <dt>할인금액</dt>
-                                    <dd>-<strong>0</strong>원</dd>
+                                    <dd><strong>${seat.getTotalPrice }</strong>원</dd>
                                 </dl>
                                 <dl>
                                     <dt>결제금액</dt>
-                                    <dd>총<strong>14,000</strong>원</dd>
+                                    <dd>총<strong>${seat.getTotalPrice }</strong>원</dd>
                                 </dl><a onclick="pay_final_chk();" class="btn_col1 btn_confirm">결제하기</a>
                             </div>
                         </div>
                     </div>
+                </c:forEach>  
                 </div>
                 <div id="reserveStep04" class="section_step_con step04 ">
                     <h3 class="hidden">결제완료</h3>

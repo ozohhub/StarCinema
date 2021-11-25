@@ -22,7 +22,8 @@ public class SeatController {
 		dto.setPeople(ticketNumber);
 		dto.setSeatName(selectedSeat);
 		
-		boolean check = service.seatProc(dto, selectedSeat, selectedSeat, hallName);
-		return "forward:/index?formpath=pay";
+		boolean check = service.seatProc(model, dto, selectedSeat, selectedSeat, hallName);
+		if(check) return "forward:/index?formpath=seat";
+		else return "forward:/index?formpath=pay";
 	}
 }

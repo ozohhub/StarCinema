@@ -10,7 +10,7 @@
 	</select>
 	
 	<insert id="seatProc" parameterType="com.star.cinema.movie.dto.TicketingDTO">
-		INSERT INTO ticketing VALUES (ticketing_seq.nextval, #{id}, #{movielistnum}, #{cinemanum},
-			#{hallnum}, #{seatName}, #{openDate}, #{openTime}, #{people}, #{totlaPrice})
+		INSERT INTO ticketing VALUES (ticketing_seq.nextval, #{id}, #{movieListNum}, #{cinemaNum},
+			#{hallNum}, #{seatName}, #{openDate}, #{openTime}, #{people}, #{totalPrice})
 	</insert>
 </mapper>
