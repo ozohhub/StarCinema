@@ -5,10 +5,8 @@
 	font-family: "Roboto";
 }
 
-
 .detail_top{
 	position: relative;
-    min-height: 240px;
     padding-left: 245px;
     margin-bottom: 15px;
 }
@@ -40,10 +38,24 @@
     color : #FFF;
     font-weight: bold;
 }
+
+.grade.grall{
+	content : "all";
+	background-color: #5BC77E;
+}
+.grade.gr12{
+	content: "12";
+    background-color: #4DD6FF;
+}
 .grade.gr15{
 	content : "15";
 	background-color: #FFC134;
 }
+.grade.gr18{
+	content: "청불";
+    background-color: #ED4C6B;
+}
+
 .detail_title strong{
 	font-size : 26px;
 	margin-left : 5px;
@@ -54,9 +66,8 @@ ul{
 }
 
 .detail_info1{
-	overflow: hidden;
 	padding-bottom: 17px;
-    margin-top : 20px;
+    margin : 30px 0px 15px 0px;
 	font-size: 15px;
 	border-bottom: 1px solid #ddd;
 }
@@ -81,12 +92,15 @@ ul{
 
 .score strong{
 	font-size : 20px;
-	margin-left : 10px;
+	margin-left : 20px;
 }
 
 .str{
 	font-size : 20px;
 	margin-left : 10px;
+}
+.detail_info1 .sub_info2{
+	margin-top : -5px;
 }
 
 .detail_info2{
@@ -124,14 +138,9 @@ ul{
     height: 9px;
  
 }
-
-.detail_info2 .sub_info2{
-    margin-left : -195px;
-}
-
-.detail_info2 .sub_info3{
-	 margin-left : -106px;
-}
+.detail_info2 .sub_info1{float : left;}
+.detail_info2 .sub_info2{float : left;}
+.detail_info2 .sub_info3{float : left;}
 
 .btn_area{
 	clear : both;
@@ -554,7 +563,7 @@ a, a:link, a:visited, a:active, a:hover{
 .top_info {
     margin-bottom: 12px;
     position: relative;
-    left : -400px;
+    left : -300px;
 }
 .top_info .name_info {
     padding-right: 11px;

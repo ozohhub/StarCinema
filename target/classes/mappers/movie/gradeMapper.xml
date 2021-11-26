@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.star.cinema.movie.dao.IGradeDAO">
+	<resultMap type="com.star.cinema.movie.dto.MovieDTO" id="movie">	
+		<result property="movieListNum" column="movieListNum"/>
+		<result property="movieName" column="movieName"/>
+		<result property="movieGenre" column="movieGenre"/>
+		<result property="movieDetail" column="movieDetail"/>
+		<result property="movieOpen" column="movieOpen"/>
+		<result property="movieDirector" column="movieDirector"/>
+		<result property="movieActors" column="movieActors"/>
+		<result property="movieAge" column="movieAge"/>
+		<result property="moviePoster" column="moviePoster"/>
+		<result property="movieCountry" column="movieCountry"/>
+		<result property="movieTime" column="movieTime"/>
+	</resultMap>
+	
+	
+	<resultMap type="com.star.cinema.movie.dto.GradeDTO" id="grade">
+		<result property="gradeNum" column="gradeNum"/>
+		<result property="grade" column="grade"/>
+		<result property="review" column="review"/>
+		<result property="likeRate" column="likeRate"/>
+		<result property="id" column="id"/>
+		<result property="movieListNum" column="movieListNum"/>
+	</resultMap>
+
+	<select id="selectMovieNum" parameterType="int" resultMap="movie">
+		SELECT * FROM movieList WHERE movieListNum=#{movieListNum}
+	</select>
+
+	<select id="selectGrade" parameterType="int" resultMap="grade">
+		SELECT * FROM grade WHERE movieListNum=#{movieListNum}
+	</select>
+
+
+
+
+
+
+
+
+
+</mapper>

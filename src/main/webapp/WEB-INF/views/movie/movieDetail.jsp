@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movieDetail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+<script src="${pageContext.request.contextPath}/resources/js/movieDetail.js"></script>
 
 <title>영화 - 상세정보 및 리뷰</title>
 
@@ -15,28 +16,38 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- 스틸컷 -->
+<c:set var="stillArr" value="${movie.moviePoster.split('\\\.')}"/>
+  
+<c:set var ="still1" value="${stillArr[0]}_1.${stillArr[1]}"/>
+<c:set var ="still2" value="${stillArr[0]}_2.${stillArr[1]}"/>
+<c:set var ="still3" value="${stillArr[0]}_3.${stillArr[1]}"/>
+<c:set var ="still4" value="${stillArr[0]}_4.${stillArr[1]}"/>
+<c:set var ="still5" value="${stillArr[0]}_5.${stillArr[1]}"/>
+
+
 <div id="slide_wrap" style="height: 653px; width: 100%; background-color: black;">
 <div class="slider" style="z-index: 1; height: 653px; width: 980px;">
 		<ul class="slides" style="height: 653px; width: auto;">
 			<li>			
-				<img src="${pageContext.request.contextPath}/resources/images/stillcut/dune_2.jpg" width="auto;" height="653px;">
+				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still1}" width="auto;" height="653px;">
 				<div class="caption center-align"></div>
 			</li>
 			<li>
-				<img src="${pageContext.request.contextPath}/resources/images/stillcut/dune_3.jpg" width="auto;" height="653px;">
+				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still2}" width="auto;" height="653px;">
 				<div class="caption center-align"></div>
 
 			</li>
 			<li>
-				<img src="${pageContext.request.contextPath}/resources/images/stillcut/dune_4.jpg" width="auto;" height="653px;">
+				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still3}" width="auto;" height="653px;">
 				<div class="caption center-align"></div>
 			</li>
 			<li>
-				<img src="${pageContext.request.contextPath}/resources/images/stillcut/dune_5.jpg" width="auto;" height="653px;">
+				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still4}" width="auto;" height="653px;">
 				<div class="caption center-align"></div>	
 			</li>
 			<li>
-				<img src="${pageContext.request.contextPath}/resources/images/stillcut/dune_6.jpg" width="auto;" height="653px">
+				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still5}" width="auto;" height="653px">
 				<div class="caption center-align"></div>
 			</li>
 		</ul>
@@ -48,20 +59,35 @@ $(document).ready(function(){
 	<div class="content" >
 		<div class="detail_top">
 			<div class="detail_poster">
-				<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg">
+				<img src="${pageContext.request.contextPath}/resources/images/poster/${movie.moviePoster}">
 			</div>
 			<div class="detail_title">
-				<span class="grade gr15">
-					15
+				<c:if test="${movie.movieAge == '0'}"><c:set var="grAge" value="grall"/></c:if>
+				<c:if test="${movie.movieAge == '12'}"><c:set var="grAge" value="gr12"/></c:if>
+				<c:if test="${movie.movieAge == '15'}"><c:set var="grAge" value="gr15"/></c:if>
+				<c:if test="${movie.movieAge == '18'}"><c:set var="grAge" value="gr18"/></c:if>
+				
+				<span class="grade ${grAge}">
+					<c:choose>
+					<c:when test="${movie.movieAge == '0' }">
+						전체
+					</c:when>
+					<c:when test="${movie.movieAge == '18' }">
+						청불
+					</c:when>
+					<c:otherwise>
+						${movie.movieAge }
+					</c:otherwise>
+					</c:choose>
 				</span>
-				<strong>제목나오는곳</strong>
+				<strong>${movie.movieName }</strong>
 			</div>
 			<ul class="detail_info1">
 				<li class="sub_info1">
 					<em>관람객 평점</em>
 					<strong class="score">
 						<em>평점</em>
-						<strong>0.0</strong>
+						<strong>${grade.grade}</strong>
 					</strong>
 				</li>
 				<li class="sub_info2">
@@ -73,23 +99,23 @@ $(document).ready(function(){
 				<li class="sub_info1">
 					<em class="tit">장르</em>
 					<strong>
-						<em>장르, / 개봉국가</em>
+						<em>${movie.movieGenre }, / ${movie.movieCountry}</em>
 						<em class="line">|</em>
-						<em>개봉일</em>
+						<em>${movie.movieOpen }</em>
 						<em class="line">|</em>
-						<em>상영시간분</em>					
+						<em>${movie.movieTime } 분</em>					
 					</strong>
 				</li>
 				<li class="sub_info2">
 					<em class="tit">감독</em>
 					<strong>
-						<em>감독이름</em>
+						<em>${movie.movieDirector }</em>
 					</strong>
 				</li>
 				<li class="sub_info3">
 					<em class="tit">출연</em>
 					<strong>
-						<em>출연자1,출연자2,출연자3</em>
+						<em>${movie.movieActors }</em>
 					</strong>
 				</li>
 			</ul>
@@ -99,11 +125,11 @@ $(document).ready(function(){
 					<li>
 						<button class="movieLikeBtn">
 							<strong>좋아요</strong>
-							<em>123</em>
+							<em>${grade.likeRate}</em>
 						</button>
 					</li>
 					<li>
-						<a class="reserve_a">예매하기</a>
+						<a class="reserve_a" href='index?formpath=ticketing'>예매하기</a>
 					</li>				
 				</ul>
 			</div>
@@ -113,7 +139,7 @@ $(document).ready(function(){
 					<div class="left_con">
 						<strong class="tit_info">시놉시스</strong>
 						<textarea readonly="readonly" class="story">							
-							"줄거리 나오는 곳!"
+							${movie.movieDetail }
 						</textarea>
 					</div>
 										
@@ -224,7 +250,7 @@ $(document).ready(function(){
 	
 	<div class="review_list">
 		<div class="review_top">
-			<div class="total_info">총<em>00</em>건</div>
+			<div class="total_info">총<em>${grade.size()}</em>건</div>
 		</div>
 		
 	<ul class="reivew_con_list">
