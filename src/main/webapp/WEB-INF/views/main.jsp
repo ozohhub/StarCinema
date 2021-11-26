@@ -64,7 +64,7 @@ $(document).ready(function(){
 					<div class="boxBg1" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');" onmouseover="bgOpacity(1);" onmouseout="bgOpacityReset(1);">
 						<div class="boxBtn1">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
 							<button id="reserve_btn" class="reserve_btn1" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn1" onclick="javascript:location.href='index?formpath=moviedetail1984';">상세정보</button>
+							<button id="detail_btn" class="detail_btn1" onclick="javascript:location.href='index?formpath=movieDetail';">상세정보</button>
 						</div>
 					</div>
 					<div class = "movieInfo">
@@ -88,7 +88,7 @@ $(document).ready(function(){
 					<div class="boxBg3" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/dun.jpg');" onmouseover="bgOpacity(3);" onmouseout="bgOpacityReset(3);">
 						<div class="boxBtn3">
 							<button id="reserve_btn" class="reserve_btn3" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn3"onclick="javascript:location.href='index?formpath=moviedetailDune';">상세정보</button>
+							<button id="detail_btn" class="detail_btn3"onclick="javascript:location.href='index?formpath=movieDetail';">상세정보</button>
 						</div>
 					</div>
 					<div class = "movieInfo">
