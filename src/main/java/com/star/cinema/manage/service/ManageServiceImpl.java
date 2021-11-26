@@ -65,17 +65,19 @@ public class ManageServiceImpl implements IManageService{
 		ArrayList<CinemaDTO> cinema = dao.cinemaList(begin, end);
 		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
 		
-		int index = 0;
-		for(TimeInfoDTO t : timeInfo) {
-			TimeManageDTO manage = new TimeManageDTO();
-			manage.setCountryName(cinema.get(index).getCountryName());
-			manage.setCinemaName(cinema.get(index).getCinemaName());
-			manage.setHallName(hall.get(index).getHallName());
-			manage.setTicketDate(timeInfo.get(index).getTicketDate());
-			manage.setStartTime(timeInfo.get(index).getStartTime());
-			manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
-			list.add(manage);
-			index++;
+		if(timeInfo != null) {
+			int index = 0;
+			for(TimeInfoDTO t : timeInfo) {
+				TimeManageDTO manage = new TimeManageDTO();
+				manage.setCountryName(cinema.get(index).getCountryName());
+				manage.setCinemaName(cinema.get(index).getCinemaName());
+				manage.setHallName(hall.get(index).getHallName());
+				manage.setTicketDate(timeInfo.get(index).getTicketDate());
+				manage.setStartTime(timeInfo.get(index).getStartTime());
+				manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
+				list.add(manage);
+				index++;
+			}
 		}
 		
 		model.addAttribute("timeInfoList", list);
@@ -97,16 +99,19 @@ public class ManageServiceImpl implements IManageService{
 		TimeInfoDTO timeInfo = new TimeInfoDTO();
 		HallDTO hall = new HallDTO();
 		CinemaDTO cinema = new CinemaDTO();
+		int cinemaNum = dao.cinemaName(cinemaName);
 		 
 		cinema.setCountryName(countryName);
 		cinema.setCinemaName(cinemaName);
 
 		hall.setHallName(hallName);
+		hall.setCinemaNum(cinemaNum);
 		
 		dao.hallInsert(hall);
 		
 		timeInfo.setStartTime(startTime);
 		timeInfo.setTicketDate(ticketDate);
+		timeInfo.setCinemaNum(cinemaNum);
 		
 		dao.timeInfoInsert(timeInfo);
 		

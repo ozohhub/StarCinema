@@ -4,8 +4,7 @@ public class TimeManageDTO {
 	private int timeInfoNum;
 	private String countryName;
 	private String cinemaName;
-	private String hallName;
-	
+	private String hallName;	
 	private String ticketDate;
 	private String startTime;
 	

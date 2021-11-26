@@ -13,5 +13,5 @@ public interface IMovieService {
 	public void deleteMovie(String movieName);
 	public MovieDTO selectMovie(String movieName);
 	public void changeMovie(MovieDTO movie);
-	public void movieInfoListProc();
+	public void movieInfoListProc(Model model);
 }

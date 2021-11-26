@@ -3,6 +3,7 @@ package com.star.cinema.manage.dto;
 public class HallDTO {
 	private int hallNum;
 	private String hallName;
+	private int cinemaNum;
 	
 	public int getHallNum() {
 		return hallNum;
@@ -15,5 +16,11 @@ public class HallDTO {
 	}
 	public void setHallName(String hallName) {
 		this.hallName = hallName;
+	}
+	public int getCinemaNum() {
+		return cinemaNum;
+	}
+	public void setCinemaNum(int cinemaNum) {
+		this.cinemaNum = cinemaNum;
 	}
 }

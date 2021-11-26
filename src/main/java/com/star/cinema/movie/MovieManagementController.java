@@ -106,8 +106,8 @@ public class MovieManagementController {
 	}
 	
 	@RequestMapping(value = "movieInfoListProc")
-	public String MovieInfoListProc() {
-		service.movieInfoListProc();
+	public String MovieInfoListProc(Model model) {
+		service.movieInfoListProc(model);
 		return "forward:/index?formpath=movieInfoList&page=1";
 	}
 }

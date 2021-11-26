@@ -42,4 +42,8 @@
 	<select id="selectDate" resultType="String">
 		SELECT movieopen FROM movieList
 	</select>
+	
+	<select id="movieCount" resultType="int">
+		SELECT count(*) FROM movieList
+	</select>
 </mapper>

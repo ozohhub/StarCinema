@@ -11,6 +11,7 @@
 	<resultMap type="com.star.cinema.manage.dto.HallDTO" id="hall">
 		<result column="hallNum" property="hallNum"/>
 		<result column="hallName" property="hallName"/>
+		<result column="cinemaNum" property="cinemaNum"/>
 	</resultMap>
 	
 	<resultMap type="com.star.cinema.manage.dto.CinemaDTO" id="cinema">
@@ -92,11 +93,11 @@
 	</select>
 	
 	<insert id="hallInsert" parameterType="com.star.cinema.manage.dto.HallDTO">
-		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT MAX(cinemaNum) FROM cinema))
+		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT cinemaNum FROM cinema WHERE cinemaNum=#{cinemaNum}))
 	</insert>
 	
 	<insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
-		INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), (SELECT MAX(movieListNum) FROM movieList), #{ticketDate}, (SELECT MAX(cinemaNum) FROM cinema))
+		INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), (SELECT MAX(movieListNum) FROM movieList), #{ticketDate}, (SELECT cinemaNum FROM cinema WHERE cinemaNum=#{cinemaNum}))
 	</insert>
 	
 </mapper>
