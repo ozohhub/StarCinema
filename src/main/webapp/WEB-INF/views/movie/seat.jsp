@@ -12,7 +12,7 @@
 <script>
 	var seatCount = 0;
 	var list = [];
-	<c:forEach items = "${seats }" var="seat">
+	<c:forEach items="${seats }" var="seat">
 	list.push("${seat.seat_name }");
 	</c:forEach>
 	for(var i=0;i<list.length;i++) {

@@ -40,7 +40,7 @@
 									<label style="padding-right: 50px">영화관 이름</label>
 									<input type="text" placeholder="영화관 이름을 입력하세요." name="hallName" id="hallName"><br>
 									<label style="padding-right: 50px">상영 날짜</label>
-									<input type="text" placeholder="상영 날짜를 입력하세요." name="ticketDate" id="ticketDate"><br>
+									<input type="date" placeholder="상영 날짜를 선택하세요." name="ticketDate" id="ticketDate">
 									<label style="padding-right: 50px">상영 시간</label>
 									<input type="text" placeholder="상영 시간을 입력하세요." name="startTime" id="startTime"><br>
 							</div>

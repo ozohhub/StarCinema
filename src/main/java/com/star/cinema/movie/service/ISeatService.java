@@ -3,6 +3,6 @@ package com.star.cinema.movie.service;
 import com.star.cinema.movie.dto.TicketingDTO;
 
 public interface ISeatService {
-	public boolean seatProc(TicketingDTO dto, String movieName, String cinemaName, String hallName);
+	public boolean seatProc(TicketingDTO dto, String hallName);
 	
 }

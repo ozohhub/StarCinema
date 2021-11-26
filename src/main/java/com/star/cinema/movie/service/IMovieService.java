@@ -2,11 +2,13 @@ package com.star.cinema.movie.service;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
+
 import com.star.cinema.movie.dto.MovieDTO;
 
 public interface IMovieService {
 	
-	public List<MovieDTO> movieList();
+	public List<MovieDTO> movieList(Model model);
 	public void insertMovie(MovieDTO dto);
 	public void deleteMovie(String movieName);
 	public MovieDTO selectMovie(String movieName);

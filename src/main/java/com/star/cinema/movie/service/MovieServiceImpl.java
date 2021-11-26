@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.star.cinema.movie.dao.IMovieDAO;
 import com.star.cinema.movie.dto.MovieDTO;
@@ -17,7 +18,8 @@ public class MovieServiceImpl implements IMovieService{
 	
 	
 	@Override
-	public List<MovieDTO> movieList() {
+	public List<MovieDTO> movieList(Model model) {
+		
 		return dao.movieList();
 	}
 	

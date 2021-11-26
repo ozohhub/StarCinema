@@ -25,7 +25,7 @@ public class TicketingController {
 		dto.setPeople(ticketNumber);
 		dto.setSeatName(selectedSeat);
 		
-		boolean check = seatService.seatProc(dto, selectedSeat, selectedSeat, hallName);
+		boolean check = seatService.seatProc(dto, hallName);
 		if(check) return "forward:/index?formpath=pay";
 		else return "forward:/index?formpath=seat";
 	}

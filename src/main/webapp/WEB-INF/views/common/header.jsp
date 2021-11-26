@@ -59,7 +59,7 @@
 					</div>
 				</li>
 				<li class="">
-					<a href="index?formpath=movie">영화</a>
+					<a href="movieListProc">영화</a>
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="index?formpath=movie" title="홈">홈</a></li>

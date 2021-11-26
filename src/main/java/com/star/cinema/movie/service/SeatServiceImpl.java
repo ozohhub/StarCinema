@@ -15,7 +15,7 @@ public class SeatServiceImpl implements ISeatService{
 	@Autowired HttpSession session;
 	
 	@Override
-	public boolean seatProc(TicketingDTO dto, String movieName, String cinemaName, String hallName) {
+	public boolean seatProc(TicketingDTO dto, String hallName) {
 		int movieListNum = dao.searchMovieListNum("베놈");  //수정해야함
 		int cinemaNum = dao.searchCinemaNum("안산점"); //수정해야함
 		

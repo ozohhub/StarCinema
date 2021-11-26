@@ -25,8 +25,8 @@ public class MovieManagementController {
 	@Autowired IMovieService service;
 	
 	@RequestMapping(value="/movieManagement")
-	public String movieManagement(ModelMap model, HttpSession session) {
-		List<MovieDTO> movielist = service.movieList();
+	public String movieManagement(ModelMap model, HttpSession session, Model mod) {
+		List<MovieDTO> movielist = service.movieList(mod);
 		model.addAttribute("movieList", movielist);
 		return "manage/movieManagement";
 	}
@@ -62,7 +62,8 @@ public class MovieManagementController {
 	@RequestMapping(value = "movieInfoSelect", produces = "application/json; charset=utf-8", method = RequestMethod.POST)
 	public String MovieInfoSelect(HttpSession session, @RequestBody Map<String,String> map) {
 		String movieName = (String) map.get("name");
-		
+		MovieDTO movie = service.selectMovie(movieName);
+		System.out.println("테스트 : " +movie.getMovieGenre());
 		session.setAttribute("movieSelect", service.selectMovie(movieName));
 		return "redirect:index?formpath=movieManagement";
 	}
@@ -98,4 +99,9 @@ public class MovieManagementController {
 		}
 	}
 	
+	@RequestMapping(value = "movieListProc")
+	public String MovieListProc(Model model) {
+		service.movieList(model);
+		return "forward:/index?formpath=movie";
+	}
 }
