@@ -33,11 +33,13 @@
 			movieAge=#{movieAge}, moviePoster=#{moviePoster}, movieCountry=#{movieCountry}, movieTime=#{movieTime} where movieListNum =#{movieListNum}
 	</update>
 	
-	
 	<insert id="insertMovie" parameterType="com.star.cinema.movie.dto.MovieDTO">
 		INSERT INTO movieList values(
 			movie_list_seq.nextval, #{movieName}, #{movieGenre}, #{movieDetail}, #{movieOpen}, #{movieDirector}, #{movieActors},
 			#{movieAge}, #{moviePoster}, #{movieCountry}, #{movieTime})
 	</insert>
-
+	
+	<select id="selectDate" resultType="String">
+		SELECT movieopen FROM movieList
+	</select>
 </mapper>

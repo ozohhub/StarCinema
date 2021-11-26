@@ -38,14 +38,6 @@ public class ManageServiceImpl implements IManageService{
 	}
 	
 	@Override
-	public void cinemaInsert(String countryName, String cinemaName) {
-		CinemaDTO cinema = new CinemaDTO();
-		cinema.setCountryName(countryName);
-		cinema.setCinemaName(cinemaName);
-		dao.cinemaInsert(cinema);
-	}
-	
-	@Override
 	public void cinemaDelete(int id) {
 		dao.cinemaDelete(id);
 	}
@@ -96,8 +88,6 @@ public class ManageServiceImpl implements IManageService{
 		 
 		cinema.setCountryName(countryName);
 		cinema.setCinemaName(cinemaName);
-		
-		dao.cinemaInsert(cinema);
 		
 		hall.setHallName(hallName);
 		

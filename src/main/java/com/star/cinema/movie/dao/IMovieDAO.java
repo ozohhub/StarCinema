@@ -1,5 +1,6 @@
 package com.star.cinema.movie.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -16,5 +17,6 @@ public interface IMovieDAO {
 	public void deleteMovie(String movieName);
 	public MovieDTO selectMovie(String movieName);
 	public void changeMovie(MovieDTO movie);
+	public ArrayList<String> selectDate();
 
 }

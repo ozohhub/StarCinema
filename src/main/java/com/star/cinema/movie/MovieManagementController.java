@@ -25,8 +25,8 @@ public class MovieManagementController {
 	@Autowired IMovieService service;
 	
 	@RequestMapping(value="/movieManagement")
-	public String movieManagement(ModelMap model, HttpSession session, Model mod) {
-		List<MovieDTO> movielist = service.movieList(mod);
+	public String movieManagement(ModelMap model, HttpSession session) {
+		List<MovieDTO> movielist = service.movieList();
 		model.addAttribute("movieList", movielist);
 		return "manage/movieManagement";
 	}
@@ -101,7 +101,14 @@ public class MovieManagementController {
 	
 	@RequestMapping(value = "movieListProc")
 	public String MovieListProc(Model model) {
-		service.movieList(model);
+		List<MovieDTO> movielist = service.movieList();
+		model.addAttribute("movieList", movielist);
 		return "forward:/index?formpath=movie";
+	}
+	
+	@RequestMapping(value = "movieInfoListProc")
+	public String MovieInfoListProc() {
+		service.movieInfoListProc();
+		return "forward:/index?formpath=movieInfoList&page=1";
 	}
 }
