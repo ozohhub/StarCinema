@@ -1,6 +1,9 @@
+
 package com.star.cinema.manage.service;
 
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,7 @@ import com.star.cinema.member.dto.MemberDTO;
 @Service
 public class ManageServiceImpl implements IManageService{
 	@Autowired IManageDAO dao;
+	@Autowired HttpSession session;
 	
 	@Override
 	public void cinemaList(Model model, int currentPage) {
@@ -35,6 +39,14 @@ public class ManageServiceImpl implements IManageService{
 	public void cinemaSearch(Model model, String search) {
 		ArrayList<CinemaDTO> list = dao.cinemaSearchForName(search);
 		model.addAttribute("cinemaList", list);
+	}
+	
+	@Override
+	public void cinemaInsert(String countryName, String cinemaName) {
+		CinemaDTO cinema = new CinemaDTO();
+		cinema.setCountryName(countryName);
+		cinema.setCinemaName(cinemaName);
+		dao.cinemaInsert(cinema);
 	}
 	
 	@Override
@@ -88,7 +100,7 @@ public class ManageServiceImpl implements IManageService{
 		 
 		cinema.setCountryName(countryName);
 		cinema.setCinemaName(cinemaName);
-		
+
 		hall.setHallName(hallName);
 		
 		dao.hallInsert(hall);
@@ -102,28 +114,38 @@ public class ManageServiceImpl implements IManageService{
 	}
 
 	@Override
-	public void timeInfoSearch(Model model, String search) {
+	public void timeInfoSearch(Model model, String search, String type) {
+		System.out.println(search);
 		int cinemaNum = dao.cinemaName(search);
 		ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
-		ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
-		ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
-		
-		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
-		
-		int index = 0;
-		for(TimeInfoDTO t : timeInfo) {
-			TimeManageDTO manage = new TimeManageDTO();
-			manage.setCountryName(cinema.get(index).getCountryName());
-			manage.setCinemaName(cinema.get(index).getCinemaName());
-			manage.setHallName(hall.get(index).getHallName());
-			manage.setTicketDate(timeInfo.get(index).getTicketDate());
-			manage.setStartTime(timeInfo.get(index).getStartTime());
-			manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
-			list.add(manage);
-			index++;
+		if (type.equals("search")) {
+			if (session.getAttribute("timeInfoList") != null) {
+				session.removeAttribute("timeInfoList");
+			}
+			if (!timeInfo.isEmpty()) {
+				session.setAttribute("timeInfoList", timeInfo);
+			}
+		} else {
+			ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
+			ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
+			
+			ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
+			
+			int index = 0;
+			for(TimeInfoDTO t : timeInfo) {
+				TimeManageDTO manage = new TimeManageDTO();
+				manage.setCountryName(cinema.get(index).getCountryName());
+				manage.setCinemaName(cinema.get(index).getCinemaName());
+				manage.setHallName(hall.get(index).getHallName());
+				manage.setTicketDate(timeInfo.get(index).getTicketDate());
+				manage.setStartTime(timeInfo.get(index).getStartTime());
+				manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
+				list.add(manage);
+				index++;
+			}
+			model.addAttribute("timeInfoList", list);
 		}
 		
-		model.addAttribute("timeInfoList", list);
 	}
 	
 }

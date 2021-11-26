@@ -63,7 +63,6 @@ public class MovieManagementController {
 	public String MovieInfoSelect(HttpSession session, @RequestBody Map<String,String> map) {
 		String movieName = (String) map.get("name");
 		MovieDTO movie = service.selectMovie(movieName);
-		System.out.println("테스트 : " +movie.getMovieGenre());
 		session.setAttribute("movieSelect", service.selectMovie(movieName));
 		return "redirect:index?formpath=movieManagement";
 	}

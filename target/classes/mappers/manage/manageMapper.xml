@@ -83,6 +83,10 @@
 		DELETE from cinema WHERE cinemaNum=#{num}
 	</delete>
 	
+	<insert id="cinemaInsert" parameterType="com.star.cinema.manage.dto.CinemaDTO">
+		INSERT INTO cinema VALUES(cinema_seq.nextval, #{countryName}, #{cinemaName})
+	</insert>
+	
 	<select id="cinemaCount" resultType="int">
 		SELECT count(*) FROM cinema
 	</select>

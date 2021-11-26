@@ -46,7 +46,7 @@ public class ManageController {
 			service.timeInfoList(model, currentPage);
 		}
 		else {
-			service.timeInfoSearch(model, search);
+			service.timeInfoSearch(model, search, "insert");
 		}
 		return "forward:/index?formpath=timeInfo";
 	}
