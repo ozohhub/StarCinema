@@ -88,10 +88,9 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public boolean timeInfoDeleteProc(String cinemaName) {
-		int num = dao.cinemaName(cinemaName);
-		dao.hallDelete(num);
-		dao.timeInfoDelete(num);
-		return dao.cinemaDelete(num);
+		int cinemaNum = dao.cinemaName(cinemaName);
+		dao.hallDelete(cinemaNum);
+		return dao.timeInfoDelete(cinemaNum);
 	}
 
 	@Override

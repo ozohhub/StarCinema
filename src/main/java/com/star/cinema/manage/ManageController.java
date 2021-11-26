@@ -53,25 +53,13 @@ public class ManageController {
 	
 	@RequestMapping(value = "timeInfoDeleteProc")
 	public String timeInfoDeleteProc(Model model, String cinemaName) {
-		boolean check = service.timeInfoDeleteProc(cinemaName);
-		if(check) {
-			model.addAttribute("msg", "삭제에 성공하였습니다.");
-		}
-		else {
-			model.addAttribute("msg", "삭제에 실패하였습니다.");
-		}
-		return "forward:/timeInfoProc";
+		service.timeInfoDeleteProc(cinemaName);
+		return "redirect:/timeInfoProc";
 	}
 	
 	@RequestMapping(value = "timeInsertProc")
 	public String timeInsertProc(Model model, String countryName, String cinemaName, String hallName, String ticketDate, String startTime) {
-		boolean check = service.timeInfoInsertProc(countryName, cinemaName, hallName, ticketDate, startTime);
-		if(check) {
-			model.addAttribute("msg", "등록에 성공하였습니다.");
-		}
-		else {
-			model.addAttribute("msg", "등록에 실패하였습니다.");
-		}
-		return "forward:/timeInfoProc";
+		service.timeInfoInsertProc(countryName, cinemaName, hallName, ticketDate, startTime);
+		return "redirect:/timeInfoProc";
 	}
 }

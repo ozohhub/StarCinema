@@ -21,7 +21,7 @@ public interface IManageDAO {
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaSearchForName(@Param("search") String search);
 	public ArrayList<CinemaDTO> AllCinemaList();
-	public boolean cinemaDelete(int num);
+	public boolean cinemaDelete(int cinemaNum);
 	public int cinemaName(String search);
 	public boolean timeInfoDelete(int num);
 	public boolean hallDelete(int num);

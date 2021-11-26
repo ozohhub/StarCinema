@@ -73,15 +73,15 @@
 	</select>
 	
 	<delete id="timeInfoDelete">
-		DELETE from timeinfo WHERE cinemaNum=#{num}
+		DELETE from timeinfo WHERE cinemaNum=#{cinemaNum}
 	</delete>
 	
 	<delete id="hallDelete">
-		DELETE from hall WHERE cinemaNum=#{num}
+		DELETE from hall WHERE cinemaNum=#{cinemaNum}
 	</delete>
 	
 	<delete id="cinemaDelete">
-		DELETE from cinema WHERE cinemaNum=#{num}
+		DELETE from cinema WHERE cinemaNum=#{cinemaNum}
 	</delete>
 	
 	<insert id="cinemaInsert" parameterType="com.star.cinema.manage.dto.CinemaDTO">
