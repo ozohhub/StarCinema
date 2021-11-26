@@ -91,7 +91,7 @@ public class RegisterController {
 	@RequestMapping(value="/registerProc", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,String> registerProc(String id, String pw, String pwChk, String year, String month, String day, String gender, 
-			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email, MemberDTO dto, HttpSession session){
+			String phone1, String phone2, String phone3, String zipcode, String addr1, String addr2, String name, String email,HttpSession session){
 		
 		Map<String,String> map = new HashMap<String,String>();
 		
@@ -101,6 +101,8 @@ public class RegisterController {
 
 			map.put("msg", "모든 항목을 만족해야 합니다.");
 		}
+		
+		MemberDTO dto = new MemberDTO();
 				
 		dto.setId(id); dto.setPw(pw); dto.setEmail(email); dto.setName(name); dto.setGender(gender);
 		dto.setBirth(year+"-"+month+"-"+day); dto.setPhone(phone1+"-"+phone2+"-"+phone3); dto.setZipcode(zipcode);
