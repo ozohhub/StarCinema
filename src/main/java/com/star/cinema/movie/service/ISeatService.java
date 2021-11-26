@@ -6,3 +6,4 @@ public interface ISeatService {
 	public boolean seatProc(TicketingDTO dto, String hallName);
 	
 }
+   

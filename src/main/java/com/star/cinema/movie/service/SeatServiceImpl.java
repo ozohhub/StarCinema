@@ -33,6 +33,6 @@ public class SeatServiceImpl implements ISeatService{
 		session.setAttribute("seatList", dto);
 		
 		return true;
-	}
+	}    
 	
 }

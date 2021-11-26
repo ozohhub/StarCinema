@@ -17,4 +17,5 @@
 	<delete id="deleteSeat">
 		DELETE * FROM ticketing WHERE id=#{id}
 	</delete>
+	
 </mapper>

@@ -192,4 +192,6 @@ public class HomeController {
 	public String movieDetail() {
 		return "movie/movieDetail";
 	}
+	
+	
 }

@@ -33,7 +33,7 @@ public class TicketingController {
 	@RequestMapping (value = "payProc")
 	public String payProc(Model model) {
 		boolean check = payService.checkPay();
-		if(check) {
+		if(check) {     
 			model.addAttribute("msg", "결제에 성공하였습니다.");
 		}
 		else {
