@@ -32,7 +32,11 @@ public interface IGradeDAO {
 
 	public void insertLike(@Param("id")String id, @Param("movieListNum") int movieListNum);
 
-	
+	public ArrayList<GradeDTO> selectMyLike(String id);
+
+	public MovieDTO selectMovieInfo(int movieListNum);
+
+	public String selectRecent(int movieListNum);
 
 	
 

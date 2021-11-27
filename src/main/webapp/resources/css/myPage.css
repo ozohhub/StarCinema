@@ -319,7 +319,10 @@ a:focus{
     font-size: 11px;
     background: url(../images/myPage/reserve.png) no-repeat 0 center;
 }
-
+.noContent{
+	font-size : 20px;
+	color :  #BBBBBB;	
+}
 .last_list{
 	clear : both;
 }

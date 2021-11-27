@@ -24,6 +24,7 @@
 		<result property="id" column="id"/>
 		<result property="movieListNum" column="movieListNum"/>
 		<result property="regDate" column="regDate"/>
+		<result property="name" column="name"/>
 	</resultMap>
 	
 	<resultMap type="com.star.cinema.movie.dto.TicketingDTO" id="ticketing">
@@ -88,5 +89,16 @@
 		INSERT INTO grade VALUES(grade_seq.nextval,'','',1,#{id},#{movieListNum},'','')
 	</insert>
 
+	<select id="selectMyLike" parameterType="String" resultMap="grade">
+		SELECT * FROM grade WHERE id=#{id} and likeCheck=1
+	</select>
+	
+	<select id="selectMovieInfo" parameterType="int" resultMap="movie">
+		SELECT * FROM movieList WHERE movieListNum=#{movieListNum}
+	</select>
+	
+	<select id = "selectRecent" parameterType="int" resultType="String">
+		SELECT review FROM(SELECT * FROM grade WHERE movieListNum = #{movieListNum} AND review IS NOT NULL ORDER BY gradeNum DESC) WHERE ROWNUM=1
+	</select>
 
 </mapper>

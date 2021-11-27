@@ -28,7 +28,7 @@
 					
 				</li>
 				<li class="main_li">
-					<a href="index?formpath=myLike" class = "main_a" style="width : 12.5%; left : 0%;">
+					<a href="myLikeProc" class = "main_a" style="width : 12.5%; left : 0%;">
 						<span>찜목록</span>
 					</a>
 				</li>

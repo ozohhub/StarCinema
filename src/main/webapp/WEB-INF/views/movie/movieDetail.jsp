@@ -294,11 +294,6 @@ $(document).ready(function(){
 	
 	</div>
 	
-	
-	<div class="page_ctrl">
-		1
-	</div>
-
 </center>	
 
 		

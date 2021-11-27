@@ -83,7 +83,7 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		if(grade == null) dao.insertLike(dto.getId(), movieListNum);
 		else {
 			if(grade.getLikeCheck() == 0) {
-				dao.updateLike(movieListNum, dto.getId(), "in"); return "좋아요가 반영되었습니다.";
+				dao.updateLike(movieListNum, dto.getId(), "in"); 
 			}else{
 				dao.updateLike(movieListNum, dto.getId(), "out"); return "좋아요가 취소되었습니다.";
 			}

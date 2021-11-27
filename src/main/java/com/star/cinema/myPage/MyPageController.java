@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.myPage.service.IMyPageService;
 
 @Controller
@@ -54,4 +53,15 @@ public class MyPageController {
 		return "forward:logoutRequest";
 	}
 	
+	@RequestMapping(value="/myLikeProc")
+	public String myLikeProc(Model model) {
+		boolean check = service.myLikeProc(model); 
+		if(check == false) return "forward:index?formpath=login";	
+		return "forward:index?formpath=myLike";	
+	}
+
+
+
 }
+	
+

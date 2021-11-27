@@ -11,6 +11,8 @@ public interface IMyPageService {
 
 	public void deleteProc();
 
+	public boolean myLikeProc(Model model);
+
 	
 	
 	

@@ -68,9 +68,7 @@ function likeCalc(n){
 		
 			success : function(result){		
 				alert(result.msg);
-				if(result.msg == '좋아요가 반영되었습니다.'){
-					location.reload();
-				}else if(result.msg == '좋아요가 취소되었습니다.'){
+				if(result.msg != '로그인 후 이용가능합니다.'){
 					location.reload();
 				}
 			},
