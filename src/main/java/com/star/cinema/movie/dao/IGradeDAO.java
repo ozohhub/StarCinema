@@ -11,13 +11,13 @@ import com.star.cinema.movie.dto.TicketingDTO;
 
 @Repository
 public interface IGradeDAO {
-
+	
 	public MovieDTO selectMovieNum(int movieListNum);
-
+	
 	public ArrayList<GradeDTO> selectGrade(int movieListNum);
-
+	
 	public TicketingDTO selectReserve(@Param("id") String id, @Param("n") int movieListNum);
-
+	
 	public GradeDTO selectMyGrade(@Param("id") String id, @Param("n") int movieListNum);
 	
 	public double selectTotalGrade(int movieListNum);
@@ -36,9 +36,11 @@ public interface IGradeDAO {
 
 	public MovieDTO selectMovieInfo(int movieListNum);
 
-	public String selectRecent(int movieListNum);
+	public String selectRecentReview(int movieListNum);
 
 	public ArrayList<TicketingDTO> selectMyTickting(String id);
+	
+	public ArrayList<TicketingDTO> selectRecentTicketing(String id);
 
 	public String selectMyReview(@Param("movieListNum")int movieListNum, @Param("id")String id);
 

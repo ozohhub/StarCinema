@@ -70,11 +70,13 @@
 								<dt>My Review</dt>
 								<dd>${myReview.get(myHistory.movieListNum)}</dd>
 							</dl>
-							<div class="reviewWrite_btn_area">
-								<a href="movieDetailProc?movieListNum=${myHistory.movieListNum}">
-									<span>리뷰쓰기</span>
-								</a>
-							</div>
+							<c:if test="${empty myReview.get(myHistory.movieListNum)}">
+								<div class="reviewWrite_btn_area">
+									<a href="movieDetailProc?movieListNum=${myHistory.movieListNum}">
+										<span>리뷰쓰기</span>
+									</a>
+								</div>
+							</c:if>
 						</li>
 						</c:forEach>
 				</c:when>

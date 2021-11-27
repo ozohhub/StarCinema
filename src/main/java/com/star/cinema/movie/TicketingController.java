@@ -95,7 +95,7 @@ public class TicketingController {
 		else {
 			model.addAttribute("msg", "결제에 실패하였습니다.");
 		}
-		return "forward:/index?formpath=myPage";
+		return "forward:ticketingHistory";
 	}
 	
 	

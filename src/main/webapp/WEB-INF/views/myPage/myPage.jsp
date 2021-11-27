@@ -22,108 +22,76 @@
 			</div>
 			
 			<ul class="myTicketing_list">
-				<li>
-					<div class="myTicketing_poster">
-						<a href="#">
-							<img src="${pageContext.request.contextPath}/resources/images/poster/dun.jpg" >
-						</a>
-					</div>
-					<strong class="movie_tit">
-						<span class="grade gr_12">12</span>
-						제목
-					</strong>
-					<div class="detail_reserve1">
-						<span class="detail_info">
-							<strong>영화관명</strong>
-						</span>
-						<span class="detail_info">
-							<strong>관</strong>
-						</span>
-						<span class="detail_info">
-							<strong>좌석번호</strong>
-						</span>
-					</div>
-					<div class="detail_reserve2">
-						<span class="detail_info">
-							<strong>관람날짜</strong>
-						</span>
-						<span class="detail_info">
-							<strong>관람시간</strong>
-						</span>
-					</div>
-					<div class="detail_reserve3">
-						<span class="detail_info">
-							<strong>관람 인원 </strong>
-						</span>
-						<span class="detail_info">
-							<strong>n명</strong>
-						</span>
-					</div>
-					<dl class="cancel_box">
-						<dt>취소 관련 주의사항</dt>
-						<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
-					</dl>
+				<c:choose>
+					<c:when test="${not empty myTicketing }">
+						<c:forEach var="myHistory" items="${myTicketing }">
+							<c:set var="movieinfo" value="${myMovieInfo.get(myHistory.movieListNum)}"/>
+							<c:if test="${movieinfo.movieAge == '0'}"><c:set var="grAge" value="grade gr_all"/></c:if>
+							<c:if test="${movieinfo.movieAge == '12'}"><c:set var="grAge" value="grade gr_12"/></c:if>
+							<c:if test="${movieinfo.movieAge == '15'}"><c:set var="grAge" value="grade gr_15"/></c:if>
+							<c:if test="${movieinfo.movieAge == '18'}"><c:set var="grAge" value="grade gr_18"/></c:if>
+							<li>
+								<div class="myTicketing_poster">
+									<a href="movieDetailProc?movieListNum=${myHistory.movieListNum}">
+										<img src="${pageContext.request.contextPath}/resources/images/poster/${movieinfo.moviePoster}" >
+									</a>
+								</div>
+								<strong class="movie_tit">
+									<c:set var="movieAge" value="${movieinfo.movieAge}"/>								
+									<c:if test="${movieAge == '0'}"><c:set var="movieAge" value="전체"/></c:if>
+									<c:if test="${movieAge == '18'}"><c:set var="movieAge" value="청불"/></c:if>								
+									<span class="${grAge }">${movieAge}</span>
+									${movieinfo.movieName}
+								</strong>
+								<div class="detail_reserve1">
+									<span class="detail_info">
+										<strong>${cinemaName.get(myHistory.cinemaNum)}</strong>
+									</span>
+									<span class="detail_info">
+										<strong>${hallName.get(myHistory.hallNum)}</strong>
+									</span>
+									<span class="detail_info">
+										<strong>${myHistory.seatName}</strong>
+									</span>
+								</div>
+								<div class="detail_reserve2">
+									<span class="detail_info">
+										<strong>${myHistory.openDate}</strong>
+									</span>
+									<span class="detail_info">
+										<strong>${myHistory.openTime}</strong>
+									</span>
+								</div>
+								<div class="detail_reserve3">
+									<span class="detail_info">
+										<strong>관람 인원 </strong>
+									</span>
+									<span class="detail_info">
+										<strong>${myHistory.people}명</strong>
+									</span>
+								</div>
+								<dl class="cancel_box">
+									<dt>취소 관련 주의사항</dt>
+									<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
+								</dl>
+								
+								<div class="cancel_btn_area">
+									<a href="#">
+										<span>취소하기</span>
+									</a>
+								</div>
+							</li>
+						</c:forEach>
+					</c:when>	
 					
-					<div class="cancel_btn_area">
-						<a href="#">
-							<span>취소하기</span>
-						</a>
-					</div>
-				</li>
-				
-				<li>
-					<div class="myTicketing_poster">
-						<a href="#">
-							<img src="${pageContext.request.contextPath}/resources/images/poster/firstcow.jpg" >
-						</a>
-					</div>
-					<strong class="movie_tit">
-						<span class="grade gr_12">12</span>
-						제목
-					</strong>
-					<div class="detail_reserve1">
-						<span class="detail_info">
-							<strong>영화관명</strong>
-						</span>
-						<span class="detail_info">
-							<strong>관</strong>
-						</span>
-						<span class="detail_info">
-							<strong>좌석번호</strong>
-						</span>
-					</div>
-					<div class="detail_reserve2">
-						<span class="detail_info">
-							<strong>관람날짜</strong>
-						</span>
-						<span class="detail_info">
-							<strong>관람시간</strong>
-						</span>
-					</div>
-					<div class="detail_reserve3">
-						<span class="detail_info">
-							<strong>관람 인원 </strong>
-						</span>
-						<span class="detail_info">
-							<strong>n명</strong>
-						</span>
-					</div>
-					<dl class="cancel_box">
-						<dt>취소 관련 주의사항</dt>
-						<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
-					</dl>
-					
-					<div class="cancel_btn_area">
-						<a href="#">
-							<span>취소하기</span>
-						</a>
-					</div>
-				</li>
-			</ul>
-			
-			<div class="last_list"></div>
-		
-		
+					<c:otherwise>
+						<li>
+							<span class ="noContent">최근 관람내역이 없습니다.</span>
+						</li>
+					</c:otherwise>
+				</c:choose>
+			</ul>			
+			<div class="last_list"></div>	
 		</div>
 	</div>
 </center>

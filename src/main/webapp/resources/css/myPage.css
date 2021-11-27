@@ -88,20 +88,16 @@ a:focus{
 	margin-top: 10px;
     padding-bottom: 10px;
     font-size : 14px;
+    text-align : left;
 }
 .detail_reserve1{
 	margin-top : 60px;
-	margin-left : -112px;
-}
-.detail_reserve2{
-	margin-left : -130px;
+	text-align : left;
 }
 .detail_reserve3{
-	margin-left : -158px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #EBEBEB;
 }
-
 /* 관람내역 페이지 */
 
 .reviewWrite_btn_area a span{

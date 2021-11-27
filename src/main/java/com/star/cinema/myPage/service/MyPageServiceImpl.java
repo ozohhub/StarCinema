@@ -87,7 +87,7 @@ public class MyPageServiceImpl implements IMyPageService {
 			for(GradeDTO g : myGrade) {
 				MovieDTO movie = gradeDao.selectMovieInfo(g.getMovieListNum());
 				Double totalGrade = gradeDao.selectTotalGrade(g.getMovieListNum());
-				String recent = gradeDao.selectRecent(g.getMovieListNum());
+				String recent = gradeDao.selectRecentReview(g.getMovieListNum());
 				myMovieInfo.put(g.getMovieListNum(), movie);
 				myMovieGrade.put(g.getMovieListNum(), totalGrade);
 				recentReview.put(g.getMovieListNum(),recent);
@@ -103,35 +103,33 @@ public class MyPageServiceImpl implements IMyPageService {
 	}
 
 	@Override
-	public boolean ticketingHistory(Model model) {
+	public boolean ticketingHistory(Model model, String recent) {
 		MemberDTO dto = (MemberDTO)session.getAttribute("loginInfo");
 		if(dto == null) return false;
 		
-		
-		
-		return true;
-	}
-
-	@Override
-	public boolean movieHistory(Model model) {
-		MemberDTO dto = (MemberDTO)session.getAttribute("loginInfo");
-		if(dto == null) return false;
-		
-		ArrayList<TicketingDTO> myTicketing = gradeDao.selectMyTickting(dto.getId());
+		ArrayList<TicketingDTO> myTicketing = new ArrayList<TicketingDTO>();
 		Map<Integer,MovieDTO> myMovieInfo  = new HashMap<Integer,MovieDTO>();
 		Map<Integer,String> myReview = new HashMap<Integer,String>();
 		Map<Integer,String> cinemaName = new HashMap<Integer,String>();
 		Map<Integer,String> hallName = new HashMap<Integer,String>();
 		
+		if(recent.equals("recent")) {
+			myTicketing = gradeDao.selectRecentTicketing(dto.getId());
+		}else {
+			 myTicketing = gradeDao.selectMyTickting(dto.getId());
+		}
+	
 		if(!myTicketing.isEmpty()) {
 			for(TicketingDTO t : myTicketing) {
 				MovieDTO movie = gradeDao.selectMovieInfo(t.getMovieListNum());
-				String review = gradeDao.selectMyReview(t.getMovieListNum(), dto.getId());
 				String cinema = gradeDao.selectCinemaName(t.getCinemaNum());
 				String hall = gradeDao.selectHallName(t.getHallNum());
-				
-				myMovieInfo.put(t.getMovieListNum(), movie);
-				if(review != null) myReview.put(t.getMovieListNum(), review);
+				if(!recent.equals("recent")) {
+					String review = gradeDao.selectMyReview(t.getMovieListNum(), dto.getId());
+					if(review != null) myReview.put(t.getMovieListNum(), review);
+				}
+
+				myMovieInfo.put(t.getMovieListNum(), movie);				
 				if(cinema != null) cinemaName.put(t.getCinemaNum(), cinema);
 				if(hall != null) hallName.put(t.getHallNum(), hall);
 			}
@@ -139,15 +137,12 @@ public class MyPageServiceImpl implements IMyPageService {
 		
 		model.addAttribute("myTicketing", myTicketing);
 		model.addAttribute("myMovieInfo", myMovieInfo);
-		model.addAttribute("myReview", myReview);
 		model.addAttribute("cinemaName", cinemaName);
 		model.addAttribute("hallName", hallName);
+		if(!recent.equals("recent")) {
+			model.addAttribute("myReview", myReview);
+		}
 		
 		return true;
-	}
-
-	
-	
-	
-	
+	}	
 }
