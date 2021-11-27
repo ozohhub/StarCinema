@@ -41,7 +41,7 @@ function reivewWrite(n){
 				if(result.msg == '등록이 완료되었습니다.'){
 					alert(result.msg);
 					location.reload();
-//					location.href='movieDetailProc?movieListNum='+n;
+
 				}else{
 					alert(result.msg);
 					document.getElementById('review_txt').value = "";
@@ -57,9 +57,8 @@ function reivewWrite(n){
 }
 
 
-function likeCalc(n,totalLike){
+function likeCalc(n){
 	var info = {movieListNum : n};
-	var likeCtrl = document.getElementById('likeCtrl');
 	
 	$.ajax({		
 			url: "likeCalcProc", type: "POST",		
