@@ -60,127 +60,20 @@ $(document).ready(function(){
 	<div class="multiple_whole">
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
+			<c:forEach var="movie" items="${mainPoster }" varStatus="status">
 				<li>
-					<div class="boxBg1" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');" onmouseover="bgOpacity(1);" onmouseout="bgOpacityReset(1);">
-						<div class="boxBtn1">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
-							<button id="reserve_btn" class="reserve_btn1" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn1" onclick="javascript:location.href='movieDetailProc?movieListNum=2';">상세정보</button>
+					<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }.jpg');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
+						<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
+							<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+							<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${status.count }';">상세정보</button>
 						</div>
 					</div>
 					<div class = "movieInfo">
-	                    <h3>영화1</h3>
-	                    <span>정보1</span>
+	                    <h3>${movie.getMovieName() }</h3>
+	                    <span></span>
                		</div>
 				 </li>
-				<li>
-					<div class="boxBg2" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/anne.jpg');" onmouseover="bgOpacity(2);" onmouseout="bgOpacityReset(2);">
-						<div class="boxBtn2">
-							<button id="reserve_btn" class="reserve_btn2" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn2">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화2</h3>
-	                    <span>정보2</span>
-               		</div>
-				</li>
-				<li>
-					<div class="boxBg3" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/dun.jpg');" onmouseover="bgOpacity(3);" onmouseout="bgOpacityReset(3);">
-						<div class="boxBtn3">
-							<button id="reserve_btn" class="reserve_btn3" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn3"onclick="javascript:location.href='index?formpath=movieDetail';">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화3</h3>
-	                    <span>정보3</span>
-               		</div>
-				</li>
-				
-				<li>
-					<div class="boxBg4" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/venom.jpg');" onmouseover="bgOpacity(4);" onmouseout="bgOpacityReset(4);">
-						<div class="boxBtn4">	
-							<button id="reserve_btn" class="reserve_btn4" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn4">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화4</h3>
-	                    <span>정보4</span>
-               		</div>
-				</li>
-				<li>
-					<div class="boxBg5" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(5);" onmouseout="bgOpacityReset(5);">
-						<div class="boxBtn5">
-							<button id="reserve_btn" class="reserve_btn5" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn5">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화5</h3>
-	                    <span>정보5</span>
-               		</div>
-				</li>
-				<li>
-					<div class="boxBg6" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/notime.jpg');" onmouseover="bgOpacity(6);" onmouseout="bgOpacityReset(6);">
-						<div class="boxBtn6">
-							<button id="reserve_btn" class="reserve_btn6" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn6">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화6</h3>
-	                    <span>정보6</span>
-               		</div>
-				 </li>
-				<li>
-					<div class="boxBg7" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/voice.jpg');" onmouseover="bgOpacity(7);" onmouseout="bgOpacityReset(7);">
-						<div class="boxBtn7">
-							<button id="reserve_btn" class="reserve_btn7" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn7">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화7</h3>
-	                    <span>정보7</span>
-               		</div>
-				</li>
-				<li>
-					<div class="boxBg8" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/kang.jpg');" onmouseover="bgOpacity(8);" onmouseout="bgOpacityReset(8);">
-						<div class="boxBtn8">
-							<button id="reserve_btn" class="reserve_btn8" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn8">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화8</h3>
-	                    <span>정보8</span>
-               		</div>
-				</li>
-				<li>
-					<div class="boxBg9" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/billy.jpg');" onmouseover="bgOpacity(9);" onmouseout="bgOpacityReset(9);">
-						<div class="boxBtn9">
-							<button id="reserve_btn" class="reserve_btn9" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn9">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화9</h3>
-	                    <span>정보9</span>
-               		</div>
-				</li>
-					<li>
-					<div class="boxBg10" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/last.jpg');" onmouseover="bgOpacity(10);" onmouseout="bgOpacityReset(10);">
-						<div class="boxBtn10">
-							<button id="reserve_btn" class="reserve_btn10" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn10">상세정보</button>
-						</div>
-					</div>
-					<div class = "movieInfo">
-	                    <h3>영화10</h3>
-	                    <span>정보10</span>
-               		</div>
-				</li>
+			</c:forEach>	
 			</ul>
 		</div>
 		

@@ -58,8 +58,8 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value = "timeInsertProc")
-	public String timeInsertProc(Model model, String countryName, String cinemaName, String hallName, String ticketDate, String startTime) {
-		service.timeInfoInsertProc(countryName, cinemaName, hallName, ticketDate, startTime);
+	public String timeInsertProc(Model model, String countryName, String cinemaName, String movieName, String hallName, String ticketDate, String startTime) {
+		service.timeInfoInsertProc(countryName, cinemaName, movieName, hallName, ticketDate, startTime);
 		return "redirect:/timeInfoProc";
 	}
 }

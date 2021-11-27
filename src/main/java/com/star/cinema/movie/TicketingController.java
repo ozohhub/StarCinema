@@ -1,5 +1,8 @@
 package com.star.cinema.movie;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -27,9 +30,16 @@ public class TicketingController {
 	@Autowired IManageService manageService;
 	
 	@RequestMapping(value = "/ticketing")
-	public String ticketing(Model model) {
+	public String ticketing(Model model, HttpSession session) {
 		List<MovieDTO> movieList = movieService.movieList();
 		model.addAttribute("movieList", movieList);
+		
+
+		if (session.getAttribute("selectDate") == null) {
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			session.setAttribute("selectDate", df.format(new Date()));
+		}
+		
 		return "movie/ticketing";
 	}
 	
@@ -37,6 +47,27 @@ public class TicketingController {
 	@RequestMapping(value = "selectCinema")
 	public void selectCinema(Model model, @RequestBody Map<String, String> map) {
 		manageService.timeInfoSearch(model, map.get("name"), "search");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "selectMovie")
+	public void selectMovie(Model model, @RequestBody Map<String, String> map) {
+		manageService.selectMovie(model, map.get("movieName"));
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "selectDate")
+	public void selectDate(Model model, HttpSession session, @RequestBody Map<String, String> map) {
+		session.setAttribute("selectDate", map.get("date"));
+		if (session.getAttribute("selectCinema") != null) {
+			manageService.selectDate(model, map.get("date"));
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "selectTime")
+	public void selectTime(Model model, @RequestBody Map<String, String> map) {
+		manageService.selectTime(model, map.get("time"));
 	}
 	
 	@RequestMapping (value = "seatProc")

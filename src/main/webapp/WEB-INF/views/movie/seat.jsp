@@ -131,7 +131,7 @@
 							
 							<div class="select-theater-date">
 								<div class="theater-date">2021-11-24</div>
-								<div class="theater-time">180분</div>
+								<div class="theater-time">18:00</div>
 							</div>
 							<div class="selected-seats-wrapper">
 								<span class="selected-seats-title">좌석번호</span> <span

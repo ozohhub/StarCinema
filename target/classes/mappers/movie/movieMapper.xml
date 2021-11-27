@@ -27,6 +27,10 @@
 	<select id="selectMovie" resultMap="movie">
 		SELECT * FROM MovieList where MovieName LIKE '%'||#{movieName}||'%'
 	</select>
+
+	<select id="searchMovie" resultMap="movie">
+		SELECT * FROM MovieList where movieListNum =#{movieListNum}
+	</select>
 	
 	<update id="changeMovie" parameterType="com.star.cinema.movie.dto.MovieDTO">
 		UPDATE MovieList SET movieName=#{movieName}, movieGenre=#{movieGenre}, movieDetail=#{movieDetail}, movieOpen=#{movieOpen}, movieDirector=#{movieDirector}, movieActors=#{movieActors},

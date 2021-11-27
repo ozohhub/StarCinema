@@ -37,6 +37,8 @@
 									<input type="text" placeholder="지역을 입력하세요." name="countryName" id="countryName"><br>
 									<label style="padding-right: 50px">지점명</label>
 									<input type="text" placeholder="지역을 입력하세요." name="cinemaName" id="cinemaName"><br>
+									<label style="padding-right: 50px">영화명</label>
+									<input type="text" placeholder="영화명을 입력하세요." name="movieName" id="movieName"><br>
 									<label style="padding-right: 50px">영화관 이름</label>
 									<input type="text" placeholder="영화관 이름을 입력하세요." name="hallName" id="hallName"><br>
 									<label style="padding-right: 50px">상영 날짜</label>
