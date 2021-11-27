@@ -157,7 +157,7 @@ public class CustomerController {
 		input.close();
 	}
 	
-
+	/* 관리자 답변 작성 */
 	@RequestMapping(value = "/answerUpdate", produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public Map<String,String> answerUpdate(@RequestBody Map<String,String> map) {

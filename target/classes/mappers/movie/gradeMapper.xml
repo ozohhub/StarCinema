@@ -20,9 +20,24 @@
 		<result property="gradeNum" column="gradeNum"/>
 		<result property="grade" column="grade"/>
 		<result property="review" column="review"/>
-		<result property="likeRate" column="likeRate"/>
+		<result property="likeCheck" column="likeCheck"/>
 		<result property="id" column="id"/>
 		<result property="movieListNum" column="movieListNum"/>
+		<result property="regDate" column="regDate"/>
+	</resultMap>
+	
+	<resultMap type="com.star.cinema.movie.dto.TicketingDTO" id="ticketing">
+		<result property="ticketingNum" column="ticketingNum"/>
+		<result property="id" column="id"/>
+		<result property="seatName" column="seatName"/>
+		<result property="openDate" column="openDate"/>
+		<result property="openTime" column="openTime"/>
+		<result property="people" column="people"/>
+		<result property="totalPrice" column="totalPrice"/>
+		<result property="movieListNum" column="movieListNum"/>
+		<result property="cinemaNum" column="cinemaNum"/>
+		<result property="hallNum" column="hallNum"/>
+		<result property="moiveName" column="moiveName"/>	
 	</resultMap>
 
 	<select id="selectMovieNum" parameterType="int" resultMap="movie">
@@ -30,15 +45,48 @@
 	</select>
 
 	<select id="selectGrade" parameterType="int" resultMap="grade">
-		SELECT * FROM grade WHERE movieListNum=#{movieListNum}
+		SELECT * FROM grade WHERE movieListNum=#{movieListNum} and review IS NOT NULL order by gradeNum desc
 	</select>
 
+	<select id="selectReserve" resultMap="ticketing">
+		SELECT * FROM ticketing WHERE id=#{id} and movieListNum=#{n}
+	</select>
+	
+	<select id="selectMyGrade" resultMap="grade">
+		SELECT * FROM grade WHERE id=#{id} and movieListNum=#{n}
+	</select>
+	
+	<select id="selectTotalGrade" parameterType="int" resultType="double">
+		SELECT NVL(avg(grade),0) FROM grade WHERE movieListNum=#{movieListNum}
+	</select>
+	
+	<insert id="insertReview">
+		INSERT INTO grade VALUES(grade_seq.nextval,#{grade},#{review},0,#{id},#{movieListNum},#{regDate},#{name})
+	</insert>
+	
+	<update id="updateReview">
+		UPDATE grade SET grade=#{grade}, review=#{review}, regDate=#{regDate}, name=#{name} WHERE id=#{id} and movieListNum=#{movieListNum}
+	</update>
+	
 
+	<select id="selectTotalLike" parameterType="int" resultType="int">
+		SELECT count(*) FROM grade WHERE movieListNum=#{movieListNum} and likeCheck=1
+	</select>
 
-
-
-
-
+	<update id="updateLike">
+		UPDATE grade
+		<if test="condition == 'in'">
+			SET likeCheck=1
+		</if>
+		<if test="condition == 'out'">
+			SET likeCheck=0
+		</if>
+		WHERE movieListNum=#{movieListNum} and id=#{id}
+	</update>
+	
+	<insert id="insertLike">
+		INSERT INTO grade VALUES(grade_seq.nextval,'','',1,#{id},#{movieListNum},'','')
+	</insert>
 
 
 </mapper>

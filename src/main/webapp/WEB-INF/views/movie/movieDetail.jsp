@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/movieDetail.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
-<script src="${pageContext.request.contextPath}/resources/js/movieDetail.js"></script>
 
+<script src="${pageContext.request.contextPath}/resources/js/movieDetail.js"></script>
 <title>영화 - 상세정보 및 리뷰</title>
 
 <script>
@@ -36,7 +37,6 @@ $(document).ready(function(){
 			<li>
 				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still2}" width="auto;" height="653px;">
 				<div class="caption center-align"></div>
-
 			</li>
 			<li>
 				<img src="${pageContext.request.contextPath}/resources/images/stillcut/${still3}" width="auto;" height="653px;">
@@ -87,7 +87,7 @@ $(document).ready(function(){
 					<em>관람객 평점</em>
 					<strong class="score">
 						<em>평점</em>
-						<strong>${grade.grade}</strong>
+						<strong><fmt:formatNumber value="${totalGrade}" type="number" maxFractionDigits="1" minFractionDigits="1"/></strong>
 					</strong>
 				</li>
 				<li class="sub_info2">
@@ -99,9 +99,9 @@ $(document).ready(function(){
 				<li class="sub_info1">
 					<em class="tit">장르</em>
 					<strong>
-						<em>${movie.movieGenre }, / ${movie.movieCountry}</em>
+						<em>${movie.movieGenre } / ${movie.movieCountry}</em>
 						<em class="line">|</em>
-						<em>${movie.movieOpen }</em>
+						<em>${movie.movieOpen } 개봉</em>
 						<em class="line">|</em>
 						<em>${movie.movieTime } 분</em>					
 					</strong>
@@ -123,9 +123,9 @@ $(document).ready(function(){
 			<div class="btn_area">
 				<ul>
 					<li>
-						<button class="movieLikeBtn">
+						<button class="movieLikeBtn" onclick="likeCalc(${movie.movieListNum}, ${totalLike });">
 							<strong>좋아요</strong>
-							<em>${grade.likeRate}</em>
+							<em id="likeCtrl">${totalLike}</em>
 						</button>
 					</li>
 					<li>
@@ -217,7 +217,7 @@ $(document).ready(function(){
 		<div class="score_box">
 			<span class="score_ty">
 				<em class="score_tit">총 평점</em>
-				<strong>0</strong>
+				<strong><fmt:formatNumber value="${totalGrade}" type="number" maxFractionDigits="1" minFractionDigits="1"/></strong>
 				<em class="slash">/</em>
 				<span>10</span>
 			</span>
@@ -225,28 +225,31 @@ $(document).ready(function(){
 	
 		<div class="star_score_box">
 			<strong class="score_info">
-				<em>0</em>점
+				<em id="myScore">1</em>점
 			</strong>
+		
 			<div class="star_rate">
-				<button type="button" class="star on"><em>별1점</em></button>
-				<button type="button" class="star on"><em>별2점</em></button>
-				<button type="button" class="star on"><em>별3점</em></button>
-				<button type="button" class="star on"><em>별4점</em></button>
-				<button type="button" class="star on"><em>별5점</em></button>
-				<button type="button" class="star on"><em>별6점</em></button>
-				<button type="button" class="star on"><em>별7점</em></button>
-				<button type="button" class="star on"><em>별8점</em></button>
-				<button type="button" class="star on"><em>별9점</em></button>
-				<button type="button" class="star on"><em>별10점</em></button>
+			  <span class="starR on" id="star1" onclick="myStar(1);">별1</span>
+			  <span class="starR" id="star2" onclick="myStar(2);">별2</span>
+			  <span class="starR" id="star3" onclick="myStar(3);">별3</span>
+			  <span class="starR" id="star4" onclick="myStar(4);">별4</span>
+			  <span class="starR" id="star5" onclick="myStar(5);">별5</span>
+			  <span class="starR" id="star6" onclick="myStar(6);">별6</span>
+			  <span class="starR" id="star7" onclick="myStar(7);">별7</span>
+			  <span class="starR" id="star8" onclick="myStar(8);">별8</span>
+			  <span class="starR" id="star9" onclick="myStar(9);">별9</span>
+			  <span class="starR" id="star10" onclick="myStar(10);">별10</span>
 			</div>
+		</div>
 			
 		</div>
 		<div class="reviewBox">
-			<textarea class="review_txt" placeholder="평점 및 영화 관람평을 작성해주세요. 주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다.">
-			</textarea>
+			<textarea class="review_txt" id="review_txt" placeholder="평점 및 영화 관람평을 작성해주세요. 주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다."></textarea>
 		</div>
-		<button type="button" class="btn_submit">관람평 작성</button>
+		<input type="button" class="btn_submit" value="관람평 작성" onclick="reivewWrite(${movie.movieListNum});">
 	</div>
+	
+	
 	
 	<div class="review_list">
 		<div class="review_top">
@@ -254,46 +257,48 @@ $(document).ready(function(){
 		</div>
 		
 	<ul class="reivew_con_list">
-		<!-- 여기반복 -->
-		<li>
-			<span class="img_info"><img src="${pageContext.request.contextPath}/resources/images/movie/rev_3.png"></span>
-			<div class="top_info">
-				<span class="name_info">이름</span>
-				<span class="score_ty2">
-					<em>평점</em>
-					<strong>0</strong>
-				</span>
-			</div>
-			<div class="review_info">리뷰나오는곳</div>
-			<div class="btm_info">
-				<span class="date_info">작성년.월.일</span>
-			</div>
-		</li>
-	
-	
-		<li>
-			<span class="img_info"><img src="${pageContext.request.contextPath}/resources/images/movie/rev_1.png"></span>
-			<div class="top_info">
-				<span class="name_info">이름</span>
-				<span class="score_ty2">
-					<em>평점</em>
-					<strong>10</strong>
-				</span>
-			</div>
-			<div class="review_info">리뷰나오는곳</div>
-			<div class="btm_info">
-				<span class="date_info">작성년.월.일</span>
-			</div>
-		</li>
-
+		<c:choose>
+			<c:when test="${grade.isEmpty() == false }">
+				<c:forEach var="gr" items="${grade }">			
+					<c:choose>
+						<c:when test="${gr.grade >= 9}"><c:set var="img_gr" value="rev_1.png"/></c:when>
+						<c:when test="${gr.grade >= 7}"><c:set var="img_gr" value="rev_2.png"/></c:when>
+						<c:when test="${gr.grade >= 5}"><c:set var="img_gr" value="rev_3.png"/></c:when>
+						<c:when test="${gr.grade >= 3}"><c:set var="img_gr" value="rev_4.png"/></c:when>
+						<c:when test="${gr.grade >= 1}"><c:set var="img_gr" value="rev_5.png"/></c:when>
+					</c:choose>							
+					<li>
+						<span class="img_info"><img src="${pageContext.request.contextPath}/resources/images/movie/${img_gr}"></span>
+						<div class="top_info">
+							<span class="name_info">${gr.name }</span>
+							<span class="score_ty2">
+								<em>평점</em>
+								<strong>${gr.grade}</strong>
+							</span>
+						</div>
+						<div class="review_info">${gr.review}</div>
+						<div class="btm_info">
+							<span class="date_info">${gr.regDate} 등록</span>
+						</div>
+					</li>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>				
+				<li>
+					<span class="img_info"><img src="${pageContext.request.contextPath}/resources/images/movie/rev_4.png"></span>
+						<div class="review_info">아직 등록된 리뷰가 없습니다.</div>
+				</li>
+			</c:otherwise>
+		</c:choose>
 	</ul>
+	
 	</div>
 	
 	
 	<div class="page_ctrl">
 		1
 	</div>
-</div>
+
 </center>	
 
 		

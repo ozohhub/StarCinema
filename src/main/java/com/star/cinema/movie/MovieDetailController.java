@@ -1,11 +1,17 @@
 package com.star.cinema.movie;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.star.cinema.movie.dto.GradeDTO;
 import com.star.cinema.movie.dto.MovieDTO;
@@ -21,12 +27,34 @@ public class MovieDetailController {
 	public String movieDetailProc(int movieListNum, Model model) {
 		
 		MovieDTO movie = service.selectMovieNum(movieListNum);		
-		GradeDTO grade = service.selectGrade(movieListNum);
+		ArrayList<GradeDTO> grade = service.selectGrade(movieListNum);
+		double totalGrade = service.selectTotalGrade(movieListNum);
+		int totalLike = service.totalLike(movieListNum);
 		
 		model.addAttribute("movie", movie);
 		model.addAttribute("grade", grade);
+		model.addAttribute("totalGrade", totalGrade);
+		model.addAttribute("totalLike", totalLike);
 		
 		return "forward:index?formpath=movieDetail";
 	}
+	
+	
+	@RequestMapping(value="/reivewWriteProc", produces = "application/json; charset=utf-8", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> reivewWriteProc(@RequestBody Map<String,String> map) {
+		
+		map.put("msg",service.reviewWriteProc(map));
+		return map;
+	}
+	
+	@RequestMapping(value="/likeCalcProc", produces = "application/json; charset=utf-8", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> likeCalcProc(@RequestBody Map<String,String> map) {
+		
+		map.put("msg",service.likeCalcProc(map));
+		return map;
+	}
+	
 	
 }

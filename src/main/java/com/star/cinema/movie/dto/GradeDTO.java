@@ -4,9 +4,11 @@ public class GradeDTO {
 	private int gradeNum;
 	private int grade;
 	private String review;
-	private int likeRate;
+	private int likeCheck;
 	private String id;
 	private int movieListNum;
+	private String regDate;
+	private String name;
 	
 	public int getGradeNum() {
 		return gradeNum;
@@ -26,12 +28,6 @@ public class GradeDTO {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	public int getLikeRate() {
-		return likeRate;
-	}
-	public void setLikeRate(int likeRate) {
-		this.likeRate = likeRate;
-	}
 	public String getId() {
 		return id;
 	}
@@ -44,6 +40,25 @@ public class GradeDTO {
 	public void setMovieListNum(int movieListNum) {
 		this.movieListNum = movieListNum;
 	}
+	public int getLikeCheck() {
+		return likeCheck;
+	}
+	public void setLikeCheck(int likeCheck) {
+		this.likeCheck = likeCheck;
+	}
+	public String getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 	
 }
