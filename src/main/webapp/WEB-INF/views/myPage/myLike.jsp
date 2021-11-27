@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
@@ -47,7 +48,7 @@
 									</span>
 									<span class="score">
 										<em>평점</em>
-										<strong>${myMovieGrade.get(myLike.movieListNum)}</strong>
+										<strong><fmt:formatNumber value="${myMovieGrade.get(myLike.movieListNum)}" type="number" maxFractionDigits="1" minFractionDigits="1"/></strong>
 									</span>
 									<button type="button" class="heart_btn" onclick="myLikeCalc(${myLike.movieListNum});"></button>
 								</div>
@@ -67,17 +68,12 @@
 					<li>
 						<span class ="noContent">찜한 영화가 없습니다.</span>
 					</li>
-				
-				</c:otherwise>
-				
+				</c:otherwise>				
 			</c:choose>
-
 			</ul>
 		
-		<div class="last_list">
-		
-		</div>
-		
+		<div class="last_list">		
+		</div>		
 		</div>
 	</div>
 </center>

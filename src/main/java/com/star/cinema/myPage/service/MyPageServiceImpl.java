@@ -20,6 +20,7 @@ import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IGradeDAO;
 import com.star.cinema.movie.dto.GradeDTO;
 import com.star.cinema.movie.dto.MovieDTO;
+import com.star.cinema.movie.dto.TicketingDTO;
 import com.star.cinema.myPage.dao.IMyPageDAO;
 
 @Service
@@ -97,6 +98,50 @@ public class MyPageServiceImpl implements IMyPageService {
 		model.addAttribute("myMovieInfo", myMovieInfo);
 		model.addAttribute("myMovieGrade", myMovieGrade);
 		model.addAttribute("recentReview", recentReview);
+		
+		return true;
+	}
+
+	@Override
+	public boolean ticketingHistory(Model model) {
+		MemberDTO dto = (MemberDTO)session.getAttribute("loginInfo");
+		if(dto == null) return false;
+		
+		
+		
+		return true;
+	}
+
+	@Override
+	public boolean movieHistory(Model model) {
+		MemberDTO dto = (MemberDTO)session.getAttribute("loginInfo");
+		if(dto == null) return false;
+		
+		ArrayList<TicketingDTO> myTicketing = gradeDao.selectMyTickting(dto.getId());
+		Map<Integer,MovieDTO> myMovieInfo  = new HashMap<Integer,MovieDTO>();
+		Map<Integer,String> myReview = new HashMap<Integer,String>();
+		Map<Integer,String> cinemaName = new HashMap<Integer,String>();
+		Map<Integer,String> hallName = new HashMap<Integer,String>();
+		
+		if(!myTicketing.isEmpty()) {
+			for(TicketingDTO t : myTicketing) {
+				MovieDTO movie = gradeDao.selectMovieInfo(t.getMovieListNum());
+				String review = gradeDao.selectMyReview(t.getMovieListNum(), dto.getId());
+				String cinema = gradeDao.selectCinemaName(t.getCinemaNum());
+				String hall = gradeDao.selectHallName(t.getHallNum());
+				
+				myMovieInfo.put(t.getMovieListNum(), movie);
+				if(review != null) myReview.put(t.getMovieListNum(), review);
+				if(cinema != null) cinemaName.put(t.getCinemaNum(), cinema);
+				if(hall != null) hallName.put(t.getHallNum(), hall);
+			}
+		}
+		
+		model.addAttribute("myTicketing", myTicketing);
+		model.addAttribute("myMovieInfo", myMovieInfo);
+		model.addAttribute("myReview", myReview);
+		model.addAttribute("cinemaName", cinemaName);
+		model.addAttribute("hallName", hallName);
 		
 		return true;
 	}

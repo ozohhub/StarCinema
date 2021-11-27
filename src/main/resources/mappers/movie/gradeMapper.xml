@@ -61,15 +61,14 @@
 		SELECT NVL(avg(grade),0) FROM grade WHERE movieListNum=#{movieListNum}
 	</select>
 	
-	<insert id="insertReview">
+	<insert id="insertReview" parameterType="com.star.cinema.movie.dto.GradeDTO">
 		INSERT INTO grade VALUES(grade_seq.nextval,#{grade},#{review},0,#{id},#{movieListNum},#{regDate},#{name})
 	</insert>
 	
-	<update id="updateReview">
+	<update id="updateReview" parameterType="com.star.cinema.movie.dto.GradeDTO">
 		UPDATE grade SET grade=#{grade}, review=#{review}, regDate=#{regDate}, name=#{name} WHERE id=#{id} and movieListNum=#{movieListNum}
 	</update>
 	
-
 	<select id="selectTotalLike" parameterType="int" resultType="int">
 		SELECT count(*) FROM grade WHERE movieListNum=#{movieListNum} and likeCheck=1
 	</select>
@@ -99,6 +98,22 @@
 	
 	<select id = "selectRecent" parameterType="int" resultType="String">
 		SELECT review FROM(SELECT * FROM grade WHERE movieListNum = #{movieListNum} AND review IS NOT NULL ORDER BY gradeNum DESC) WHERE ROWNUM=1
+	</select>
+	
+	<select id="selectMyTickting" parameterType="String" resultMap="ticketing">
+		SELECT * FROM ticketing WHERE id=#{id} order by ticketingNum desc
+	</select>
+	
+	<select id="selectMyReview" resultType="String">
+		SELECT review FROM grade WHERE id=#{id} and movieListNum=#{movieListNum}
+	</select>
+	
+	<select id="selectCinemaName" parameterType="int" resultType="String">
+		SELECT cinemaName FROM cinema WHERE cinemaNum=#{cinemaNum}
+	</select>
+	
+	<select id="selectHallName" parameterType="int" resultType="String">
+		SELECT hallName FROM hall WHERE hallNum=#{hallNum}
 	</select>
 
 </mapper>

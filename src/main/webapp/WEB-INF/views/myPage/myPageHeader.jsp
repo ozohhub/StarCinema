@@ -10,17 +10,17 @@
 		<div class="top_menu">
 			<ul class = "main">
 				<li class="main_li">
-					<a href="index?formpath=myPage" class = "main_a" style="width : 12.5%; left : 0%;">
+					<a href="ticketingHistory" class = "main_a" style="width : 12.5%; left : 0%;">
 						<span>예매내역</span>
 					</a>
 					<ul class="sub">
 						<li>
-							<a href="index?formpath=myPage" class="sub_a" style="left : 0px; margin-left : 28.85px;">
+							<a href="ticketingHistory" class="sub_a" style="left : 0px; margin-left : 28.85px;">
 								<span>예매내역</span>
 							</a>
 						</li>
 						<li>
-							<a href="index?formpath=myMovieHistory" class="sub_a" style="left : 0px; margin-left : 28.85px;">
+							<a href="movieHistory" class="sub_a" style="left : 0px; margin-left : 28.85px;">
 								<span>관람내역</span>
 							</a>
 						</li>

@@ -13,7 +13,8 @@ public interface IMyPageService {
 
 	public boolean myLikeProc(Model model);
 
-	
-	
+	public boolean ticketingHistory(Model model);
+
+	public boolean movieHistory(Model model);
 	
 }

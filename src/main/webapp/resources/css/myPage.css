@@ -109,20 +109,16 @@ a:focus{
     font-size: 11px;
     background: url(../images/myPage/review_write.png) no-repeat 0 center;
 }
-
 .detail_history1,.detail_history2,.detail_history3{
     padding-bottom: 10px;
     font-size : 14px;
+    text-align : left;
+    margin-left : -10px;
 }
 .detail_history1{
 	margin-top : 50px;
-	margin-left : -102px;
-}
-.detail_history2{
-	margin-left : -130px;
 }
 .detail_history3{
-	margin-left : -158px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #EBEBEB;
 }

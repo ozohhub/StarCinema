@@ -22,13 +22,13 @@ public interface IGradeDAO {
 	
 	public double selectTotalGrade(int movieListNum);
 	
-	public void insertReview(@Param("id")String id, @Param("movieListNum")int movieListNum, @Param("grade")String grade, @Param("review")String review, @Param("regDate")String regDate, @Param("name")String name);
+	public void insertReview(GradeDTO dataGrade);
 
 	public int selectTotalLike(int movieListNum);
 	
 	public void updateLike(@Param("movieListNum")int movieListNum, @Param("id")String id, @Param("condition")String condition);
 
-	public void updateReview(@Param("id")String id,@Param("movieListNum")int movieListNum, @Param("grade")String grade, @Param("review")String review, @Param("regDate")String regDate, @Param("name")String name);
+	public void updateReview(GradeDTO dataGrade);
 
 	public void insertLike(@Param("id")String id, @Param("movieListNum") int movieListNum);
 
@@ -37,6 +37,14 @@ public interface IGradeDAO {
 	public MovieDTO selectMovieInfo(int movieListNum);
 
 	public String selectRecent(int movieListNum);
+
+	public ArrayList<TicketingDTO> selectMyTickting(String id);
+
+	public String selectMyReview(@Param("movieListNum")int movieListNum, @Param("id")String id);
+
+	public String selectCinemaName(int cinemaNum);
+
+	public String selectHallName(int hallNum);
 
 	
 

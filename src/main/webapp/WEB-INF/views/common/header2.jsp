@@ -29,7 +29,7 @@
 				<li><a href="${root }cinemaListProc">영화관관리</a></li>
 				<li><a href="index?formpath=movieManagement">영화관리</a></li>
 				<li><a href="${root }memberListProc">회원관리</a></li>
-				<li><a href="index?formpath=myPage">멤버십</a></li>
+				<li><a href="${root}ticketingHistory">멤버십</a></li>
 				<li><a href="${root }customerList">고객센터</a></li>
 				<%if (session.getAttribute("loginInfo") != null) {%>
 					<li onclick="logOut()"><a href="#">로그아웃</a></li>
@@ -39,7 +39,7 @@
 			</ul>
 			<ul class="g_menu3">
 				<%if (session.getAttribute("loginInfo") != null) {%>
-					<li><a href="index?formpath=myPage" class="btn_my">마이</a></li>
+					<li><a href="${root}ticketingHistory" class="btn_my">마이</a></li>
 				<% } else { %>
 					<li><a href="register1" class="btn_my">회원가입</a></li>
 				<% } %>

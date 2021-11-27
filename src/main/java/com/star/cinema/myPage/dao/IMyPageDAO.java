@@ -19,4 +19,5 @@ public interface IMyPageDAO {
 	public void deleteMember(MemberDTO dto);
 
 	
+	
 }

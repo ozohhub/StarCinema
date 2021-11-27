@@ -62,11 +62,17 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		sb.setCharAt(1, '*');
 				
 		GradeDTO grade = selectMyGrade(dto.getId(), movieListNum);
+		GradeDTO dataGrade = new GradeDTO();
+		
+		int myGrade = Integer.parseInt(map.get("grade"));
+		dataGrade.setId(dto.getId()); dataGrade.setMovieListNum(movieListNum); dataGrade.setGrade(myGrade);
+		dataGrade.setReview(map.get("review")); dataGrade.setRegDate(regDate); dataGrade.setName(sb.toString());
+		
 		if(grade!= null) {
-			if(grade.getReview() != null ) return "이미 리뷰를 작성한 영화입니다.";		// 찜을 해서 이미 db에 있는 상태면 평점/리뷰 update
-			else dao.updateReview(dto.getId(), movieListNum, map.get("grade"), map.get("review"),regDate,sb.toString());
-		}else {																	// db에 없는 상태면 insert
-			dao.insertReview(dto.getId(), movieListNum, map.get("grade"), map.get("review"), regDate, sb.toString());
+			if(grade.getReview() != null ) return "이미 리뷰를 작성한 영화입니다.";		
+			else dao.updateReview(dataGrade); // 찜을 해서 이미 db에 있는 상태면 평점/리뷰 update
+		}else {																	
+			dao.insertReview(dataGrade);	  // db에 없는 상태면 insert
 		}
 				
 		return "등록이 완료되었습니다.";

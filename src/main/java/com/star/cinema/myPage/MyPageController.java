@@ -25,8 +25,7 @@ public class MyPageController {
 		boolean check = service.myQuestionList(model, currentPage);
 		if(check == false) return "forward:index?formpath=login";
 		
-		model.addAttribute("cp", currentPage);
-		
+		model.addAttribute("cp", currentPage);		
 		return "forward:index?formpath=myQuestion";
 	}
 	
@@ -60,7 +59,19 @@ public class MyPageController {
 		return "forward:index?formpath=myLike";	
 	}
 
-
+	@RequestMapping(value="/ticketingHistory")
+	public String ticketingHistory(Model model) {
+		boolean check = service.ticketingHistory(model);
+		if(check == false) return "forward:index?formpath=login";	
+		return "forward:index?formpath=myPage";
+	}
+	
+	@RequestMapping(value="/movieHistory")
+	public String movieHistory(Model model) {
+		boolean check = service.movieHistory(model);
+		if(check == false) return "forward:index?formpath=login";	
+		return "forward:index?formpath=myMovieHistory";
+	}
 
 }
 	
