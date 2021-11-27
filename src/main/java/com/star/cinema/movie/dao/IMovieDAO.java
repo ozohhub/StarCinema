@@ -16,6 +16,7 @@ public interface IMovieDAO {
 	public void insertMovie(MovieDTO movie);
 	public void deleteMovie(String movieName);
 	public MovieDTO selectMovie(String movieName);
+	public MovieDTO searchMovie(int movieListNum);
 	public void changeMovie(MovieDTO movie);
 	public ArrayList<String> selectDate();
 	public int movieCount();

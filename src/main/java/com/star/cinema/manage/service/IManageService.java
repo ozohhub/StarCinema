@@ -11,5 +11,8 @@ public interface IManageService {
 	public boolean timeInfoDeleteProc(String cinemaName);
 	public boolean timeInfoInsertProc(String countryName, String cinemaName, String hallName, String ticketDate, String startTime);
 	public void timeInfoSearch(Model model, String search, String type);
+	public void selectMovie(Model model, String movie);
+	public void selectDate(Model model, String date);
+	public void selectTime(Model model, String startTime);
 	
 }

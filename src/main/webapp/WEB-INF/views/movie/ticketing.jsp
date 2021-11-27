@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.time.LocalDate"%>
 <%@ page import="com.star.cinema.manage.dto.*" %>
+<%@ page import="com.star.cinema.movie.dto.*" %>
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -134,8 +135,12 @@
                     </div>
                 </div>
                 <div class="article article_time">
-                    <div class="group_top">
-                        <h4 class="tit"><%=LocalDate.now() %>(오늘)</h4>
+                    <div class="group_top" id="dateInfo">
+                        <h4 class="tit">
+                        	<% String selectDate = (String) session.getAttribute("selectDate");%>
+                        	<%=selectDate %>
+                        
+                        </h4>
                     </div>
                     <div class="inner">
                         <div class="date_select_wrap dateReserveWrap">
@@ -190,12 +195,12 @@
 	                                                <%} %>
 	                                                <label>
 	                                                <% if (dayOfWeek.equals("오늘")) { %>
-	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%> checked="checked">
+	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%> checked="checked" onclick="selectDate('<%=next%>');">
 	                                                <% } else {%>
-	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%>>
+	                                                	<input type="radio" name="radioDate1" data-displayyn="Y" data-playdate=<%=next %> data-isplaydate="Y" data-playweek=<%=dayOfWeek%> onclick="selectDate('<%=next%>');">
 	                                                <% } %>
 	                                                <strong><%=next.getDayOfMonth() %></strong>
-                                                	<em><%=dayOfWeek %></em>
+                                                	<em><%=dayOfWeek %> </em>
                                                 	</label>
                                                 </span>
                                                 </li>
@@ -214,46 +219,43 @@
                                         <div id="mCSB_11" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
                                             <div id="mCSB_11_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr" >
                                             	<div id ="timeInfo">
-                                            	<%ArrayList<TimeInfoDTO> timeInfoList = (ArrayList<TimeInfoDTO>) session.getAttribute("timeInfoList");
-                                            	
-                                            	  if (session.getAttribute("timeInfoList") == null) {%>
+                                            	<%ArrayList<TicketingInfoDTO> timeInfoList = (ArrayList<TicketingInfoDTO>) session.getAttribute("timeInfoList");
+                                            	  ArrayList<MovieDTO> movieInfoList = (ArrayList<MovieDTO>) session.getAttribute("movieList");
+                                            	  
+                                            	  if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {%>
 		                                                <div class="bx_notice">
 		                                                    <p>조회 가능한 상영시간이 없습니다.</p>
 		                                                    <p>조건을 변경해주세요.</p>
 		                                                </div>
                                                 <% } else {%>
+                                                	<% for (MovieDTO movie : movieInfoList) { %>
 		                                                <div class="group_time_select">
-													    <div class="time_select_tit"><span class="ic_grade gr_all">전체</span><strong>엔칸토: 마법의 세계</strong></div>
+													    	<div class="time_select_tit">
+													    		<span class="ic_grade gr_all">전체</span>
+													    		<strong><%=movie.getMovieName() %></strong>
+													    	</div>
 													    <div class="time_select_wrap timeSelect">
 													        <ul class="list_time">
-													            <li class=""><a role="button" href="#none">
+													        	<%for (TicketingInfoDTO time : timeInfoList) { %>
+													            	<li class=""><a role="button" href="#none" onclick="selectDate('<%=time.getTime().getStartTime() %>');">
 													                    <dl>
 													                        <dt>상영시간</dt>
-													                        <dd class="time"><strong>19:30</strong>
-													                            <div class="tooltip">종료 21:29</div>
+													                        <dd class="time">
+													                        	<strong><%=time.getTime().getStartTime() %></strong>
+													                            <div class="tooltip">종료 <%=time.endTime() %></div>
 													                        </dd>
 													                        <dt>잔여석</dt>
 													                        <dd class="seat"><strong>84</strong> / 110</dd>
 													                        <dt>상영관</dt>
-													                        <dd class="hall">4관</dd>
+													                        <dd class="hall"><%=time.getHall().getHallName() %></dd>
 													                    </dl>
 													                </a></li>
-													            <li class=""><a role="button" href="#none">
-													                    <dl>
-													                        <dt>상영시간</dt>
-													                        <dd class="time"><strong>21:45</strong>
-													                            <div class="tooltip">종료 23:44</div>
-													                        </dd>
-													                        <dt>잔여석</dt>
-													                        <dd class="seat"><strong>89</strong> / 137</dd>
-													                        <dt>상영관</dt>
-													                        <dd class="hall">4관</dd>
-													                    </dl>
-													                </a></li>
+													            <% } %>
 													        </ul>
 													    </div>
+													    <% } %>
 												    <% }%>
-											</div>
+												</div>
                                             </div>
                                             </div>
                                         </div>

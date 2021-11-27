@@ -1,7 +1,10 @@
 
 package com.star.cinema.manage.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,14 +15,18 @@ import org.springframework.ui.Model;
 import com.star.cinema.manage.dao.IManageDAO;
 import com.star.cinema.manage.dto.CinemaDTO;
 import com.star.cinema.manage.dto.HallDTO;
+import com.star.cinema.manage.dto.TicketingInfoDTO;
 import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
 import com.star.cinema.member.config.PageConfig;
 import com.star.cinema.member.dto.MemberDTO;
+import com.star.cinema.movie.dao.IMovieDAO;
+import com.star.cinema.movie.dto.MovieDTO;
 
 @Service
 public class ManageServiceImpl implements IManageService{
 	@Autowired IManageDAO dao;
+	@Autowired IMovieDAO moviedao;
 	@Autowired HttpSession session;
 	
 	@Override
@@ -88,9 +95,10 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public boolean timeInfoDeleteProc(String cinemaName) {
-		int cinemaNum = dao.cinemaName(cinemaName);
-		dao.hallDelete(cinemaNum);
-		return dao.timeInfoDelete(cinemaNum);
+		int num = dao.cinemaName(cinemaName);
+		dao.hallDelete(num);
+		dao.timeInfoDelete(num);
+		return dao.cinemaDelete(num);
 	}
 
 	@Override
@@ -111,6 +119,7 @@ public class ManageServiceImpl implements IManageService{
 		timeInfo.setStartTime(startTime);
 		timeInfo.setTicketDate(ticketDate);
 		timeInfo.setCinemaNum(cinemaNum);
+		timeInfo.setStartTime(startTime);
 		
 		dao.timeInfoInsert(timeInfo);
 		
@@ -119,17 +128,13 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public void timeInfoSearch(Model model, String search, String type) {
-		System.out.println(search);
-		int cinemaNum = dao.cinemaName(search);
-		ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
 		if (type.equals("search")) {
-			if (session.getAttribute("timeInfoList") != null) {
-				session.removeAttribute("timeInfoList");
-			}
-			if (!timeInfo.isEmpty()) {
-				session.setAttribute("timeInfoList", timeInfo);
-			}
+			String date = session.getAttribute("selectDate") == null ? "today" : (String) session.getAttribute("selectDate");
+			timeInfoHandle(model, search, "all", date);
 		} else {
+			
+			int cinemaNum = dao.cinemaName(search);
+			ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
 			ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
 			ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
 			
@@ -150,6 +155,130 @@ public class ManageServiceImpl implements IManageService{
 			model.addAttribute("timeInfoList", list);
 		}
 		
+	}
+	
+	@Override
+	public void selectTime(Model model, String startTime) {
+		System.out.println(startTime);
+		
+	}
+	
+	@Override
+	public void selectDate(Model model, String date) {
+		String search = (String) session.getAttribute("selectCinema");
+		String movie = (String) session.getAttribute("selectMovie");
+		if (session.getAttribute("selectMovie") == null) {
+			movie = "all";
+		}
+		timeInfoHandle(model, search, movie, date);
+		
+	}
+	
+	@Override
+	public void selectMovie(Model model, String movie) {
+		
+		String search = (String) session.getAttribute("selectCinema");
+		String date = (String) session.getAttribute("selectDate");
+		if (session.getAttribute("selectDate") == null) {
+			date = "today";
+		}
+		timeInfoHandle(model, search, movie, date);
+	}
+	
+	
+	
+	public void timeInfoHandle(Model model, String search, String movieKind, String date) {
+		//기존에 선택했던 정보들을 세션에서 먼저 제거한다.
+		String sessionInfos[] = {"timeInfoList", "movieList", "selectCinema", "selectDate", "selectMovie"};
+		for (String info : sessionInfos) {
+			if (session.getAttribute(info) != null) {
+				session.removeAttribute(info);
+			}
+		}
+		
+		//아무것도 선택하지 않았을시 오늘 날짜로 자동 지정.
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date checkDate = new Date();
+		if (date.equals("today")) {
+			checkDate = new Date();
+		} else {
+			String[] check = date.split("-");
+			checkDate = new Date(Integer.parseInt(check[0]) - 1900, Integer.parseInt(check[1]) - 1, Integer.parseInt(check[2]));
+		}
+		
+		//선택한 날짜와 영화관, 영화의 정보를 담아줌.
+		if (!date.equals("today"))  {
+			session.setAttribute("selectDate", date);
+		}
+		session.setAttribute("selectCinema", search);
+		session.setAttribute("selectMovie", movieKind);
+		
+		//DB에서 영화관, 상영정보를 불러와 한개의 DTO로 합침
+		int cinemaNum = dao.cinemaName(search);
+		ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
+		ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
+		ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
+		
+		//상영 시간과 현재 시간 비교를 위해 현재 시간의 값을 구해줌
+		long nowTime = Long.parseLong(df.format(checkDate).replaceAll("-", ""));
+		
+
+		if (!timeInfo.isEmpty()) {
+			ArrayList<TicketingInfoDTO> list = new ArrayList<>();
+			ArrayList<MovieDTO> movieList = new ArrayList<>();
+			int index = 0;
+			for(TimeInfoDTO t : timeInfo) { 
+				TicketingInfoDTO ticket = new TicketingInfoDTO();
+				MovieDTO movie = moviedao.searchMovie(timeInfo.get(index).getMovieNum());
+				
+				//상영시간과 현재 시간 비교를 위해 상영 시간의 값을 구해줌
+				String[] ticketDate = t.getTicketDate().split("-");
+				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
+				
+				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
+				if (movie == null || timeCheck != nowTime) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
+					index++;
+					continue;
+				}
+				
+				boolean insert = true;
+				boolean add = true;
+				
+				ticket.setMovie(movie);
+				ticket.setCinema(cinema.get(0));
+				ticket.setHall(hall.get(index));
+				ticket.setTime(t);
+				
+				for(MovieDTO check : movieList) { 
+					if (check.getMovieName().equals(movie.getMovieName())) {
+						insert = false;
+						break;
+					}
+				}
+				if (!movieKind.equals("all")) {// 영화 선택 할 시 영화 이름으로 구분
+					if (!movie.getMovieName().contains(movieKind)) {
+						add = false;
+					}
+				}
+				
+				
+				if (add) {
+					if (insert) {
+						movieList.add(movie);
+					}
+					list.add(ticket);
+				}
+				index++;
+				
+			}
+			System.out.println(list.size() + "" +  movieList.size());
+			if (!list.isEmpty()) {
+				session.setAttribute("timeInfoList", list);
+			}
+			if (!movieList.isEmpty()) {
+				session.setAttribute("movieList", movieList);
+			}
+		}
 	}
 	
 }
