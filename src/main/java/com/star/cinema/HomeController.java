@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.star.cinema.manage.dao.IManageDAO;
 import com.star.cinema.manage.dto.CinemaDTO;
+import com.star.cinema.manage.service.IManageService;
 
 @Controller
 public class HomeController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
    @Autowired IManageDAO dao;
+   @Autowired IManageService service;
 	
 	public static List<CinemaDTO> cinemaList = new ArrayList<>();
 	
@@ -29,6 +31,8 @@ public class HomeController {
       headerCinemaAdd(model);
       model.addAttribute("formpath", "main");
       model.addAttribute("page","2");
+      
+      service.moviePoster(model);
       return "index";
    }
    @RequestMapping(value = "/main")

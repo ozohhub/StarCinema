@@ -8,6 +8,7 @@ public class TimeInfoDTO {
 	private HallDTO hall;
 	private CinemaDTO cinema;
 	private int cinemaNum;
+	private String movieName;
 	
 	public int getTimeInfoNum() {
 		return timeInfoNum;
@@ -50,5 +51,11 @@ public class TimeInfoDTO {
 	}
 	public void setCinemaNum(int cinemaNum) {
 		this.cinemaNum = cinemaNum;
+	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 }

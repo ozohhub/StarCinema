@@ -4,6 +4,7 @@ public class TimeManageDTO {
 	private int timeInfoNum;
 	private String countryName;
 	private String cinemaName;
+	private String movieName;
 	private String hallName;	
 	private String ticketDate;
 	private String startTime;
@@ -43,6 +44,12 @@ public class TimeManageDTO {
 	}
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
+	}
+	public String getMovieName() {
+		return movieName;
+	}
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 	

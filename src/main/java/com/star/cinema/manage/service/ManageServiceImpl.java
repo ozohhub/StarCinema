@@ -102,7 +102,7 @@ public class ManageServiceImpl implements IManageService{
 	}
 
 	@Override
-	public boolean timeInfoInsertProc(String countryName, String cinemaName, String hallName, String ticketDate, String startTime) {
+	public boolean timeInfoInsertProc(String countryName, String cinemaName, String movieName, String hallName, String ticketDate, String startTime) {
 		TimeInfoDTO timeInfo = new TimeInfoDTO();
 		HallDTO hall = new HallDTO();
 		CinemaDTO cinema = new CinemaDTO();
@@ -119,13 +119,20 @@ public class ManageServiceImpl implements IManageService{
 		timeInfo.setStartTime(startTime);
 		timeInfo.setTicketDate(ticketDate);
 		timeInfo.setCinemaNum(cinemaNum);
-		timeInfo.setStartTime(startTime);
+		timeInfo.setMovieName(movieName);
 		
 		dao.timeInfoInsert(timeInfo);
 		
 		return true;
 	}
+	
 
+	@Override
+	public void moviePoster(Model model) {
+		ArrayList<MovieDTO> movie = dao.movieInfo();
+		model.addAttribute("mainPoster", movie);
+	}
+	
 	@Override
 	public void timeInfoSearch(Model model, String search, String type) {
 		if (type.equals("search")) {
@@ -145,6 +152,7 @@ public class ManageServiceImpl implements IManageService{
 				TimeManageDTO manage = new TimeManageDTO();
 				manage.setCountryName(cinema.get(index).getCountryName());
 				manage.setCinemaName(cinema.get(index).getCinemaName());
+				manage.setMovieName(timeInfo.get(index).getMovieName());
 				manage.setHallName(hall.get(index).getHallName());
 				manage.setTicketDate(timeInfo.get(index).getTicketDate());
 				manage.setStartTime(timeInfo.get(index).getStartTime());

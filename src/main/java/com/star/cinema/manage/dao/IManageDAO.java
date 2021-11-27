@@ -9,6 +9,7 @@ import com.star.cinema.manage.dto.CinemaDTO;
 import com.star.cinema.manage.dto.HallDTO;
 import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
+import com.star.cinema.movie.dto.MovieDTO;
 
 @Repository
 public interface IManageDAO {
@@ -19,6 +20,7 @@ public interface IManageDAO {
 	public ArrayList<HallDTO> hallList(@Param("b")int begin, @Param("e")int end);
 	public void cinemaInsert(CinemaDTO cinema);
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
+	public ArrayList<MovieDTO> movieList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<CinemaDTO> cinemaSearchForName(@Param("search") String search);
 	public ArrayList<CinemaDTO> AllCinemaList();
 	public boolean cinemaDelete(int cinemaNum);
@@ -30,4 +32,7 @@ public interface IManageDAO {
 	public ArrayList<TimeInfoDTO> timeSearch(int cinemaNum);
 	public ArrayList<HallDTO> hallSearch(int cinemaName);
 	public ArrayList<CinemaDTO> cinemaSearch(int cinemaNum);
+	public ArrayList<MovieDTO> movieInfo();
+	public int movieCount();
+	
 }

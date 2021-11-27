@@ -42,6 +42,7 @@
 									<th scope="col" id="thead0">번호</th>
 									<th scope="col" id="thead1">지역</th>
 									<th scope="col" id="thead1">지점명</th>
+									<th scope="col" id="thead1">영화명</th>
 									<th scope="col" id="thead1">영화관 이름</th>
 									<th scope="col" id="thead1">상영 날짜</th>
 									<th scope="col" id="thead1">상영 시간</th>
@@ -54,6 +55,7 @@
 									<td id="row0" headers="thead0">${info.getTimeInfoNum() }</td>
 									<td id="row0" headers="thead0">${info.getCountryName() }</td>
 									<td id="row0" headers="thead0">${info.getCinemaName() }</td>
+									<td id="row0" headers="thead0">${info.getMovieName() }</td>
 									<td id="row0" headers="thead0">${info.getHallName() }</td>
 									<td id="row0" headers="thead0">${info.getTicketDate() }</td>
 									<td id="row0" headers="thead0">${info.getStartTime() }</td>
