@@ -19,7 +19,4 @@ public interface IMovieDAO {
 	public void changeMovie(MovieDTO movie);
 	public ArrayList<String> selectDate();
 	public int movieCount();
-	public ArrayList<MovieDTO> selectNowMovie(String string);
-	public ArrayList<MovieDTO> selectLaterMovie(String string);
-
 }

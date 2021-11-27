@@ -66,9 +66,7 @@ $(document).ready(function(){
 	            </li>
 	            </c:forEach>
 	        </ul>
-	        
 	        <a href="movieInfoListProc" class="btn_txt_more ty2">더보기</a>
-	       
 	    </div>
 	</div>
 </body>			
