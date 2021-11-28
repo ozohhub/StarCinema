@@ -62,7 +62,7 @@ $(document).ready(function(){
 			<ul class="multiple_slider">
 			<c:forEach var="movie" items="${mainPoster }" varStatus="status">
 				<li>
-					<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }.jpg');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
+					<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
 						<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
 							<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${status.count }';">상세정보</button>

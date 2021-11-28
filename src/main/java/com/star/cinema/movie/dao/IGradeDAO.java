@@ -39,7 +39,7 @@ public interface IGradeDAO {
 	public String selectRecentReview(int movieListNum);
 
 	public ArrayList<TicketingDTO> selectMyTickting(String id);
-	
+	// 오늘 기준 한달전 ~ 오늘 기준 일주일 후 기간내에 예매한 정보 리스트로 가져옴
 	public ArrayList<TicketingDTO> selectRecentTicketing(String id);
 
 	public String selectMyReview(@Param("movieListNum")int movieListNum, @Param("id")String id);

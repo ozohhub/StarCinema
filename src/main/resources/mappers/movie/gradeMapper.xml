@@ -105,7 +105,7 @@
 	</select>
 	
 	<select id="selectRecentTicketing" parameterType="String" resultMap="ticketing">
-		SELECT * FROM ticketing WHERE id = #{id} AND openDate BETWEEN trunc(sysdate) - 30 AND trunc(sysdate) ORDER BY ticketingNum desc
+		SELECT * FROM ticketing WHERE id = #{id} AND openDate BETWEEN trunc(sysdate) - 30 AND trunc(sysdate)+7 ORDER BY ticketingNum desc
 	</select>
 	
 	<select id="selectMyReview" resultType="String">

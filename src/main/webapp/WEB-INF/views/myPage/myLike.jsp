@@ -12,6 +12,7 @@
 
 <%@ include file="myPageHeader.jsp" %>
 
+
 <center>
 	<div class="sub_content">
 		<div class="myLike">

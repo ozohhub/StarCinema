@@ -112,6 +112,7 @@ public class MyPageServiceImpl implements IMyPageService {
 		Map<Integer,String> myReview = new HashMap<Integer,String>();
 		Map<Integer,String> cinemaName = new HashMap<Integer,String>();
 		Map<Integer,String> hallName = new HashMap<Integer,String>();
+		Map<Integer,String> reviewTime = new HashMap<Integer,String>();
 		
 		if(recent.equals("recent")) {
 			myTicketing = gradeDao.selectRecentTicketing(dto.getId());
@@ -127,6 +128,7 @@ public class MyPageServiceImpl implements IMyPageService {
 				if(!recent.equals("recent")) {
 					String review = gradeDao.selectMyReview(t.getMovieListNum(), dto.getId());
 					if(review != null) myReview.put(t.getMovieListNum(), review);
+					reviewTime.put(t.getMovieListNum(),timeCalc(t.getOpenDate(),t.getOpenTime(),movie.getMovieTime()));
 				}
 
 				myMovieInfo.put(t.getMovieListNum(), movie);				
@@ -141,8 +143,37 @@ public class MyPageServiceImpl implements IMyPageService {
 		model.addAttribute("hallName", hallName);
 		if(!recent.equals("recent")) {
 			model.addAttribute("myReview", myReview);
+			model.addAttribute("reviewTime", reviewTime);
 		}
 		
 		return true;
 	}	
+	/* 리뷰 작성 위해 시간 구하기 -> 현재시간보보다 작아야 리뷰작성가능*/
+	public String timeCalc(String day, String oldTime, String runningTime){
+		
+		String oldH = oldTime.substring(0,2);
+		String oldM = oldTime.substring(3);
+		
+		int n = Integer.parseInt(runningTime);
+		int h = Integer.parseInt(oldH);
+		int m = Integer.parseInt(oldM);
+		
+		int plusH = n / 60;
+		int plusM = n % 60;
+			
+		int newH =h+plusH;
+		int newM = m+plusM;
+		
+		if(newM > 60){
+			newH+=1;
+			newM-=60;
+		}
+		
+		String lastM = newM+"";
+		String lastH = newH+"";
+		if(lastM.length() == 1) lastM = "0"+lastM;
+		if(lastH.length() == 1) lastH = "0"+lastH;
+		
+		return day+"-"+lastH+"-"+lastM;
+	}
 }

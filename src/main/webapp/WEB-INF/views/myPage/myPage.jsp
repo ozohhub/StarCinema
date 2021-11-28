@@ -41,7 +41,7 @@
 									<c:if test="${movieAge == '0'}"><c:set var="movieAge" value="전체"/></c:if>
 									<c:if test="${movieAge == '18'}"><c:set var="movieAge" value="청불"/></c:if>								
 									<span class="${grAge }">${movieAge}</span>
-									${movieinfo.movieName}
+									<span style="font-size: 16px;">${movieinfo.movieName}</span>
 								</strong>
 								<div class="detail_reserve1">
 									<span class="detail_info">

@@ -15,6 +15,7 @@ import com.star.cinema.movie.dao.IGradeDAO;
 import com.star.cinema.movie.dto.GradeDTO;
 import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
+import com.star.cinema.myPage.service.MyPageServiceImpl;
 
 @Service
 public class MovieDetailServiceImpl implements IMovieDetailService {
@@ -54,6 +55,7 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		MemberDTO dto = (MemberDTO)session.getAttribute("loginInfo");
 		
 		if(selectReserve(dto.getId(), movieListNum) == null) return "관람내역이 없습니다. 관람 후 작성해주세요.";
+		if(enableReview(movieListNum, dto.getId()) == false) return "아직 관람하지 않은 영화입니다. 관람 후 작성해주세요";
 				
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 		String regDate = sdf.format(new Date());
@@ -102,7 +104,22 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		return dao.selectTotalLike(movieListNum);
 	}
 
+	public boolean enableReview(int movieListNum, String id) {
+		TicketingDTO ticket = selectReserve(id, movieListNum);
+		MovieDTO movie = selectMovieNum(movieListNum);
+		
+		MyPageServiceImpl svc = new MyPageServiceImpl();
+		String reviewTime = svc.timeCalc(ticket.getOpenDate(), ticket.getOpenTime(), movie.getMovieTime());
+		reviewTime = reviewTime.replaceAll("-", "");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+		String nowDate = sdf.format(new Date());
 
+		if(Long.parseLong(nowDate) > Long.parseLong(reviewTime) ) {
+			return true;
+		}return false;
+
+	}
 
 	
 

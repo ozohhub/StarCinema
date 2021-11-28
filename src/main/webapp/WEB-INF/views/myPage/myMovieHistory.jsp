@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
@@ -37,7 +38,7 @@
 								<c:if test="${movieAge == '0'}"><c:set var="movieAge" value="전체"/></c:if>
 								<c:if test="${movieAge == '18'}"><c:set var="movieAge" value="청불"/></c:if>								
 								<span class="${grAge }">${movieAge}</span>
-								${movieinfo.movieName}
+								<span style="font-size: 16px;">${movieinfo.movieName}</span>
 							</strong>
 							<div class="detail_history1">
 								<span class="detail_info">
@@ -70,7 +71,10 @@
 								<dt>My Review</dt>
 								<dd>${myReview.get(myHistory.movieListNum)}</dd>
 							</dl>
-							<c:if test="${empty myReview.get(myHistory.movieListNum)}">
+							
+							<c:set var="present" value="<%=new java.util.Date() %>"/>
+							<c:set var = "nowTime"><fmt:formatDate value="${present}" pattern ="yyyy-MM-dd-HH-mm"/></c:set>
+							<c:if test="${empty myReview.get(myHistory.movieListNum) && nowTime > reviewTime.get(myHistory.movieListNum)}">
 								<div class="reviewWrite_btn_area">
 									<a href="movieDetailProc?movieListNum=${myHistory.movieListNum}">
 										<span>리뷰쓰기</span>
