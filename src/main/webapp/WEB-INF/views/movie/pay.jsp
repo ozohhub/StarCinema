@@ -17,7 +17,7 @@
 <body>
 	<%
 	TicketingInfoDTO tickets = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
-		  MainDTO movie = tickets.getMovie();
+		  MovieDTO movie = tickets.getMovie();
 		  HallDTO hall = tickets.getHall();
 		  TimeInfoDTO time = tickets.getTime();
 		  CinemaDTO cinema = tickets.getCinema();

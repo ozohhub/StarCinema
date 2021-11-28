@@ -218,7 +218,7 @@
                                             	<div id ="timeInfo">
                                             	<%
                                             	ArrayList<TicketingInfoDTO> timeInfoList = (ArrayList<TicketingInfoDTO>) session.getAttribute("timeInfoList");
-                                            	                                            	  ArrayList<MainDTO> movieInfoList = (ArrayList<MainDTO>) session.getAttribute("movieList");
+                                            	                                            	  ArrayList<MovieDTO> movieInfoList = (ArrayList<MovieDTO>) session.getAttribute("movieList");
                                             	                                            	  
                                             	                                            	  if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {
                                             	%>
@@ -230,7 +230,7 @@
                                                 } else {
                                                 %>
                                                 	<%
-                                                	for (MainDTO movie : movieInfoList) {
+                                                	for (MovieDTO movie : movieInfoList) {
                                                 	%>
 		                                                <div class="group_time_select">
 													    	<div class="time_select_tit">
