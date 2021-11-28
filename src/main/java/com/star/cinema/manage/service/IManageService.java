@@ -1,5 +1,7 @@
 package com.star.cinema.manage.service;
 
+import java.util.Map;
+
 import org.springframework.ui.Model;
 
 public interface IManageService {
@@ -13,6 +15,6 @@ public interface IManageService {
 	public void timeInfoSearch(Model model, String search, String type);
 	public void selectMovie(Model model, String movie);
 	public void selectDate(Model model, String date);
-	public void selectTime(Model model, String startTime);
+	public void selectTime(Model model, Map<String, String> map);
 	public void moviePoster(Model model);
 }

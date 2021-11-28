@@ -51,8 +51,16 @@ public class TicketingController {
 	
 	@ResponseBody
 	@RequestMapping(value = "selectMovie")
-	public void selectMovie(Model model, @RequestBody Map<String, String> map) {
-		manageService.selectMovie(model, map.get("movieName"));
+	public void selectMovie(Model model, HttpSession session, @RequestBody Map<String, String> map) {
+		if (session.getAttribute("selectCinema") != null) {
+			manageService.selectMovie(model, map.get("movieName"));
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "selectTime")
+	public void selectTime(Model model, @RequestBody Map<String, String> map) {
+		manageService.selectTime(model, map);
 	}
 	
 	@ResponseBody
@@ -63,12 +71,7 @@ public class TicketingController {
 			manageService.selectDate(model, map.get("date"));
 		}
 	}
-	
-	@ResponseBody
-	@RequestMapping(value = "selectTime")
-	public void selectTime(Model model, @RequestBody Map<String, String> map) {
-		manageService.selectTime(model, map.get("time"));
-	}
+
 	
 	@RequestMapping (value = "seatProc")
 	public String seatInsert(Model model, String title, String reserveDate, String runningTime, String totalPrice,

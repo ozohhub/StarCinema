@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.star.cinema.manage.dto.*" %>
+<%@ page import="com.star.cinema.movie.dto.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +28,12 @@
 </script>
 </head>
 <body>
+	<%TicketingInfoDTO ticket = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
+	  MovieDTO movie = ticket.getMovie();
+	  HallDTO hall = ticket.getHall();
+	  TimeInfoDTO time = ticket.getTime();
+	  CinemaDTO cinema = ticket.getCinema();%>
+	  
     <div id="contents" class="contents_full contents_reserve">
 
         <div class="wrap_reserve">
@@ -119,19 +127,18 @@
 							</div>
 						</div>
 						<div class="select-seat-information">
-							<div class="selected-movie">베놈</div>
+							<div class="selected-movie"><%=movie.getMovieName() %></div>
 							<div class="select-seat-information-wrapper">
-								<div class="select-theater-place selected-theater-place-info cinema">CGV강남</div>
-								<div style="width: 30px;" class="select-theater-place selected-theater-place-info hall">3관</div>
-								<div style="width: 30px;" class="select-theater-place selected-theater-place-info">8층</div>
+								<div class="select-theater-place selected-theater-place-info cinema"><%=cinema.getCinemaName() %></div>
+								<div style="width: 30px;" class="select-theater-place selected-theater-place-info hall"><%=hall.getHallName() %></div>
 								<div class="select-theater-place">
 									<span>남은좌석</span><span class="remain-seats">152</span>/<span class="all-seats">172</span>
 								</div>
 							</div>
 							
 							<div class="select-theater-date">
-								<div class="theater-date">2021-11-24</div>
-								<div class="theater-time">18:00</div>
+								<div class="theater-date"><%=time.getTicketDate() %></div>
+								<div class="theater-time"><%=time.getStartTime() %></div>
 							</div>
 							<div class="selected-seats-wrapper">
 								<span class="selected-seats-title">좌석번호</span> <span

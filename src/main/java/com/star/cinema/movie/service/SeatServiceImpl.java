@@ -5,8 +5,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.star.cinema.manage.dto.CinemaDTO;
+import com.star.cinema.manage.dto.TicketingInfoDTO;
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.ITicketingDAO;
+import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
 
 @Service
@@ -16,8 +19,15 @@ public class SeatServiceImpl implements ISeatService{
 	
 	@Override
 	public boolean seatProc(TicketingDTO dto, String hallName) {
-		int movieListNum = dao.searchMovieListNum("베놈");  //수정해야함
-		int cinemaNum = dao.searchCinemaNum("안산점"); //수정해야함
+		if (session.getAttribute("selectTicket") == null) {
+			return false;
+		}
+		
+		MovieDTO movie = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getMovie();
+		CinemaDTO cinema = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getCinema();
+		
+		int movieListNum = dao.searchMovieListNum(movie.getMovieName());
+		int cinemaNum = dao.searchCinemaNum(cinema.getCinemaName());
 		
 		dto.setMovieListNum(movieListNum);
 		dto.setCinemaNum(cinemaNum);

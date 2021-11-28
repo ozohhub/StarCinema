@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.star.cinema.manage.dto.*" %>
 <%@ page import="com.star.cinema.movie.dto.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -14,6 +15,12 @@
 </head>
 
 <body>
+	<%TicketingInfoDTO tickets = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
+	  MovieDTO movie = tickets.getMovie();
+	  HallDTO hall = tickets.getHall();
+	  TimeInfoDTO time = tickets.getTime();
+	  CinemaDTO cinema = tickets.getCinema();%>
+	  
     <div id="contents" class="contents_full contents_reserve">
         <div class="wrap_reserve ">
 			<h2 class="hidden">예매하기</h2>
@@ -56,14 +63,24 @@
                         <%TicketingDTO ticket = (TicketingDTO) session.getAttribute("seatList"); %>
                             <div class="movie_infor new2020">
                                 <span class="thm">
-                                    <img src="https://caching.lottecinema.co.kr//Media/MovieFile/MovieImg/202111/17885_104_1.jpg" alt="이터널스">
+                                    <img src="${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>" alt="<%=movie.getMovieName()%>">
                                 </span>
-                                <strong class="tit"><span class="ic_grade gr_12"></span>&nbsp;<%=ticket.getMoiveName() %></strong>
+                                <strong class="tit">
+                                <%if (movie.getMovieAge().equals("12")) { %>
+									<span class="ic_grade gr_12">12세 관람가</span>
+								<%} else if (movie.getMovieAge().equals("15")) { %>
+									<span class="ic_grade gr_15">15세 관람가</span>
+								<%} else if (movie.getMovieAge().equals("18")) { %>
+									<span class="ic_grade gr_18">18세 관람가</span>
+								<%} else { %>
+									<span class="ic_grade gr_all">전체</span>
+								<%} %>
+                                &nbsp;<%=ticket.getMoiveName() %></strong>
                                 <dl class="dlist_infor">
                                     <dt>일시</dt>
                                     <dd><strong><%=ticket.getOpenDate()%></strong></dd>
                                     <dt>영화관</dt>
-                                    <dd>가산디지털 5관 - 2D</dd>
+                                    <dd><%=cinema.getCinemaName() %> - <%=hall.getHallName() %></dd>
                                     <dt>인원</dt>
                                     <dd><%=ticket.getPeople()%>명</dd>
                                 </dl>

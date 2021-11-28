@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -69,18 +70,19 @@ public class ManageServiceImpl implements IManageService{
 		int begin = end + 1 - pageBlock;
 		ArrayList<TimeInfoDTO> timeInfo = dao.timeInfoList(begin, end);
 		ArrayList<HallDTO> hall = dao.hallList(begin, end);
-		ArrayList<CinemaDTO> cinema = dao.cinemaList(begin, end);
 		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
 		
 		if(timeInfo != null) {
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) {
 				TimeManageDTO manage = new TimeManageDTO();
-				manage.setCountryName(cinema.get(index).getCountryName());
-				manage.setCinemaName(cinema.get(index).getCinemaName());
+				CinemaDTO cinema = dao.cinemaSearch(t.getCinemaNum()).get(0);
+				manage.setCountryName(cinema.getCountryName());
+				manage.setCinemaName(cinema.getCinemaName());
 				manage.setHallName(hall.get(index).getHallName());
 				manage.setTicketDate(timeInfo.get(index).getTicketDate());
 				manage.setStartTime(timeInfo.get(index).getStartTime());
+				manage.setMovieName(timeInfo.get(index).getMovieName());
 				manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
 				list.add(manage);
 				index++;
@@ -150,8 +152,8 @@ public class ManageServiceImpl implements IManageService{
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) {
 				TimeManageDTO manage = new TimeManageDTO();
-				manage.setCountryName(cinema.get(index).getCountryName());
-				manage.setCinemaName(cinema.get(index).getCinemaName());
+				manage.setCountryName(cinema.get(0).getCountryName());
+				manage.setCinemaName(cinema.get(0).getCinemaName());
 				manage.setMovieName(timeInfo.get(index).getMovieName());
 				manage.setHallName(hall.get(index).getHallName());
 				manage.setTicketDate(timeInfo.get(index).getTicketDate());
@@ -166,9 +168,19 @@ public class ManageServiceImpl implements IManageService{
 	}
 	
 	@Override
-	public void selectTime(Model model, String startTime) {
-		System.out.println(startTime);
+	public void selectTime(Model model, Map<String, String> map) {
+		MovieDTO movie = moviedao.selectMovie(map.get("movieName"));
+		CinemaDTO cinema = dao.cinemaSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
+		HallDTO hall = dao.hallSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
+		TimeInfoDTO time = dao.timeSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
 		
+		TicketingInfoDTO info = new TicketingInfoDTO();
+		info.setCinema(cinema);
+		info.setHall(hall);
+		info.setMovie(movie);
+		info.setTime(time);
+
+		session.setAttribute("selectTicket", info);
 	}
 	
 	@Override
@@ -279,7 +291,6 @@ public class ManageServiceImpl implements IManageService{
 				index++;
 				
 			}
-			System.out.println(list.size() + "" +  movieList.size());
 			if (!list.isEmpty()) {
 				session.setAttribute("timeInfoList", list);
 			}

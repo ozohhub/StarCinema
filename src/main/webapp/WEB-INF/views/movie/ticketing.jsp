@@ -1,5 +1,6 @@
 
 
+<%@page import="com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.time.LocalDate"%>
@@ -99,11 +100,7 @@
                                     <div id="mCSB_9_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
                                         <ul>
                                         <c:forEach var="movie" items="${movieList }" varStatus="status">
-                                            <c:choose>
-                                        		<c:when test="${status.count == 1}"> <li class="active"> </c:when>
-                                        		<c:otherwise> <li class=""> </c:otherwise>
-                                        	</c:choose>
-                                         		<li class="">
+                                            	<li class="movieSel">
                                          			<a href="#none">
                                                     	<div class="bx_thm"> </div>
                                                     	<div class="group_infor">
@@ -114,7 +111,7 @@
                                                         		<c:when test="${movie.movieAge == 18}"> <span class="ic_grade gr_18">18세 관람가</span> </c:when>
                                                         		<c:otherwise> <span class="ic_grade gr_all">0세 관람가</span> </c:otherwise>
                                                         	</c:choose>
-                                                        	<strong class="tit">${movie.movieName}</strong>
+                                                        	<strong class="tit" onclick="selectMovie('${movie.movieName}')">${movie.movieName}</strong>
                                                         </div>
                                                     </div>
                                                 </a></li>
@@ -231,13 +228,23 @@
                                                 	<% for (MovieDTO movie : movieInfoList) { %>
 		                                                <div class="group_time_select">
 													    	<div class="time_select_tit">
-													    		<span class="ic_grade gr_all">전체</span>
+													    		<%if (movie.getMovieAge().equals("12")) { %>
+													    			<span class="ic_grade gr_12">12세 관람가</span>
+																<%} else if (movie.getMovieAge().equals("15")) { %>
+													    			<span class="ic_grade gr_15">15세 관람가</span>
+																<%} else if (movie.getMovieAge().equals("18")) { %>
+													    			<span class="ic_grade gr_18">18세 관람가</span>
+																<%} else { %>
+													    			<span class="ic_grade gr_all">전체</span>
+																<%} %>
 													    		<strong><%=movie.getMovieName() %></strong>
 													    	</div>
 													    <div class="time_select_wrap timeSelect">
 													        <ul class="list_time">
-													        	<%for (TicketingInfoDTO time : timeInfoList) { %>
-													            	<li class=""><a role="button" href="#none" onclick="selectDate('<%=time.getTime().getStartTime() %>');">
+													        	<%for (TicketingInfoDTO time : timeInfoList) { 
+													        		if (time.getMovie().getMovieName().equals(movie.getMovieName())) {%>
+													            	<li class="">
+													            		<a role="button" href="#none" onclick="selectTime('<%=time.getTime().getTicketDate() %>', '<%=time.getTime().getStartTime() %>','<%=time.getCinema().getCinemaNum() %>', '<%=time.getHall().getHallNum() %>', '<%=time.getTime().getTimeInfoNum()%>', '<%=movie.getMovieName()%>', '${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>');">
 													                    <dl>
 													                        <dt>상영시간</dt>
 													                        <dd class="time">
@@ -250,7 +257,7 @@
 													                        <dd class="hall"><%=time.getHall().getHallName() %></dd>
 													                    </dl>
 													                </a></li>
-													            <% } %>
+													            <% } } %>
 													        </ul>
 													    </div>
 													    <% } %>
