@@ -28,11 +28,13 @@
 </script>
 </head>
 <body>
-	<%TicketingInfoDTO ticket = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
-	  MovieDTO movie = ticket.getMovie();
-	  HallDTO hall = ticket.getHall();
-	  TimeInfoDTO time = ticket.getTime();
-	  CinemaDTO cinema = ticket.getCinema();%>
+	<%
+	TicketingInfoDTO ticket = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
+		  MainDTO movie = ticket.getMovie();
+		  HallDTO hall = ticket.getHall();
+		  TimeInfoDTO time = ticket.getTime();
+		  CinemaDTO cinema = ticket.getCinema();
+	%>
 	  
     <div id="contents" class="contents_full contents_reserve">
 

@@ -15,11 +15,13 @@
 </head>
 
 <body>
-	<%TicketingInfoDTO tickets = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
-	  MovieDTO movie = tickets.getMovie();
-	  HallDTO hall = tickets.getHall();
-	  TimeInfoDTO time = tickets.getTime();
-	  CinemaDTO cinema = tickets.getCinema();%>
+	<%
+	TicketingInfoDTO tickets = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
+		  MainDTO movie = tickets.getMovie();
+		  HallDTO hall = tickets.getHall();
+		  TimeInfoDTO time = tickets.getTime();
+		  CinemaDTO cinema = tickets.getCinema();
+	%>
 	  
     <div id="contents" class="contents_full contents_reserve">
         <div class="wrap_reserve ">

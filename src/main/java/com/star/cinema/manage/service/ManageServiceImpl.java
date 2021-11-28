@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -133,6 +134,42 @@ public class ManageServiceImpl implements IManageService{
 	public void moviePoster(Model model) {
 		ArrayList<MovieDTO> movie = dao.movieInfo();
 		model.addAttribute("mainPoster", movie);
+		//dao에서 (movieListNum / count(*))한 값 가져오기
+		ArrayList<Integer> eachTicket = dao.movieNumList();
+		ArrayList<Double> rate = new ArrayList<Double>();
+		Map<Integer, Double> movieRate = new HashMap<>();
+		ArrayList<Integer> selectMovie = new ArrayList<Integer>();
+		ArrayList<MovieDTO> movielist = dao.movieInfo();
+		
+		//백분율
+		for(int i=0;i<eachTicket.size();i++) {
+			rate = dao.selectRate(eachTicket.get(i));
+			selectMovie = dao.selectMovie(eachTicket.get(0));
+		}
+		
+		for(int i=0;i<rate.size();i++) {
+			movieRate.put(selectMovie.get(0), rate.get(i));
+		}
+		
+		// Value 기준으로 내림차순 정렬.
+		for (int i = 0; i < movieRate.size() - 1; i++) {
+            for (int j = 0; j < (movieRate.size() - i) - 1; j++) {
+                if (movieRate.get(j) > movieRate.get(j + 1)) {
+                    double newValue = movieRate.get(j + 1);
+                    
+                    movieRate.replace(j + 1, movieRate.get(j));
+                    movieRate.replace(j, newValue);
+                }
+            }
+        }
+		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
+			if(test.getKey().equals(selectMovie.get(0))) {
+				
+			}
+		}
+		System.out.println(movieRate.size());
+		model.addAttribute("movieListInfo", movielist);
+		model.addAttribute("map", movieRate);
 	}
 	
 	@Override

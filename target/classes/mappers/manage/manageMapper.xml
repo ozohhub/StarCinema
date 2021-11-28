@@ -126,8 +126,20 @@
 		SELECT * FROM MovieList
 	</select>
 	
-	<select id="movieCount">
-		SELECT count(*) FROM ticketing
+	<select id="movieNumList" parameterType="com.star.cinema.manage.dto.TimeInfoDTO" resultType="int">
+		SELECT movieListNum FROM timeinfo
+	</select>
+	
+	<select id="movieCount" resultType="int">
+		SELECT count(*) FROM timeinfo WHERE movieListNum=#{movieListNum}
+	</select>
+	
+	<select id="selectRate" resultType="double">
+		SELECT (SELECT count(*) FROM ticketing WHERE movieListNum=#{movieListNum}) / (SELECT count(*) from ticketing) * 100 FROM ticketing
+	</select>
+	
+	<select id="selectMovie" resultType="int">
+		SELECT movieListNum FROM timeinfo WHERE movieListNum=#{movieListNum}
 	</select>
 		
 </mapper>

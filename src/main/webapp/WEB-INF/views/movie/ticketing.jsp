@@ -216,16 +216,22 @@
                                         <div id="mCSB_11" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" style="max-height: none;" tabindex="0">
                                             <div id="mCSB_11_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr" >
                                             	<div id ="timeInfo">
-                                            	<%ArrayList<TicketingInfoDTO> timeInfoList = (ArrayList<TicketingInfoDTO>) session.getAttribute("timeInfoList");
-                                            	  ArrayList<MovieDTO> movieInfoList = (ArrayList<MovieDTO>) session.getAttribute("movieList");
-                                            	  
-                                            	  if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {%>
+                                            	<%
+                                            	ArrayList<TicketingInfoDTO> timeInfoList = (ArrayList<TicketingInfoDTO>) session.getAttribute("timeInfoList");
+                                            	                                            	  ArrayList<MainDTO> movieInfoList = (ArrayList<MainDTO>) session.getAttribute("movieList");
+                                            	                                            	  
+                                            	                                            	  if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {
+                                            	%>
 		                                                <div class="bx_notice">
 		                                                    <p>조회 가능한 상영시간이 없습니다.</p>
 		                                                    <p>조건을 변경해주세요.</p>
 		                                                </div>
-                                                <% } else {%>
-                                                	<% for (MovieDTO movie : movieInfoList) { %>
+                                                <%
+                                                } else {
+                                                %>
+                                                	<%
+                                                	for (MainDTO movie : movieInfoList) {
+                                                	%>
 		                                                <div class="group_time_select">
 													    	<div class="time_select_tit">
 													    		<%if (movie.getMovieAge().equals("12")) { %>

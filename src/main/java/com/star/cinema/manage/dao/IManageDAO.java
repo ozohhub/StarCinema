@@ -10,6 +10,7 @@ import com.star.cinema.manage.dto.HallDTO;
 import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
 import com.star.cinema.movie.dto.MovieDTO;
+import com.star.cinema.movie.dto.TicketingDTO;
 
 @Repository
 public interface IManageDAO {
@@ -33,6 +34,9 @@ public interface IManageDAO {
 	public ArrayList<HallDTO> hallSearch(int cinemaName);
 	public ArrayList<CinemaDTO> cinemaSearch(int cinemaNum);
 	public ArrayList<MovieDTO> movieInfo();
-	public int movieCount();
+	public ArrayList<Integer> movieNumList();
+	public int movieCount(int movieListNum);
+	public ArrayList<Double> selectRate(int movieListNum);
+	public ArrayList<Integer> selectMovie(int movieListNum);
 	
 }
