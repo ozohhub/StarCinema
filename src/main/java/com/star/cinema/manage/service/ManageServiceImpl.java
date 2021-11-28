@@ -242,20 +242,23 @@ public class ManageServiceImpl implements IManageService{
 		//상영 시간과 현재 시간 비교를 위해 현재 시간의 값을 구해줌
 		long nowTime = Long.parseLong(df.format(checkDate).replaceAll("-", ""));
 		
-
+		System.out.println("dda : " + timeInfo.isEmpty());
+		System.out.println(search);
+		System.out.println(movieKind);
 		if (!timeInfo.isEmpty()) {
 			ArrayList<TicketingInfoDTO> list = new ArrayList<>();
 			ArrayList<MovieDTO> movieList = new ArrayList<>();
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) { 
 				TicketingInfoDTO ticket = new TicketingInfoDTO();
-				MovieDTO movie = moviedao.searchMovie(timeInfo.get(index).getMovieNum());
-				
+				MovieDTO movie = moviedao.searchMovie(t.getMovieListNum());
+				System.out.println(t.getMovieListNum());
 				//상영시간과 현재 시간 비교를 위해 상영 시간의 값을 구해줌
 				String[] ticketDate = t.getTicketDate().split("-");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
 				
 				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
+				System.out.println(timeCheck  + " / " + nowTime);
 				if (movie == null || timeCheck != nowTime) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
 					index++;
 					continue;
@@ -270,6 +273,7 @@ public class ManageServiceImpl implements IManageService{
 				ticket.setTime(t);
 				
 				for(MovieDTO check : movieList) { 
+					System.out.println(check.getMovieName() + "" + movie.getMovieName());
 					if (check.getMovieName().equals(movie.getMovieName())) {
 						insert = false;
 						break;
@@ -291,6 +295,7 @@ public class ManageServiceImpl implements IManageService{
 				index++;
 				
 			}
+			System.out.println("movieList : " + movieList.size());
 			if (!list.isEmpty()) {
 				session.setAttribute("timeInfoList", list);
 			}

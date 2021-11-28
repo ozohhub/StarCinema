@@ -120,7 +120,12 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		}return false;
 
 	}
+	
+	public void preferGender() {
+		
+	}
 
+	
 	
 
 

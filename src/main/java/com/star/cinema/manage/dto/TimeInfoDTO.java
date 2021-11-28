@@ -3,7 +3,7 @@ package com.star.cinema.manage.dto;
 public class TimeInfoDTO {
 	private int timeInfoNum;
 	private String startTime;
-	private int movieNum;
+	private int movieListNum;
 	private String ticketDate;
 	private HallDTO hall;
 	private CinemaDTO cinema;
@@ -22,11 +22,11 @@ public class TimeInfoDTO {
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-	public int getMovieNum() {
-		return movieNum;
+	public int getMovieListNum() {
+		return movieListNum;
 	}
-	public void setMovieNum(int movieNum) {
-		this.movieNum = movieNum;
+	public void setMovieListNum(int movieListNum) {
+		this.movieListNum = movieListNum;
 	}
 	public String getTicketDate() {
 		return ticketDate;
