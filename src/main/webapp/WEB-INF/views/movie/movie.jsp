@@ -50,10 +50,10 @@ $(document).ready(function(){
 	        <ul class="movie_list">
 	        <c:forEach var="movie" items="${movieList }" varStatus="status">
 	        	<li class="screen_add_box">
-	            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }.jpg');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+	            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 						<div class="movieBtn${status.count }">
 							<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }">상세정보</button>
+							<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movie.getMovieListNum() }';">상세정보</button>
 						</div>
 					</div>
 	                <div class="btm_info">
@@ -66,7 +66,7 @@ $(document).ready(function(){
 	            </li>
 	            </c:forEach>
 	        </ul>
-	        <a href="movieInfoListProc" class="btn_txt_more ty2">더보기</a>
+	        <a href="movieInfoListProc?page=1" class="btn_txt_more ty2">더보기</a>
 	    </div>
 	</div>
 </body>			

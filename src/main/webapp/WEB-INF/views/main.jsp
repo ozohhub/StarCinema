@@ -65,14 +65,14 @@ $(document).ready(function(){
 					<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
 						<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
 							<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=2';">상세정보</button>
+							<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
 						</div>
 					</div>
-					<div class = "movieInfo">
-	                    <h3>${movieList.getMovieName() }</h3>
+					<div class="movieInfo" style="text-align: center;">
+	                    <h3 style="font-size: 30px;">${movieList.getMovieName() }</h3>
 	                    <c:forEach var="rate" items="${map }">
 							<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
-								<span>예매율 ${rate.getValue() }</span>
+								<span style="font-size: 15px;">예매율 ${rate.getValue() }</span>
 							</c:if>
 						</c:forEach>
                		</div>

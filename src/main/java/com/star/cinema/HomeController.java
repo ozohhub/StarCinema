@@ -34,7 +34,7 @@ public class HomeController {
       session.removeAttribute("authState");
       headerCinemaAdd(model);
       model.addAttribute("formpath", "main");
-      model.addAttribute("page","2");
+      model.addAttribute("page","1");
       
       service.moviePoster(model);
       return "index";

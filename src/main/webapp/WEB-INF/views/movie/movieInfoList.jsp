@@ -50,12 +50,12 @@ $(document).ready(function(){
 	        <ul class="tab_btn_type1">
 	        	<c:choose>
 	        		<c:when test="${page == '1' }">
-	        			<li class="active" style="border-bottom: 1px solid rgb(0, 0, 0);"><button type="button" onclick="nowMovieInfo(); javascript:location.href='index?formpath=movieInfoList&page=1';"><span class="now_span" style="color: black;">현재 상영작</span></button></li>
-	            		<li class="nonActive" ><button type="button" onclick="laterMovieInfo(); javascript:location.href='movieInfoListProc?page=1';"><span class="later_span" style="color: #BDBDBD;">상영 예정작</span></button></li>
+	        			<li class="active" style="border-bottom: 1px solid rgb(0, 0, 0);"><button type="button" onclick="nowMovieInfo();"><span onclick="javascript:location.href='movieInfoListProc?page=1';" class="now_span" style="color: black;">현재 상영작</span></button></li>
+	            		<li class="nonActive"><button type="button" onclick="laterMovieInfo();"><span onclick="javascript:location.href='movieInfoListProc?page=2';" class="later_span" style="color: #BDBDBD;">상영 예정작</span></button></li>
 	        		</c:when>
 	        		<c:otherwise>
-	        			<li class="active"><button type="button" onclick="nowMovieInfo(); javascript:location.href='index?formpath=movieInfoList&page=1';"><span class="now_span" style="color: #BDBDBD;">현재 상영작</span></button></li>
-	            		<li class="nonActive" style="border-bottom: 1px solid rgb(0, 0, 0);"><button type="button" onclick="laterMovieInfo(); javascript:location.href='movieInfoListProc?page=2';"><span class="later_span" style="color: black;">상영 예정작</span></button></li>
+	        			<li class="active"><button type="button" onclick="nowMovieInfo();"><span onclick="javascript:location.href='movieInfoListProc?page=1';" class="now_span" style="color: #BDBDBD;">현재 상영작</span></button></li>
+	            		<li class="nonActive" style="border-bottom: 1px solid rgb(0, 0, 0);"><button type="button" onclick="laterMovieInfo();"><span onclick="javascript:location.href='movieInfoListProc?page=2';" class="later_span" style="color: black;">상영 예정작</span></button></li>
 	        		</c:otherwise>
 	        	</c:choose>
 	            
@@ -65,7 +65,7 @@ $(document).ready(function(){
 	        		<ul class="movie_list type2" id="nowInfo">
 	        		<c:forEach var="now" items="${nowMovie }" varStatus="status">
 			            <li class="screen_add_box">
-			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/1984.jpg');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${now.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 								<div class="movieBtn${status.count }">
 									<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 									<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }">상세정보</button>
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	        		<ul class="movie_list type2" id="laterInfo">
 	        		<c:forEach var="later" items="${laterMovie }" varStatus="status"> 
 			            <li class="screen_add_box">
-			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/dun.jpg');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${later.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 								<div class="movieBtn${status.count }">
 									<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 									<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }">상세정보</button>
