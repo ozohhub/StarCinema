@@ -30,11 +30,17 @@ public class MovieDetailController {
 		ArrayList<GradeDTO> grade = service.selectGrade(movieListNum);
 		double totalGrade = service.selectTotalGrade(movieListNum);
 		int totalLike = service.totalLike(movieListNum);
+		double prefer = service.preferGender(movieListNum);
+		double[] ageList = service.preferAge(movieListNum);
+		double[] rank = service.movieRank(movieListNum);
 		
 		model.addAttribute("movie", movie);
 		model.addAttribute("grade", grade);
 		model.addAttribute("totalGrade", totalGrade);
 		model.addAttribute("totalLike", totalLike);
+		model.addAttribute("preferW", prefer);
+		model.addAttribute("ageList", ageList);
+		model.addAttribute("ticketingRank", rank);
 		
 		return "forward:index?formpath=movieDetail";
 	}

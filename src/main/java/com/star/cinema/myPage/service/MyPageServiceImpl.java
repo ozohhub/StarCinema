@@ -85,7 +85,7 @@ public class MyPageServiceImpl implements IMyPageService {
 		
 		if(!myGrade.isEmpty()) {
 			for(GradeDTO g : myGrade) {
-				MovieDTO movie = gradeDao.selectMovieInfo(g.getMovieListNum());
+				MovieDTO movie = gradeDao.selectMovieNum(g.getMovieListNum());
 				Double totalGrade = gradeDao.selectTotalGrade(g.getMovieListNum());
 				String recent = gradeDao.selectRecentReview(g.getMovieListNum());
 				myMovieInfo.put(g.getMovieListNum(), movie);
@@ -122,7 +122,7 @@ public class MyPageServiceImpl implements IMyPageService {
 	
 		if(!myTicketing.isEmpty()) {
 			for(TicketingDTO t : myTicketing) {
-				MovieDTO movie = gradeDao.selectMovieInfo(t.getMovieListNum());
+				MovieDTO movie = gradeDao.selectMovieNum(t.getMovieListNum());
 				String cinema = gradeDao.selectCinemaName(t.getCinemaNum());
 				String hall = gradeDao.selectHallName(t.getHallNum());
 				if(!recent.equals("recent")) {

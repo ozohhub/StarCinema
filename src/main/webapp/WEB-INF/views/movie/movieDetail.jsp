@@ -91,8 +91,8 @@ $(document).ready(function(){
 					</strong>
 				</li>
 				<li class="sub_info2">
-					<em>예매율 n위</em>	
-					<strong class="str">00.0%</strong>
+					<em>예매율 <fmt:formatNumber value="${ticketingRank[0]}" type="number" maxFractionDigits="0"/>위</em>	
+					<strong class="str"><fmt:formatNumber value="${ticketingRank[1]}" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</strong>
 				</li>
 			</ul>
 			<ul class="detail_info2">
@@ -151,17 +151,21 @@ $(document).ready(function(){
 						 		<dl>
 						 			<dt class="mal">남성</dt>
 									<dd class="mal">
-										<span class="bar" style="height: 47.9%;"></span>
+									<c:set var="preferM" value="${100.0-preferW }"/>
+									<c:if test="${preferW <= 0}"><c:set var="preferM" value="0"></c:set></c:if>
+									<c:set var="fmtpreferM"><fmt:formatNumber value="${preferM}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+										<span class="bar" style="height: ${fmtpreferM}%;"></span>										
 										<strong>
-											47.9
+											${fmtpreferM}
 											<span>%</span>
 										</strong>
 									</dd>
 									<dt class="fe">여성</dt>
 									<dd class="fe">
-										<span class="bar" style="height: 52.1%;"></span>
+									<c:set var="fmtpreferW"><fmt:formatNumber value="${preferW}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+										<span class="bar" style="height: ${fmtpreferW}%;"></span>
 										<strong>
-											52.1
+											${fmtpreferW}
 											<span>%</span>
 										</strong>
 									</dd>
@@ -169,39 +173,43 @@ $(document).ready(function(){
 						 	</div>
 						 	
 						 	<div class="bx_graph02">
+						 	<c:set var="fmtprefer10"><fmt:formatNumber value="${ageList[0]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+						 	<c:set var="fmtprefer20"><fmt:formatNumber value="${ageList[1]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+						 	<c:set var="fmtprefer30"><fmt:formatNumber value="${ageList[2]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+						 	<c:set var="fmtprefer40"><fmt:formatNumber value="${ageList[3]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
 						 		<dl>
 						 			<dt class="gen10">10대</dt>
-						 			<dd class="gen10" style="height: 5.1%;">
+						 			<dd class="gen10" style="height: ${fmtprefer10 }%;">
 						 				<span class="bar"></span>
 						 				<strong>
-						 					5.1
+						 					${fmtprefer10 }
 						 					<span>%</span>
 						 				</strong>
 						 			</dd>
 						 			
 						 			<dt class="gen20">20대</dt>
-						 			<dd class="gen20" style="height: 28.9%;">
+						 			<dd class="gen20" style="height: ${fmtprefer20 }%;">
 						 				<span class="bar"></span>
 						 				<strong>
-						 					28.9
+						 					${fmtprefer20 }
 						 					<span>%</span>
 						 				</strong>
 						 			</dd>
 						 			
 						 			<dt class="gen30">30대</dt>
-						 			<dd class="gen30" style="height: 32.9%;">
+						 			<dd class="gen30" style="height: ${fmtprefer30 }%;">
 						 				<span class="bar"></span>
 						 				<strong>
-						 					32.9
+						 					${fmtprefer30 }
 						 					<span>%</span>
 						 				</strong>
 						 			</dd>
 						 			
-						 			<dt class="gen40">40대</dt>
-						 			<dd class="gen40" style="height: 33.1%;">
+						 			<dt class="gen40">40대이상</dt>
+						 			<dd class="gen40" style="height: ${fmtprefer40 }%;">
 						 				<span class="bar"></span>
 						 				<strong>
-						 					33.1
+						 					${fmtprefer40 }
 						 					<span>%</span>
 						 				</strong>
 						 			</dd>

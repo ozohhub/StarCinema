@@ -50,7 +50,7 @@
 	</select>
 
 	<select id="selectReserve" resultMap="ticketing">
-		SELECT * FROM ticketing WHERE id=#{id} and movieListNum=#{n}
+		SELECT * FROM (SELECT * FROM ticketing WHERE id=#{id} and movieListNum=#{n} ORDER BY ticketingNum) WHERE ROWNUM=1
 	</select>
 	
 	<select id="selectMyGrade" resultMap="grade">
@@ -91,11 +91,7 @@
 	<select id="selectMyLike" parameterType="String" resultMap="grade">
 		SELECT * FROM grade WHERE id=#{id} and likeCheck=1
 	</select>
-	
-	<select id="selectMovieInfo" parameterType="int" resultMap="movie">
-		SELECT * FROM movieList WHERE movieListNum=#{movieListNum}
-	</select>
-	
+		
 	<select id = "selectRecentReview" parameterType="int" resultType="String">
 		SELECT review FROM(SELECT * FROM grade WHERE movieListNum = #{movieListNum} AND review IS NOT NULL ORDER BY gradeNum DESC) WHERE ROWNUM=1
 	</select>
@@ -120,6 +116,13 @@
 		SELECT hallName FROM hall WHERE hallNum=#{hallNum}
 	</select>
 	
+	<select id="ticketingIdList" parameterType="int" resultType="String">
+		SELECT distinct id FROM ticketing WHERE movieListNum=#{movieListNum}
+	</select>
+	
+	<select id="isWoman" resultType="String">
+		SELECT id FROM member WHERE gender='w'
+	</select>
 	
 
 </mapper>

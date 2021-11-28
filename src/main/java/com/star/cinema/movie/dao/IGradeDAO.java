@@ -1,6 +1,7 @@
 package com.star.cinema.movie.dao;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -34,8 +35,6 @@ public interface IGradeDAO {
 
 	public ArrayList<GradeDTO> selectMyLike(String id);
 
-	public MovieDTO selectMovieInfo(int movieListNum);
-
 	public String selectRecentReview(int movieListNum);
 
 	public ArrayList<TicketingDTO> selectMyTickting(String id);
@@ -48,6 +47,9 @@ public interface IGradeDAO {
 
 	public String selectHallName(int hallNum);
 
+	public ArrayList<String> ticketingIdList(int movieListNum);
+	
+	public Set<String> isWoman();
 	
 
 }
