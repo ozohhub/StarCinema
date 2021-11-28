@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.star.cinema.manage.dto.CinemaDTO;
+import com.star.cinema.manage.dto.HallDTO;
 import com.star.cinema.manage.dto.TicketingInfoDTO;
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.ITicketingDAO;
@@ -25,6 +26,7 @@ public class SeatServiceImpl implements ISeatService{
 		
 		MovieDTO movie = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getMovie();
 		CinemaDTO cinema = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getCinema();
+		HallDTO hall = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getHall();
 		
 		int movieListNum = dao.searchMovieListNum(movie.getMovieName());
 		int cinemaNum = dao.searchCinemaNum(cinema.getCinemaName());
@@ -32,13 +34,10 @@ public class SeatServiceImpl implements ISeatService{
 		dto.setMovieListNum(movieListNum);
 		dto.setCinemaNum(cinemaNum);
 		
-		String hall = hallName.substring(0,1);
-		int hallNum = Integer.parseInt(hall);
-		
 		MemberDTO member = (MemberDTO)session.getAttribute("loginInfo");
 		String id = member.getId();
 		dto.setId(id);
-		dto.setHallNum(hallNum);
+		dto.setHallNum(hall.getHallNum());
 		
 		session.setAttribute("seatList", dto);
 		

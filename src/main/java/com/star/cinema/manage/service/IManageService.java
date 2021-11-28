@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.springframework.ui.Model;
 
+import com.star.cinema.manage.dto.TicketingInfoDTO;
+
 public interface IManageService {
 	public void cinemaList(Model model, int currentPage);
 	public void cinemaSearch(Model model, String search);
@@ -17,4 +19,5 @@ public interface IManageService {
 	public void selectDate(Model model, String date);
 	public void selectTime(Model model, Map<String, String> map);
 	public void moviePoster(Model model);
+	public void movieSeatList(TicketingInfoDTO ticket);
 }

@@ -85,8 +85,11 @@ public class TicketingController {
 		dto.setSeatName(selectedSeat);
 		
 		boolean check = seatService.seatProc(dto, hallName);
-		if(check) return "forward:/index?formpath=pay";
-		else return "forward:/index?formpath=seat";
+		if(check) {
+			return "forward:/index?formpath=pay";
+		} else {
+			return "forward:/index?formpath=seat";
+		}
 	}
 	
 	@RequestMapping (value = "payProc")

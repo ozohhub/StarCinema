@@ -24,6 +24,7 @@ import com.star.cinema.member.config.PageConfig;
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IMovieDAO;
 import com.star.cinema.movie.dto.MovieDTO;
+import com.star.cinema.movie.dto.TicketingDTO;
 
 @Service
 public class ManageServiceImpl implements IManageService{
@@ -117,7 +118,7 @@ public class ManageServiceImpl implements IManageService{
 		hall.setHallName(hallName);
 		hall.setCinemaNum(cinemaNum);
 		
-		dao.hallInsert(hall);
+		//dao.hallInsert(hall);
 		
 		timeInfo.setStartTime(startTime);
 		timeInfo.setTicketDate(ticketDate);
@@ -242,6 +243,34 @@ public class ManageServiceImpl implements IManageService{
 		timeInfoHandle(model, search, movie, date);
 	}
 	
+	@Override
+	public void movieSeatList(TicketingInfoDTO ticket) {
+		MovieDTO movie = ticket.getMovie();
+		HallDTO hall = ticket.getHall();
+		CinemaDTO cinema = ticket.getCinema();
+		TimeInfoDTO time = ticket.getTime();
+		
+		ArrayList<String> reserveList = new ArrayList<>();
+		
+		int movieListNum = movie.getMovieListNum();
+		int hallNum = hall.getHallNum();
+		int cinemaNum = cinema.getCinemaNum();
+		String OpenDate = time.getTicketDate();
+		String OpenTime = time.getStartTime();
+
+		ArrayList<TicketingDTO> ticketTings =  dao.movieSeatList(movieListNum, hallNum, cinemaNum, OpenDate, OpenTime);
+		for (TicketingDTO info : ticketTings) {
+			for (String seatName : info.getSeatName().split(",")) {
+				reserveList.add(seatName);
+			}
+		}
+		
+		if (!reserveList.isEmpty()) {
+			session.setAttribute("reserveSeatList", reserveList);
+		}
+		
+	}
+	
 	
 	
 	public void timeInfoHandle(Model model, String search, String movieKind, String date) {
@@ -279,9 +308,6 @@ public class ManageServiceImpl implements IManageService{
 		//상영 시간과 현재 시간 비교를 위해 현재 시간의 값을 구해줌
 		long nowTime = Long.parseLong(df.format(checkDate).replaceAll("-", ""));
 		
-		System.out.println("dda : " + timeInfo.isEmpty());
-		System.out.println(search);
-		System.out.println(movieKind);
 		if (!timeInfo.isEmpty()) {
 			ArrayList<TicketingInfoDTO> list = new ArrayList<>();
 			ArrayList<MovieDTO> movieList = new ArrayList<>();
@@ -289,7 +315,6 @@ public class ManageServiceImpl implements IManageService{
 			for(TimeInfoDTO t : timeInfo) { 
 				TicketingInfoDTO ticket = new TicketingInfoDTO();
 				MovieDTO movie = moviedao.searchMovie(t.getMovieListNum());
-				System.out.println(t.getMovieListNum());
 				//상영시간과 현재 시간 비교를 위해 상영 시간의 값을 구해줌
 				String[] ticketDate = t.getTicketDate().split("-");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
@@ -332,7 +357,7 @@ public class ManageServiceImpl implements IManageService{
 				index++;
 				
 			}
-			System.out.println("movieList : " + movieList.size());
+			
 			if (!list.isEmpty()) {
 				session.setAttribute("timeInfoList", list);
 			}

@@ -62,6 +62,8 @@ toastr.options = {
     preventDuplicates: true,
 };
 
+//
+
 //버튼클릭시 다른 class 추가 초기화해주기
 function selectSeatList(list) {
     allNumber = 0;
@@ -227,15 +229,13 @@ function inputClickEvent(input) {
             input.classList.add('clicked');
             clicked = document.querySelectorAll('.clicked');
             //선택한 번호의 갯수를 넘기면 동작 못하게 하는 코드
-            console.log(allNumber);
-           if(clicked && allNumber == 0) {
-				input.classList.remove('clicked');
+            if (clicked && allNumber == 0) {
+                input.classList.remove('clicked');
                 toastr.error(
                     alert('인원을 선택해주세요.')
                 );
                 return;
-			}
-            else if (clicked.length > allNumber) {
+            } else if (clicked.length > allNumber) {
                 input.classList.remove('clicked');
                 toastr.error(
                     alert('지정한 인원수를 넘었습니다(최대 8명)')
@@ -253,7 +253,7 @@ function inputClickEvent(input) {
         //좌석번호의 innerHTML 설정
         selectedSeats.innerHTML = selectedSeatsArray;
         reserveNumber.innerHTML = selectedSeatsArray.length;
-        remainSeat.innerHTML = seat.length - selectedSeatsArray.length;
+        refreshSeat();
         // if (selectedSeatsArray.length > 4) {
         //     return;
         // }
@@ -263,32 +263,43 @@ function inputClickEvent(input) {
 function mapping(input, i, j) {
     if (i === 0) {
         input.value = 'A' + j;
+        input.id = 'A' + j;
     } else if (i === 1) {
         input.value = 'B' + j;
+        input.id = 'B' + j;
     } else if (i === 2) {
         input.value = 'C' + j;
+        input.id = 'C' + j;
     } else if (i === 3) {
         input.value = 'D' + j;
+        input.id = 'D' + j;
     } else if (i === 4) {
         input.value = 'E' + j;
+        input.id = 'E' + j;
     } else if (i === 5) {
         input.value = 'F' + j;
+        input.id = 'F' + j;
     } else if (i === 6) {
         input.value = 'G' + j;
+        input.id = 'G' + j;
     } else if (i === 7) {
         input.value = 'H' + j;
+        input.id = 'H' + j;
     } else if (i === 8) {
         input.value = 'I' + j;
+        input.id = 'I' + j;
     } else if (i === 9) {
         input.value = 'J' + j;
+        input.id = 'J' + j;
     } else if (i === 10) {
         input.value = 'K' + j;
+        input.id = 'K' + j;
     }
 }
 
 //form 제출시 hidden설정하기
-reserveButton.addEventListener('click', function() {	
-	//제출
+reserveButton.addEventListener('click', function() {
+    //제출
     title.value = selectedMovie.innerHTML;
     selectedTheater.value =
         selectedTheaterPlaceInfo[0].innerHTML +
@@ -299,11 +310,11 @@ reserveButton.addEventListener('click', function() {
     ticketNumber.value = reserveNumber.innerHTML;
     selectedSeat.value = selectedSeats.innerHTML;
     totalPrice.value = ticketPrice.innerHTML;
-    
+
     moiveListName.value = moiveListName.innerHTML;
     cinemaName.value = cinemaName.innerHTML;
     hallName.value = hall.innerHTML;
-    
+
     console.log(allNumber + '임');
     console.log(ticketNumber.value);
     console.log(allNumber === ticketNumber.value);

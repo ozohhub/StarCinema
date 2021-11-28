@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.star.cinema.manage.dto.*" %>
 <%@ page import="com.star.cinema.movie.dto.*" %>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,21 +12,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/seat.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-<script>
-	var seatCount = 0;
-	var list = [];
-	<c:forEach items="${seats }" var="seat">
-	list.push("${seat.seat_name }");
-	</c:forEach>
-	for(var i=0;i<list.length;i++) {
-		for(var j=1;<$("input:checkbox[class='seat']").length + 1;j++) {
-			if(list[i] == $("input:checkbox[id='seat" + j + "']").val()) {
-				$("input:checkbox[id='seat" + j + "']").parents("td").attr("class", "booked");
-				$("input:checkbox[id='seat" + j + "']").attr('disabled', true);
-			}
-		}
-	}
-</script>
 </head>
 <body>
 	<%
@@ -35,7 +21,7 @@
 		  TimeInfoDTO time = ticket.getTime();
 		  CinemaDTO cinema = ticket.getCinema();
 	%>
-	  
+
     <div id="contents" class="contents_full contents_reserve">
 
         <div class="wrap_reserve">
@@ -142,14 +128,17 @@
 								<div class="theater-date"><%=time.getTicketDate() %></div>
 								<div class="theater-time"><%=time.getStartTime() %></div>
 							</div>
+
 							<div class="selected-seats-wrapper">
 								<span class="selected-seats-title">좌석번호</span> <span
 									class="selected-seats">선택한 좌석이 없습니다.</span>
 							</div>
+
 							<div class="ticket-price-wrapper">
 								<div class="ticket-price-title">가격</div>
 								<div class="ticket-price">0원</div>
 							</div>
+
 							<form action="seatProc" class="seatForm" method="post">
 								<input type="hidden" class="title" name="title" id="title">
 								<input type="hidden" class="selectedTheater" name="selectedTheater" id="selectedTheater">
@@ -195,7 +184,25 @@
 
     </div>
 </body>
+
+
 <script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
 <script src="${pageContext.request.contextPath}/resources/js/movie.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/seat.js"></script>
+<script>
+	$(document).ready(function(){ 
+		<%List<String> seatList = (List<String>) session.getAttribute("reserveSeatList");
+			if (session.getAttribute("reserveSeatList") != null) {%>
+			remainSeat.innerHTML = 120 - <%=seatList.size()%>;
+			<% for (String info : seatList) { %>
+				$(<%=info%>).addClass('checked');
+			<%}%>
+		<%}%>
+	});
+
+	function refreshSeat() {
+		let seat = document.querySelectorAll('.seat');
+		remainSeat.innerHTML = seat.length - selectedSeatsArray.length - <%=seatList.size()%>;
+	}
+</script>
 </html>

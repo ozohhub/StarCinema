@@ -34,9 +34,14 @@ public interface IManageDAO {
 	public ArrayList<HallDTO> hallSearch(int cinemaName);
 	public ArrayList<CinemaDTO> cinemaSearch(int cinemaNum);
 	public ArrayList<MovieDTO> movieInfo();
+
 	public ArrayList<Integer> movieNumList();
 	public int movieCount(int movieListNum);
 	public ArrayList<Double> selectRate(int movieListNum);
 	public ArrayList<Integer> selectMovie(int movieListNum);
+
+	public int movieCount();
+	public ArrayList<TicketingDTO> movieSeatList(@Param("movieListNum")int movieListNum, @Param("hallNum")int hallNum, @Param("cinemaNum")int cinemaNum, @Param("OpenDate")String OpenDate, @Param("OpenTime")String OpenTime);
+
 	
 }

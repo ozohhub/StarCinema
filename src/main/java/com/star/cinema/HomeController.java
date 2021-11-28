@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.star.cinema.manage.dao.IManageDAO;
 import com.star.cinema.manage.dto.CinemaDTO;
+import com.star.cinema.manage.dto.HallDTO;
+import com.star.cinema.manage.dto.TicketingInfoDTO;
+import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.service.IManageService;
+import com.star.cinema.movie.dto.MovieDTO;
 
 @Controller
 public class HomeController {
@@ -76,8 +80,13 @@ public class HomeController {
    }
    
    @RequestMapping(value = "/seat")
-   public String seat() {
-      return "movie/seat";
+   public String seat(HttpSession session) {
+	   if (session.getAttribute("selectTicket") != null) {
+		   TicketingInfoDTO ticket = (TicketingInfoDTO) session.getAttribute("selectTicket"); 
+		   service.movieSeatList(ticket);
+	   } 
+
+       return "movie/seat";
    }
    
    @RequestMapping(value = "/pay")
