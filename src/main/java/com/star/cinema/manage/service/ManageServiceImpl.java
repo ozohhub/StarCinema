@@ -137,7 +137,8 @@ public class ManageServiceImpl implements IManageService{
 		Map<Integer, Double> movieRate = new HashMap<>();
 		ArrayList<MovieDTO> movieList = dao.movieInfo();
 		ArrayList<Double> rank = new ArrayList<Double>();
-		ArrayList<Integer> movieListCount = dao.movieListCount();
+		ArrayList<Integer> movieListCount = dao.groupCount();
+		ArrayList<Integer> movieNum = dao.movieCount();
 		
 		int totalCount = dao.totalTicketCount();
 		
@@ -146,7 +147,7 @@ public class ManageServiceImpl implements IManageService{
 		}
 		
 		for(int i=0;i<movieListCount.size();i++) {
-			movieRate.put(movieListCount.get(i), rank.get(i));
+			movieRate.put(movieNum.get(i), rank.get(i));
 		}
 		
 		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {

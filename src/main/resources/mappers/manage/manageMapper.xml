@@ -144,12 +144,8 @@
 		select count(*) as B from ticketing group by movieListNum order by B desc
 	</select>
 	
-	<select id = "movieListCount" resultType="int">
-		select movieListNum as B from ticketing group by movieListNum order by B desc
-	</select>
-	
 	<select id="movieCount" resultType="int">
-		SELECT movieListNum,count(*) FROM ticketing WHERE movieListNum=#{movieListNum}
+		select movieListNum,count(*) as B from ticketing group by movieListNum order by B desc
 	</select>
 	
 	<select id="totalTicketCount" resultType="int">
