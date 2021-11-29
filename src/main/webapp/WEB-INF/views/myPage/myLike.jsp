@@ -40,12 +40,12 @@
 										<c:if test="${movieAge == '0'}"><c:set var="movieAge" value="전체"/></c:if>
 										<c:if test="${movieAge == '18'}"><c:set var="movieAge" value="청불"/></c:if>								
 									<span class="${grAge }">${movieAge}</span>
-									${movieinfo.movieName}
+									<span style="font-size : 16px;">${movieinfo.movieName}</span>
 								</strong>
 								<div class="detail">
 									<span class="reserve_per">
 										<em>예매율</em>
-										<strong>0.00%</strong>
+										<strong><fmt:formatNumber value="${movieRate.get(myLike.movieListNum)}" type="number" maxFractionDigits="1" minFractionDigits="1"/> % </strong>
 									</span>
 									<span class="score">
 										<em>평점</em>

@@ -21,6 +21,7 @@ import com.star.cinema.movie.dao.IGradeDAO;
 import com.star.cinema.movie.dto.GradeDTO;
 import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
+import com.star.cinema.movie.service.IMovieDetailService;
 import com.star.cinema.myPage.dao.IMyPageDAO;
 
 @Service
@@ -30,6 +31,7 @@ public class MyPageServiceImpl implements IMyPageService {
 	@Autowired IMyPageDAO dao;
 	@Autowired IGradeDAO gradeDao;
 	@Autowired MemberCheck memChk;
+	@Autowired IMovieDetailService movieSvc;
 
 	@Override
 	public boolean myQuestionList(Model model, int currentPage) {
@@ -82,15 +84,21 @@ public class MyPageServiceImpl implements IMyPageService {
 		Map<Integer,MovieDTO> myMovieInfo  = new HashMap<Integer,MovieDTO>();
 		Map<Integer,Double> myMovieGrade = new HashMap<Integer,Double>();
 		Map<Integer,String> recentReview = new HashMap<Integer,String>();
+		Map<Integer,Double> movieRate = new HashMap<Integer,Double>();
 		
 		if(!myGrade.isEmpty()) {
 			for(GradeDTO g : myGrade) {
 				MovieDTO movie = gradeDao.selectMovieNum(g.getMovieListNum());
 				Double totalGrade = gradeDao.selectTotalGrade(g.getMovieListNum());
 				String recent = gradeDao.selectRecentReview(g.getMovieListNum());
+				double[] rate = movieSvc.movieRank(g.getMovieListNum());
+				
+				
 				myMovieInfo.put(g.getMovieListNum(), movie);
 				myMovieGrade.put(g.getMovieListNum(), totalGrade);
 				recentReview.put(g.getMovieListNum(),recent);
+				movieRate.put(g.getMovieListNum(),rate[1]);
+
 			}	
 		}
 		
@@ -98,6 +106,7 @@ public class MyPageServiceImpl implements IMyPageService {
 		model.addAttribute("myMovieInfo", myMovieInfo);
 		model.addAttribute("myMovieGrade", myMovieGrade);
 		model.addAttribute("recentReview", recentReview);
+		model.addAttribute("movieRate", movieRate);
 		
 		return true;
 	}
