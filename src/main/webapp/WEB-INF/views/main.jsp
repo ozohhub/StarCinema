@@ -16,9 +16,12 @@
 
 
 <script>
+
 $(document).ready(function(){
   $('.slider').slider();
 });
+
+
 </script>
 
 </head>
@@ -57,45 +60,65 @@ $(document).ready(function(){
 		    </ul>
 		  </div>
 			
-	<!-- 멀티플 슬라이드 -->
+	<!-- 멀티플 슬라이드1 -->
 	<div class="multiple_whole">
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
-			<c:forEach var="movieList" items="${movieListInfo }" varStatus="status">
-				<li>
-					<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
-						<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
-							<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-							<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
-						</div>
-					</div>
-					<div class="movieInfo" style="text-align: center;">
-	                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
-	                    <c:forEach var="rate" items="${map }">
-							<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
+			<c:forEach var="rate" items="${map }" varStatus="status">
+				<c:forEach var="movieList" items="${movieListInfo }" >
+					<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
+						<li>
+							<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
+								<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
+									<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+									<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
+								</div>
+							</div>
+							<div class="movieInfo" style="text-align: center;">
+			                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
 								<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
-							</c:if>
-						</c:forEach>
-               		</div>
-				</li>
+							</div>
+						</li>
+					</c:if>
+				</c:forEach>               
 			</c:forEach>
 			</ul>
 		</div>
 		
-		<button type="button" class="prev"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
-		<button type="button" class="next"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
+		<button type="button" class="prev1"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
+		<button type="button" class="next1"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
+	</div>
+	
+	<!-- 멀티플 슬라이드2 -->
+	<div class="multiple_whole">
+		<div class="multiple_wrap2">
+			<ul class="multiple_slider2">
+			<c:forEach var="grade" items="${gradeR }" varStatus="index">
+				<c:forEach var="movieList" items="${movieListInfo }" >
+					<c:if test="${grade.getKey() == movieList.getMovieListNum() }">
+						<li>
+							<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
+								<div class="gradeBoxBtn${index.count }">	
+									<button id="gradeReserve_btn" class="gradeReserve_btn${index.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+									<button id="gradeDetail_btn" class="gradeDetail_btn${index.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
+								</div>
+							</div>
+							<div class="movieInfo" style="text-align: center;">
+			                    <h3 style="font-size: 22px;">${index.count }.${movieList.getMovieName() }</h3>
+								<span style="font-size: 15px;">평점 <fmt:formatNumber value="${grade.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>점</span>
+							</div>
+						</li>
+					</c:if>
+				</c:forEach>               
+			</c:forEach>
+			</ul>
+		</div>
+		
+		<button type="button" class="prev2"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_left.png"></button>
+		<button type="button" class="next2"><img src="${pageContext.request.contextPath}/resources/images/main/icon/slide_right.png"></button>
 	</div>
 	
 	<!-- 로드 후 js작동! -->	
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
-	<!-- 차트 넣을 영역 -->
-	<div id="banner_section" class="banner_wrap">
-		<div class="banner_01">
-			<img src="${pageContext.request.contextPath}/resources/images/icon/like.png" style="width: 200px; height: 120px;"/>
-			<img src="${pageContext.request.contextPath}/resources/images/icon/grade.png" style="width: 200px; height: 120px;"/>
-			<img src="${pageContext.request.contextPath}/resources/images/icon/look.png" style="width: 200px; height: 120px;"/>
-		</div>
-	</div>
-
 </html>

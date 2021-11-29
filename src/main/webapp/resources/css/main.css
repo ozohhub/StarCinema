@@ -5622,25 +5622,27 @@ textarea.ty3 {background-color:#F8F8F8; border-color:transparent;}
 
 }
 .multiple_wrap{
+	margin-top : 400px;
+}
+
+.multiple_wrap, .multiple_wrap2{
 	background-color : black;
 	position : relative;
 	width : 86%;
-	margin-top : 400px;
 	margin-left: auto; margin-right: auto;
 	overflow : hidden;
 	height: 500px;
 }
 
-.multiple_slider{
+.multiple_slider,.multiple_slider2 {
 	position : absolute;
 	left : 0; top : 0;
 }
 
-
-.multiple_slider.animated{
+.multiple_slider.animated, .multiple_slider2.animated{
 	transition : 0.5s ease-out;
 }
-.multiple_slider li{
+.multiple_slider li, .multiple_slider2 li{
 	width : auto;
 	height : 350px;
 	float : left;
@@ -5651,29 +5653,41 @@ textarea.ty3 {background-color:#F8F8F8; border-color:transparent;}
 	height : 350px;
 	background : no-repeat;
 	background-size: contain;
-
 }
 
 .boxBtn1,.boxBtn2,.boxBtn3,.boxBtn4,.boxBtn5,.boxBtn6,.boxBtn7,.boxBtn8,.boxBtn9,.boxBtn10{
 	width : 245px;
 	height : 350px;
 }
-.multiple_slider .movieInfo{	/* 박스오피스 포스터 하단 영화정보*/
+
+.gradeBoxBg1, .gradeBoxBg2,.gradeBoxBg3, .gradeBoxBg4, .gradeBoxBg5, .gradeBoxBg6,.gradeBoxBg7,.gradeBoxBg8,.gradeBoxBg9,.gradeBoxBg10{
+	width: 245px; 
+	height : 350px;
+	background : no-repeat;
+	background-size: contain;
+}
+
+.gradeBoxBtn1,.gradeBoxBtn2,.gradeBoxBtn3,.gradeBoxBtn4,.gradeBoxBtn5,.gradeBoxBtn6,.gradeBoxBtn7,.gradeBoxBtn8,.gradeBoxBtn9,.gradeBoxBtn10{
+	width : 245px;
+	height : 350px;
+}
+
+.multiple_slider .movieInfo, .multiple_slider2 .movieInfo{	/* 박스오피스 포스터 하단 영화정보*/
 	height: 100px;
 	color : white;
 }
-.multiple_slider li:not(:last-child){
+.multiple_slider li:not(:last-child), .multiple_slider2 li:not(:last-child){
 	margin-right : 20px;
 }
 
-.prev{
+.prev1,.prev2{
 	background-color : transparent;
 	border : 0; outline: 0;
 	margin-left : 40px;
 	margin-top: -700px;
 
 }
-.next{
+.next1,.next2{
 	background-color : transparent;
 	border : 0; outline: 0;
 	margin : -700px 0px 0px 88%;
@@ -5684,7 +5698,7 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	outline:none;
 	background-color: transparent;
 }
-#reserve_btn{
+#reserve_btn, #gradeReserve_btn{
 	margin: 100px 0 0 23px;
 	color: white;
 	border: 2px solid white;
@@ -5696,7 +5710,7 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	font-weight: bold;
 }
 
-#detail_btn{
+#detail_btn, #gradeDetail_btn{
 	margin: 50px 0 0 23px;
 	color: white;
 	border: 2px solid white;
@@ -5708,5 +5722,5 @@ button:focus{	/* 버튼 클릭시 배경과 outline안보이게 함! */
 	font-weight: bold;
 }
 
-/* 메인 차트 영역*/
+
 

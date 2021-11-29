@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -23,7 +24,6 @@ import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
 import com.star.cinema.member.MemberCheck;
 import com.star.cinema.member.config.PageConfig;
-import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IChartDAO;
 import com.star.cinema.movie.dao.IMovieDAO;
 import com.star.cinema.movie.dto.MovieDTO;
@@ -78,10 +78,13 @@ public class ManageServiceImpl implements IManageService{
 		ArrayList<HallDTO> hall = dao.hallList(begin, end);
 		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
 		
-		if(timeInfo != null) {
+		if(!timeInfo.isEmpty()) {
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) {
 				TimeManageDTO manage = new TimeManageDTO();
+				if (dao.cinemaSearch(t.getCinemaNum()).isEmpty()) {
+					continue;
+				}
 				CinemaDTO cinema = dao.cinemaSearch(t.getCinemaNum()).get(0);
 				manage.setCountryName(cinema.getCountryName());
 				manage.setCinemaName(cinema.getCinemaName());
@@ -95,7 +98,9 @@ public class ManageServiceImpl implements IManageService{
 			}
 		}
 		
-		model.addAttribute("timeInfoList", list);
+		if (!list.isEmpty()) {
+			model.addAttribute("timeInfoList", list);
+		}
 
 		String url = "/cinema/timeInfoProc?currentPage=";
 		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
@@ -136,7 +141,7 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public void moviePoster(Model model) {
-		Map<Integer, Double> movieRate = new HashMap<>();
+		Map<Integer, Double> movieRate = new LinkedHashMap<>();
 		ArrayList<MovieDTO> movieList = dao.movieInfo();
 		ArrayList<Double> rank = new ArrayList<Double>();
 		ArrayList<Integer> movieListCount = dao.groupCount();
@@ -172,9 +177,9 @@ public class ManageServiceImpl implements IManageService{
 		ArrayList<Integer> rateG = chartdao.gradeRate();
 		ArrayList<Integer> rateR = chartdao.reviewRate();
 		
-		Map<Integer,Integer> mapL = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> mapG = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> mapR = new HashMap<Integer, Integer>();
+		Map<Integer,Integer> mapL = new LinkedHashMap<Integer, Integer>();
+		Map<Integer,Integer> mapG = new LinkedHashMap<Integer, Integer>();
+		Map<Integer,Integer> mapR = new LinkedHashMap<Integer, Integer>();
 		
 		if(!rankL.isEmpty()) {
 			for(int i=0; i < rankL.size(); i++) {
