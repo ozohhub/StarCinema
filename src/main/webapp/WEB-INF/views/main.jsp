@@ -72,7 +72,7 @@ $(document).ready(function(){
 	                    <h3 style="font-size: 30px;">${movieList.getMovieName() }</h3>
 	                    <c:forEach var="rate" items="${map }">
 							<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
-								<span style="font-size: 15px;">예매율 ${rate.getValue() }</span>
+								<span style="font-size: 15px;">예매율 ${rate.getValue() } %</span>
 							</c:if>
 						</c:forEach>
                		</div>

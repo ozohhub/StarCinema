@@ -135,48 +135,32 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public void moviePoster(Model model) {
-		ArrayList<MovieDTO> movie = dao.movieInfo();
-		model.addAttribute("mainPoster", movie);
-		//dao에서 (movieListNum / count(*))한 값 가져오기
-		ArrayList<Integer> eachTicket = dao.movieNumList();
-		ArrayList<Double> rate = new ArrayList<Double>();
 		Map<Integer, Double> movieRate = new HashMap<>();
-		ArrayList<Integer> selectMovie = new ArrayList<Integer>();
-		ArrayList<MovieDTO> movielist = dao.movieInfo();
+		ArrayList<MovieDTO> movieList = dao.movieInfo();
+		ArrayList<Double> rank = new ArrayList<Double>();
+		ArrayList<Integer> movieListNum = new ArrayList<Integer>();
 		
-		//백분율
-		for(int i=0;i<eachTicket.size();i++) {
-			rate = dao.selectRate(eachTicket.get(i));
-			selectMovie = dao.selectMovie(eachTicket.get(0));
+		ArrayList<Integer> movieListCount = dao.movieListCount();
+		int totalCount = dao.totalTicketCount();
+		ArrayList<Integer> movieCount = new ArrayList<Integer>();
+		
+		for(int i=0;i<movieListCount.size();i++) {
+			movieCount.addAll(dao.movieCount(movieList.get(i).getMovieListNum()));
 		}
 		
-		for(int i=0;i<rate.size();i++) {
-			movieRate.put(selectMovie.get(0), rate.get(i));
+		for(int i=0;i<movieCount.size();i++) {
+			rank.add(movieCount.get(i)/(double)totalCount * 100);
 		}
 		
-		// Value 기준으로 내림차순 정렬.
-		for (int i = 0; i < movieRate.size() - 1; i++) {
-            for (int j = 0; j < (movieRate.size() - i) - 1; j++) {
-                if (movieRate.get(j) > movieRate.get(j + 1)) {
-                    double newValue = movieRate.get(j + 1);
-                    
-                    movieRate.replace(j + 1, movieRate.get(j));
-                    movieRate.replace(j, newValue);
-                }
-            }
-        }
-		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
-			if(test.getKey().equals(selectMovie.get(0))) {
-				
-			}
+		for(int i=0;i<movieListCount.size();i++) {
+			movieRate.put(movieListCount.get(i), rank.get(i));
 		}
+		
+		model.addAttribute("movieListInfo", movieList);
+		model.addAttribute("map", movieRate);
 		
 		mainChartSet(model);
 		System.out.println(movieRate.size());
-		model.addAttribute("movieListInfo", movielist);
-		model.addAttribute("map", movieRate);
-		
-	
 	}
 	
 	
@@ -190,9 +174,6 @@ public class ManageServiceImpl implements IManageService{
 		if(!reviewR.isEmpty()) model.addAttribute("reviewR", reviewR);
 		
 	}
-
-	
-	
 	
 	@Override
 	public void timeInfoSearch(Model model, String search, String type) {
