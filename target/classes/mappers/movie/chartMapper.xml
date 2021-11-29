@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.star.cinema.movie.dao.IChartDAO">
 
 <select id = "groupCount" resultType="int">
@@ -18,12 +19,24 @@
 	select movieListNum,sum(likecheck)as A from grade group by movieListNum order by A desc
 </select>
 
+<select id="likeRate" resultType="int">
+	select sum(likecheck)as A from grade group by movieListNum order by A desc
+</select>
+
 <select id="gradeRank" resultType="int">
  	select movieListNum,avg(grade) as A from grade group by movieListNum order by A desc
 </select>
 
+<select id="gradeRate" resultType="int">
+	select avg(grade) as A from grade group by movieListNum order by A desc
+</select>
+
 <select id="reviewRank" resultType="int">
 	select movieListNum,count(review)as A from grade group by movieListNum order by A desc
+</select>
+
+<select id="reviewRate" resultType="int">
+	select count(review)as A from grade group by movieListNum order by A desc
 </select>
 
 </mapper>

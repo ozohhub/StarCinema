@@ -4,7 +4,7 @@
 	<resultMap type="com.star.cinema.manage.dto.TimeInfoDTO" id="timeInfo">
 		<result column="timeInfoNum" property="timeInfoNum"/>
 		<result column="startTime" property="startTime"/>
-		<result column="movieNum" property="movieNum"/>
+		<result column="movieListNum" property="movieListNum"/>
 		<result column="ticketDate" property="ticketDate"/>
 	</resultMap>
 	

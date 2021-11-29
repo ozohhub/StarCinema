@@ -15,8 +15,16 @@ public interface IChartDAO {
 	
 	public ArrayList<Integer> likeRank();
 	
+	public ArrayList<Integer> likeRate();
+	
 	public ArrayList<Integer> gradeRank();
 	
+	public ArrayList<Integer> gradeRate();
+	
 	public ArrayList<Integer> reviewRank();
+	
+	public ArrayList<Integer> reviewRate();
+	
+	
 	
 }

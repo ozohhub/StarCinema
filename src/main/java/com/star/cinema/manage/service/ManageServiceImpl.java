@@ -181,14 +181,39 @@ public class ManageServiceImpl implements IManageService{
 	
 	
 	public void mainChartSet(Model model) {
-		ArrayList<Integer> likeR = chartdao.likeRank();
-		ArrayList<Integer> gradeR = chartdao.gradeRank();
-		ArrayList<Integer> reviewR = chartdao.reviewRank();
+		ArrayList<Integer> rankL = chartdao.likeRank();
+		ArrayList<Integer> rankG = chartdao.gradeRank();
+		ArrayList<Integer> rankR = chartdao.reviewRank();
+		ArrayList<Integer> rateL = chartdao.likeRate();
+		ArrayList<Integer> rateG = chartdao.gradeRate();
+		ArrayList<Integer> rateR = chartdao.reviewRate();
 		
-		if(!likeR.isEmpty()) model.addAttribute("likeR", likeR);
-		if(!gradeR.isEmpty()) model.addAttribute("gradeR", gradeR);
-		if(!reviewR.isEmpty()) model.addAttribute("reviewR", reviewR);
+		Map<Integer,Integer> mapL = new HashMap<Integer, Integer>();
+		Map<Integer,Integer> mapG = new HashMap<Integer, Integer>();
+		Map<Integer,Integer> mapR = new HashMap<Integer, Integer>();
 		
+		if(!rankL.isEmpty()) {
+			for(int i=0; i < rankL.size(); i++) {
+				mapL.put(rankL.get(i), rateL.get(i));
+			}
+			
+			model.addAttribute("likeR", mapL);
+		}
+		
+		if(!rankG.isEmpty()) {
+			for(int i=0; i < rankG.size(); i++) {
+				mapG.put(rankG.get(i), rateG.get(i));
+			}
+			
+			model.addAttribute("gradeR", mapG);
+		}
+		
+		if(!rankR.isEmpty()) {
+			for(int i=0; i < rankR.size(); i++) {
+				mapR.put(rankR.get(i), rateR.get(i));
+			}
+			model.addAttribute("reviewR", mapR);
+		}
 	}
 
 	
