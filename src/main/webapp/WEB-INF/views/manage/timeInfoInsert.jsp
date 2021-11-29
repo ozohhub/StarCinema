@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>롯지브이</title>
 <script src="${pageContext.request.contextPath}/resources/js/timeInsert.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/timeInfoInsert.css" />
 <c:if test="${not empty msg }">
 	<script>alert('${msg}')</script>
 </c:if>
@@ -33,8 +33,11 @@
 	                    <form id="timeInsertForm" action="timeInsertProc" method="post">
 		                    <div class="subject __underline" style="border-bottom: 1px solid #000;"></div><br>
 		                    	<div class= "input_field" style ="width: 60%">
-									<label style="padding-right: 50px">지역명</label>
-									<input type="text" placeholder="지역을 입력하세요." name="countryName" id="countryName"><br>
+									<label style="padding-right: 50px">지역명</label><br>
+									<select>
+										<option>지역을 입력하세요.</option>
+									</select>
+									<!-- <input type="text" placeholder="지역을 입력하세요." name="countryName" id="countryName"><br> -->
 									<label style="padding-right: 50px">지점명</label>
 									<input type="text" placeholder="지역을 입력하세요." name="cinemaName" id="cinemaName"><br>
 									<label style="padding-right: 50px">영화명</label>
