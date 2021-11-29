@@ -140,24 +140,19 @@
 		SELECT * FROM MovieList
 	</select>
 	
-	<select id="movieNumList" parameterType="com.star.cinema.manage.dto.TimeInfoDTO" resultType="int">
-		SELECT movieListNum FROM timeinfo
+	<select id = "groupCount" resultType="int">
+		select count(*) as B from ticketing group by movieListNum order by B desc
+	</select>
+	
+	<select id = "movieListCount" resultType="int">
+		select movieListNum as B from ticketing group by movieListNum order by B desc
 	</select>
 	
 	<select id="movieCount" resultType="int">
-		SELECT count(*) FROM timeinfo WHERE movieListNum=#{movieListNum}
+		SELECT count(*) FROM ticketing WHERE movieListNum=#{movieListNum}
 	</select>
 	
-	<select id="selectRate" resultType="double">
-		SELECT (SELECT count(*) FROM ticketing WHERE movieListNum=#{movieListNum}) / (SELECT count(*) from ticketing) * 100 FROM ticketing
+	<select id="totalTicketCount" resultType="int">
+		select count(*) from ticketing
 	</select>
-	
-	<select id="selectMovie" resultType="int">
-		SELECT movieListNum FROM timeinfo WHERE movieListNum=#{movieListNum}
-	</select>
-	
-	<select id="movieSeatList" resultMap="ticketing">
-		SELECT * FROM ticketing WHERE movieListNum=#{movieListNum} AND cinemaNum=#{cinemaNum} AND hallNum=#{hallNum} AND openDate Like '%'||#{OpenDate}||'%' AND OpenTime Like '%'||#{OpenTime}||'%'
-	</select>
-		
 </mapper>
