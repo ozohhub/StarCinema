@@ -25,7 +25,7 @@ public interface IMovieDetailService {
 	
 	public int totalLike(int movieListNum);
 
-	public double preferGender(int movieListNum);
+	public double[] preferGender(int movieListNum);
 	
 	public double[] preferAge(int movieListNum);
 	

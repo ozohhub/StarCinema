@@ -151,9 +151,7 @@ $(document).ready(function(){
 						 		<dl>
 						 			<dt class="mal">남성</dt>
 									<dd class="mal">
-									<c:set var="preferM" value="${100.0-preferW }"/>
-									<c:if test="${preferW <= 0}"><c:set var="preferM" value="0"></c:set></c:if>
-									<c:set var="fmtpreferM"><fmt:formatNumber value="${preferM}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+									<c:set var="fmtpreferM"><fmt:formatNumber value="${prefer[1]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
 										<span class="bar" style="height: ${fmtpreferM}%;"></span>										
 										<strong>
 											${fmtpreferM}
@@ -162,7 +160,7 @@ $(document).ready(function(){
 									</dd>
 									<dt class="fe">여성</dt>
 									<dd class="fe">
-									<c:set var="fmtpreferW"><fmt:formatNumber value="${preferW}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
+									<c:set var="fmtpreferW"><fmt:formatNumber value="${prefer[0]}" type="number" maxFractionDigits="1" minFractionDigits="1"/></c:set>
 										<span class="bar" style="height: ${fmtpreferW}%;"></span>
 										<strong>
 											${fmtpreferW}

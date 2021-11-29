@@ -38,22 +38,27 @@ $(document).ready(function(){
 		<div class="slider" style="z-index: 1;">
 		    <ul class="slides" style="height: 800px;">
 		      <li>
-		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/ite_slide.jpg"> 
+		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide1.jpg"> 
 		        <div class="caption center-align">
 		        </div>
 		      </li>
 		      <li>
-		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/kang_slide.jpg"> 
+		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide2.jpg"> 
 		        <div class="caption left-align">
 		        </div>
 		      </li>
 		      <li>
-		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/mat_slide.jpg"> 
+		        <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide3.jpg"> 
 		        <div class="caption right-align">
 		        </div>
 		      </li>
 		      <li>
-		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/nkan_slide.jpg"> 
+		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide4.jpg"> 
+		        <div class="caption center-align"> 
+		        </div>
+		      </li>
+		        <li>
+		         <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide5.jpg"> 
 		        <div class="caption center-align"> 
 		        </div>
 		      </li>
@@ -93,24 +98,26 @@ $(document).ready(function(){
 	<div class="multiple_whole">
 		<div class="multiple_wrap2">
 			<ul class="multiple_slider2">
-			<c:forEach var="grade" items="${gradeR }" varStatus="index">
-				<c:forEach var="movieList" items="${movieListInfo }" >
-					<c:if test="${grade.getKey() == movieList.getMovieListNum() }">
-						<li>
-							<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
-								<div class="gradeBoxBtn${index.count }">	
-									<button id="gradeReserve_btn" class="gradeReserve_btn${index.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-									<button id="gradeDetail_btn" class="gradeDetail_btn${index.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
+			<c:if test="${not empty gradeR }">
+				<c:forEach var="grade" items="${gradeR }" varStatus="index">
+					<c:forEach var="movieList" items="${movieListInfo }" >
+						<c:if test="${grade.getKey() == movieList.getMovieListNum() }">
+							<li>
+								<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
+									<div class="gradeBoxBtn${index.count }">	
+										<button id="gradeReserve_btn" class="gradeReserve_btn${index.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+										<button id="gradeDetail_btn" class="gradeDetail_btn${index.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
+									</div>
 								</div>
-							</div>
-							<div class="movieInfo" style="text-align: center;">
-			                    <h3 style="font-size: 22px;">${index.count }.${movieList.getMovieName() }</h3>
-								<span style="font-size: 15px;">평점 <fmt:formatNumber value="${grade.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>점</span>
-							</div>
-						</li>
-					</c:if>
-				</c:forEach>               
-			</c:forEach>
+								<div class="movieInfo" style="text-align: center;">
+				                    <h3 style="font-size: 22px;">${index.count }.${movieList.getMovieName() }</h3>
+									<span style="font-size: 15px;">평점 <fmt:formatNumber value="${grade.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>점</span>
+								</div>
+							</li>
+						</c:if>
+					</c:forEach>               
+				</c:forEach>
+			</c:if>
 			</ul>
 		</div>
 		

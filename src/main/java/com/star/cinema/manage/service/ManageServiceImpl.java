@@ -24,6 +24,7 @@ import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
 import com.star.cinema.member.MemberCheck;
 import com.star.cinema.member.config.PageConfig;
+import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IChartDAO;
 import com.star.cinema.movie.dao.IMovieDAO;
 import com.star.cinema.movie.dto.MovieDTO;
@@ -181,15 +182,15 @@ public class ManageServiceImpl implements IManageService{
 		Map<Integer,Integer> mapG = new LinkedHashMap<Integer, Integer>();
 		Map<Integer,Integer> mapR = new LinkedHashMap<Integer, Integer>();
 		
-		if(!rankL.isEmpty()) {
+		if(!rankL.isEmpty() && !rateL.isEmpty()) {
 			for(int i=0; i < rankL.size(); i++) {
 				mapL.put(rankL.get(i), rateL.get(i));
 			}
 			
 			model.addAttribute("likeR", mapL);
 		}
-		
-		if(!rankG.isEmpty()) {
+				
+		if(!rankG.isEmpty() && (!rateG.isEmpty() && rateG.get(0) != null)) {
 			for(int i=0; i < rankG.size(); i++) {
 				mapG.put(rankG.get(i), rateG.get(i));
 			}
@@ -197,7 +198,7 @@ public class ManageServiceImpl implements IManageService{
 			model.addAttribute("gradeR", mapG);
 		}
 		
-		if(!rankR.isEmpty()) {
+		if(!rankR.isEmpty() && !rateR.isEmpty()) {
 			for(int i=0; i < rankR.size(); i++) {
 				mapR.put(rankR.get(i), rateR.get(i));
 			}
