@@ -33,21 +33,5 @@
 <delete id="deleteMember" parameterType="com.star.cinema.member.dto.MemberDTO">
 	DELETE FROM member WHERE memberNum=#{memberNum}
 </delete>
-
-<select id="preferYear" resultType="String">
-	SELECT id FROM member WHERE substr(birth,0,4) BETWEEN #{start} AND #{end}
-</select>
-
-<select id = "groupCount" resultType="int">
-	select movieListNum,count(*) as B from ticketing group by movieListNum order by B desc
-</select>
-
-<select id="moiveCount" parameterType="int" resultType="int">
-	select count(*) from ticketing where movieListNum=#{movieListNum}
-</select>
-
-<select id="totalTicketCount" resultType="int">
-	select count(*) from ticketing
-</select>
 	
 </mapper>

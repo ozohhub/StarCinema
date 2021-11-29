@@ -2,8 +2,6 @@ package com.star.cinema.myPage.dao;
 
 import java.util.ArrayList;
 
-import java.util.Set;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -19,13 +17,6 @@ public interface IMyPageDAO {
 	public void modifyMember(MemberDTO dto);
 
 	public void deleteMember(MemberDTO dto);
-	// movieDetail에서 쓰이는거 -> 옮겨야함
-	public Set<String> preferYear(@Param("start") String start, @Param("end")String end);
-
-	public ArrayList<Integer>groupCount();
-	
-	public int moiveCount(int movieListNum);
-	
-	public int totalTicketCount();
+		
 	
 }

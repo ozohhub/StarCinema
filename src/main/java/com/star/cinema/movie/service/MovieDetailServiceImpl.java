@@ -13,18 +13,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.star.cinema.member.dto.MemberDTO;
+import com.star.cinema.movie.dao.IChartDAO;
 import com.star.cinema.movie.dao.IGradeDAO;
 import com.star.cinema.movie.dto.GradeDTO;
 import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
-import com.star.cinema.myPage.dao.IMyPageDAO;
 import com.star.cinema.myPage.service.MyPageServiceImpl;
 
 @Service
 public class MovieDetailServiceImpl implements IMovieDetailService {
 	@Autowired HttpSession session;
 	@Autowired IGradeDAO dao;
-	@Autowired IMyPageDAO myDao;
+	@Autowired IChartDAO chartDao;
 	
 	@Override
 	public MovieDTO selectMovieNum(int movieListNum) {		
@@ -153,10 +153,10 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 			int t1=0, t2=0, t3=0, t4 =0;
 			
 
-			Set<String> teen = myDao.preferYear(nowYear-(19-1)+"",nowYear-(10-1)+"");
-			Set<String> twen = myDao.preferYear(nowYear-(29-1)+"",nowYear-(20-1)+"");
-			Set<String> thirty = myDao.preferYear(nowYear-(39-1)+"",nowYear-(30-1)+"");
-			Set<String> forty = myDao.preferYear(nowYear-(100-1)+"",nowYear-(40-1)+"");
+			Set<String> teen = dao.preferYear(nowYear-(19-1)+"",nowYear-(10-1)+"");
+			Set<String> twen = dao.preferYear(nowYear-(29-1)+"",nowYear-(20-1)+"");
+			Set<String> thirty = dao.preferYear(nowYear-(39-1)+"",nowYear-(30-1)+"");
+			Set<String> forty = dao.preferYear(nowYear-(100-1)+"",nowYear-(40-1)+"");
 			
 			for(String id : idList) {
 				if(!teen.isEmpty() && teen.contains(id)) t1++;
@@ -172,9 +172,9 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 		
 	public double[] movieRank(int movieListNum) {
 		double[] rank = {0,0};
-		ArrayList<Integer> gc = myDao.groupCount();
-		int mc = myDao.moiveCount(movieListNum);
-		int tc = myDao.totalTicketCount();
+		ArrayList<Integer> gc = chartDao.groupCount();
+		int mc = chartDao.moiveCount(movieListNum);
+		int tc = chartDao.totalTicketCount();
 		
 		if(!gc.isEmpty())rank[0] = gc.indexOf(movieListNum) + 1;
 		if(mc > 0 && tc > 0) rank[1] = mc/(double)tc * 100;

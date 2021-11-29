@@ -51,5 +51,7 @@ public interface IGradeDAO {
 	
 	public Set<String> isWoman();
 	
+	public Set<String> preferYear(@Param("start") String start, @Param("end")String end);
+	
 
 }

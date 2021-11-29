@@ -123,6 +123,10 @@
 	<select id="isWoman" resultType="String">
 		SELECT id FROM member WHERE gender='w'
 	</select>
+		
+	<select id="preferYear" resultType="String">
+		SELECT id FROM member WHERE substr(birth,0,4) BETWEEN #{start} AND #{end}
+	</select>
 	
 
 </mapper>

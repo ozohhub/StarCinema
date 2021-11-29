@@ -22,6 +22,7 @@ import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
 import com.star.cinema.member.config.PageConfig;
 import com.star.cinema.member.dto.MemberDTO;
+import com.star.cinema.movie.dao.IChartDAO;
 import com.star.cinema.movie.dao.IMovieDAO;
 import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
@@ -30,6 +31,7 @@ import com.star.cinema.movie.dto.TicketingDTO;
 public class ManageServiceImpl implements IManageService{
 	@Autowired IManageDAO dao;
 	@Autowired IMovieDAO moviedao;
+	@Autowired IChartDAO chartdao;
 	@Autowired HttpSession session;
 	
 	@Override
@@ -168,10 +170,29 @@ public class ManageServiceImpl implements IManageService{
 				
 			}
 		}
+		
+		mainChartSet(model);
 		System.out.println(movieRate.size());
 		model.addAttribute("movieListInfo", movielist);
 		model.addAttribute("map", movieRate);
+		
+	
 	}
+	
+	
+	public void mainChartSet(Model model) {
+		ArrayList<Integer> likeR = chartdao.likeRank();
+		ArrayList<Integer> gradeR = chartdao.gradeRank();
+		ArrayList<Integer> reviewR = chartdao.reviewRank();
+		
+		if(!likeR.isEmpty()) model.addAttribute("likeR", likeR);
+		if(!gradeR.isEmpty()) model.addAttribute("gradeR", gradeR);
+		if(!reviewR.isEmpty()) model.addAttribute("reviewR", reviewR);
+		
+	}
+
+	
+	
 	
 	@Override
 	public void timeInfoSearch(Model model, String search, String type) {
