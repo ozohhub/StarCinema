@@ -88,15 +88,15 @@
 		SELECT cinemaNum FROM cinema WHERE cinemaName LIKE '%'||#{search}||'%'
 	</select>
 	
-	<select id="timeSearch" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
+	<select id="timeSearch" parameterType="int" resultMap="timeInfo">
 		SELECT * FROM timeinfo WHERE cinemaNum=#{cinemaNum}
 	</select>
 	
-	<select id="hallSearch" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
+	<select id="hallSearch" parameterType="int" resultMap="hall">
 		SELECT * FROM hall WHERE cinemaNum=#{cinemaNum}
 	</select>
 	
-	<select id="cinemaSearch" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">
+	<select id="cinemaSearch" parameterType="int" resultMap="cinema">
 		SELECT * FROM cinema WHERE cinemaNum=#{cinemaNum}
 	</select>
 	
@@ -109,11 +109,11 @@
 	</select>
 	
 	<delete id="timeInfoDelete">
-		DELETE from timeinfo WHERE cinemaNum=#{cinemaNum}
+		DELETE from timeinfo WHERE timeInfoNum=#{timeInfoNum}
 	</delete>
 	
 	<delete id="hallDelete">
-		DELETE from hall WHERE cinemaNum=#{cinemaNum}
+		DELETE from hall WHERE hallNum=#{hallNum}
 	</delete>
 	
 	<delete id="cinemaDelete">
@@ -149,7 +149,7 @@
 	</select>
 	
 	<select id="movieCount" resultType="int">
-		SELECT count(*) FROM ticketing WHERE movieListNum=#{movieListNum}
+		SELECT movieListNum,count(*) FROM ticketing WHERE movieListNum=#{movieListNum}
 	</select>
 	
 	<select id="totalTicketCount" resultType="int">
@@ -158,5 +158,9 @@
    
    <select id="movieSeatList" resultMap="ticketing">
       SELECT * FROM ticketing WHERE movieListNum=#{movieListNum} AND cinemaNum=#{cinemaNum} AND hallNum=#{hallNum} AND openDate Like '%'||#{OpenDate}||'%' AND OpenTime Like '%'||#{OpenTime}||'%'
+   </select>
+   
+   <select id="hallNum" resultType="int">
+   		SELECT hallNum FROM hall WHERE hallName=#{hallName}
    </select>
 </mapper>

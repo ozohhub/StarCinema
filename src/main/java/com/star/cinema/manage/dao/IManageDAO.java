@@ -26,7 +26,7 @@ public interface IManageDAO {
 	public ArrayList<CinemaDTO> AllCinemaList();
 	public boolean cinemaDelete(int cinemaNum);
 	public int cinemaName(String search);
-	public boolean timeInfoDelete(int num);
+	public boolean timeInfoDelete(int timeInfoNum);
 	public boolean hallDelete(int num);
 	public void timeInfoInsert(TimeInfoDTO timeInfo);
 	public void hallInsert(HallDTO hall);
@@ -42,6 +42,7 @@ public interface IManageDAO {
 	public ArrayList<Integer>movieListCount();
 	public int moiveCount(int movieListNum);
 	public int totalTicketCount();
+	public int hallNum(String hallName);
 	
 	
 }

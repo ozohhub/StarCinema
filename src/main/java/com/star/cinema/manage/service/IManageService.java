@@ -12,7 +12,7 @@ public interface IManageService {
 	public void cinemaInsert(String countryName, String cinemaName);
 	public void cinemaDelete(int id);
 	public void timeInfoList(Model model, int currentPage);
-	public boolean timeInfoDeleteProc(String cinemaName);
+	public boolean timeInfoDeleteProc(String hallName, int timeInfoNum);
 	public boolean timeInfoInsertProc(String countryName, String cinemaName, String movieName, String hallName, String ticketDate, String startTime);
 	public void timeInfoSearch(Model model, String search, String type);
 	public void selectMovie(Model model, String movie);

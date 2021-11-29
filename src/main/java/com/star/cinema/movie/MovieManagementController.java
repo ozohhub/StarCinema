@@ -107,9 +107,10 @@ public class MovieManagementController {
 		List<MovieDTO> movielist = service.movieList();
 		model.addAttribute("movieList", movielist);
 		
-		
-		//int totalLike = service.totalLike(movieListNum);
-		//model.addAttribute("totalLike", totalLike);
+//		for()
+//		
+//		int totalLike = service.totalLike(movieListNum);
+//		model.addAttribute("totalLike", totalLike);
 		manage.moviePoster(model);
 		return "forward:/index?formpath=movie";
 	}

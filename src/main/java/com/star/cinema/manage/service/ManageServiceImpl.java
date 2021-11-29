@@ -100,11 +100,10 @@ public class ManageServiceImpl implements IManageService{
 	}
 
 	@Override
-	public boolean timeInfoDeleteProc(String cinemaName) {
-		int num = dao.cinemaName(cinemaName);
-		dao.hallDelete(num);
-		dao.timeInfoDelete(num);
-		return dao.cinemaDelete(num);
+	public boolean timeInfoDeleteProc(String hallName, int timeInfoNum) {
+		int hallNum = dao.hallNum(hallName);
+		dao.timeInfoDelete(timeInfoNum);
+		return dao.hallDelete(hallNum);
 	}
 
 	@Override
@@ -138,22 +137,20 @@ public class ManageServiceImpl implements IManageService{
 		Map<Integer, Double> movieRate = new HashMap<>();
 		ArrayList<MovieDTO> movieList = dao.movieInfo();
 		ArrayList<Double> rank = new ArrayList<Double>();
-		ArrayList<Integer> movieListNum = new ArrayList<Integer>();
-		
 		ArrayList<Integer> movieListCount = dao.movieListCount();
+		
 		int totalCount = dao.totalTicketCount();
-		ArrayList<Integer> movieCount = new ArrayList<Integer>();
 		
 		for(int i=0;i<movieListCount.size();i++) {
-			movieCount.addAll(dao.movieCount(movieList.get(i).getMovieListNum()));
-		}
-		
-		for(int i=0;i<movieCount.size();i++) {
-			rank.add(movieCount.get(i)/(double)totalCount * 100);
+			rank.add(movieListCount.get(i)/(double)totalCount * 100);
 		}
 		
 		for(int i=0;i<movieListCount.size();i++) {
 			movieRate.put(movieListCount.get(i), rank.get(i));
+		}
+		
+		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
+			System.out.println(test.getKey() + ":" + test.getValue());
 		}
 		
 		model.addAttribute("movieListInfo", movieList);

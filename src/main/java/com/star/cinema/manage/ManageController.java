@@ -52,8 +52,8 @@ public class ManageController {
 	}
 	
 	@RequestMapping(value = "timeInfoDeleteProc")
-	public String timeInfoDeleteProc(Model model, String cinemaName) {
-		service.timeInfoDeleteProc(cinemaName);
+	public String timeInfoDeleteProc(Model model, String hallName, int timeInfoNum) {
+		service.timeInfoDeleteProc(hallName, timeInfoNum);
 		return "redirect:/timeInfoProc";
 	}
 	
