@@ -116,10 +116,7 @@
 	                            </div>
 	                            <div class="btm_info">
 	                                <strong class="tit_info">${movieListInfo.movieName }</strong>
-	                                <span class="sub_info1">
-	                                    <span class="rate_info">예매율 <em>18.4%</em></span>
-	                                    <span class="star_info">7.2</span>
-	                                </span>
+
 	                            </div>
 	                        </li>
                        		<%index++;%>

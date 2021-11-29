@@ -4,6 +4,7 @@ package com.star.cinema.manage.service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +21,7 @@ import com.star.cinema.manage.dto.HallDTO;
 import com.star.cinema.manage.dto.TicketingInfoDTO;
 import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
+import com.star.cinema.member.MemberCheck;
 import com.star.cinema.member.config.PageConfig;
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IChartDAO;
@@ -231,7 +233,7 @@ public class ManageServiceImpl implements IManageService{
 	}
 	
 	@Override
-	public void selectTime(Model model, Map<String, String> map) {
+	public boolean selectTime(Model model, Map<String, String> map) {
 		MovieDTO movie = moviedao.selectMovie(map.get("movieName"));
 		CinemaDTO cinema = dao.cinemaSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
 		HallDTO hall = dao.hallSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
@@ -244,6 +246,14 @@ public class ManageServiceImpl implements IManageService{
 		info.setTime(time);
 
 		session.setAttribute("selectTicket", info);
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("loginInfo");
+		String[] birth = member.getBirth().split("-");
+		
+		MemberCheck check = new MemberCheck();
+		int age = check.calcAge(Integer.parseInt(birth[0]), Integer.parseInt(birth[1]), Integer.parseInt(birth[2]));
+
+		return Integer.parseInt(movie.getMovieAge()) < age;
 	}
 	
 	@Override
@@ -309,10 +319,11 @@ public class ManageServiceImpl implements IManageService{
 		
 		//아무것도 선택하지 않았을시 오늘 날짜로 자동 지정.
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		int todayTimeCheck = Integer.parseInt(String.valueOf(cal.get(Calendar.HOUR_OF_DAY)) + String.valueOf(cal.get(Calendar.MINUTE)));
+
 		Date checkDate = new Date();
-		if (date.equals("today")) {
-			checkDate = new Date();
-		} else {
+		if (!date.equals("today")) {
 			String[] check = date.split("-");
 			checkDate = new Date(Integer.parseInt(check[0]) - 1900, Integer.parseInt(check[1]) - 1, Integer.parseInt(check[2]));
 		}
@@ -332,6 +343,7 @@ public class ManageServiceImpl implements IManageService{
 		
 		//상영 시간과 현재 시간 비교를 위해 현재 시간의 값을 구해줌
 		long nowTime = Long.parseLong(df.format(checkDate).replaceAll("-", ""));
+		long todayTime = Long.parseLong(df.format(new Date()).replaceAll("-", ""));
 		
 		if (!timeInfo.isEmpty()) {
 			ArrayList<TicketingInfoDTO> list = new ArrayList<>();
@@ -342,11 +354,11 @@ public class ManageServiceImpl implements IManageService{
 				MovieDTO movie = moviedao.searchMovie(t.getMovieListNum());
 				//상영시간과 현재 시간 비교를 위해 상영 시간의 값을 구해줌
 				String[] ticketDate = t.getTicketDate().split("-");
+				String[] startTimes = t.getStartTime().split(":");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
 				
 				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
-				System.out.println(timeCheck  + " / " + nowTime);
-				if (movie == null || timeCheck != nowTime) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
+				if (movie == null || timeCheck != nowTime || (timeCheck == todayTime && Integer.parseInt(startTimes[0]) + Integer.parseInt(startTimes[1]) < todayTimeCheck)) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
 					index++;
 					continue;
 				}
@@ -359,8 +371,21 @@ public class ManageServiceImpl implements IManageService{
 				ticket.setHall(hall.get(index));
 				ticket.setTime(t);
 				
+				int movieListNum = movie.getMovieListNum();
+				int hallNum = hall.get(index).getHallNum();
+				String OpenDate = t.getTicketDate();
+				String OpenTime = t.getStartTime();
+
+				ArrayList<TicketingDTO> ticketTings =  dao.movieSeatList(movieListNum, hallNum, cinemaNum, OpenDate, OpenTime);
+				int seatSize = 0;
+				for (TicketingDTO info : ticketTings) {
+					for (String seatName : info.getSeatName().split(",")) {
+						seatSize++;
+					}
+				}
+				ticket.setReservingSeat(120 - seatSize);
+				
 				for(MovieDTO check : movieList) { 
-					System.out.println(check.getMovieName() + "" + movie.getMovieName());
 					if (check.getMovieName().equals(movie.getMovieName())) {
 						insert = false;
 						break;

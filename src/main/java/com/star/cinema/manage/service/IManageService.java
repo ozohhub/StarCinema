@@ -17,7 +17,7 @@ public interface IManageService {
 	public void timeInfoSearch(Model model, String search, String type);
 	public void selectMovie(Model model, String movie);
 	public void selectDate(Model model, String date);
-	public void selectTime(Model model, Map<String, String> map);
+	public boolean selectTime(Model model, Map<String, String> map);
 	public void moviePoster(Model model);
 	public void movieSeatList(TicketingInfoDTO ticket);
 }

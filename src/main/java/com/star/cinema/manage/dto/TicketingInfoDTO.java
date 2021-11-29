@@ -2,10 +2,15 @@ package com.star.cinema.manage.dto;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.star.cinema.manage.dao.IManageDAO;
 import com.star.cinema.movie.dto.MovieDTO;
+import com.star.cinema.movie.dto.TicketingDTO;
 
 public class TicketingInfoDTO {
 	
@@ -13,6 +18,7 @@ public class TicketingInfoDTO {
 	private HallDTO hall;
 	private CinemaDTO cinema;
 	private MovieDTO movie;
+	private int reservingSeat;
 	
 	
 	public TimeInfoDTO getTime() {
@@ -40,6 +46,12 @@ public class TicketingInfoDTO {
 		this.movie = movie;
 	}
 	
+	public int getReservingSeat() {
+		return reservingSeat;
+	}
+	public void setReservingSeat(int reservingSeat) {
+		this.reservingSeat = reservingSeat;
+	}
 	public String endTime() {
 		String[] date = time.getTicketDate().split("-");
 		String[] date2 = time.getStartTime().split(":");
@@ -50,7 +62,6 @@ public class TicketingInfoDTO {
         cal.add(Calendar.MINUTE, Integer.parseInt(movie.getMovieTime()));
 		return df.format(cal.getTime());
 	}
-	
 	
 	
 	
