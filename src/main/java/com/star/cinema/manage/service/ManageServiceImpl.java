@@ -120,7 +120,7 @@ public class ManageServiceImpl implements IManageService{
 		hall.setHallName(hallName);
 		hall.setCinemaNum(cinemaNum);
 		
-		//dao.hallInsert(hall);
+		dao.hallInsert(hall);
 		
 		timeInfo.setStartTime(startTime);
 		timeInfo.setTicketDate(ticketDate);

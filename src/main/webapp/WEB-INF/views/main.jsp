@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,10 +70,10 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class="movieInfo" style="text-align: center;">
-	                    <h3 style="font-size: 30px;">${movieList.getMovieName() }</h3>
+	                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
 	                    <c:forEach var="rate" items="${map }">
 							<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
-								<span style="font-size: 15px;">예매율 ${rate.getValue() } %</span>
+								<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
 							</c:if>
 						</c:forEach>
                		</div>

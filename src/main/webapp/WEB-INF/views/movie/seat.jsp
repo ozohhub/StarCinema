@@ -201,8 +201,10 @@
 	});
 
 	function refreshSeat() {
+		<% if (session.getAttribute("reserveSeatList") != null) {%>
 		let seat = document.querySelectorAll('.seat');
 		remainSeat.innerHTML = seat.length - selectedSeatsArray.length - <%=seatList.size()%>;
+		<%}%>
 	}
 </script>
 </html>

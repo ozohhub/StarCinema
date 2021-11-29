@@ -155,4 +155,8 @@
 	<select id="totalTicketCount" resultType="int">
 		select count(*) from ticketing
 	</select>
+   
+   <select id="movieSeatList" resultMap="ticketing">
+      SELECT * FROM ticketing WHERE movieListNum=#{movieListNum} AND cinemaNum=#{cinemaNum} AND hallNum=#{hallNum} AND openDate Like '%'||#{OpenDate}||'%' AND OpenTime Like '%'||#{OpenTime}||'%'
+   </select>
 </mapper>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,8 +60,12 @@ $(document).ready(function(){
 	                <div class="btm_info">
 	                	<strong class="tit_info">${movie.getMovieName() }</strong>
 	                	<span class="sub_info1">
-	                		<span class="rate_info">예매율 <em>18.4%</em></span>
-	                		<span class="star_info">7.2</span>
+	                	<c:forEach var="rate" items="${map }">
+	                		<c:if test="${rate.getKey() == movie.getMovieListNum() }">
+		                		<span class="rate_info">예매율 <em><fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/></em></span>
+		                	</c:if>
+	                	</c:forEach>
+	                		<span class="star_info"><fmt:formatNumber value="${totalGrade}" type="number" maxFractionDigits="1" minFractionDigits="1"/></span>
 	                	</span>
 	                </div>
 	            </li>

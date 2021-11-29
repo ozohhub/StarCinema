@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.star.cinema.manage.service.IManageService;
 import com.star.cinema.movie.dto.MovieDTO;
+import com.star.cinema.movie.service.IMovieDetailService;
 import com.star.cinema.movie.service.IMovieService;
 
 @Controller
 public class MovieManagementController {
 	@Autowired IMovieService service;
+	@Autowired IManageService manage;
+	@Autowired IMovieDetailService detail;
 	
 	@RequestMapping(value="/movieManagement")
 	public String movieManagement(ModelMap model, HttpSession session) {
@@ -102,6 +106,11 @@ public class MovieManagementController {
 	public String MovieListProc(Model model) {
 		List<MovieDTO> movielist = service.movieList();
 		model.addAttribute("movieList", movielist);
+		
+		
+		//int totalLike = service.totalLike(movieListNum);
+		//model.addAttribute("totalLike", totalLike);
+		manage.moviePoster(model);
 		return "forward:/index?formpath=movie";
 	}
 	

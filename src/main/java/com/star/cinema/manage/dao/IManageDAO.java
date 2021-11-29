@@ -42,4 +42,6 @@ public interface IManageDAO {
 	public ArrayList<Integer>movieListCount();
 	public int moiveCount(int movieListNum);
 	public int totalTicketCount();
+	
+	
 }
