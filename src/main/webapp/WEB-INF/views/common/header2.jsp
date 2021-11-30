@@ -54,7 +54,7 @@
 					<div style="display: none;">
 						<ul style="opacity: 0;">
 							<li><a href="index?formpath=ticketing" title="예매하기">예매하기</a></li>
-							<li><a href="#" title="상영시간표">상영시간표</a></li>
+							<li><a href="index?formpath=ticketing" title="상영시간표">상영시간표</a></li>
 						</ul>
 					</div>
 				</li>
