@@ -67,16 +67,12 @@ public class ManageServiceImpl implements IManageService{
 	}
 
 	@Override
-	public void timeInfoList(Model model, int currentPage) {
-		int pageBlock = 10;
-		int totalCount = dao.timeInfoCount();
-		int end = currentPage * pageBlock;
-		int begin = end + 1 - pageBlock;
-		ArrayList<TimeInfoDTO> timeInfo = dao.timeInfoList(begin, end);
-		ArrayList<HallDTO> hall = dao.hallList(begin, end);
+	public void timeInfoList(Model model) {
+		ArrayList<TimeInfoDTO> timeInfo = dao.timeInfoList();
+		ArrayList<HallDTO> hall = dao.hallList();
 		ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
 		
-		if(timeInfo != null) {
+		if(!timeInfo.isEmpty()) {
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) {
 				TimeManageDTO manage = new TimeManageDTO();
@@ -94,9 +90,6 @@ public class ManageServiceImpl implements IManageService{
 		}
 		
 		model.addAttribute("timeInfoList", list);
-
-		String url = "/cinema/timeInfoProc?currentPage=";
-		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
 	}
 
 	@Override
@@ -150,15 +143,10 @@ public class ManageServiceImpl implements IManageService{
 			movieRate.put(movieNum.get(i), rank.get(i));
 		}
 		
-		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
-			System.out.println(test.getKey() + ":" + test.getValue());
-		}
-		
 		model.addAttribute("movieListInfo", movieList);
 		model.addAttribute("map", movieRate);
 		
 		mainChartSet(model);
-		System.out.println(movieRate.size());
 	}
 	
 	

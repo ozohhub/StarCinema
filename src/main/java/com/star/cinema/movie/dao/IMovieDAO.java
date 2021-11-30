@@ -20,4 +20,6 @@ public interface IMovieDAO {
 	public void changeMovie(MovieDTO movie);
 	public ArrayList<String> selectDate();
 	public int movieCount();
+	public ArrayList<Integer> movieListNum();
+	public ArrayList<Integer> selectMovieListNum(String movieOpen);
 }

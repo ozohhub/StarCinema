@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>롯지브이</title>
-<script src="${pageContext.request.contextPath}/resources/js/timeInsert.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/timeInfoInsert.css" />
+<script src="${pageContext.request.contextPath}/resources/js/timeInsert.js"></script>
 <c:if test="${not empty msg }">
 	<script>alert('${msg}')</script>
 </c:if>

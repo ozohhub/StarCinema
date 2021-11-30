@@ -57,19 +57,11 @@
 	</select>
 	
 	<select id="timeInfoList" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
-		SELECT B.* FROM(
-			SELECT rownum rn, A.* FROM(
-				SELECT * FROM timeinfo ORDER BY timeInfoNum DESC
-			)A
-		)B WHERE rn BETWEEN #{b} and #{e}
+		SELECT * FROM timeinfo ORDER BY timeInfoNum DESC
 	</select>
 	
 	<select id="hallList" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
-		SELECT B.* FROM(
-			SELECT rownum rn, A.* FROM(
-				SELECT * FROM hall ORDER BY hallNum DESC
-			)A
-		)B WHERE rn BETWEEN #{b} and #{e}
+		SELECT * FROM hall ORDER BY hallNum DESC
 	</select>
 	
 	<select id="cinemaList" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,17 +66,27 @@ $(document).ready(function(){
 	        		<ul class="movie_list type2" id="nowInfo">
 	        		<c:forEach var="now" items="${nowMovie }" varStatus="status">
 			            <li class="screen_add_box">
-			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${now.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+			            	<div class="movieBg${status.count }" style="background-size:185px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${now.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 								<div class="movieBtn${status.count }">
 									<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-									<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }">상세정보</button>
+									<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${now.getMovieListNum() }';">상세정보</button>
 								</div>
 							</div>
 			                <div class="btm_info">
 			                	<strong class="tit_info">${now.getMovieName() }</strong>
 			                	<span class="sub_info1">
-			                		<span class="rate_info">예매율 <em>18.4%</em></span>
-			                		<span class="star_info">7.2</span>
+			                	<c:forEach var="rate" items="${map }">
+	                				<c:if test="${rate.getKey() == now.getMovieListNum() }">
+					                	<span class="rate_info">예매율 <em><fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/></em></span>
+				                	</c:if>
+				                </c:forEach>
+			                		<span class="star_info">
+			                			<c:forEach var="like" items="${totalLike }">
+				                			<c:if test="${like.getKey() ==  now.getMovieListNum() }">
+				                				<fmt:formatNumber value="${like.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>
+				                			</c:if>
+				                		</c:forEach>	
+			                		</span>
 			                	</span>
 			                </div>
 			            </li>
@@ -87,17 +98,34 @@ $(document).ready(function(){
 	        		<ul class="movie_list type2" id="laterInfo">
 	        		<c:forEach var="later" items="${laterMovie }" varStatus="status"> 
 			            <li class="screen_add_box">
-			            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${later.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+			            	<div class="movieBg${status.count }" style="background-size:185px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${later.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 								<div class="movieBtn${status.count }">
-									<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-									<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }">상세정보</button>
+								<c:forEach var="sub" items="${sub }">
+									<c:choose>
+										<c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() < 7 }">
+											<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+											<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${now.getMovieListNum() }';">상세정보</button>
+										</c:when>
+										<c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() >= 7 }">
+											<button id="movieDetail_btn" style="margin-top:85px; display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${now.getMovieListNum() }';">상세정보</button>
+										</c:when>
+									</c:choose>
+								</c:forEach>
 								</div>
 							</div>
 			                <div class="btm_info">
 			                	<strong class="tit_info">${later.getMovieName() }</strong>
 			                	<span class="sub_info1">
-			                		<span class="rate_info">예매율 <em>18.4%</em></span>
-			                		<span class="star_info">7.2</span>
+			                		<c:forEach var="rate" items="${map }">
+		                				<c:if test="${rate.getKey() == later.getMovieListNum() }">
+						                	<span class="rate_info">예매율 <em><fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/></em></span>
+					                	</c:if>
+					                </c:forEach>
+					                <c:forEach var="sub" items="${sub }">
+					                	<c:if test="${sub.getKey() == later.getMovieListNum() }">
+					                		<span class="remain_info" style="color: red;">D -${sub.getValue() }</span>
+					                	</c:if>
+			                		</c:forEach>
 			                	</span>
 			                </div>
 			            </li>

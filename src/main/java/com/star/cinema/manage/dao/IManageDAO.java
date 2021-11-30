@@ -17,8 +17,8 @@ public interface IManageDAO {
 	public int cinemaCount();
 	public int timeInfoCount();
 	
-	public ArrayList<TimeInfoDTO> timeInfoList(@Param("b")int begin, @Param("e")int end);
-	public ArrayList<HallDTO> hallList(@Param("b")int begin, @Param("e")int end);
+	public ArrayList<TimeInfoDTO> timeInfoList();
+	public ArrayList<HallDTO> hallList();
 	public void cinemaInsert(CinemaDTO cinema);
 	public ArrayList<CinemaDTO> cinemaList(@Param("b")int begin, @Param("e")int end);
 	public ArrayList<MovieDTO> movieList(@Param("b")int begin, @Param("e")int end);

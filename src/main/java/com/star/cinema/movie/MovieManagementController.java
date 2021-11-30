@@ -26,7 +26,6 @@ import com.star.cinema.movie.service.IMovieService;
 public class MovieManagementController {
 	@Autowired IMovieService service;
 	@Autowired IManageService manage;
-	@Autowired IMovieDetailService detail;
 	
 	@RequestMapping(value="/movieManagement")
 	public String movieManagement(ModelMap model, HttpSession session) {
@@ -104,13 +103,7 @@ public class MovieManagementController {
 	
 	@RequestMapping(value = "movieListProc")
 	public String MovieListProc(Model model) {
-		List<MovieDTO> movielist = service.movieList();
-		model.addAttribute("movieList", movielist);
-		
-//		for()
-//		
-//		int totalLike = service.totalLike(movieListNum);
-//		model.addAttribute("totalLike", totalLike);
+		service.movieListProc(model);
 		manage.moviePoster(model);
 		return "forward:/index?formpath=movie";
 	}
@@ -118,6 +111,7 @@ public class MovieManagementController {
 	@RequestMapping(value = "movieInfoListProc")
 	public String MovieInfoListProc(Model model) {
 		service.movieInfoListProc(model);
+		manage.moviePoster(model);
 		return "forward:/index?formpath=movieInfoList";
 	}
 }

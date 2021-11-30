@@ -59,7 +59,7 @@
 									<td id="row0" headers="thead0">${info.getHallName() }</td>
 									<td id="row0" headers="thead0">${info.getTicketDate() }</td>
 									<td id="row0" headers="thead0">${info.getStartTime() }</td>
-									<td id="row0" headers="thead0"><button style="cursor: pointer;" onclick="location.href='timeInfoDeleteProc?hallName=${info.getHallName() }&timeInfoNum=${info.getTimeInfoNum() }'">삭제하기</button></td>
+									<td id="row0" headers="thead0" style="cursor: pointer;" onclick="location.href='timeInfoDeleteProc?hallName=${info.getHallName() }&timeInfoNum=${info.getTimeInfoNum() }'">삭제하기</td>
 								</tr>
 							</c:forEach>
 							</tbody>

@@ -51,7 +51,7 @@ $(document).ready(function(){
 	        <ul class="movie_list">
 	        <c:forEach var="movie" items="${movieList }" varStatus="status">
 	        	<li class="screen_add_box">
-	            	<div class="movieBg${status.count }" style="background-size:200px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
+	            	<div class="movieBg${status.count }" style="background-size:185px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movie.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
 						<div class="movieBtn${status.count }">
 							<button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
 							<button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movie.getMovieListNum() }';">상세정보</button>
@@ -65,7 +65,13 @@ $(document).ready(function(){
 		                		<span class="rate_info">예매율 <em><fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/></em></span>
 		                	</c:if>
 	                	</c:forEach>
-	                		<span class="star_info"><fmt:formatNumber value="${totalGrade}" type="number" maxFractionDigits="1" minFractionDigits="1"/></span>
+	                		<span class="star_info">
+	                		<c:forEach var="like" items="${totalLike }">
+	                			<c:if test="${like.getKey() ==  movie.getMovieListNum() }">
+	                				<fmt:formatNumber value="${like.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>
+	                			</c:if>
+	                		</c:forEach>	
+	                		</span>
 	                	</span>
 	                </div>
 	            </li>

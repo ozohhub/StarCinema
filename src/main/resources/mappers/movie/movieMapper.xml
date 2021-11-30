@@ -50,4 +50,12 @@
 	<select id="movieCount" resultType="int">
 		SELECT count(*) FROM movieList
 	</select>
+	
+	<select id="movieListNum" resultType="int">
+		SELECT movieListNum FROM MovieList
+	</select>
+	
+	<select id="selectMovieListNum" resultType="int">
+   		SELECT movieListNum FROM movieList WHERE movieOpen=#{movieOpen}
+   </select>
 </mapper>
