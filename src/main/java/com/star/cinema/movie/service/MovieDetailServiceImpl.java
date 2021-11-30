@@ -125,9 +125,9 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 
 	}
 	
-	public double preferGender(int movieListNum) {
+	public double[] preferGender(int movieListNum) {
 		ArrayList<String>idList = dao.ticketingIdList(movieListNum);
-		double preferW= 0.0;
+		double[] prefer = {0.0, 0.0};	// 첫번째 여자, 두번째 남자
 		if(!idList.isEmpty()) {
 			int total = idList.size();
 			int w = 0;
@@ -136,10 +136,12 @@ public class MovieDetailServiceImpl implements IMovieDetailService {
 				for(String id : idList) {
 					if(woman.contains(id)) w++;
 				}
-			}			
-			preferW = w/(double)total * 100;
+			}
+			prefer[0] = w/(double)total * 100;
+			prefer[1] = (total-w)/(double)total * 100;
+		
 		}		
-		return preferW;
+		return prefer;
 	}	
 	
 	public double[] preferAge(int movieListNum) {

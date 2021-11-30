@@ -21,6 +21,9 @@
 		<script src="${pageContext.request.contextPath}/resources/js/ticketting.js"></script>
 </head>
 <body>
+	<%if (session.getAttribute("loginInfo") == null) { %>
+		<jsp:forward page="/login"></jsp:forward>
+	<%} %>
     <div id="contents" class="contents_full contents_reserve" style="">
         <div class="wrap_reserve">
             <h2 class="hidden">예매하기</h2>
@@ -218,9 +221,9 @@
                                             	<div id ="timeInfo">
                                             	<%
                                             	ArrayList<TicketingInfoDTO> timeInfoList = (ArrayList<TicketingInfoDTO>) session.getAttribute("timeInfoList");
-                                            	                                            	  ArrayList<MovieDTO> movieInfoList = (ArrayList<MovieDTO>) session.getAttribute("movieList");
+                                            	ArrayList<MovieDTO> movieInfoList = (ArrayList<MovieDTO>) session.getAttribute("movieList");
                                             	                                            	  
-                                            	                                            	  if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {
+                                            	if (session.getAttribute("timeInfoList") == null || session.getAttribute("movieList") == null) {
                                             	%>
 		                                                <div class="bx_notice">
 		                                                    <p>조회 가능한 상영시간이 없습니다.</p>
@@ -250,7 +253,7 @@
 													        	<%for (TicketingInfoDTO time : timeInfoList) { 
 													        		if (time.getMovie().getMovieName().equals(movie.getMovieName())) {%>
 													            	<li class="">
-													            		<a role="button" href="#none" onclick="selectTime('<%=time.getTime().getTicketDate() %>', '<%=time.getTime().getStartTime() %>','<%=time.getCinema().getCinemaNum() %>', '<%=time.getHall().getHallNum() %>', '<%=time.getTime().getTimeInfoNum()%>', '<%=movie.getMovieName()%>', '${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>');">
+													            		<a role="button" href="#none" onclick="selectTime('<%=time.getTime().getTicketDate() %>', '<%=time.getTime().getStartTime() %>','<%=time.getCinema().getCinemaNum() %>', '<%=time.getHall().getHallNum() %>', '<%=time.getTime().getTimeInfoNum()%>', '<%=movie.getMovieName()%>','<%=movie.getMovieAge()%>', <%=time.getReservingSeat() %>, '${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>');">
 													                    <dl>
 													                        <dt>상영시간</dt>
 													                        <dd class="time">
@@ -258,7 +261,7 @@
 													                            <div class="tooltip">종료 <%=time.endTime() %></div>
 													                        </dd>
 													                        <dt>잔여석</dt>
-													                        <dd class="seat"><strong>84</strong> / 110</dd>
+													                        <dd class="seat"><strong><%=time.getReservingSeat() %></strong> / 120</dd>
 													                        <dt>상영관</dt>
 													                        <dd class="hall"><%=time.getHall().getHallName() %></dd>
 													                    </dl>

@@ -59,8 +59,8 @@ public class TicketingController {
 	
 	@ResponseBody
 	@RequestMapping(value = "selectTime")
-	public void selectTime(Model model, @RequestBody Map<String, String> map) {
-		manageService.selectTime(model, map);
+	public boolean selectTime(Model model, @RequestBody Map<String, String> map) {
+		return manageService.selectTime(model, map);
 	}
 	
 	@ResponseBody

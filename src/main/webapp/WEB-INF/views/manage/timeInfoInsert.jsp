@@ -35,10 +35,11 @@
 		                    <div class="subject __underline" style="border-bottom: 1px solid #000;"></div><br>
 		                    	<div class= "input_field" style ="width: 60%">
 									<label style="padding-right: 50px">지역명</label><br>
-									<select>
+									<!--  <select>
 										<option>지역을 입력하세요.</option>
 									</select>
-									<!-- <input type="text" placeholder="지역을 입력하세요." name="countryName" id="countryName"><br> -->
+									-->
+								    <input type="text" placeholder="지역을 입력하세요." name="countryName" id="countryName"><br>
 									<label style="padding-right: 50px">지점명</label>
 									<input type="text" placeholder="지역을 입력하세요." name="cinemaName" id="cinemaName"><br>
 									<label style="padding-right: 50px">영화명</label>
