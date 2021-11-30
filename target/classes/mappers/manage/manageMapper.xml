@@ -52,23 +52,23 @@
 	<select id="movieList" parameterType="com.star.cinema.movie.dto.MovieDTO" resultMap="movie">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM MovieList ORDER BY movieListNum DESC
+				SELECT * FROM MovieList ORDER BY movieListNum
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
 	
 	<select id="timeInfoList" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
-		SELECT * FROM timeinfo ORDER BY timeInfoNum DESC
+		SELECT * FROM timeinfo ORDER BY timeInfoNum
 	</select>
 	
 	<select id="hallList" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
-		SELECT * FROM hall ORDER BY hallNum DESC
+		SELECT * FROM hall ORDER BY hallNum
 	</select>
 	
 	<select id="cinemaList" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM cinema ORDER BY cinemaNum DESC
+				SELECT * FROM cinema ORDER BY cinemaNum
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
@@ -125,9 +125,9 @@
 		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT cinemaNum FROM cinema WHERE cinemaNum=#{cinemaNum}))
 	</insert>
 	
-	<insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
-		INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), (SELECT movieListNum FROM movieList WHERE BINARY movieName='#{movieName}'), #{ticketDate}, (SELECT cinemaNum FROM cinema WHERE cinemaNum=#{cinemaNum}), #{movieName})
-	</insert>
+   <insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
+      INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), #{movieListNum}, #{ticketDate}, #{cinemaNum}, #{movieName})
+   </insert>
 	
 	<select id="movieInfo" parameterType="com.star.cinema.movie.dto.MovieDTO" resultMap="movie">
 		SELECT * FROM MovieList

@@ -18,7 +18,7 @@
 	<select id="memberList" resultMap="member">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM member ORDER BY memberNum ASC
+				SELECT * FROM member ORDER BY memberNum
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>

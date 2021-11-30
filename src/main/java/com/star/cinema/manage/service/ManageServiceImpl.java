@@ -110,6 +110,7 @@ public class ManageServiceImpl implements IManageService {
 		TimeInfoDTO timeInfo = new TimeInfoDTO();
 		HallDTO hall = new HallDTO();
 		CinemaDTO cinema = new CinemaDTO();
+		MovieDTO movie = moviedao.selectMovie(movieName);
 		
 		int cinemaNum = dao.cinemaName(cinemaName);
 		 
@@ -125,6 +126,7 @@ public class ManageServiceImpl implements IManageService {
 		timeInfo.setTicketDate(ticketDate);
 		timeInfo.setCinemaNum(cinemaNum);
 		timeInfo.setMovieName(movieName);
+		timeInfo.setMovieListNum(movie.getMovieListNum());
 		
 		dao.timeInfoInsert(timeInfo);
 		
@@ -353,9 +355,11 @@ public class ManageServiceImpl implements IManageService {
 				String[] ticketDate = t.getTicketDate().split("-");
 				String[] startTimes = t.getStartTime().split(":");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
+				System.out.println(Integer.parseInt(startTimes[0] + startTimes[1]));
+				System.out.println(todayTimeCheck);
 				
 				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
-				if (movie == null || timeCheck != nowTime || (timeCheck == todayTime && Integer.parseInt(startTimes[0]) + Integer.parseInt(startTimes[1]) < todayTimeCheck)) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
+				if (movie == null || timeCheck != nowTime || (timeCheck == todayTime && Integer.parseInt(startTimes[0] + startTimes[1]) < todayTimeCheck)) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
 					index++;
 					continue;
 				}
