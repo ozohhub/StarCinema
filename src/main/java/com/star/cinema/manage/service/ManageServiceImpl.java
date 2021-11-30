@@ -31,7 +31,7 @@ import com.star.cinema.movie.dto.MovieDTO;
 import com.star.cinema.movie.dto.TicketingDTO;
 
 @Service
-public class ManageServiceImpl implements IManageService{
+public class ManageServiceImpl implements IManageService {
 	@Autowired IManageDAO dao;
 	@Autowired IMovieDAO moviedao;
 	@Autowired IChartDAO chartdao;
@@ -422,12 +422,6 @@ public class ManageServiceImpl implements IManageService{
 				session.setAttribute("movieList", movieList);
 			}
 		}
-	}
-
-	@Override
-	public void timeInfoList(Model model) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
