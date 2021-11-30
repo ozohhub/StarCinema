@@ -4,8 +4,10 @@ package com.star.cinema.manage.service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -20,6 +22,7 @@ import com.star.cinema.manage.dto.HallDTO;
 import com.star.cinema.manage.dto.TicketingInfoDTO;
 import com.star.cinema.manage.dto.TimeInfoDTO;
 import com.star.cinema.manage.dto.TimeManageDTO;
+import com.star.cinema.member.MemberCheck;
 import com.star.cinema.member.config.PageConfig;
 import com.star.cinema.member.dto.MemberDTO;
 import com.star.cinema.movie.dao.IChartDAO;
@@ -65,7 +68,7 @@ public class ManageServiceImpl implements IManageService{
 	public void cinemaDelete(int id) {
 		dao.cinemaDelete(id);
 	}
-
+	
 	@Override
 	public void timeInfoList(Model model) {
 		ArrayList<TimeInfoDTO> timeInfo = dao.timeInfoList();
@@ -76,6 +79,9 @@ public class ManageServiceImpl implements IManageService{
 			int index = 0;
 			for(TimeInfoDTO t : timeInfo) {
 				TimeManageDTO manage = new TimeManageDTO();
+				if (dao.cinemaSearch(t.getCinemaNum()).isEmpty()) {
+					continue;
+				}
 				CinemaDTO cinema = dao.cinemaSearch(t.getCinemaNum()).get(0);
 				manage.setCountryName(cinema.getCountryName());
 				manage.setCinemaName(cinema.getCinemaName());
@@ -104,6 +110,7 @@ public class ManageServiceImpl implements IManageService{
 		TimeInfoDTO timeInfo = new TimeInfoDTO();
 		HallDTO hall = new HallDTO();
 		CinemaDTO cinema = new CinemaDTO();
+		
 		int cinemaNum = dao.cinemaName(cinemaName);
 		 
 		cinema.setCountryName(countryName);
@@ -127,7 +134,7 @@ public class ManageServiceImpl implements IManageService{
 
 	@Override
 	public void moviePoster(Model model) {
-		Map<Integer, Double> movieRate = new HashMap<>();
+		Map<Integer, Double> movieRate = new LinkedHashMap<>();
 		ArrayList<MovieDTO> movieList = dao.movieInfo();
 		ArrayList<Double> rank = new ArrayList<Double>();
 		ArrayList<Integer> movieListCount = dao.groupCount();
@@ -143,10 +150,15 @@ public class ManageServiceImpl implements IManageService{
 			movieRate.put(movieNum.get(i), rank.get(i));
 		}
 		
+		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
+			System.out.println(test.getKey() + ":" + test.getValue());
+		}
+		
 		model.addAttribute("movieListInfo", movieList);
 		model.addAttribute("map", movieRate);
 		
 		mainChartSet(model);
+		System.out.println(movieRate.size());
 	}
 	
 	
@@ -158,19 +170,19 @@ public class ManageServiceImpl implements IManageService{
 		ArrayList<Integer> rateG = chartdao.gradeRate();
 		ArrayList<Integer> rateR = chartdao.reviewRate();
 		
-		Map<Integer,Integer> mapL = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> mapG = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> mapR = new HashMap<Integer, Integer>();
+		Map<Integer,Integer> mapL = new LinkedHashMap<Integer, Integer>();
+		Map<Integer,Integer> mapG = new LinkedHashMap<Integer, Integer>();
+		Map<Integer,Integer> mapR = new LinkedHashMap<Integer, Integer>();
 		
-		if(!rankL.isEmpty()) {
+		if(!rankL.isEmpty() && !rateL.isEmpty()) {
 			for(int i=0; i < rankL.size(); i++) {
 				mapL.put(rankL.get(i), rateL.get(i));
 			}
 			
 			model.addAttribute("likeR", mapL);
 		}
-		
-		if(!rankG.isEmpty()) {
+				
+		if(!rankG.isEmpty() && (!rateG.isEmpty() && rateG.get(0) != null)) {
 			for(int i=0; i < rankG.size(); i++) {
 				mapG.put(rankG.get(i), rateG.get(i));
 			}
@@ -178,7 +190,7 @@ public class ManageServiceImpl implements IManageService{
 			model.addAttribute("gradeR", mapG);
 		}
 		
-		if(!rankR.isEmpty()) {
+		if(!rankR.isEmpty() && !rateR.isEmpty()) {
 			for(int i=0; i < rankR.size(); i++) {
 				mapR.put(rankR.get(i), rateR.get(i));
 			}
@@ -219,11 +231,11 @@ public class ManageServiceImpl implements IManageService{
 	}
 	
 	@Override
-	public void selectTime(Model model, Map<String, String> map) {
-		MovieDTO movie = moviedao.selectMovie(map.get("movieName"));
+	public boolean selectTime(Model model, Map<String, String> map) {
+		MovieDTO movie = moviedao.selectMovie(map.get("movieListNum"));
 		CinemaDTO cinema = dao.cinemaSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
-		HallDTO hall = dao.hallSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
-		TimeInfoDTO time = dao.timeSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
+		HallDTO hall = dao.hallSelect(Integer.parseInt(map.get("cinemaNum")), Integer.parseInt(map.get("hallNum")));
+		TimeInfoDTO time = dao.timeSelect(Integer.parseInt(map.get("cinemaNum")), Integer.parseInt(map.get("movieListNum")), Integer.parseInt(map.get("hallNum")));
 		
 		TicketingInfoDTO info = new TicketingInfoDTO();
 		info.setCinema(cinema);
@@ -232,6 +244,14 @@ public class ManageServiceImpl implements IManageService{
 		info.setTime(time);
 
 		session.setAttribute("selectTicket", info);
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("loginInfo");
+		String[] birth = member.getBirth().split("-");
+		
+		MemberCheck check = new MemberCheck();
+		int age = check.calcAge(Integer.parseInt(birth[0]), Integer.parseInt(birth[1]), Integer.parseInt(birth[2]));
+
+		return Integer.parseInt(movie.getMovieAge()) < age;
 	}
 	
 	@Override
@@ -270,6 +290,7 @@ public class ManageServiceImpl implements IManageService{
 		int cinemaNum = cinema.getCinemaNum();
 		String OpenDate = time.getTicketDate();
 		String OpenTime = time.getStartTime();
+		
 
 		ArrayList<TicketingDTO> ticketTings =  dao.movieSeatList(movieListNum, hallNum, cinemaNum, OpenDate, OpenTime);
 		for (TicketingDTO info : ticketTings) {
@@ -288,7 +309,7 @@ public class ManageServiceImpl implements IManageService{
 	
 	public void timeInfoHandle(Model model, String search, String movieKind, String date) {
 		//기존에 선택했던 정보들을 세션에서 먼저 제거한다.
-		String sessionInfos[] = {"timeInfoList", "movieList", "selectCinema", "selectDate", "selectMovie"};
+		String sessionInfos[] = {"timeInfoList", "movieList", "selectCinema", "selectDate", "selectMovie", "reserveSeatList"};
 		for (String info : sessionInfos) {
 			if (session.getAttribute(info) != null) {
 				session.removeAttribute(info);
@@ -297,10 +318,11 @@ public class ManageServiceImpl implements IManageService{
 		
 		//아무것도 선택하지 않았을시 오늘 날짜로 자동 지정.
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		int todayTimeCheck = Integer.parseInt(String.valueOf(cal.get(Calendar.HOUR_OF_DAY)) + String.valueOf(cal.get(Calendar.MINUTE)));
+
 		Date checkDate = new Date();
-		if (date.equals("today")) {
-			checkDate = new Date();
-		} else {
+		if (!date.equals("today")) {
 			String[] check = date.split("-");
 			checkDate = new Date(Integer.parseInt(check[0]) - 1900, Integer.parseInt(check[1]) - 1, Integer.parseInt(check[2]));
 		}
@@ -315,11 +337,10 @@ public class ManageServiceImpl implements IManageService{
 		//DB에서 영화관, 상영정보를 불러와 한개의 DTO로 합침
 		int cinemaNum = dao.cinemaName(search);
 		ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
-		ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
-		ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
 		
 		//상영 시간과 현재 시간 비교를 위해 현재 시간의 값을 구해줌
 		long nowTime = Long.parseLong(df.format(checkDate).replaceAll("-", ""));
+		long todayTime = Long.parseLong(df.format(new Date()).replaceAll("-", ""));
 		
 		if (!timeInfo.isEmpty()) {
 			ArrayList<TicketingInfoDTO> list = new ArrayList<>();
@@ -330,11 +351,11 @@ public class ManageServiceImpl implements IManageService{
 				MovieDTO movie = moviedao.searchMovie(t.getMovieListNum());
 				//상영시간과 현재 시간 비교를 위해 상영 시간의 값을 구해줌
 				String[] ticketDate = t.getTicketDate().split("-");
+				String[] startTimes = t.getStartTime().split(":");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
 				
 				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
-				System.out.println(timeCheck  + " / " + nowTime);
-				if (movie == null || timeCheck != nowTime) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
+				if (movie == null || timeCheck != nowTime || (timeCheck == todayTime && Integer.parseInt(startTimes[0]) + Integer.parseInt(startTimes[1]) < todayTimeCheck)) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.
 					index++;
 					continue;
 				}
@@ -342,13 +363,35 @@ public class ManageServiceImpl implements IManageService{
 				boolean insert = true;
 				boolean add = true;
 				
+				System.out.println(dao.hallSelect(t.getCinemaNum(), t.getHallNum()));
+				HallDTO hall = dao.hallSelect(t.getCinemaNum(), t.getHallNum());
+				CinemaDTO cinema = dao.cinemaSearch(t.getCinemaNum()).get(0);
 				ticket.setMovie(movie);
-				ticket.setCinema(cinema.get(0));
-				ticket.setHall(hall.get(index));
+				ticket.setCinema(cinema);
+				ticket.setHall(hall);
 				ticket.setTime(t);
 				
+				int movieListNum = t.getMovieListNum();
+				int hallNum = t.getHallNum();
+				String OpenDate = t.getTicketDate();
+				String OpenTime = t.getStartTime();
+				
+				System.out.println(movieListNum);
+				System.out.println(hallNum);
+				System.out.println(cinema.getCinemaNum());
+				System.out.println(OpenDate);
+				System.out.println(OpenTime);
+
+				ArrayList<TicketingDTO> ticketTings =  dao.movieSeatList(movieListNum, hallNum, cinema.getCinemaNum(), OpenDate, OpenTime);
+				int seatSize = 0;
+				for (TicketingDTO info : ticketTings) {
+					for (String seatName : info.getSeatName().split(",")) {
+						seatSize++;
+					}
+				}
+				ticket.setReservingSeat(120 - seatSize);
+				
 				for(MovieDTO check : movieList) { 
-					System.out.println(check.getMovieName() + "" + movie.getMovieName());
 					if (check.getMovieName().equals(movie.getMovieName())) {
 						insert = false;
 						break;
@@ -370,6 +413,7 @@ public class ManageServiceImpl implements IManageService{
 				index++;
 				
 			}
+
 			
 			if (!list.isEmpty()) {
 				session.setAttribute("timeInfoList", list);
@@ -378,6 +422,12 @@ public class ManageServiceImpl implements IManageService{
 				session.setAttribute("movieList", movieList);
 			}
 		}
+	}
+
+	@Override
+	public void timeInfoList(Model model) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

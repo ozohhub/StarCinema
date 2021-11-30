@@ -43,7 +43,7 @@ public class HomeController {
    public void main() {}
    
    @RequestMapping(value = "/index")
-   public String index(Model model, String formpath) {
+   public String index(Model model, HttpSession session, String formpath) {
       if(formpath == null) formpath = "main";
       model.addAttribute("formpath", formpath);
       headerCinemaAdd(model);

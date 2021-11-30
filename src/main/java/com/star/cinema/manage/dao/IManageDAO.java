@@ -30,7 +30,9 @@ public interface IManageDAO {
 	public boolean hallDelete(int num);
 	public void timeInfoInsert(TimeInfoDTO timeInfo);
 	public void hallInsert(HallDTO hall);
+	public TimeInfoDTO timeSelect(@Param("cinemaNum")int cinemaNum, @Param("movieListNum")int movieListNum,  @Param("hallNum")int hallNum);
 	public ArrayList<TimeInfoDTO> timeSearch(int cinemaNum);
+	public HallDTO hallSelect(@Param("cinemaNum")int cinemaNum, @Param("hallNum")int hallNum);
 	public ArrayList<HallDTO> hallSearch(int cinemaName);
 	public ArrayList<CinemaDTO> cinemaSearch(int cinemaNum);
 	

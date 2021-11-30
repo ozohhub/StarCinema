@@ -5,6 +5,7 @@
 		<result column="timeInfoNum" property="timeInfoNum"/>
 		<result column="startTime" property="startTime"/>
 		<result column="movieListNum" property="movieListNum"/>
+		<result column="hallNum" property="hallNum"/>
 		<result column="ticketDate" property="ticketDate"/>
 	</resultMap>
 	
@@ -142,6 +143,14 @@
 	
 	<select id="totalTicketCount" resultType="int">
 		select count(*) from ticketing
+	</select>
+	
+	<select id="hallSelect" resultMap="hall">
+		SELECT * FROM hall WHERE hallNum=#{hallNum} AND cinemaNum=#{cinemaNum}
+	</select>
+	
+	<select id="timeSelect" resultMap="timeInfo">
+		SELECT * FROM timeinfo WHERE movieListNum=#{movieListNum} AND cinemaNum=#{cinemaNum} AND hallNum=#{hallNum}
 	</select>
    
    <select id="movieSeatList" resultMap="ticketing">

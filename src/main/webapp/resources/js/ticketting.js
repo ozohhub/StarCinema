@@ -53,17 +53,17 @@ function selectMovie(movieName) {
     })
 }
 
-function selectTime(startDate, startTime, cinemaNum, hallNum, timeInfoNum, movieName, movieAge, seatCheck, moviePoster) {
-	if (seatCheck <= 0) {
-	    Swal.fire({
-	        title: 'Oops...',
-	        imageUrl: moviePoster,
-        	imageWidth: 184,
-        	imageHeight: 262,
-	        text: "[" + movieName + "] 영화는 예약 마감 되었습니다.",
+function selectTime(startDate, startTime, cinemaNum, hallNum, timeInfoNum, movieName, movieAge, seatCheck, movieListNum, moviePoster) {
+    if (seatCheck <= 0) {
+        Swal.fire({
+            title: 'Oops...',
+            imageUrl: moviePoster,
+            imageWidth: 184,
+            imageHeight: 262,
+            text: "[" + movieName + "] 영화는 예약 마감 되었습니다.",
         })
-		return;
-	}
+        return;
+    }
     Swal.fire({
         title: "영화 예매",
         text: "[" + movieName + "] " + startDate + "-" + startTime + "분 예매를 진행 하시겠어요?",
@@ -78,7 +78,7 @@ function selectTime(startDate, startTime, cinemaNum, hallNum, timeInfoNum, movie
 
     }).then((result) => {
         if (result.isConfirmed) {
-            var info = { startDate: startDate, startTime: startTime, cinemaNum: cinemaNum, hallNum: hallNum, timeInfoNum: timeInfoNum, movieName: movieName };
+            var info = { startDate: startDate, startTime: startTime, cinemaNum: cinemaNum, hallNum: hallNum, timeInfoNum: timeInfoNum, movieName: movieName, movieListNum: movieListNum };
             $.ajax({
                 url: "selectTime",
                 method: 'post',
@@ -91,10 +91,10 @@ function selectTime(startDate, startTime, cinemaNum, hallNum, timeInfoNum, movie
                         location.href = 'index?formpath=seat';
                     } else {
                         Swal.fire({
-					        title: 'Oops...',
-					        imageUrl: moviePoster,
-				        	imageWidth: 184,
-				        	imageHeight: 262,
+                            title: 'Oops...',
+                            imageUrl: moviePoster,
+                            imageWidth: 184,
+                            imageHeight: 262,
                             text: "[" + movieName + "] 영화는 " + movieAge + "세 이상만 관람할 수 있습니다.",
                         })
                     }

@@ -253,7 +253,7 @@
 													        	<%for (TicketingInfoDTO time : timeInfoList) { 
 													        		if (time.getMovie().getMovieName().equals(movie.getMovieName())) {%>
 													            	<li class="">
-													            		<a role="button" href="#none" onclick="selectTime('<%=time.getTime().getTicketDate() %>', '<%=time.getTime().getStartTime() %>','<%=time.getCinema().getCinemaNum() %>', '<%=time.getHall().getHallNum() %>', '<%=time.getTime().getTimeInfoNum()%>', '<%=movie.getMovieName()%>','<%=movie.getMovieAge()%>', <%=time.getReservingSeat() %>, '${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>');">
+													            		<a role="button" href="#none" onclick="selectTime('<%=time.getTime().getTicketDate() %>', '<%=time.getTime().getStartTime() %>','<%=time.getCinema().getCinemaNum() %>', '<%=time.getHall().getHallNum() %>', '<%=time.getTime().getTimeInfoNum()%>', '<%=movie.getMovieName()%>','<%=movie.getMovieAge()%>', <%=time.getReservingSeat() %>, <%=movie.getMovieListNum()%>,'${pageContext.request.contextPath}/resources/images/poster/<%=movie.getMoviePoster()%>');">
 													                    <dl>
 													                        <dt>상영시간</dt>
 													                        <dd class="time">
