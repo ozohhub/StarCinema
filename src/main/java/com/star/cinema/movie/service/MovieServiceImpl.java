@@ -26,16 +26,11 @@ public class MovieServiceImpl implements IMovieService{
    @Override
    public void movieListProc(Model model) {
       List<MovieDTO> movieList = dao.movieList();
-      ArrayList<Integer> movieListNum = dao.movieListNum();
-      ArrayList<Integer> like = new ArrayList<Integer>();
-      Map<Integer,Integer> totalLike = new HashMap<Integer, Integer>();
+      Map<Integer,Double> totalLike = new HashMap<Integer, Double>();
       
-      for(int i=0;i<movieListNum.size();i++) {
-         like.add(detail.totalLike(movieListNum.get(i)));
-         totalLike.put(movieListNum.get(i), like.get(i));
+      for (MovieDTO movie : movieList) {
+    	  totalLike.put(movie.getMovieListNum(), detail.selectTotalGrade(movie.getMovieListNum()));
       }
-      
-      //언니 노트북으로 확인하기
       
       model.addAttribute("totalLike", totalLike);
       model.addAttribute("movieList", movieList);
