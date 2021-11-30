@@ -207,9 +207,9 @@ a:focus{
 }
 
 .detail_con td{
-	height : 400px;
-	padding: 30px 60px;
-	
+	width: 980px;
+    height: 400px;
+    border: transparent;	
 }
 
 .notice_btn_area{

@@ -33,9 +33,9 @@
 					<tr class="detail_con">
 						<td>
 							<div class="detail_notice_con">
-							<p>
+							<textarea>
 								${view.content}
-							</p>
+							</textarea>
 							</div>
 						</td>
 					<tr>

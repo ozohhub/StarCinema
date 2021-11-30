@@ -69,23 +69,27 @@ $(document).ready(function(){
 	<div class="multiple_whole">
 		<div class="multiple_wrap">
 			<ul class="multiple_slider">
+			<c:set var ="cnt" value="0"/>			
 			<c:forEach var="rate" items="${map }" varStatus="status">
-				<c:forEach var="movieList" items="${movieListInfo }" >
-					<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
-						<li>
-							<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
-								<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
-									<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-									<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
-								</div>
-							</div>
-							<div class="movieInfo" style="text-align: center;">
-			                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
-								<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
-							</div>
-						</li>
-					</c:if>
-				</c:forEach>               
+					<c:forEach var="movieList" items="${movieListInfo }" >
+						<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
+							<c:if test="${cnt < 10 }" >
+								${cnt+1}
+								<li>
+									<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
+										<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
+											<button id="reserve_btn" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+											<button id="detail_btn" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
+										</div>
+									</div>
+									<div class="movieInfo" style="text-align: center;">
+					                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
+										<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
+									</div>
+								</li>
+							</c:if>
+						</c:if>
+					</c:forEach>              
 			</c:forEach>
 			</ul>
 		</div>
