@@ -28,8 +28,8 @@ public class SeatServiceImpl implements ISeatService{
 		CinemaDTO cinema = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getCinema();
 		HallDTO hall = ((TicketingInfoDTO) session.getAttribute("selectTicket")).getHall();
 		
-		int movieListNum = dao.searchMovieListNum(movie.getMovieName());
-		int cinemaNum = dao.searchCinemaNum(cinema.getCinemaName());
+		int movieListNum = movie.getMovieListNum();
+		int cinemaNum = cinema.getCinemaNum();
 		
 		dto.setMovieListNum(movieListNum);
 		dto.setCinemaNum(cinemaNum);

@@ -110,6 +110,7 @@ function selectTime(startDate, startTime, cinemaNum, hallNum, timeInfoNum, movie
 }
 
 function selectDate(dateInfo) {
+    checkCinema();
     var info = { date: dateInfo };
     $.ajax({
         url: "selectDate",

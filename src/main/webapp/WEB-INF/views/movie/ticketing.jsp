@@ -292,7 +292,29 @@
             </div>
         </div>
     </div>
-    
+    <script> 
+	function checkCinema() {
+		<%if (session.getAttribute("selectCinema") == null) { %>
+			const Toast = Swal.mixin({
+				  toast: true,
+				  position: 'top-end',
+				  showConfirmButton: false,
+				  timer: 3000,
+				  timerProgressBar: true,
+				  didOpen: (toast) => {
+				    toast.addEventListener('mouseenter', Swal.stopTimer)
+				    toast.addEventListener('mouseleave', Swal.resumeTimer)
+				  }
+				})
+
+				Toast.fire({
+				  icon: 'info',
+				  title: '관람하실 영화관을 선택해야 상영시간이 나옵니다.'
+				})
+			return;
+		<%}%>
+	}
+	</script>
 </body>
 
 </html>

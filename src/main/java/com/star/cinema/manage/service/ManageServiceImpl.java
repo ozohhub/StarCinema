@@ -232,7 +232,7 @@ public class ManageServiceImpl implements IManageService {
 	
 	@Override
 	public boolean selectTime(Model model, Map<String, String> map) {
-		MovieDTO movie = moviedao.selectMovie(map.get("movieListNum"));
+		MovieDTO movie = moviedao.searchMovie(Integer.parseInt(map.get("movieListNum")));
 		CinemaDTO cinema = dao.cinemaSearch(Integer.parseInt(map.get("cinemaNum"))).get(0);
 		HallDTO hall = dao.hallSelect(Integer.parseInt(map.get("cinemaNum")), Integer.parseInt(map.get("hallNum")));
 		TimeInfoDTO time = dao.timeSelect(Integer.parseInt(map.get("cinemaNum")), Integer.parseInt(map.get("movieListNum")), Integer.parseInt(map.get("hallNum")));
@@ -362,8 +362,7 @@ public class ManageServiceImpl implements IManageService {
 				
 				boolean insert = true;
 				boolean add = true;
-				
-				System.out.println(dao.hallSelect(t.getCinemaNum(), t.getHallNum()));
+
 				HallDTO hall = dao.hallSelect(t.getCinemaNum(), t.getHallNum());
 				CinemaDTO cinema = dao.cinemaSearch(t.getCinemaNum()).get(0);
 				ticket.setMovie(movie);
@@ -375,12 +374,7 @@ public class ManageServiceImpl implements IManageService {
 				int hallNum = t.getHallNum();
 				String OpenDate = t.getTicketDate();
 				String OpenTime = t.getStartTime();
-				
-				System.out.println(movieListNum);
-				System.out.println(hallNum);
-				System.out.println(cinema.getCinemaNum());
-				System.out.println(OpenDate);
-				System.out.println(OpenTime);
+
 
 				ArrayList<TicketingDTO> ticketTings =  dao.movieSeatList(movieListNum, hallNum, cinema.getCinemaNum(), OpenDate, OpenTime);
 				int seatSize = 0;
