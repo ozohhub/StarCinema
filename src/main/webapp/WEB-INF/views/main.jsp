@@ -103,22 +103,26 @@ $(document).ready(function(){
 		<div class="multiple_wrap2">
 			<ul class="multiple_slider2">
 			<c:if test="${not empty gradeR }">
+				<c:set var ="gcnt" value="0"/>	
 				<c:forEach var="grade" items="${gradeR }" varStatus="index">
-					<c:forEach var="movieList" items="${movieListInfo }" >
-						<c:if test="${grade.getKey() == movieList.getMovieListNum() }">
-							<li>
-								<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
-									<div class="gradeBoxBtn${index.count }">	
-										<button id="gradeReserve_btn" class="gradeReserve_btn${index.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-										<button id="gradeDetail_btn" class="gradeDetail_btn${index.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${movieList.getMovieListNum() }';">상세정보</button>
-									</div>
-								</div>
-								<div class="movieInfo" style="text-align: center;">
-				                    <h3 style="font-size: 22px;">${index.count }.${movieList.getMovieName() }</h3>
-									<span style="font-size: 15px;">평점 <fmt:formatNumber value="${grade.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>점</span>
-								</div>
-							</li>
+					<c:forEach var="mList" items="${movieListInfo }" >
+						<c:if test="${grade.getKey() == mList.getMovieListNum() }">
+							<c:if test="${cnt < 10 }" >
+								<c:set var="cnt" value="${cnt + 1}"/>
+									<li>
+										<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${mList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
+											<div class="gradeBoxBtn${index.count }">	
+												<button id="gradeReserve_btn" class="gradeReserve_btn${index.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
+												<button id="gradeDetail_btn" class="gradeDetail_btn${index.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${mList.getMovieListNum() }';">상세정보</button>
+											</div>
+										</div>
+										<div class="movieInfo" style="text-align: center;">
+						                    <h3 style="font-size: 22px;">${index.count }.${mList.getMovieName() }</h3>
+											<span style="font-size: 15px;">평점 <fmt:formatNumber value="${grade.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>점</span>
+										</div>
+									</li>
 						</c:if>
+					</c:if>
 					</c:forEach>               
 				</c:forEach>
 			</c:if>

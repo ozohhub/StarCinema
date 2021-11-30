@@ -74,7 +74,7 @@
 							
 							<c:set var="present" value="<%=new java.util.Date() %>"/>
 							<c:set var = "nowTime"><fmt:formatDate value="${present}" pattern ="yyyy-MM-dd-HH-mm"/></c:set>
-							<c:if test="${empty myReview.get(myHistory.movieListNum) && nowTime > reviewTime.get(myHistory.movieListNum)}">
+							<c:if test="${empty myReview.get(myHistory.movieListNum) && nowTime > btnTime.get(myHistory.movieListNum)}">
 								<div class="reviewWrite_btn_area">
 									<a href="movieDetailProc?movieListNum=${myHistory.movieListNum}">
 										<span>리뷰쓰기</span>

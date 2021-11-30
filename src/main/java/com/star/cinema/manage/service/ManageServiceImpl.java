@@ -184,11 +184,13 @@ public class ManageServiceImpl implements IManageService {
 			model.addAttribute("likeR", mapL);
 		}
 				
-		if(!rankG.isEmpty() && (!rateG.isEmpty() && rateG.get(0) != null)) {
+		if(!rankG.isEmpty() && !rateG.isEmpty() ) {
 			for(int i=0; i < rankG.size(); i++) {
 				mapG.put(rankG.get(i), rateG.get(i));
 			}
 			
+			
+
 			model.addAttribute("gradeR", mapG);
 		}
 		

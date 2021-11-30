@@ -121,7 +121,7 @@ public class MyPageServiceImpl implements IMyPageService {
 		Map<Integer,String> myReview = new HashMap<Integer,String>();
 		Map<Integer,String> cinemaName = new HashMap<Integer,String>();
 		Map<Integer,String> hallName = new HashMap<Integer,String>();
-		Map<Integer,String> reviewTime = new HashMap<Integer,String>();
+		Map<Integer,String> btnTime = new HashMap<Integer,String>();
 		
 		if(recent.equals("recent")) {
 			myTicketing = gradeDao.selectRecentTicketing(dto.getId());
@@ -137,9 +137,8 @@ public class MyPageServiceImpl implements IMyPageService {
 				if(!recent.equals("recent")) {
 					String review = gradeDao.selectMyReview(t.getMovieListNum(), dto.getId());
 					if(review != null) myReview.put(t.getMovieListNum(), review);
-					reviewTime.put(t.getMovieListNum(),timeCalc(t.getOpenDate(),t.getOpenTime(),movie.getMovieTime()));
 				}
-
+				btnTime.put(t.getMovieListNum(),timeCalc(t.getOpenDate(),t.getOpenTime(),movie.getMovieTime()));
 				myMovieInfo.put(t.getMovieListNum(), movie);				
 				if(cinema != null) cinemaName.put(t.getCinemaNum(), cinema);
 				if(hall != null) hallName.put(t.getHallNum(), hall);
@@ -152,12 +151,12 @@ public class MyPageServiceImpl implements IMyPageService {
 		model.addAttribute("hallName", hallName);
 		if(!recent.equals("recent")) {
 			model.addAttribute("myReview", myReview);
-			model.addAttribute("reviewTime", reviewTime);
 		}
+		model.addAttribute("btnTime", btnTime);
 		
 		return true;
 	}	
-	/* 리뷰 작성 위해 시간 구하기 -> 현재시간보보다 작아야 리뷰작성가능*/
+	/* 리뷰 작성 위해 시간 구하기 -> 현재시간보다 작아야 리뷰작성가능*/
 	public String timeCalc(String day, String oldTime, String runningTime){
 		
 		String oldH = oldTime.substring(0,2);

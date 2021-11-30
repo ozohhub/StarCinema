@@ -33,9 +33,7 @@
 					<tr class="detail_con">
 						<td>
 							<div class="detail_notice_con">
-							<textarea>
-								${view.content}
-							</textarea>
+							<textarea>${view.content}</textarea>
 							</div>
 						</td>
 					<tr>

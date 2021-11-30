@@ -138,9 +138,7 @@ $(document).ready(function(){
 				<div class="tab_info1">
 					<div class="left_con">
 						<strong class="tit_info">시놉시스</strong>
-						<textarea readonly="readonly" class="story">							
-							${movie.movieDetail }
-						</textarea>
+						<textarea readonly="readonly" class="story">${movie.movieDetail }</textarea>
 					</div>
 										
 					<div class="right_con">
