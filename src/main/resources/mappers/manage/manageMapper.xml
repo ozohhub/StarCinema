@@ -52,23 +52,23 @@
 	<select id="movieList" parameterType="com.star.cinema.movie.dto.MovieDTO" resultMap="movie">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM MovieList ORDER BY movieListNum ASC
+				SELECT * FROM MovieList ORDER BY movieListNum
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
 	
 	<select id="timeInfoList" parameterType="com.star.cinema.manage.dto.TimeManageDTO" resultMap="timeInfo">
-		SELECT * FROM timeinfo ORDER BY timeInfoNum ASC
+		SELECT * FROM timeinfo ORDER BY timeInfoNum
 	</select>
 	
 	<select id="hallList" parameterType="com.star.cinema.manage.dto.HallDTO" resultMap="hall">
-		SELECT * FROM hall ORDER BY hallNum ASC
+		SELECT * FROM hall ORDER BY hallNum
 	</select>
 	
 	<select id="cinemaList" parameterType="com.star.cinema.manage.dto.CinemaDTO" resultMap="cinema">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM cinema ORDER BY cinemaNum ASC
+				SELECT * FROM cinema ORDER BY cinemaNum
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 	</select>
