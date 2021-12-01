@@ -84,7 +84,7 @@ $(document).ready(function(){
 									</div>
 									<div class="movieInfo" style="text-align: center;">
 					                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
-										<span style="font-size: 15px;">예매율${cnt} <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
+										<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
 									</div>
 								</li>
 							</c:if>
