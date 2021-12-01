@@ -27,7 +27,7 @@
         <div class="wrap_reserve">
             <h2 class="hidden">예매하기</h2>
             <div id="PersonSeatHeader" class="section_step_tit">
-                <ul style="padding-top: 700px;">
+                <ul>
                     <li class="step01 prev" style="margin-left: 0">
                     	<a style="cursor: default;">
                     		<strong class="tit"><span>01</span><br>상영시간</strong>

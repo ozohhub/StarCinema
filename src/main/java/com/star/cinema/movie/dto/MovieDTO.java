@@ -1,5 +1,9 @@
 package com.star.cinema.movie.dto;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
  	CREATE TABLE MovieList(
 	movieListNum number not null,
@@ -88,6 +92,26 @@ public class MovieDTO {
 	}
 	public void setMovieAge(String movieAge) {
 		this.movieAge = movieAge;
+	}
+	
+	public long getDday() {
+	    Date d = new Date();
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+	    
+	    String strStartDate = sdf.format(d);
+        String strEndDate = getMovieOpen().replaceAll("-", "");
+        long diffDay = 0;
+        
+        try {
+	        Date startDate = sdf.parse(strStartDate);
+	        Date endDate = sdf.parse(strEndDate);
+	        
+	        diffDay = (startDate.getTime() - endDate.getTime()) / (24*60*60*1000);
+        } catch (Exception e) {
+        	
+        }
+
+		return diffDay;
 	}
 	
 	

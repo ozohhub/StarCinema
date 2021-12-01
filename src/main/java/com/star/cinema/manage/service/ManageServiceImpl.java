@@ -101,9 +101,7 @@ public class ManageServiceImpl implements IManageService {
 
 	@Override
 	public boolean timeInfoDeleteProc(String hallName, int timeInfoNum) {
-		int hallNum = dao.hallNum(hallName);
-		dao.timeInfoDelete(timeInfoNum);
-		return dao.hallDelete(hallNum);
+		return dao.timeInfoDelete(timeInfoNum);
 	}
 
 	@Override
@@ -157,7 +155,6 @@ public class ManageServiceImpl implements IManageService {
 		model.addAttribute("map", movieRate);
 		
 		mainChartSet(model);
-		System.out.println(movieRate.size());
 	}
 	
 	

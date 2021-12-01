@@ -80,7 +80,7 @@ public class TicketingController {
 		dto.setMoiveName(title);
 		dto.setOpenDate(reserveDate);
 		dto.setOpenTime(runningTime);
-		dto.setTotalPrice(totalPrice);
+		dto.setTotalPrice(totalPrice.replaceAll("원", ""));
 		dto.setPeople(ticketNumber);
 		dto.setSeatName(selectedSeat);
 		
