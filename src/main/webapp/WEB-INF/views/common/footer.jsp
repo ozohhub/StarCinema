@@ -3,7 +3,7 @@
 
 		<div class="inner">
 			<span class="f_logo">
-				<img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo_footer.gif" alt="LOTTE CINEMA">
+				<img style="width: 135px;" src="${pageContext.request.contextPath}/resources/images/lotgv_logo.jpg"alt="LOTTE CINEMA">
 			</span>
 			<ul class="f_menu">
 				<li><a href="#" title="회원약관" target="_self">회원약관</a></li>
@@ -17,14 +17,14 @@
 				<li><a href="#" title="기업정보" target="_blank">기업정보</a></li>
 			</ul>
 			<div class="bx_address">
-				<address>서울특별시 송파구 올림픽로 300 롯데월드타워 27층</address>
-				<span class="bar">고객센터 1544-8855</span><br>
-				<span>대표이사 기원규</span>
-				<span class="bar">사업자등록번호 313-87-00979</span>
-				<span class="bar">통신판매업신고번호 제1184호</span>
-				<span class="bar">개인정보 보호 최고 책임자 김무성</span>
+				<address>서울특별시 노량진동 장승배기로 171 KR 서울특별시 동작구 3층 아이비빌딩 305호</address>
+				<span class="bar">고객센터 1544-1234</span><br>
+				<span>대표이사 윤지영</span>
+				<span class="bar">사업자등록번호 123-45-56789</span>
+				<span class="bar">통신판매업신고번호 제1234호</span>
+				<span class="bar">개인정보 보호 최고 책임자 김경태/황유나</span>
 			</div>
-			<p class="copyright">COPYRIGHT© LOTTE CINEMA ALL RIGHT RESERVED.</p>
+			<p class="copyright">COPYRIGHT© LOTGV ALL RIGHT RESERVED.</p>
 		</div>
 		<div class="article_award">
 			<div class="inner">
