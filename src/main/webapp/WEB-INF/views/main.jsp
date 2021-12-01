@@ -74,7 +74,7 @@ $(document).ready(function(){
 					<c:forEach var="movieList" items="${movieListInfo }" >
 						<c:if test="${rate.getKey() == movieList.getMovieListNum() }">
 							<c:if test="${cnt < 10 }" >
-								${cnt+1}
+								<c:set var="cnt" value="${cnt + 1}"/>
 								<li>
 									<div class="boxBg${status.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${movieList.getMoviePoster() }');" onmouseover="bgOpacity(${status.count });" onmouseout="bgOpacityReset(${status.count });">
 										<div class="boxBtn${status.count }">	<!-- 마우스오버시 배경만 어둡게 하기위해 영역지정 -->
@@ -84,7 +84,7 @@ $(document).ready(function(){
 									</div>
 									<div class="movieInfo" style="text-align: center;">
 					                    <h3 style="font-size: 22px;">${status.count }.${movieList.getMovieName() }</h3>
-										<span style="font-size: 15px;">예매율 <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
+										<span style="font-size: 15px;">예매율${cnt} <fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/>%</span>
 									</div>
 								</li>
 							</c:if>
