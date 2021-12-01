@@ -225,7 +225,6 @@ public class ManageServiceImpl implements IManageService {
 					list.add(manage);
 					index++;
 				}
-				
 			}
 			model.addAttribute("timeInfoList", list);
 		}

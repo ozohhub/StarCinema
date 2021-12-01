@@ -25,11 +25,12 @@
 				<a href="${root }"><img style="margin: 10px 0 auto; width: 150px; height: auto;" src="${pageContext.request.contextPath}/resources/images/lot.png"></a>
 			</h1>
 			<ul class="g_menu2" style="margin-top: -20px;">
+			<c:if test="${loginInfo.id == 'admin' }">
 				<li><a href="${root }timeInfoProc">상영시간표관리</a></li>
 				<li><a href="${root }cinemaListProc">영화관관리</a></li>
 				<li><a href="index?formpath=movieManagement">영화관리</a></li>
 				<li><a href="${root }memberListProc">회원관리</a></li>
-				<li><a href="${root}ticketingHistory">멤버십</a></li>
+			</c:if>
 				<li><a href="${root }customerList">고객센터</a></li>
 				<%if (session.getAttribute("loginInfo") != null) {%>
 					<li onclick="logOut()"><a href="#">로그아웃</a></li>

@@ -104,10 +104,10 @@ $(document).ready(function(){
                            <c:choose>
                               <c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() < 7 }">
                                  <button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
-                                 <button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${now.getMovieListNum() }';">상세정보</button>
+                                 <button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${later.getMovieListNum() }';">상세정보</button>
                               </c:when>
                               <c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() >= 7 }">
-                                 <button id="movieDetail_btn" style="margin-top:85px; display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${now.getMovieListNum() }';">상세정보</button>
+                                 <button id="movieDetail_btn" style="margin-top:85px; display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${later.getMovieListNum() }';">상세정보</button>
                               </c:when>
                            </c:choose>
                         </c:forEach>
