@@ -206,25 +206,26 @@ public class ManageServiceImpl implements IManageService {
 			timeInfoHandle(model, search, "all", date);
 		} else {
 			
-			int cinemaNum = dao.cinemaName(search);
-			ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinemaNum);
-			ArrayList<HallDTO> hall = dao.hallSearch(cinemaNum);
-			ArrayList<CinemaDTO> cinema = dao.cinemaSearch(cinemaNum);
-			
+			ArrayList<CinemaDTO> cinemaList = dao.cinemaSearchForName(search);
 			ArrayList<TimeManageDTO> list = new ArrayList<TimeManageDTO>();
-			
-			int index = 0;
-			for(TimeInfoDTO t : timeInfo) {
-				TimeManageDTO manage = new TimeManageDTO();
-				manage.setCountryName(cinema.get(0).getCountryName());
-				manage.setCinemaName(cinema.get(0).getCinemaName());
-				manage.setMovieName(timeInfo.get(index).getMovieName());
-				manage.setHallName(hall.get(index).getHallName());
-				manage.setTicketDate(timeInfo.get(index).getTicketDate());
-				manage.setStartTime(timeInfo.get(index).getStartTime());
-				manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
-				list.add(manage);
-				index++;
+			for (CinemaDTO cinema : cinemaList) {
+				ArrayList<TimeInfoDTO> timeInfo = dao.timeSearch(cinema.getCinemaNum());
+				ArrayList<HallDTO> hall = dao.hallSearch(cinema.getCinemaNum());
+				
+				int index = 0;
+				for(TimeInfoDTO t : timeInfo) {
+					TimeManageDTO manage = new TimeManageDTO();
+					manage.setCountryName(cinema.getCountryName());
+					manage.setCinemaName(cinema.getCinemaName());
+					manage.setMovieName(timeInfo.get(index).getMovieName());
+					manage.setHallName(hall.get(index).getHallName());
+					manage.setTicketDate(timeInfo.get(index).getTicketDate());
+					manage.setStartTime(timeInfo.get(index).getStartTime());
+					manage.setTimeInfoNum(timeInfo.get(index).getTimeInfoNum());
+					list.add(manage);
+					index++;
+				}
+				
 			}
 			model.addAttribute("timeInfoList", list);
 		}
