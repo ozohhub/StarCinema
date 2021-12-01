@@ -44,7 +44,7 @@ public class ManageServiceImpl implements IManageService {
 		int end = currentPage * pageBlock;
 		int begin = end + 1 - pageBlock;
 		ArrayList<CinemaDTO> list = dao.cinemaList(begin, end);
-		model.addAttribute("cinemaList", list);
+		model.addAttribute("cinemaLists", list);
 		
 		String url = "/cinema/cinemaListProc?currentPage=";
 		model.addAttribute("page", PageConfig.getNavi(currentPage, pageBlock, totalCount, url));
@@ -53,7 +53,8 @@ public class ManageServiceImpl implements IManageService {
 	@Override
 	public void cinemaSearch(Model model, String search) {
 		ArrayList<CinemaDTO> list = dao.cinemaSearchForName(search);
-		model.addAttribute("cinemaList", list);
+		model.addAttribute("cinemaLists", list);
+
 	}
 	
 	@Override
@@ -150,10 +151,6 @@ public class ManageServiceImpl implements IManageService {
 		
 		for(int i=0;i<movieListCount.size();i++) {
 			movieRate.put(movieNum.get(i), rank.get(i));
-		}
-		
-		for (Map.Entry<Integer, Double> test : movieRate.entrySet()) {
-			System.out.println(test.getKey() + ":" + test.getValue());
 		}
 		
 		model.addAttribute("movieListInfo", movieList);
@@ -357,8 +354,6 @@ public class ManageServiceImpl implements IManageService {
 				String[] ticketDate = t.getTicketDate().split("-");
 				String[] startTimes = t.getStartTime().split(":");
 				Date startTime = new Date(Integer.parseInt(ticketDate[0]) - 1900, Integer.parseInt(ticketDate[1]) - 1, Integer.parseInt(ticketDate[2]));
-				System.out.println(Integer.parseInt(startTimes[0] + startTimes[1]));
-				System.out.println(todayTimeCheck);
 				
 				long timeCheck = Long.parseLong(df.format(startTime).replaceAll("-", ""));
 				if (movie == null || timeCheck != nowTime || (timeCheck == todayTime && Integer.parseInt(startTimes[0] + startTimes[1]) < todayTimeCheck)) {// 영화 정보가 없거나  선택한 날짜와 다를 경우 리스트에 담아주지않음.

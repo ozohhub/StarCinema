@@ -41,7 +41,7 @@
 								</tr>
 							</thead>
 							<tbody id="tab">
-							<c:forEach var="cinema" items="${cinemaList }">
+							<c:forEach var="cinema" items="${cinemaLists }">
 								<tr class="acc_head" aria-expanded="false" role="button" id="tr_180">
 									<td id="row0" headers="thead0">${cinema.getCinemaNum() }</td>
 									<td id="row0" headers="thead0">${cinema.getCountryName() }</td>
@@ -55,7 +55,7 @@
 	                <div class="movie_input_box" style="margin-top: 80px;">
 	                	<ul class="tab_btn_type1">
 	                        <li class="active">
-	                            <button type="button" onclick="javascript:location.href='index?formpath=movieManagement';">
+	                            <button type="button" onclick="javascript:location.href='index?formpath=cinemaList';">
 	                                <span class="now_span" style="color: black;">영화관 추가</span>
 	                            </button>
 	                        </li>

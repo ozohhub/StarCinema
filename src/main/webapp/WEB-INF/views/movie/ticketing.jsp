@@ -294,7 +294,7 @@
     </div>
     <script> 
 	function checkCinema() {
-		<%if (session.getAttribute("selectCinema") == null) { %>
+		<%System.out.println(session.getAttribute("selectCinema")); if (session.getAttribute("selectCinema") == null) { %>
 			const Toast = Swal.mixin({
 				  toast: true,
 				  position: 'top-end',

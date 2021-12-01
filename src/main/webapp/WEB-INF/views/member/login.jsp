@@ -16,7 +16,7 @@
                         <div class="member_login_wrap">
                             <div class="contents_inner">
                                 <div class="login_box">
-                                    <p class="tip">L.POINT, 롯데시네마 ID로 별도의 회원가입 없이 이용 가능 합니다. </p>
+                                    <p class="tip">롯지브이 회원가입 시 모든 기능 이용이 가능 합니다. </p>
                                     <div class="login_area">
                                         <input type="text" id="userId" maxlength="50" placeholder="아이디 또는 이메일을 입력해 주세요." title="입력태그">
                                         <input type="password" id="userPassword" maxlength="15" placeholder="비밀번호를 입력해 주세요." title="입력태그">

@@ -18,6 +18,7 @@ public class ManageController {
 	
 	@RequestMapping(value = "cinemaListProc")
 	public String cinemaList(Model model, @RequestParam(value = "currentPage", required = false, defaultValue = "1")int currentPage , String search) {
+		System.out.println(search);
 		if(search == null || search == "") {
 			service.cinemaList(model, currentPage);
 		} else {

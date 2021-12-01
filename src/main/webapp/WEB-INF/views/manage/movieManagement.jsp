@@ -57,28 +57,34 @@
 		                    <div class= "input_field" style ="width: 60%">
                     			<form id="movieInfoForm" action="movieInfoInsert" method="post">
 									<label style="padding-right: 50px">영화 이름</label>
-									<input type="text" placeholder="영화 이름을 입력하세요."name="name" id="name" value=<%=movie.getMovieName()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 이름을 입력하세요." name="name" id="name"><%=movie.getMovieName() %></textarea>
+									
 								<br>
-									<label style="padding-right: 50px">영화 포스터 경로</label>
-									<input type="text" placeholder="영화 포스터 경로를 입력하세요."name="poster" id="poster" value=<%=movie.getMoviePoster()%>>
+									<label style="padding-right: 50px">영화 이미지 이름</label>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 이미지 이름을 입력하세요." name="poster" id="poster"><%=movie.getMoviePoster() %></textarea>
+									
 								<br>
 									<label style="padding-right: 50px">영화 장르</label>
-									<input type="text" placeholder="영화 장르를 입력하세요."name="genre" id="genre" value=<%=movie.getMovieGenre()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 장르를 입력하세요." name="genre" id="genre"><%=movie.getMovieGenre() %></textarea>
+									
 								<br>
 									<label style="padding-right: 50px">영화 감독</label>
-									<input type="text" placeholder="영화 감독을 입력하세요." name="director" id="director" value=<%=movie.getMovieDirector()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 감독을 입력하세요." name="director" id="director"><%=movie.getMovieDirector() %></textarea>
+									
 								<br>
 									<label style="padding-right: 50px">영화 연령</label>
-									<input type="number" placeholder="영화 연령을 입력하세요."name="age" id="age" value=<%=movie.getMovieAge()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 연령을 입력하세요." name="age" id="age"><%=movie.getMovieAge() %></textarea>
+									
 								<br>
 									<label style="padding-right: 50px">영화 국가</label>
-									<input type="text" placeholder="영화 국가를 입력하세요."name="country" id="country" value=<%=movie.getMovieCountry()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 국가를 입력하세요." name="country" id="country"><%=movie.getMovieCountry() %></textarea>
 								<br>
 									<label style="padding-right: 50px">영화 시간</label>
-									<input type="number" placeholder="영화 러닝 타임을 입력하세요."name="time" id="time" value=<%=movie.getMovieTime()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 러닝 타임을 입력하세요." name="time" id="time"><%=movie.getMovieTime() %></textarea>
+									
 								<br>
 									<label style="padding-right: 38px">영화 출연자</label>
-									<input type="text" placeholder="영화 출연자를 입력하세요." name="actors" id="actors" value=<%=movie.getMovieActors()%>>
+									<textarea rows="30" cols="60" style="min-height: 50px;" placeholder="영화 출연자를 입력하세요." name="actors" id="actors"><%=movie.getMovieActors() %></textarea>
 								<br>
 									<label style="padding-right: 38px">영화 개봉일</label>
 									<input type="date" placeholder="영화 개봉일을 선택하세요." name="open" id="open" value=<%=movie.getMovieOpen()%>>
@@ -139,8 +145,8 @@
 									<label style="padding-right: 50px">영화 이름</label>
 									<input type="text" placeholder="영화 이름을 입력하세요."name="name" id="name">
 								<br>
-									<label style="padding-right: 50px">영화 포스터 경로</label>
-									<input type="text" placeholder="영화 포스터 경로를 입력하세요."name="poster" id="poster">
+									<label style="padding-right: 50px">영화 이미지 이름</label>
+									<input type="text" placeholder="영화 이미지 이름을 입력하세요."name="poster" id="poster">
 								<br>
 									<label style="padding-right: 50px">영화 장르</label>
 									<input type="text" placeholder="영화 장르를 입력하세요."name="genre" id="genre">
