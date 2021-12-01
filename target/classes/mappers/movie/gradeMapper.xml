@@ -50,7 +50,7 @@
 	</select>
 
 	<select id="selectReserve" resultMap="ticketing">
-		SELECT * FROM (SELECT * FROM ticketing WHERE id=#{id} and movieListNum=#{n} ORDER BY ticketingNum) WHERE ROWNUM=1
+		SELECT * FROM (SELECT * FROM ticketing WHERE id=#{id} and movieListNum=#{n} ORDER BY openDate) WHERE ROWNUM=1
 	</select>
 	
 	<select id="selectMyGrade" resultMap="grade">
@@ -97,11 +97,11 @@
 	</select>
 	
 	<select id="selectMyTickting" parameterType="String" resultMap="ticketing">
-		SELECT * FROM ticketing WHERE id=#{id} order by ticketingNum desc
+		SELECT * FROM ticketing WHERE id=#{id} order by openDate desc
 	</select>
 	
 	<select id="selectRecentTicketing" parameterType="String" resultMap="ticketing">
-		SELECT * FROM ticketing WHERE id = #{id} AND openDate BETWEEN trunc(sysdate) - 30 AND trunc(sysdate)+7 ORDER BY ticketingNum desc
+		SELECT * FROM ticketing WHERE id = #{id} AND openDate BETWEEN trunc(sysdate) - 30 AND trunc(sysdate)+7 ORDER BY openDate desc
 	</select>
 	
 	<select id="selectMyReview" resultType="String">

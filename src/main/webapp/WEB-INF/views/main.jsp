@@ -107,8 +107,8 @@ $(document).ready(function(){
 				<c:forEach var="grade" items="${gradeR }" varStatus="index">
 					<c:forEach var="mList" items="${movieListInfo }" >
 						<c:if test="${grade.getKey() == mList.getMovieListNum() }">
-							<c:if test="${cnt < 10 }" >
-								<c:set var="cnt" value="${cnt + 1}"/>
+							<c:if test="${gcnt < 10 }" >
+								<c:set var="gcnt" value="${gcnt + 1}"/>
 									<li>
 										<div class="gradeBoxBg${index.count }" style="background-image:url('${pageContext.request.contextPath}/resources/images/poster/${mList.getMoviePoster() }');" onmouseover="bgOpacity2(${index.count });" onmouseout="bgOpacityReset2(${index.count });">
 											<div class="gradeBoxBtn${index.count }">	

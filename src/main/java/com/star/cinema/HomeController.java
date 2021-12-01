@@ -44,7 +44,10 @@ public class HomeController {
    
    @RequestMapping(value = "/index")
    public String index(Model model, HttpSession session, String formpath) {
-      if(formpath == null) formpath = "main";
+      if(formpath == null) {
+    	  formpath = "main";
+    	  service.moviePoster(model);
+      }
       model.addAttribute("formpath", formpath);
       headerCinemaAdd(model);
       logger.warn("formpath : " + formpath);

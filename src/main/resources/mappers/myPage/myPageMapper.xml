@@ -21,7 +21,7 @@
 <select id="myQuestionList" resultMap="question">
 		SELECT B.* FROM(
 			SELECT rownum rn, A.* FROM(
-				SELECT * FROM question WHERE id=#{id} order by questionNum desc
+				SELECT * FROM question WHERE id=#{id} order by regDate desc
 			)A
 		)B WHERE rn BETWEEN #{b} and #{e}
 </select>

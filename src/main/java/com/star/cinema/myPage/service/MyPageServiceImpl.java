@@ -2,6 +2,7 @@ package com.star.cinema.myPage.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -117,11 +118,11 @@ public class MyPageServiceImpl implements IMyPageService {
 		if(dto == null) return false;
 		
 		ArrayList<TicketingDTO> myTicketing = new ArrayList<TicketingDTO>();
-		Map<Integer,MovieDTO> myMovieInfo  = new HashMap<Integer,MovieDTO>();
-		Map<Integer,String> myReview = new HashMap<Integer,String>();
-		Map<Integer,String> cinemaName = new HashMap<Integer,String>();
-		Map<Integer,String> hallName = new HashMap<Integer,String>();
-		Map<Integer,String> btnTime = new HashMap<Integer,String>();
+		Map<Integer,MovieDTO> myMovieInfo  = new LinkedHashMap<Integer,MovieDTO>();
+		Map<Integer,String> myReview = new LinkedHashMap<Integer,String>();
+		Map<Integer,String> cinemaName = new LinkedHashMap<Integer,String>();
+		Map<Integer,String> hallName = new LinkedHashMap<Integer,String>();
+		Map<Integer,String> btnTime = new LinkedHashMap<Integer,String>();
 		
 		if(recent.equals("recent")) {
 			myTicketing = gradeDao.selectRecentTicketing(dto.getId());
@@ -144,7 +145,7 @@ public class MyPageServiceImpl implements IMyPageService {
 				if(hall != null) hallName.put(t.getHallNum(), hall);
 			}
 		}
-		
+					
 		model.addAttribute("myTicketing", myTicketing);
 		model.addAttribute("myMovieInfo", myMovieInfo);
 		model.addAttribute("cinemaName", cinemaName);
