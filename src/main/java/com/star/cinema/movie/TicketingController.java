@@ -31,6 +31,9 @@ public class TicketingController {
 	
 	@RequestMapping(value = "/ticketing")
 	public String ticketing(Model model, HttpSession session) {
+		if (session.getAttribute("loginInfo") == null) {
+			return "member/login";
+		}
 		List<MovieDTO> movieList = movieService.movieList();
 		model.addAttribute("movieList", movieList);
 		

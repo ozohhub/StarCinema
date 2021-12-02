@@ -100,17 +100,15 @@ $(document).ready(function(){
                      <li class="screen_add_box">
                         <div class="movieBg${status.count }" style="background-size:185px; border-radius:5px; background-image:url('${pageContext.request.contextPath}/resources/images/poster/${later.getMoviePoster() }');"  onmouseover="movieOpacity(${status.count });" onmouseout="moiveOpacityReset(${status.count });">
                         <div class="movieBtn${status.count }">
-                        <c:forEach var="sub" items="${sub }">
                            <c:choose>
-                              <c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() < 7 }">
+                              <c:when test="${later.getDday() < 7 }">
                                  <button id="movieReserve_btn" style="display: none;" class="reserve_btn${status.count }" onclick="javascript:location.href='index?formpath=ticketing';">예매하기</button>
                                  <button id="movieDetail_btn" style="display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${later.getMovieListNum() }';">상세정보</button>
                               </c:when>
-                              <c:when test="${sub.getKey() == later.getMovieListNum() && sub.getValue() >= 7 }">
+                              <c:when test="${later.getDday() >= 7 }">
                                  <button id="movieDetail_btn" style="margin-top:85px; display: none;" class="detail_btn${status.count }" onclick="javascript:location.href='movieDetailProc?movieListNum=${later.getMovieListNum() }';">상세정보</button>
                               </c:when>
                            </c:choose>
-                        </c:forEach>
                         </div>
                      </div>
                          <div class="btm_info">
@@ -121,11 +119,7 @@ $(document).ready(function(){
                                      <span class="rate_info">예매율 <em><fmt:formatNumber value="${rate.getValue() }" type="number" maxFractionDigits="1" minFractionDigits="1"/></em></span>
                                   </c:if>
                                </c:forEach>
-                               <c:forEach var="sub" items="${sub }">
-                                  <c:if test="${sub.getKey() == later.getMovieListNum() }">
-                                     <span class="remain_info" style="color: red;">D -${sub.getValue() }</span>
-                                  </c:if>
-                               </c:forEach>
+                                     <span class="remain_info" style="color: red;">D -${later.getDday() }</span>
                             </span>
                          </div>
                      </li>

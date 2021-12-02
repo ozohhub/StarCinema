@@ -21,9 +21,6 @@
 		<script src="${pageContext.request.contextPath}/resources/js/ticketting.js"></script>
 </head>
 <body>
-	<%if (session.getAttribute("loginInfo") == null) { %>
-		<jsp:forward page="/login"></jsp:forward>
-	<%} %>
     <div id="contents" class="contents_full contents_reserve" style="">
         <div class="wrap_reserve">
             <h2 class="hidden">예매하기</h2>
