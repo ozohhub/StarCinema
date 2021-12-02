@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
@@ -75,11 +76,16 @@
 									<dd>예매취소는 신용카드로 결제한 내역만<br>가능합니다.</dd>
 								</dl>
 								
-								<div class="cancel_btn_area">
-									<a href="#">
-										<span>취소하기</span>
-									</a>
-								</div>
+								<c:set var="present" value="<%=new java.util.Date() %>"/>
+								<c:set var = "nowTime"><fmt:formatDate value="${present}" pattern ="yyyy-MM-dd-HH-mm"/></c:set>						
+								<c:if test="${ nowTime < btnTime.get(myHistory.movieListNum)}">
+								
+									<div class="cancel_btn_area">
+										<a href="#">
+											<span>취소하기</span>
+										</a>
+									</div>
+								</c:if>
 							</li>
 						</c:forEach>
 					</c:when>	

@@ -24,11 +24,11 @@
 </select>
 
 <select id="gradeRank" resultType="int">
- 	select movieListNum,avg(grade) as A from grade group by movieListNum order by A desc
+ 	select movieListNum,avg(grade) as A from grade where review is NOT NULL group by movieListNum order by A desc
 </select>
 
 <select id="gradeRate" resultType="int">
-	select avg(grade) as A from grade group by movieListNum order by A desc
+	select avg(grade) as A from grade where review is NOT NULL group by movieListNum order by A desc
 </select>
 
 <select id="reviewRank" resultType="int">

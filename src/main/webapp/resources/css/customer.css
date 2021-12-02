@@ -205,11 +205,15 @@ a:focus{
     width : 1px;
     vertical-align : middle;
 }
-
 .detail_con td{
-	width: 980px;
-    height: 400px;
-    border: transparent;	
+	height : 500px;	
+}
+
+.detail_con textarea{
+	padding-top : 20px;
+	border-color : transparent;
+	height : 500px;
+	text-align : left;
 }
 
 .notice_btn_area{
