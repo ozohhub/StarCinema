@@ -24,23 +24,23 @@ $(document).ready(function(){
    <div class="slider" style="z-index: 1;">
       <ul class="slides" style="height: 450px;">
          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/main/slide/kuck_slide.jpg">
+            <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide1.jpg">
             <div class="caption center-align"></div>
          </li>
          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/main/slide/kang_slide.jpg">
+            <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide2.jpg">
             <div class="caption left-align"></div>
          </li>
          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/main/slide/mat_slide.jpg">
+            <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide3.jpg">
             <div class="caption right-align"></div>
          </li>
          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/main/slide/nkan_slide.jpg">
+            <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide4.jpg">
             <div class="caption center-align"></div>
          </li>
          <li>
-            <img src="${pageContext.request.contextPath}/resources/images/main/slide/shop_slide.jpg">
+            <img src="${pageContext.request.contextPath}/resources/images/main/slide/slide5.jpg">
             <div class="caption center-align"></div>
          </li>
       </ul>
