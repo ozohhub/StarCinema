@@ -102,18 +102,6 @@ function check_button(i){
 	$("#chek_btn"+i).css({"border" : "1px solid #000"})
 }
 
-function pay_final_chk() {
-	var selectAll = document.getElementById("chkSavingTerm").checked;
-	
-	if(selectAll === true) {
-		location.href='payProc';
-	}
-	else {
-		alert('결제대행서비스 약관에 동의하셔야 구매가 가능합니다.');
-		location.href='index?formpath=pay';
-	}
-}
-
 function movieOpacity(i){
 	$(".movieBtn"+i).css({ "background-color" : "rgba( 0,0,0,0.6)"})
 	$(".reserve_btn"+i).css({"display" : "inline"})

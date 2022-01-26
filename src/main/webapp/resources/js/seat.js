@@ -8,9 +8,7 @@ const selectedSeats = document.querySelector('.selected-seats');
 const allSeat = document.querySelector('.all-seats');
 const remainSeat = document.querySelector('.remain-seats');
 const reserveNumber = document.querySelector('.reserve-number');
-const selectSeatListNormal = document.querySelectorAll(
-    '.select-seat-ul-normal li'
-);
+const selectSeatListNormal = document.querySelectorAll('.select-seat-ul-normal li');
 const selectSeatListTeen = document.querySelectorAll('.select-seat-ul-teen li');
 const selectSeatListOld = document.querySelectorAll('.select-seat-ul-old li');
 let selectSeatListUlActive = '';
@@ -30,9 +28,7 @@ const selectNumberOld = document.querySelectorAll('.select-number-old');
 
 //예약 관련
 const selectedMovie = document.querySelector('.selected-movie');
-const selectedTheaterPlaceInfo = document.querySelectorAll(
-    '.selected-theater-place-info'
-);
+const selectedTheaterPlaceInfo = document.querySelectorAll('.selected-theater-place-info');
 const theaterTime = document.querySelector('.theater-time');
 const theaterDate = document.querySelector('.theater-date');
 const ticketPrice = document.querySelector('.ticket-price');
@@ -62,8 +58,6 @@ toastr.options = {
     preventDuplicates: true,
 };
 
-//
-
 //버튼클릭시 다른 class 추가 초기화해주기
 function selectSeatList(list) {
     allNumber = 0;
@@ -80,9 +74,7 @@ function initList(list, li) {
             li.classList.remove('select-seat-ul-active');
         });
         li.classList.add('select-seat-ul-active');
-        selectSeatListUlActive = document.querySelectorAll(
-            '.select-seat-ul-active'
-        );
+        selectSeatListUlActive = document.querySelectorAll('.select-seat-ul-active');
         console.log(selectSeatListUlActive);
         selectListUiFunction(selectSeatListUlActive);
         console.log('머니머니' + allMoney);
@@ -112,7 +104,7 @@ function selectListUiFunction(selectSeatListUlActive) {
             }
         } else if (li.parentNode.classList.contains('select-seat-ul-teen')) {
             teenNumber = Number(li.innerHTML);
-            teenMoney = 8000 * teenNumber;
+            teenMoney = 10000 * teenNumber;
             allMoney = normalMoney + teenMoney + oldMoney;
             allNumber = normalNumber + teenNumber + oldNumber;
             ticketPrice.innerHTML = allMoney + '원';

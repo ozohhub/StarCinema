@@ -1,5 +1,14 @@
 package com.star.cinema.movie;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -95,6 +104,47 @@ public class TicketingController {
 		}
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "kakaoPay")
+	public String kakaoPay() {
+		try {
+			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
+			try {
+				HttpURLConnection serverCon = (HttpURLConnection) address.openConnection();
+				serverCon.setRequestMethod("POST");
+				serverCon.setRequestProperty("Authorization", "KakaoAK 0d914fac76375135f85e7ee3050a77ee");
+				serverCon.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+				serverCon.setDoOutput(true);
+				String param = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=영화예매&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8085/cinema/payProc&fail_url=http://localhost:8085/cinema/index?formpath=ticketing&cancel_url=http://localhost:8085/cinema/seatProc";
+				OutputStream give = serverCon.getOutputStream();
+				DataOutputStream giveData = new DataOutputStream(give);
+				giveData.writeBytes(param);
+				giveData.close();
+				
+				int result = serverCon.getResponseCode();
+				
+				InputStream receive;
+				
+				if(result == 200) {
+					receive = serverCon.getInputStream();
+				}
+				else {
+					receive = serverCon.getErrorStream();
+				}
+				
+				InputStreamReader read = new InputStreamReader(receive);
+				BufferedReader change = new BufferedReader(read);
+				
+				return change.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	@RequestMapping (value = "payProc")
 	public String payProc(Model model) {
 		boolean check = payService.checkPay();
@@ -107,7 +157,15 @@ public class TicketingController {
 		return "forward:ticketingHistory";
 	}
 	
-	
-
-
+	@RequestMapping (value = "payCancle")
+	public String payCancle(Model model, String seatName) {
+		boolean check = payService.payCancle(seatName);
+		if(check) {     
+			model.addAttribute("msg", "결제취소에 성공하였습니다.");
+		}
+		else {
+			model.addAttribute("msg", "결제취소에 실패하였습니다.");
+		}
+		return "forward:ticketingHistory";
+	}
 }

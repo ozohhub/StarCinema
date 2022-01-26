@@ -15,7 +15,7 @@
 	</insert>
 	
 	<delete id="deleteSeat">
-		DELETE * FROM ticketing WHERE id=#{id}
+		DELETE FROM ticketing WHERE seatName=#{seatName}
 	</delete>
 	
 </mapper>

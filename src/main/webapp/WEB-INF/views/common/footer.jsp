@@ -7,7 +7,7 @@
 			</span>
 			<ul class="f_menu">
 				<li><a href="#" title="회원약관" target="_self">회원약관</a></li>
-				<li><a href="#" title="개인정보처리방침" target="_self"><strong>개인정보처리방침</strong></a></li>
+				<li><a href="#" title="개인정보처리방침" target="_self">개인정보처리방침</a></li>
 				<li><a href="#" title="이메일무단수집거부" target="_self">이메일무단수집거부</a></li>
 				<li><a href="#" title="영상정보처리기기 운영 및 관리방침" target="_self">영상정보처리기기 운영 및 관리방침</a></li>
 				<li><a href="#" title="배정기준" target="_self">배정기준</a></li>

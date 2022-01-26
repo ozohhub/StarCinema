@@ -5,6 +5,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myPage.css" />
 <script src="<c:url value="/resources/js/myPage.js" />"></script>
+<script src="${pageContext.request.contextPath}/resources/js/kakaoPay.js"></script>
 <c:url var="root" value="/"/>
 <c:if test="${not empty msg }">
 	<script>alert('${msg}')</script>
@@ -78,10 +79,10 @@
 								
 								<c:set var="present" value="<%=new java.util.Date() %>"/>
 								<c:set var = "nowTime"><fmt:formatDate value="${present}" pattern ="yyyy-MM-dd-HH-mm"/></c:set>						
-								<c:if test="${ nowTime < btnTime.get(myHistory.movieListNum)}">
+								<c:if test="${nowTime > btnTime.get(myHistory.movieListNum)}">
 								
 									<div class="cancel_btn_area">
-										<a href="#">
+										<a onclick="kakaoCancle('${myHistory.seatName}');">
 											<span>취소하기</span>
 										</a>
 									</div>

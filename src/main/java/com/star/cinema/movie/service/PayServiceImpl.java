@@ -19,7 +19,10 @@ public class PayServiceImpl implements IPayService{
 		dao.seatProc(dto);
 		return true;
 	}
-	
-	
-	
+
+	@Override
+	public boolean payCancle(String seatName) {
+		dao.deleteSeat(seatName);
+		return true;
+	}
 }

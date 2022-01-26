@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>롯지브이</title>
 <script src="${pageContext.request.contextPath}/resources/js/movie.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/kakaoPay.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pay.css" />
@@ -110,36 +111,17 @@
 	                                                <ul class="list_pay_item cate6">
 	                                                    <li><button type="button" class="cate1 " id="card_chk" onclick="card_pay();">신용카드</button></li>
 	                                                    <li><button type="button" class="cate3 " id="simple_chk" onclick="simple_pay();">간편결제</button></li>
-	                                                    <li><button type="button" class="cate5 ty2 " id="my_chk" onclick="my_pay();">내통장결제</button></li>
-	                                                    <li><button type="button" class="cate4 ty2 " id="phone_chk" onclick="phone_pay();">휴대폰</button></li>
 	                                                </ul>
 	                                            </div>
 												<div class="article_pay_card" style="display: none;" id="card_payment">
 												    <ul class="list_pay_item cate5">
 												        <li><button id="chek_btn1" onclick="check_button(1);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_lotte.png" alt="롯데카드" class="mCS_img_loaded"></span><span class="tit">롯데카드</span></button></li>
-												        <li><button id="chek_btn2" onclick="check_button(2);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_kb.png" alt="국민카드" class="mCS_img_loaded"></span><span class="tit">국민카드</span></button></li>
-												        <li><button id="chek_btn3" onclick="check_button(3);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_kakao.png" alt="카카오뱅크" class="mCS_img_loaded"></span><span class="tit">카카오뱅크</span></button></li>
-												        <li><button id="chek_btn4" onclick="check_button(4);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_shinhan.png" alt="신한카드" class="mCS_img_loaded"></span><span class="tit">신한카드</span></button></li>
-												        <li><button id="chek_btn5" onclick="check_button(5);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_samsung.png" alt="삼성카드" class="mCS_img_loaded"></span><span class="tit">삼성카드</span></button></li>
-												        <li><button id="chek_btn6" onclick="check_button(6);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_hyundai.png" alt="현대카드" class="mCS_img_loaded"></span><span class="tit">현대카드</span></button></li>
-												        <li><button id="chek_btn7" onclick="check_button(7);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_hana.png" alt="하나카드" class="mCS_img_loaded"></span><span class="tit">하나카드</span></button></li>
-												        <li><button id="chek_btn8" onclick="check_button(8);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_keb.png" alt="외환카드" class="mCS_img_loaded"></span><span class="tit">외환카드</span></button></li>
-												        <li><button id="chek_btn9" onclick="check_button(9);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_woori.png" alt="우리카드" class="mCS_img_loaded"></span><span class="tit">우리카드</span></button></li>
-												        <li><button id="chek_btn10" onclick="check_button(10);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_bc.png" alt="BC카드" class="mCS_img_loaded"></span><span class="tit">BC카드</span></button></li>
-												        <li><button id="chek_btn11" onclick="check_button(11);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_citi.png" alt="씨티카드" class="mCS_img_loaded"></span><span class="tit">씨티카드</span></button></li>
-												        <li><button id="chek_btn12" onclick="check_button(12);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_nh.png" alt="NH카드" class="mCS_img_loaded"></span><span class="tit">NH카드</span></button></li>
-												        <li><button id="chek_btn13" onclick="check_button(13);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_jb.png" alt="전북카드" class="mCS_img_loaded"></span><span class="tit">전북카드</span></button></li>
-												        <li><button id="chek_btn14" onclick="check_button(14);"><span class="thm"><img src="${pageContext.request.contextPath}/resources/images/movie/card_logo_kj.png" alt="광주카드" class="mCS_img_loaded"></span><span class="tit">광주카드</span></button></li>
 												    </ul>
 												</div>
 												<div class="article_pay_simple" style="display: none;" id="simple_payment">
 												    <ul class="list_pay_item cate3">
-												        <li><button type="button" id="chek_btn15" class="pay_simple_btn_box" onclick="check_button(15);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_kakao.png" alt="카카오페이"></span><span class="pay_simple_tit">카카오페이</span></button></li>
-												        <li><button type="button" id="chek_btn16" class="pay_simple_btn_box" onclick="check_button(16);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_payco.png" alt="페이코"></span><span class="pay_simple_tit">페이코</span></button></li>
+												        <li><button type="button" id="chek_btn15" class="pay_simple_btn_box" onclick="check_button(15); setKakaoPay();"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_kakao.png" alt="카카오페이"></span><span class="pay_simple_tit">카카오페이</span></button></li>
 												        <li><button type="button" id="chek_btn17" class="pay_simple_btn_box" onclick="check_button(17);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_npay.png" alt="네이버페이"></span><span class="pay_simple_tit">네이버페이</span></button></li>
-												        <li><button type="button" id="chek_btn18" class="pay_simple_btn_box" onclick="check_button(18);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_toss.png" alt="토스"></span><span class="pay_simple_tit">토스</span></button></li>
-												        <li><button type="button" id="chek_btn19" class="pay_simple_btn_box" onclick="check_button(19);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_chai.svg" alt="차이페이"></span><span class="pay_simple_tit">차이페이</span></button></li>
-												        <li><button type="button" id="chek_btn20" class="pay_simple_btn_box" onclick="check_button(20);"><span class="pay_simple_thm"><img src="${pageContext.request.contextPath}/resources/images/movie/payment_simple_tbee.png" alt="모바일캐시비/티머니"></span><span class="pay_simple_tit">모바일캐시비/티머니</span></button></li>
 												    </ul>
 												</div>
 	                                        </div>

@@ -1,5 +1,14 @@
 package com.star.cinema.myPage;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,7 +81,47 @@ public class MyPageController {
 		if(check == false) return "forward:index?formpath=login";	
 		return "forward:index?formpath=myMovieHistory";
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(value = "kakaoPayCancle")
+	public String kakaoPay() {
+		try {
+			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
+			try {
+				HttpURLConnection serverCon = (HttpURLConnection) address.openConnection();
+				serverCon.setRequestMethod("POST");
+				serverCon.setRequestProperty("Authorization", "KakaoAK 0d914fac76375135f85e7ee3050a77ee");
+				serverCon.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+				serverCon.setDoOutput(true);
+				String param = "cid=TC0ONETIME&tid=T1234567890123456789&cancel_amount=2200&cancel_tax_free_amount=0&cancel_vat_amount=200&cancel_available_amount=4000";
+				OutputStream give = serverCon.getOutputStream();
+				DataOutputStream giveData = new DataOutputStream(give);
+				giveData.writeBytes(param);
+				giveData.close();
+				
+				int result = serverCon.getResponseCode();
+				
+				InputStream receive;
+				
+				if(result == 200) {
+					receive = serverCon.getInputStream();
+				}
+				else {
+					receive = serverCon.getErrorStream();
+				}
+				
+				InputStreamReader read = new InputStreamReader(receive);
+				BufferedReader change = new BufferedReader(read);
+				
+				return change.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
 	
 

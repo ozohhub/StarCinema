@@ -125,9 +125,9 @@
 		INSERT INTO hall VALUES(hall_seq.nextval, #{hallName}, (SELECT cinemaNum FROM cinema WHERE cinemaNum=#{cinemaNum}))
 	</insert>
 	
-   <insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
-      INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), #{movieListNum}, #{ticketDate}, #{cinemaNum}, #{movieName})
-   </insert>
+	<insert id="timeInfoInsert" parameterType="com.star.cinema.manage.dto.TimeInfoDTO">
+		INSERT INTO timeinfo VALUES(time_seq.nextval, #{startTime}, (SELECT MAX(hallNum) FROM hall), #{movieListNum}, #{ticketDate}, #{cinemaNum}, #{movieName})
+	</insert>
 	
 	<select id="movieInfo" parameterType="com.star.cinema.movie.dto.MovieDTO" resultMap="movie">
 		SELECT * FROM MovieList
